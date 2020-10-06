@@ -1,0 +1,32 @@
+---
+title: Ders Anlatımı (Örnek)
+author: Akademi Ekonometri
+date: "2020-10-05"
+slug: ders-anlatimi-ornek
+categories: [ders]
+tags: [örnek gönderi, pdf, slayt, video]
+subtitle: ""
+summary: ""
+authors: [Akademi Ekonometri]
+lastmod: "2020-10-06T09:54:28+03:00"
+featured: no
+disable_jquery: no
+image:
+  caption: "[Photo from Unsplash](https://unsplash.com/)"
+  focal_point: ""
+  preview_only: no
+projects: []
+---
+
+Daha [önceki iletimizde](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videolarını ve kulladığımız ders notlarını paylaşacağımızdan bahsetmiştik.  
+
+## Ekonometri II Dersi
+Daha önce yayınladığımız örnek Ekonometri II ders videosunu ve notunu aşağıda bulabilirsiniz.  
+<iframe width="720" height="405" src="https://www.youtube.com/embed/F42-FX-cwf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+Ders notu: [![](/repo/images/pdf-icon.png "Ekonometri II - Hafta 2 (Kara).pdf"){width=25px height=25px}](/repo/example/Ekonometri II - Hafta 2 (Kara).pdf)
+
+## Ekonomi Dersi
+Yine daha önce yayınladığımız örnek Ekonomi ders videosunu ve slaytlarını (Türkçe ve İngilizce) aşağıda bulabilirsiniz.  
+<iframe width="720" height="405" src="https://www.youtube.com/embed/tHFcUR5oW-Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+Ders slaytları: [![](/repo/images/ppt-icon.png "Ekonomi - Hafta 5 (Kara).pptx"){width=25px height=25px}](Ekonomi - Hafta 5 (Kara).pptx)  
+Course slides: [![](/repo/images/ppt-icon.png "Economics - Week 5 (Kara).pptx"){width=25px height=25px}](Economics - Week 5 (Kara).pptx)

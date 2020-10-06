@@ -1,0 +1,56 @@
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
+
+#[[menu]]
+#  name = "Ana Sayfa"
+#  url = "/"
+#  weight = 10
+
+[[main]]
+  name = "Hakkımızda"
+  url = "/about"
+  weight = 20
+
+[[main]]
+  name = "Blog"
+  url = "/post"
+  weight = 30
+
+#[[main]]
+#  name = "R"
+#  url = "/r"
+#  weight = 40
+
+#[[main]]
+#  name = "LaTeX"
+#  url = "/latex"
+#  weight = 50
+
+#[[main]]
+#  name = "Projeler"
+#  url = "/projects"
+#  weight = 60
+
+[[main]]
+  name = "Dersler"
+  url = "/courses"
+  weight = 70
+
+#[[main]]
+#  name = "Dokümanlar"
+#  url = "/documents"
+#  weight = 80
+
+#[[main]]
+#  name = "Linkler"
+#  url = "/links"
+#  weight = 90
+
+# Link to a PDF of your resume/CV from the menu.
+# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
+# [[main]]
+#    name = "CV"
+#    url = "files/cv.pdf"
+#    weight = 70

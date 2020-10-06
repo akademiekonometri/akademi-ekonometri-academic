@@ -1,0 +1,86 @@
+---
+title: R Kodu (Örnek)
+author: Akademi Ekonometri
+date: "2020-10-05"
+slug: r-kodu-ornek
+categories: [R]
+tags: [örnek gönderi, grafik, R Markdown, regresyon]
+subtitle: ""
+summary: "Akademi Ekonometri olarak R'da neler yapabileceğinizi RMarkdown kullanarak çok kısaca anlatmaya çalıştık."
+authors: [Akademi Ekonometri]
+lastmod: "2020-10-05T22:59:01+03:00"
+featured: no
+disable_jquery: no
+image:
+  caption: "[Photo from Unsplash](https://unsplash.com/)"
+  focal_point: ""
+  preview_only: no
+projects: []
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+selected.seed <- 1234
+set.seed(selected.seed)
+```
+```{r packages, echo = FALSE}
+library("latex2exp")
+```
+
+# R Markdown
+
+Bu bir R Markdown dokümanıdır. Basit bir formatlama sentaksı olan Markdown, HTML, PDF ve MS Word dokümanlarının hazırlanmasında kullanılabilir. Daha fazla bilgi için lütfen linki inceleyin <http://rmarkdown.rstudio.com>.
+
+# R Markdown'da Kod Yığını
+
+R Markdown'da, R kod yığınını aşağıdaki gibi yerleştirebilirsiniz:
+Örnek olarak ortalaması 0, standard sapması 1 ve normal dağılım yapan bir ana kütleden 200 gözlemli bir örneklem çekip, grafiğini çıkartalım.
+```{r example}
+x <- rnorm(200, mean = 0, sd = 1)
+par(mar = c(2, 2, 0.1, 2))
+plot(x, dnorm(x))
+```
+
+# Basit Doğrusal Regresyon Örneği
+
+R'ın içindeki `cars` datasının ilk 10 gözlemini kullanarak basit doğrusal bir regresyon oluşturalım...
+```{r regression}
+data <- cars[1:10, ] ## Yeni data seti data olarak adlandırıldı.
+summary(data)
+model <- lm(dist ~ speed, data = data)
+summary(model)
+```
+
+## Basit Doğrusal Regresyon: Basit Grafik Örneği
+
+Basit doğrusal regresyonun sonuçlarını kullanarak Örneklem Regresyon Fonksiyonu grafiğini basit bir kod kullanarak gösterelim...
+```{r regressionplot1, fig.cap = "Örneklem Regresyon Fonksiyonu Basit Grafik", fig.align = "center", tidy = FALSE}
+par(mar = c(2, 2, 0.1, 2))
+plot(data$speed, data$dist)
+abline(model)
+```
+
+## Basit Doğrusal Regresyon: Detaylı Grafik Örneği
+
+Daha önce basit bir kod kullanarak Grafik \@ref(fig:regressionplot1)'de gösterdiğimiz Örneklem Regresyon Fonksiyonu grafiğini şimdi de daha detaylı bir kod kullanarak çizelim...
+```{r regressionplot2, fig.cap = "Örneklem Regresyon Fonksiyonu Detaylı Grafik", fig.align = "center", tidy = FALSE}
+par(mar = c(2, 2, 1.5, 2))
+plot(data$speed, data$dist, type = "p", pch = 16, cex = 1, col = "blue", main = "Örneklem Regresyon Fonksiyonu", xlab = "X", ylab = "Y", xlim = c(0, max(data$speed)), ylim = c(0, max(data$dist)))
+abline(model, lwd = 2, lty = 2, col = "red")
+text(data$dist ~ data$speed, labels = rownames(data), cex = 1, font = 2, pos = 4)
+cf <- round(coef(model), 2)
+mtext(TeX(paste("$", "y", "=", cf[[1]], ifelse(sign(cf[[2]]) == 1, " + ", " - "), abs(cf[[2]]), "x", "$")), adj = 1, padj = 0)
+```
+
+# R Video ve Kodları
+
+Akademi Ekonometri olarak [YouTube kanalımızda](https://www.youtube.com/c/AkademiEkonometri) paylaştığımız R videolarını ve bu videoları hazırlarken kullandığımız data ve R kodlarını da paylaşarak sizleri olabildiğince desteklemek ve kodlamaya teşvik etmeyi amaçlıyoruz. Daha önce yayınladığımız örnek bir videoyu aşağıda inceleyebilirsiniz.  
+<iframe width="720" height="405" src="https://www.youtube.com/embed/GCAJ_p5zqYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
+Ayrıca bu videoya ait data ve R kodlarına aşağıdaki simgelere tıklayarak erişebilirsiniz.  
+`test.xls` datası ve `R` kodu: [![](/repo/images/excel-icon.png "test.xls"){width=25px height=25px}](test.xls)[![test.R](/repo/images/rscript-icon.ico "test.R"){width=25px height=25px}](test.R)  
+`CPI.csv` datası ve `R` kodu: [![](/repo/images/csv-icon.png "CPI.csv"){width=25px height=25px}](CPI.csv) [![](/repo/images/rscript-icon.ico "CPI.R"){width=25px height=25px}](CPI.R)

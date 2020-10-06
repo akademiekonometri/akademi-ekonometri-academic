@@ -1,0 +1,130 @@
+- id: toggle_navigation
+  translation: Arayüz yönünü değiştir
+- id: table_of_contents
+  translation: Table of Contents
+- id: on_this_page
+  translation: On this page
+- id: back_to_top
+  translation: Back to top
+- id: related
+  translation: Related
+- id: minute_read
+  translation: dak. okuma
+- id: previous
+  translation: Önceki
+- id: next
+  translation: Sonraki
+- id: figure
+  translation: 'Şekil %d:'
+- id: btn_preprint
+  translation: Preprint
+- id: btn_pdf
+  translation: PDF
+- id: btn_cite
+  translation: Cite
+- id: btn_slides
+  translation: Slaytlar
+- id: btn_video
+  translation: Video
+- id: btn_code
+  translation: Kod
+- id: btn_dataset
+  translation: Veri kümesi
+- id: btn_project
+  translation: Proje
+- id: btn_poster
+  translation: Poster
+- id: btn_source
+  translation: Kaynak Doküman
+- id: btn_copy
+  translation: Kopyala
+- id: btn_download
+  translation: İndir
+- id: interests
+  translation: İlgi alanları
+- id: education
+  translation: Eğitim
+- id: user_profile_latest
+  translation: Latest
+- id: see_certificate
+  translation: See certificate
+- id: present
+  translation: Present
+- id: more_pages
+  translation: See all
+- id: more_posts
+  translation: Daha fazla blog içeriği
+- id: more_talks
+  translation: Daha fazla konuşma
+- id: more_publications
+  translation: Daha fazla yayınlar
+- id: contact_name
+  translation: Name
+- id: contact_email
+  translation: Email
+- id: contact_message
+  translation: Message
+- id: contact_send
+  translation: Gönder
+- id: book_appointment
+  translation: Randevu alın
+- id: abstract
+  translation: Özet
+- id: publication
+  translation: Yayın
+- id: publication_type
+  translation: Yayın tipi
+- id: date
+  translation: Tarih
+- id: last_updated
+  translation: Son güncelleme
+- id: event
+  translation: Etkinlik
+- id: location
+  translation: Adres
+- id: pub_uncat
+  translation: Uncategorized
+- id: pub_conf
+  translation: Conference paper
+- id: pub_journal
+  translation: Journal article
+- id: pub_preprint
+  translation: Preprint
+- id: pub_report
+  translation: Report
+- id: pub_book
+  translation: Book
+- id: pub_book_section
+  translation: Book section
+- id: pub_thesis
+  translation: Thesis
+- id: pub_patent
+  translation: Patent
+- id: open_project_site
+  translation: Projenin sayfasına git
+- id: posts
+  translation: Blog içerikleri
+- id: publications
+  translation: Yayınlar
+- id: talks
+  translation: Konuşmalar
+- id: projects
+  translation: Projeler
+- id: search
+  translation: Ara
+- id: search_placeholder
+  translation: Ara...
+- id: search_results
+  translation: Bulunan sonuçlar
+- id: search_no_results
+  translation: Sonuç bulunamadı
+- id: page_not_found
+  translation: Sayfa bulunamadı
+- id: 404_recommendations
+  translation: Belki bunlardan birini arıyordunuz?
+- id: cookie_message
+  translation: Bu web sitesi, web sitemizde en iyi deneyimi yaşamanızı sağlamak için tanımlama bilgileri (çerez) kullanır.
+- id: cookie_dismiss
+  translation: Anladım!
+- id: cookie_learn
+  translation: Daha fazla bilgi edin

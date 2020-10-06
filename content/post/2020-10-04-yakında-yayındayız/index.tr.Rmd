@@ -1,0 +1,52 @@
+---
+title: Yakında Yayındayız!
+author: Akademi Ekonometri
+date: "2020-10-04"
+slug: yakında-yayındayız
+categories: [duyuru]
+tags: [hakkımızda]
+subtitle: ""
+summary: ""
+authors: [Akademi Ekonometri]
+lastmod: "2020-10-06T01:37:14+03:00"
+featured: no
+disable_jquery: no
+image:
+  caption: "[Photo from Unsplash](https://unsplash.com/)"
+  focal_point: ""
+  preview_only: no
+projects: []
+output:
+  blogdown::html_page:
+    mathjax: local
+    self_contained: false
+---
+
+```{r packages, echo = FALSE}
+library("latex2exp")
+```
+
+Akademi Ekonometri’ye Hoş Geldiniz!  
+
+Uzun yıllar Amerika Birleşik Devletleri’nde ekonomi ve ekonometri alanlarında eğitim almış bir akademisyen tarafından kurulan Akademi Ekonometri’de, biz bilginin sınır tanımadan ve ücretsiz olarak paylaşıldıkça artacağına inanıyoruz. Bu inançla, ülkemizin ihtiyaç duyduğu analitik düşünebilen dinamik beyinlerine ekonomi, ekonometri ve programlama konularında bilgi ve tecrübelerimizi aktarmak için sabırsızlanıyoruz. Elimizden geldiğince öğretmeye ve sizinle beraber öğrenmeye devam edeceğiz...
+
+▶️ Neyin Nesidir Bu Akademi Ekonometri?  
+Akademi Ekonometri, en kısa tanımıyla bir Ekonometri, Ekonomi ve Kodlama Platformu'dur. 
+
+▶️ Biz kimiz?  
+Biz kim olduğumuzdan ziyade, neyi nasıl yaptığımızın daha önemli olduğunu düşünüyoruz. Bu nedenle şimdilik kim olduğumuzun bir önemi yok.
+
+▶️ Ne zaman tam anlamıyla yayında olacağız?  
+Akademi Ekonometri, çok yoğun tempoda çalışan biz akademisyenler tarafından sadece boş zamanlarında hazırlanan bir platformdur. Bu nedenle bazı gecikmelere rağmen en kısa sürede tam olarak yayında olmayı planlıyoruz.  
+
+▶️ Akademi Ekonometri'nin menüsünda ne var?  
+Ekonometri odaklı bir platform olan Akademi Ekonometri'deki hedeflerimizden ilki ekonometrinin sadece teorik kısmını anlatmaktan ziyade, teorik bilgilerin kodlama ile uygulanmasını da olabildiğince yalın ve detaylı bir şekilde anlatmak. Bu nedenle Akademi Ekonometri olarak uygulamalı ekonometri ve büyük bir tutkuyla bağlı olduğumuz [R](https://www.r-project.org/)'a ve onun yakışıklı kardeşi [RStudio](https://rstudio.com/)'ya çok önem veriyoruz. Hatta o kadar önem veriyoruz ki, üşenmedik ve sizin için Akademi Ekonometri odak ağırlıklarını pasta grafiği kullanarak Grafik \@ref(fig:akademiekonometri)'de hemen gösterelim istedik. Evet yanlış görmediniz, [$\LaTeX$](https://www.latex-project.org/) hakkında da bol bol paylaşımda bulunacağız.   
+```{r akademiekonometri, echo = FALSE, fig.cap = "Akademi Ekonometri Odak Ağırlıkları", fig.align = "center", tidy = FALSE}
+par(mar = c(0, 2, 0, 2))
+pie(c(90, 105, 105, 30, 30), c("Teorik Ekonometri", "Uygulamalı\nEkonometri", "R ve RStudio", TeX("$\\LaTeX$"), "Ekonomi"), col = c("yellow", "red", "blue", "darkgreen", "lightgreen"), clockwise = TRUE, init.angle = -50, border = NA)
+```
+
+Akademi Ekonometri web sitesinde sizlerle paylaşmayı plandığımız konular genel olarak şunlar: [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videoları ve notları, uygulamalı ekonometri video ve R kodları, R'da kolay kodlama için bilgi ve ip uçları, sizlerden gelen ekonometri ve R ile ilgili olan istek ve öneriler. Hatta örnek olması için ilk paylaşımlarımızı yaptık bile! Hadi durma, örnek [ders anlatımı](/post/ders-anlatimi-ornek/) ve [R kodu](/post/r-kodu-ornek/) için tıkla!
+
+Planlar gerçeklerin çoğu zaman küçük bir alt kümesi olsa da ekonometri ve R'a olan büyük tutkumuz sayesinde başaracağımıza inanıyoruz...  
+![Success Kid](SuccessKid.jpg){width=720 height=405}

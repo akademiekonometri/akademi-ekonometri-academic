@@ -64,4 +64,3 @@ email: "akademiekonometri@gmail.com"
 ---
 
 Akademi Ekonometri, en kısa tanımıyla, bir Ekonometri, Ekonomi ve Kodlama Platformu’dur. Biz bilginin sınır tanımadan ve ücretsiz olarak paylaşıldıkça artacağına inanıyoruz. Bu inançla, ülkemizin ihtiyaç duyduğu analitik düşünebilen dinamik beyinlerine ekonomi, ekonometri ve programlama konularında bilgi ve tecrübelerimizi aktarmak için sabırsızlanıyoruz. Elimizden geldiğince öğretmeye ve sizinle beraber öğrenmeye devam edeceğiz...
-

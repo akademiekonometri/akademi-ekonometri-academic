@@ -32,9 +32,12 @@ image:
 projects: []
 output:
   blogdown::html_page:
-    toc: true
     number_sections: true
+    toc: true
     toc_depth: 2
     mathjax: local
     self_contained: false
+disable_codefolding: false ## Set to true to disable code folding.
+codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 ---

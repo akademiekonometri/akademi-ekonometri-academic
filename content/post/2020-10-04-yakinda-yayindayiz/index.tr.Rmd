@@ -2,7 +2,7 @@
 slug: yakinda-yayindayiz
 title: Yakında Yayındayız!
 subtitle: ""
-summary: "Bu içerikte Akademi Ekonometri'nin ne olduğunu ve menüsünde ne olduğunu kısaca açıklamaya çalıştık."
+summary: "Bu blog yazısında Akademi Ekonometri'nin ne olduğunu ve menüsünde ne olduğunu kısaca açıklamaya çalıştık."
 categories: [duyuru]
 tags: [hakkımızda]
 author: Akademi Ekonometri
@@ -19,11 +19,14 @@ image:
 projects: []
 output:
   blogdown::html_page:
-#     toc: true
 #     number_sections: true
+#     toc: true
 #     toc_depth: 2
     mathjax: local
     self_contained: false
+disable_codefolding: false ## Set to true to disable code folding.
+codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 ---
 
 ```{r packages, echo = FALSE}

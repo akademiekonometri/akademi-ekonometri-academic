@@ -1,23 +1,26 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
+draft: false
+slug: 
 title: "{{ replace .Name "-" " " | title }}"
 subtitle: ""
 summary: ""
-authors: []
 tags: []
 categories: []
+author: Akademi Ekonometri
+authors: [Akademi Ekonometri]
 date: {{ .Date }}
 lastmod: {{ .Date }}
+publishDate: ""
 featured: false
-draft: false
 disable_jquery: false
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  caption: ""
+  caption: "[Photo from Unsplash](https://unsplash.com/)"
   focal_point: ""
   preview_only: false
 
@@ -27,4 +30,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+    mathjax: local
+    self_contained: false
 ---

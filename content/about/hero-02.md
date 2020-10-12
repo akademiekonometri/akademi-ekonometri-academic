@@ -8,7 +8,7 @@ headless = true  # This file represents a page section.
 active = true # Activate this widget? true/false
 weight = 90  # Order that this section will appear.
 
-title = "Get in touch"
+title = "İletişime Geçin"
 subtitle = ""
 
 [design]
@@ -29,7 +29,7 @@ subtitle = ""
   # gradient_end = "SkyBlue"
   
   # Background image.
-  image = "headers/pomegranate.jpg"  # Name of image in `static/img/`.
+  image = "headers/stork1.jpg"  # Name of image in `static/img/`.
   image_darken = 0.2  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).

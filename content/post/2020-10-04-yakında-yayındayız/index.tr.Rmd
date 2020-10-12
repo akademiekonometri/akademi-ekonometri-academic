@@ -1,23 +1,27 @@
 ---
+slug: yakinda-yayindayiz
 title: Yakında Yayındayız!
-author: Akademi Ekonometri
-date: "2020-10-04"
-slug: yakında-yayındayız
-categories: [duyuru]
-tags: [hakkımızda]
 subtitle: ""
 summary: ""
+categories: [duyuru]
+tags: [hakkımızda]
+author: Akademi Ekonometri
 authors: [Akademi Ekonometri]
+date: "2020-10-04"
 lastmod: "2020-10-06T01:37:14+03:00"
-featured: no
-disable_jquery: no
+publishDate: ""
+featured: false
+disable_jquery: false
 image:
   caption: "[Photo from Unsplash](https://unsplash.com/)"
   focal_point: ""
-  preview_only: no
+  preview_only: false
 projects: []
 output:
   blogdown::html_page:
+#     toc: true
+#     number_sections: true
+#     toc_depth: 2
     mathjax: local
     self_contained: false
 ---

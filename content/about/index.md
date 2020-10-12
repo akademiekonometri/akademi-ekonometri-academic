@@ -1,7 +1,7 @@
 ---
-date: "2019-01-01T00:00:00Z"
-summary: A little more about me and how to get in touch
-title: "Resume"
+date: "2020-10-04"
+summary: Akademi Ekonometri hakkında biraz daha bilgi edinin ve iletişime geçin.
+title: "Hakkımızda"
 type: widget_page
 aliases: [bio]
 ---

@@ -1,15 +1,15 @@
 - id: toggle_navigation
   translation: Arayüz yönünü değiştir
 - id: table_of_contents
-  translation: Table of Contents
+  translation: İçindekiler
 - id: on_this_page
-  translation: On this page
+  translation: Bu sayfada
 - id: back_to_top
-  translation: Back to top
+  translation: Başa dönüş
 - id: related
-  translation: Related
+  translation: İlişkili
 - id: minute_read
-  translation: dak. okuma
+  translation: dk. okuma
 - id: previous
   translation: Önceki
 - id: next
@@ -45,9 +45,9 @@
 - id: education
   translation: Eğitim
 - id: user_profile_latest
-  translation: Latest
+  translation: En son
 - id: see_certificate
-  translation: See certificate
+  translation: Sertifikayı görün
 - id: present
   translation: Present
 - id: more_pages
@@ -59,11 +59,11 @@
 - id: more_publications
   translation: Daha fazla yayınlar
 - id: contact_name
-  translation: Name
+  translation: İsim
 - id: contact_email
   translation: Email
 - id: contact_message
-  translation: Message
+  translation: Mesaj
 - id: contact_send
   translation: Gönder
 - id: book_appointment

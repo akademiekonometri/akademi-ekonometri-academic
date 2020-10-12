@@ -37,13 +37,13 @@ enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-#[permalinks]
+[permalinks]
 #  authors = "/author/:slug/"
 #  tags = "/tag/:slug/"
 #  categories = "/category/:slug/"
 #  publication_types = "/publication-type/:slug/"
-#  post = "/:year/:month/:day/:slug/" ## For pages in the post.
-#  courses = "/:year/:month/:day/:slug/" ## For pages in the courses.
+  post = "/post/:slug/" ## For pages in the post.
+  courses = "/course/:slug/" ## For pages in the courses.
 
 [outputs]
   home = [ "HTML", "RSS", "JSON", "WebAppManifest" ]

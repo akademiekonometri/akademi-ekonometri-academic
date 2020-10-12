@@ -54,9 +54,10 @@ Uzun yıllar Amerika Birleşik Devletleri’nde ekonomi ve ekonometri alanların
 ▶️ Neyin Nesidir Bu Akademi Ekonometri?  
 Akademi Ekonometri en kısa tanımıyla bir Ekonometri, Ekonomi ve Kodlama Platformu'dur. İçerik ve planlarımızla ilgili detaylı  bilgi için paylaşığımız [ilk iletiye](/post/yakinda-yayindayiz/) bakabilirsiniz...
 
-▶️ Bizi desteklemek mi istiyorsunuz?  
-✅ [YouTube kanalımıza](https://www.youtube.com/c/AkademiEkonometri) abone olmayı unutmayın!  
-✅ [Videolarımızı](https://www.youtube.com/channel/UC5vH34RdoLBwUrl7qFpe4hw/videos?view_as=subscriber) beğenmeyi ve paylaşmayı unutmayın!
-
+▶️ Bizi desteklemek mi istiyorsunuz?
+- ✅ [YouTube kanalımızı](https://www.youtube.com/c/AkademiEkonometri) ziyaret edin!
+- ✅ [YouTube kanalımıza](https://www.youtube.com/c/AkademiEkonometri?sub_confirmation=1) abone olmayı unutmayın!
+- ✅ [Playlistlerimizi](https://www.youtube.com/c/AkademiEkonometri/playlists) inceleyin!
+- ✅ [Videolarımızı](https://www.youtube.com/c/AkademiEkonometri/videos) beğenmeyi ve paylaşmayı unutmayın!
 
 Okuduğunuz için çok teşekkür ederiz.

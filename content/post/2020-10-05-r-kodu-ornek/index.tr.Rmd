@@ -85,5 +85,5 @@ mtext(TeX(paste("$", "y", "=", cf[[1]], ifelse(sign(cf[[2]]) == 1, " + ", " - ")
 Akademi Ekonometri olarak [YouTube kanalımızda](https://www.youtube.com/c/AkademiEkonometri) paylaştığımız R videolarını ve bu videoları hazırlarken kullandığımız data ve R kodlarını da paylaşarak sizleri olabildiğince desteklemek ve kodlamaya teşvik etmeyi amaçlıyoruz. Daha önce yayınladığımız örnek bir videoyu aşağıda inceleyebilirsiniz.  
 <iframe width="720" height="405" src="https://www.youtube.com/embed/GCAJ_p5zqYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 Ayrıca bu videoya ait data ve R kodlarına aşağıdaki linklere tıklayarak erişebilirsiniz.  
-- [`test.xls` datası](test.xls) ve [`R` kodu](CPI.R)  
+- [`test.xls` datası](test.xls) ve [`R` kodu](test.R)  
 - [`CPI.csv` datası](CPI.csv) ve [`R` kodu](CPI.R)

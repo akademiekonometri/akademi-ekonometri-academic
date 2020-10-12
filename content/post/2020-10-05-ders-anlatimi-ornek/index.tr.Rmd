@@ -36,13 +36,13 @@ Daha [önceki iletimizde](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](h
 
 ## Ekonomi Dersi
 Örnek Ekonomi ders videosunu ve slaytlarını aşağıda bulabilirsiniz.  
-- [Ders Slaytları (Türkçe)](Ekonomi - Hafta 5 (Kara).pptx)  
+- [Ders Slaytları (Türkçe)](Ekonomi - Hafta 1 (Kara).pptx)  
 - [Video (Türkçe)](https://youtu.be/2X_-CiNAr6w?list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch)  
 <iframe width="720" height="405" src="https://www.youtube.com/embed/2X_-CiNAr6w?list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 
 ## Economics Dersi
 Örnek Economics ders videosunu ve slaytlarını aşağıda bulabilirsiniz.  
-- [Ders Slaytları (İngilizce)](Economics - Week 5 (Kara).pptx)  
+- [Ders Slaytları (İngilizce)](Economics - Week 1 (Kara).pptx)  
 - [Video (İngilizce)](https://youtu.be/rEZfMve6Vm0?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg)  
 <iframe width="720" height="405" src="https://www.youtube.com/embed/rEZfMve6Vm0?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
 

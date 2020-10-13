@@ -26,3 +26,7 @@ menu:
 ## Ders Planı
 Aşağıdaki linklere tıklayarak ilgili doküman, link, video ve bilgilere ulaşabilirsiniz.  
 
+## Test
+[test](Economics_I%20-%20Week%208%20(Kara).pptx)
+[test](Economics_I-Week8(Kara).pptx)
+

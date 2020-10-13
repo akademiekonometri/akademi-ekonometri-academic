@@ -53,7 +53,7 @@
 - id: more_pages
   translation: See all
 - id: more_posts
-  translation: Daha fazla blog içeriği
+  translation: Daha fazla blog yazısı
 - id: more_talks
   translation: Daha fazla konuşma
 - id: more_publications
@@ -103,7 +103,7 @@
 - id: open_project_site
   translation: Projenin sayfasına git
 - id: posts
-  translation: Blog içerikleri
+  translation: Blog Yazıları
 - id: publications
   translation: Yayınlar
 - id: talks

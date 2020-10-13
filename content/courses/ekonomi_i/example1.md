@@ -1,6 +1,6 @@
 ---
 title: Ders Notları
-linktitle: Test
+linktitle: Test 1
 date: "2020-10-05"
 lastmod: "2020-10-12"
 draft: false
@@ -9,7 +9,7 @@ type: docs
 
 menu:
   ekonomi 1:
-    parent: Ders Notları
+    parent: Parent
     weight: 10
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)

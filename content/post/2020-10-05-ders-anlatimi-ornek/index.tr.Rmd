@@ -24,9 +24,9 @@ projects: []
 #     toc_depth: 2
 #     mathjax: local
 #     self_contained: false
-disable_codefolding: false ## Set to true to disable code folding.
-codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
-codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
+# disable_codefolding: false ## Set to true to disable code folding.
+# codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+# codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 ---
 
 Daha [önceki blog yazımızda](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videolarını ve kulladığımız ders notlarını paylaşacağımızdan bahsetmiştik. Aşağıdaki bölümlerde [Ekonometri II](/courses/ekonometri-ii/), [Ekonomi](/courses/ekonomi/) ve [Economics](/courses/economics/) derslerine ait örnek ders notlarına ve videolarına erişebilrisiniz.

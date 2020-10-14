@@ -1,0 +1,23 @@
+---
+title: Ders Notları
+linktitle: Ders Notları
+date: "2020-10-05"
+lastmod: "2020-10-14"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri-i:
+    parent: 
+    weight: 60
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 60
+---
+
+<br>
+
+## Ekonometri I
+
+## Lectures

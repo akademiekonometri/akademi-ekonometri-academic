@@ -1,0 +1,23 @@
+---
+title: Ödev ve Sınavlar
+linktitle: Ödev ve Sınavlar
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonomi-i:
+    parent: 
+    weight: 50
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 50
+---
+
+<br>
+
+## Ekonomiye Giris I
+
+## Exams

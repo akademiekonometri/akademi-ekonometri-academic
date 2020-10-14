@@ -1,0 +1,23 @@
+---
+title: Önemli Linkler
+linktitle: Linkler
+date: "2020-10-05"
+lastmod: "2020-10-14"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri-i:
+    parent: 
+    weight: 40
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 40
+---
+
+<br>
+
+## Ekonometri I
+
+## Links

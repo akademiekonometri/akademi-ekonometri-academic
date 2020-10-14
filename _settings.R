@@ -10,6 +10,15 @@ base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic
 # Path for the ".static/repo" folder
 repo.path <- paste0(base.path, "static/repo/")
 
+# Paths for "./akek" folder.
+akek.path <- paste0(repo.path, "akek/")
+
+# Paths for "./akek/courses" folder.
+courses.path <- paste0(repo.path, "akek/courses/")
+
+# Paths for "./akek/r" folder.
+r.path <- paste0(repo.path, "akek/r/")
+
 # Path for the "./apps" folder.
 apps.path <- paste0(repo.path, "apps/")
 
@@ -45,6 +54,36 @@ func.path <- paste0(repo.path, "scripts/functions/")
 
 # Path for "./slides" folder.
 slides.path <- paste0(repo.path, "slides/")
+
+#================================= Functions ===================================
+# ---- Settings.Relative.Paths.1 ----
+
+# Relative path extension which carries the folder path from /courses/CourseName/FileName to /repo/
+courses.to.repo <- "../../../"
+
+# Relative path for "./akek/courses/economics" folder.
+economics.path <- paste0(courses.to.repo, "repo/akek/courses/economics/")
+
+# Relative path for "./akek/courses/ekonometri-ars" folder.
+ekonometri.ars.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-ars/")
+
+# Relative path for "./akek/courses/ekonometri-i" folder.
+ekonometri.i.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-i/")
+
+# Relative path for "./akek/courses/ekonometri-ii" folder.
+ekonometri.ii.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-ii/")
+
+# Relative path for "./akek/courses/ekonometrik-modelleme" folder.
+ekonometrik.modelleme.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometrik-modelleme/")
+
+# Relative path for "./akek/courses/ekonomi" folder.
+ekonomi.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi/")
+
+# Relative path for "./akek/courses/ekonomi-i" folder.
+ekonomi.i.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi-i/")
+
+# Relative path for "./akek/courses/ekonomi-ii" folder.
+ekonomi.ii.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi-ii/")
 
 #================================= Functions ===================================
 # ---- Settings.Functions.1 ----

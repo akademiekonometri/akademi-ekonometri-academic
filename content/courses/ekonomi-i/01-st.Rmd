@@ -10,10 +10,10 @@ type: docs
 menu:
   ekonomi-i:
     parent: Dokümanlar
-    weight: 20
+    weight: 21
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 20
+weight: 21
 ---
 
 <br>
@@ -21,7 +21,7 @@ weight: 20
 ## Telegram Kanalı
 Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
 
-- [Telegram Kanalı Duyurusu](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`)  
+- [Telegram Kanalı Duyurusu](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`)
 - [QR Kod - Telefon İçin](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Telegram Kanali Duyurusu_Ilan.pdf")`)
 
 ## Ders Planı ve Önemli Günler
@@ -29,11 +29,8 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 - [Önemli Günler](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I - Onemli Gunler (Kara).pdf")`)
 
 ## Ders Kitabı
-- [Kitap Seçimi Açıklaması](`r paste0(ekonomi.i.path, "Ekonmiye Giris_I_Kitap Secimi Aciklamasi (Kara).pdf")`)  
+- [Kitap Seçimi Açıklaması](`r paste0(ekonomi.i.path, "Ekonmiye Giris_I_Kitap Secimi Aciklamasi (Kara).pdf")`)
 
 ## Ders Değerlendirme Anketi
-- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonomi.i.path, "ST/Ekonmiye Giris_I_Ders Degerlendirme Anketi.pdf")`)  
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonomi.i.path, "ST/Ekonmiye Giris_I_Ders Degerlendirme Anketi.pdf")`)
 - [Ders Değerlendirme Anketi - Link](https://forms.gle/sxp48WjRcgq8yrv66)
-
-
-

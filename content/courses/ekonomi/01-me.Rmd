@@ -1,0 +1,36 @@
+---
+title: Önemli Dokümanlar (Metalurji ve Malzeme Mühendisliği)
+linktitle: Metalurji ve Malzeme Mühendisliği
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonomi:
+    parent: Dokümanlar
+    weight: 21
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 21
+---
+
+<br>
+
+## Telegram Kanalı
+Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
+
+- [Telegram Kanalı Duyurusu](`r paste0(ekonomi.path, "ME/Ekonomi_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`)
+- [QR Kod - Telefon İçin](`r paste0(ekonomi.path, "ME/Ekonomi_Telegram Kanali Duyurusu_Ilan.pdf")`)
+
+## Ders Planı ve Önemli Günler
+- [Ders Planı](`r paste0(ekonomi.path, "ME/Ekonomi - Ders Plani (Kara).pdf")`)
+- [Önemli Günler](`r paste0(ekonomi.path, "ME/Ekonomi - Onemli Gunler (Kara).pdf")`)
+
+## Ders Kitabı
+- [Kitap Seçimi Açıklaması](`r paste0(ekonomi.path, "Ekonomi_Kitap Secimi Aciklamasi (Kara).pdf")`)
+
+## Ders Değerlendirme Anketi
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonomi.path, "ME/Ekonomi_Ders Degerlendirme Anketi.pdf")`)
+- [Ders Değerlendirme Anketi - Link](https://forms.gle/jaPVY8msCDwfCqvJ7)

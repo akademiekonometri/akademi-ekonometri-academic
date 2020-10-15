@@ -1,0 +1,36 @@
+---
+title: Important Documents (Computer Engineering)
+linktitle: Computer Engineering
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  economics:
+    parent: Documents
+    weight: 21
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 21
+---
+
+<br>
+
+## Telegram Kanalı
+Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
+
+- [Telegram Kanalı Duyurusu](`r paste0(economics.path, "CE/Economics_Telegram Channel Announcement_Info.pdf")`)
+- [QR Kod - Telefon İçin](`r paste0(economics.path, "CE/Economics_Telegram Channel Announcement_Flyer.pdf")`)
+
+## Ders Planı ve Önemli Günler
+- [Ders Planı](`r paste0(economics.path, "CE/Economics - Syllabus (Kara).pdf")`)
+- [Önemli Günler](`r paste0(economics.path, "CE/Economics - Important Dates (Kara).pdf")`)
+
+## Ders Kitabı
+- [Kitap Seçimi Açıklaması](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`)
+
+## Ders Değerlendirme Anketi
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(economics.path, "CE/Economics_Course Evaluation Survey.pdf")`)
+- [Ders Değerlendirme Anketi - Link](https://forms.gle/ZfxYYKNxbVcyLaQB8)

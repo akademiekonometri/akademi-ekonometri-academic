@@ -1,0 +1,43 @@
+---
+title: Important Documents (Electrical-Electronics Engineering)
+linktitle: Electrical-Electronics Engineering
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  economics:
+    parent: Documents
+    weight: 22
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 22
+---
+
+<br>
+
+## Telegram Kanalı
+Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
+
+- [Telegram Kanalı Duyurusu](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Info.pdf")`)
+- [QR Kod - Telefon İçin](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Flyer.pdf")`)
+
+## Ders Planı ve Önemli Günler
+<!-- - [Ders Planı - 1. Öğretim](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) -->
+<!-- - [Önemli Günler - 1. Öğretim](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) -->
+<!-- - [Ders Planı - 2. Öğretim](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) -->
+<!-- - [Önemli Günler - 2. Öğretim](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) -->
+
+| 1. Öğretim | 2. Öğretim |
+| :---: | :---: |
+| [Ders Planı](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) | [Ders Planı](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) |
+| [Önemli Günler](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) | [Önemli Günler](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) |
+
+## Ders Kitabı
+- [Kitap Seçimi Açıklaması](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`)
+
+## Ders Değerlendirme Anketi
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(economics.path, "EE/Economics_Course Evaluation Survey.pdf")`)
+- [Ders Değerlendirme Anketi - Link](https://forms.gle/EEd4Whw9pqEPxzeY7)

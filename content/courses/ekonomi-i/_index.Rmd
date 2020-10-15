@@ -1,8 +1,8 @@
 ---
 # Course title, summary, and position.
 linktitle: "Ekonomiye Giriş I"
-summary: "Verildiği son bölüm ve dönem: İstatistik Bölümü - Güz 2020"
-weight: 40
+summary: "Verildiği son bölüm ve dönem: İstatistik - Güz 2020"
+weight: 90
 
 # Page metadata.
 title: "Ekonomiye Giriş I"
@@ -21,4 +21,5 @@ menu:
 
 <br>
 
-Ekonomiye Giriş I dersine hoş geldiniz! Bu dersin amacı ekonomistler tarafından mikroekonomik sorunları incelemek için oluşturulan modelleri tanıtmaktır. Spesifik olarak, dersin ilk yarısında, genel olarak bireylerin tercihlerini, ticareti, hükümet politikalarını ve arz & talep analizini inceleyen ekonominin mikro kısmını keşfedeceğiz. Dersin ikinci yarısında genel olarak firmaların karar verme mekanizmaları üzerine yoğunlaşacağız. Daha sonra, tam rekabetçi, tekel, tekelci rekabet ve oligopol piyasaları gibi farklı piyasa çeşitlerini karşılaştırmalı olarak inceleyeceğiz.
+Ekonomiye Giriş I dersine hoş geldiniz!  
+Bu dersin amacı ekonomistler tarafından mikroekonomik sorunları incelemek için oluşturulan modelleri tanıtmaktır. Spesifik olarak, dersin ilk yarısında, genel olarak bireylerin tercihlerini, ticareti, hükümet politikalarını ve arz & talep analizini inceleyen ekonominin mikro kısmını keşfedeceğiz. Dersin ikinci yarısında genel olarak firmaların karar verme mekanizmaları üzerine yoğunlaşacağız. Daha sonra, tam rekabetçi, tekel, tekelci rekabet ve oligopol piyasaları gibi farklı piyasa çeşitlerini karşılaştırmalı olarak inceleyeceğiz.

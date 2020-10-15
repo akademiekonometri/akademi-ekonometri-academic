@@ -2,13 +2,13 @@
 title: Önemli Dokümanlar
 linktitle: Dokümanlar
 date: "2020-10-05"
-lastmod: "2020-10-14"
+lastmod: "2020-10-13"
 draft: false
 # toc: true
 type: docs
 
 menu:
-  ekonometri-i:
+  ekonomi:
     name: Dokümanlar
     weight: 20
 

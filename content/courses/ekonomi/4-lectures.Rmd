@@ -19,6 +19,7 @@ weight: 50
 ```{r emoji, include = FALSE}
 to.be.updated <- "arrows_counterclockwise"
 in.progress <- "fire"
+outdated <- "no_entry"
 tr <- "tr"
 eng <- "us"
 ```
@@ -26,18 +27,18 @@ eng <- "us"
 <br>
 
 {{% alert note %}}
-İncelediğiniz sayfada `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font> ve `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> içerikleri ifade eder...
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
 {{% /alert %}}
 
 ## Hafta #1
-| &nbsp; &nbsp; &nbsp; Türkçe `r emo::ji(tr)` &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; İngilizce `r emo::ji(eng)` &nbsp; &nbsp; &nbsp; |
-| :--------------------: | :------------------------: |
-| [Video - Bölüm #1](https://www.youtube.com/watch?v=2X_-CiNAr6w&feature=youtu.be) | [Video - Bölüm #1](https://www.youtube.com/watch?v=rEZfMve6Vm0&feature=youtu.be) |
-| [Video - Bölüm #2](https://www.youtube.com/watch?v=jeNwjaAVs4o&feature=youtu.be) | [Video - Bölüm #2](https://www.youtube.com/watch?v=1wAclMe5c6M&feature=youtu.be) |
-| [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 (Kara).pptx")`) | [Slaytlar](`r paste0(economics.path, "Economics - Week 1 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notlar](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Çalışma Soruları](`r paste0(economics.path, "Economics - Week 1 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Çalışma Soruları Cevaplar](`r paste0(economics.path, "Economics - Week 1 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| Türkçe `r emo::ji(tr)` | İngilizce `r emo::ji(eng)` |
+| :--------------------- | :------------------------- |
+| [Video - Bölüm #1](https://www.youtube.com/watch?v=2X_-CiNAr6w&feature=youtu.be) | [Video - Part #1](https://www.youtube.com/watch?v=rEZfMve6Vm0&feature=youtu.be) |
+| [Video - Bölüm #2](https://www.youtube.com/watch?v=jeNwjaAVs4o&feature=youtu.be) | [Video - Part #2](https://www.youtube.com/watch?v=1wAclMe5c6M&feature=youtu.be) |
+| [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 1 (Kara).pptx")`) |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Nots](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet](`r paste0(economics.path, "Economics - Week 1 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS Cevaplar (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 1 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 
 ## Hafta #2
 

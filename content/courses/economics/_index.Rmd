@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 linktitle: "Economics"
-summary: "The last department and semester instructed: Computer Engineering - Fall 2020 and Electrical-Electronics Engineering  - Fall 2020"
+summary: "The last taught department and semester: Computer Engineering - Fall 2020 and Electrical-Electronics Engineering  - Fall 2020"
 weight: 50
 
 # Page metadata.
@@ -21,5 +21,5 @@ menu:
 
 <br>
 
-Welcome to Economics course!
+Welcome to Economics course!  
 The purpose of this course is to introduce you the models used by economists to examine microeconomic and macroeconomic issues. Specifically, in the first half of the semester, we will explore the micro side of the economy deals with the choice of individuals and decisions of firms in general. In the second half of the semester, we will expand our analysis to the macro level and try to understand the factors that influences the overall economy in short-run and long-run.

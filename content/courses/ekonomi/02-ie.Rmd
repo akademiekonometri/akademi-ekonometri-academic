@@ -25,11 +25,6 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 - [QR Kod - Telefon İçin](`r paste0(ekonomi.path, "IE/Ekonomi_Telegram Kanali Duyurusu_Ilan.pdf")`)
 
 ## Ders Planı ve Önemli Günler
-<!-- - [Ders Planı - 1. Öğretim](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Ders Plani (Kara).pdf")`) -->
-<!-- - [Önemli Günler - 1. Öğretim](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Onemli Gunler (Kara).pdf")`) -->
-<!-- - [Ders Planı - 2. Öğretim](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Ders Plani (Kara).pdf")`) -->
-<!-- - [Önemli Günler - 2. Öğretim](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Onemli Gunler (Kara).pdf")`) -->
-
 | 1. Öğretim | 2. Öğretim |
 | :--- | :--- |
 | [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Ders Plani (Kara).pdf")`) | [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Ders Plani (Kara).pdf")`) |

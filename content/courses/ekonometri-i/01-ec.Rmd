@@ -17,11 +17,11 @@ weight: 21
 ---
 
 ```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
 to.be.updated <- "arrows_counterclockwise"
 in.progress <- "fire"
 outdated <- "no_entry"
-tr <- "tr"
-eng <- "us"
 ```
 
 <br>
@@ -33,18 +33,18 @@ eng <- "us"
 ## Telegram Kanalı
 Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
 
-- [Telegram Kanalı Duyurusu](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`)
-- [QR Kod - Telefon İçin](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Telegram Kanali Duyurusu_Ilan.pdf")`)
+- [Telegram Kanalı Duyurusu](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`) `r emo::ji(tr)`
+- [QR Kod - Telefon İçin](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Telegram Kanali Duyurusu_Ilan.pdf")`) `r emo::ji(tr)`
 
 ## Ders Planı ve Önemli Günler
 | 1. Öğretim | 2. Öğretim |
 | :--- | :--- |
-| [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(in.progress)` | [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(in.progress)` |
+| [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)` `r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)` `r emo::ji(to.be.updated)` |
+| [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)` `r emo::ji(in.progress)` | [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)` `r emo::ji(in.progress)` |
 
 ## Ders Kitabı
-- [Kitap Seçimi Açıklaması](`r paste0(ekonometri.i.path, "Ekonometri_I_Kitap Secimi Aciklamasi (Kara).pdf")`)
+- [Kitap Seçimi Açıklaması](`r paste0(ekonometri.i.path, "Ekonometri_I_Kitap Secimi Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
 
 ## Ders Değerlendirme Anketi
-- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Ders Degerlendirme Anketi.pdf")`)
-- [Ders Değerlendirme Anketi - Link](https://forms.gle/VsT9jjtGospV7DKe8)
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Ders Degerlendirme Anketi.pdf")`) `r emo::ji(tr)`
+- [Ders Değerlendirme Anketi - Link](https://forms.gle/VsT9jjtGospV7DKe8) `r emo::ji(tr)`

@@ -17,11 +17,11 @@ weight: 21
 ---
 
 ```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
 to.be.updated <- "arrows_counterclockwise"
 in.progress <- "fire"
 outdated <- "no_entry"
-tr <- "tr"
-eng <- "us"
 ```
 
 <br>

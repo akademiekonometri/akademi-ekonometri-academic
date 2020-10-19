@@ -18,7 +18,7 @@ role: Ekonometri, Ekonomi ve Kodlama Platformu
 #   url: https://akademiekonometri.rbind.io/
 
 # Short bio (displayed in user profile at end of posts)
-bio: Akademi Ekonometri en kısa tanımıyla bir Ekonometri, Ekonomi ve Kodlama Platformu’dur.
+bio:
 
 # Interests to show in About widget
 interests:

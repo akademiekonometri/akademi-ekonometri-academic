@@ -6,7 +6,6 @@ summary: "Akademi Ekonometri olarak R'da neler yapabileceğinizi RMarkdown kulla
 categories: [R]
 tags: [örnek gönderi, grafik, R Markdown, regresyon]
 author: Akademi Ekonometri
-authors: [Akademi Ekonometri]
 date: "2020-10-05"
 lastmod: "2020-10-05T22:59:01+03:00"
 publishDate: ""
@@ -17,31 +16,48 @@ image:
   focal_point: ""
   preview_only: false
 projects: []
+disable_codefolding: false ## Set to true to disable code folding.
+codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 output:
-  blogdown::html_document:
+  blogdown::html_page:
     number_sections: true
     toc: true
     toc_depth: 2
     # mathjax: local
     # self_contained: false
-    theme: united
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
-disable_codefolding: false ## Set to true to disable code folding.
-codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
-codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#r-markdown"><span class="toc-section-number">1</span> R Markdown</a></li>
+<li><a href="#r-markdownda-kod-yığını"><span class="toc-section-number">2</span> R Markdown’da Kod Yığını</a></li>
+<li><a href="#basit-doğrusal-regresyon-örneği"><span class="toc-section-number">3</span> Basit Doğrusal Regresyon Örneği</a>
+<ul>
+<li><a href="#basit-doğrusal-regresyon-basit-grafik-örneği"><span class="toc-section-number">3.1</span> Basit Doğrusal Regresyon: Basit Grafik Örneği</a></li>
+<li><a href="#basit-doğrusal-regresyon-detaylı-grafik-örneği"><span class="toc-section-number">3.2</span> Basit Doğrusal Regresyon: Detaylı Grafik Örneği</a></li>
+</ul></li>
+<li><a href="#r-video-ve-kodları"><span class="toc-section-number">4</span> R Video ve Kodları</a></li>
+</ul>
+</div>
 
-<div id="r-markdown" class="section level1">
-<h1>R Markdown</h1>
+<div id="r-markdown" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> R Markdown</h1>
 <p>Bu bir R Markdown dokümanıdır. Basit bir formatlama sentaksı olan Markdown, HTML, PDF ve MS Word dokümanlarının hazırlanmasında kullanılabilir. Daha fazla bilgi için lütfen linki inceleyin <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 </div>
-<div id="r-markdownda-kod-yığını" class="section level1">
-<h1>R Markdown’da Kod Yığını</h1>
+<div id="r-markdownda-kod-yığını" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> R Markdown’da Kod Yığını</h1>
 <p>R Markdown’da, R kod yığınını aşağıdaki gibi yerleştirebilirsiniz:
 Örnek olarak ortalaması 0, standard sapması 1 ve normal dağılım yapan bir ana kütleden 200 gözlemli bir örneklem çekip, grafiğini çıkartalım.</p>
 <pre class="r"><code>x &lt;- rnorm(200, mean = 0, sd = 1)
@@ -49,8 +65,8 @@ par(mar = c(2, 2, 0.1, 2))
 plot(x, dnorm(x))</code></pre>
 <p><img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/example-1.png" width="672" /></p>
 </div>
-<div id="basit-doğrusal-regresyon-örneği" class="section level1">
-<h1>Basit Doğrusal Regresyon Örneği</h1>
+<div id="basit-doğrusal-regresyon-örneği" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Basit Doğrusal Regresyon Örneği</h1>
 <p>R’ın içindeki <code>cars</code> datasının ilk 10 gözlemini kullanarak basit doğrusal bir regresyon oluşturalım…</p>
 <pre class="r"><code>data &lt;- cars[1:10, ] ## Yeni data seti data olarak adlandırıldı.
 summary(data)
@@ -81,8 +97,8 @@ summary(model)
 ## Residual standard error: 7.998 on 8 degrees of freedom
 ## Multiple R-squared:  0.41642,    Adjusted R-squared:  0.34348 
 ## F-statistic: 5.7085 on 1 and 8 DF,  p-value: 0.043907</code></pre>
-<div id="basit-doğrusal-regresyon-basit-grafik-örneği" class="section level2">
-<h2>Basit Doğrusal Regresyon: Basit Grafik Örneği</h2>
+<div id="basit-doğrusal-regresyon-basit-grafik-örneği" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Basit Doğrusal Regresyon: Basit Grafik Örneği</h2>
 <p>Basit doğrusal regresyonun sonuçlarını kullanarak Örneklem Regresyon Fonksiyonu grafiğini basit bir kod kullanarak gösterelim…</p>
 <pre class="r"><code>par(mar = c(2, 2, 0.1, 2))
 plot(data$speed, data$dist)
@@ -90,13 +106,13 @@ abline(model)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:regressionplot1"></span>
 <img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/regressionplot1-1.png" alt="Örneklem Regresyon Fonksiyonu Basit Grafik" width="672" />
 <p class="caption">
-Figure 1: Örneklem Regresyon Fonksiyonu Basit Grafik
+Figure 3.1: Örneklem Regresyon Fonksiyonu Basit Grafik
 </p>
 </div>
 </div>
-<div id="basit-doğrusal-regresyon-detaylı-grafik-örneği" class="section level2">
-<h2>Basit Doğrusal Regresyon: Detaylı Grafik Örneği</h2>
-<p>Daha önce basit bir kod kullanarak Grafik <a href="#fig:regressionplot1">1</a>’de gösterdiğimiz Örneklem Regresyon Fonksiyonu grafiğini şimdi de daha detaylı bir kod kullanarak çizelim…</p>
+<div id="basit-doğrusal-regresyon-detaylı-grafik-örneği" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Basit Doğrusal Regresyon: Detaylı Grafik Örneği</h2>
+<p>Daha önce basit bir kod kullanarak Grafik <a href="#fig:regressionplot1">3.1</a>’de gösterdiğimiz Örneklem Regresyon Fonksiyonu grafiğini şimdi de daha detaylı bir kod kullanarak çizelim…</p>
 <pre class="r"><code>par(mar = c(2, 2, 1.5, 2))
 plot(data$speed, data$dist, type = &quot;p&quot;, pch = 16, cex = 1, col = &quot;blue&quot;, main = &quot;Örneklem Regresyon Fonksiyonu&quot;, xlab = &quot;X&quot;, ylab = &quot;Y&quot;, xlim = c(0, max(data$speed)), ylim = c(0, max(data$dist)))
 abline(model, lwd = 2, lty = 2, col = &quot;red&quot;)
@@ -106,13 +122,13 @@ mtext(TeX(paste(&quot;$&quot;, &quot;y&quot;, &quot;=&quot;, cf[[1]], ifelse(sig
 <div class="figure" style="text-align: center"><span id="fig:regressionplot2"></span>
 <img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/regressionplot2-1.png" alt="Örneklem Regresyon Fonksiyonu Detaylı Grafik" width="672" />
 <p class="caption">
-Figure 2: Örneklem Regresyon Fonksiyonu Detaylı Grafik
+Figure 3.2: Örneklem Regresyon Fonksiyonu Detaylı Grafik
 </p>
 </div>
 </div>
 </div>
-<div id="r-video-ve-kodları" class="section level1">
-<h1>R Video ve Kodları</h1>
+<div id="r-video-ve-kodları" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> R Video ve Kodları</h1>
 <p>Akademi Ekonometri olarak <a href="https://www.youtube.com/c/AkademiEkonometri">YouTube kanalımızda</a> paylaştığımız R videolarını ve bu videoları hazırlarken kullandığımız data ve R kodlarını da paylaşarak sizleri olabildiğince desteklemek ve kodlamaya teşvik etmeyi amaçlıyoruz. Daha önce yayınladığımız örnek bir videoyu aşağıda inceleyebilirsiniz.<br />
 <iframe width="720" height="405" src="https://www.youtube.com/embed/GCAJ_p5zqYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br />
 Ayrıca bu videoya ait data ve R kodlarına aşağıdaki linklere tıklayarak erişebilirsiniz.<br />

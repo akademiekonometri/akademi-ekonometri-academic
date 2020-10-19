@@ -6,7 +6,6 @@ summary: "Bu blog yazısında Akademi Ekonometri'nin ne olduğunu ve menüsünde
 categories: [duyuru]
 tags: [hakkımızda]
 author: Akademi Ekonometri
-authors: [Akademi Ekonometri]
 date: "2020-10-04"
 lastmod: "2020-10-06T01:37:14+03:00"
 publishDate: ""
@@ -17,16 +16,25 @@ image:
   focal_point: ""
   preview_only: false
 projects: []
-output:
-  blogdown::html_page:
-#     number_sections: true
-#     toc: true
-#     toc_depth: 2
-    mathjax: local
-    self_contained: false
 # disable_codefolding: false ## Set to true to disable code folding.
 # codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
 # codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
+output:
+  blogdown::html_page:
+    # number_sections: true
+    # toc: true
+    # toc_depth: 2
+    mathjax: local
+    self_contained: false
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
 ---
 
 ```{r packages, echo = FALSE}

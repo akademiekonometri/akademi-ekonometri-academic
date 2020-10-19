@@ -9,7 +9,6 @@ summary: ""
 tags: []
 categories: []
 author: Akademi Ekonometri
-authors: [Akademi Ekonometri]
 date: {{ .Date }}
 lastmod: {{ .Date }}
 publishDate: ""
@@ -30,6 +29,9 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
+disable_codefolding: false ## Set to true to disable code folding.
+codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 output:
   blogdown::html_page:
     number_sections: true
@@ -37,7 +39,13 @@ output:
     toc_depth: 2
     mathjax: local
     self_contained: false
-disable_codefolding: false ## Set to true to disable code folding.
-codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
-codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
 ---

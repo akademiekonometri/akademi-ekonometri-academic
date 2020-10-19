@@ -6,7 +6,6 @@ summary: "Akademi Ekonometri olarak R'da neler yapabileceğinizi RMarkdown kulla
 categories: [R]
 tags: [örnek gönderi, grafik, R Markdown, regresyon]
 author: Akademi Ekonometri
-authors: [Akademi Ekonometri]
 date: "2020-10-05"
 lastmod: "2020-10-05T22:59:01+03:00"
 publishDate: ""
@@ -17,20 +16,25 @@ image:
   focal_point: ""
   preview_only: false
 projects: []
+disable_codefolding: false ## Set to true to disable code folding.
+codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
+codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
 output:
-  blogdown::html_document:
+  blogdown::html_page:
     number_sections: true
     toc: true
     toc_depth: 2
     # mathjax: local
     # self_contained: false
-    theme: united
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
-disable_codefolding: false ## Set to true to disable code folding.
-codefolding_show: "show" ## Set to "hide" or "show" all codes by default.
-codefolding_nobutton: false ## Set to true to exclude the "Show/hide all" button.
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
 ---
 
 ```{r setup, include = FALSE}

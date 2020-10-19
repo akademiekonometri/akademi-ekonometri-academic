@@ -33,8 +33,9 @@ eng <- "us"
 ## Akademi Ekonometri
 - [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
 - [Ekonomiye Giriş I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY) `r emo::ji(tr)``r emo::ji(in.progress)`
-    - [Ekonomiye Giriş I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk1pV06IkB0XzLXldjhRfUs) `r emo::ji(tr)``r emo::ji(to.be.updated)`
-- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg)[^1] `r emo::ji(eng)``r emo::ji("fire")`
+    + [Ekonomiye Giriş I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk1pV06IkB0XzLXldjhRfUs) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) [^1] `r emo::ji(eng)``r emo::ji("fire")`
+    + [Economics - Online-Class (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnP7rJTS--Dc1SKhFw7YZYU) `r emo::ji(eng)``r emo::ji(to.be.updated)`
 
 ## Online-Ders
 - [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`

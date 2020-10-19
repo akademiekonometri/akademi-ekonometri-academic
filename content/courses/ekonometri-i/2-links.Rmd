@@ -10,14 +10,36 @@ type: docs
 menu:
   ekonometri-i:
     parent: 
-    weight: 40
+    weight: 30
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 40
+weight: 30
 ---
+
+```{r emoji, include = FALSE}
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+tr <- "tr"
+eng <- "us"
+```
 
 <br>
 
-## Ekonometri I
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
 
-## Links
+## Akademi Ekonometri
+- [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
+- [Ekonometri I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch) `r emo::ji(tr)`
+    + [Ekonometri I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitl0xLk-Ms8skA_uAHTS9H-f) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+
+## Online-Ders
+- [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
+- [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnUtMAi-Xi-q79LA4lG0Bbe) `r emo::ji(tr)``r emo::ji(outdated)`
+
+## Diğer Linkler
+- [YÖK Dersleri Platformu](https://yokdersleri.yok.gov.tr/) `r emo::ji(tr)`
+- [TÜBA Açık Ders Malzemeleri Portalı](https://acikders.tuba.gov.tr/) `r emo::ji(tr)`

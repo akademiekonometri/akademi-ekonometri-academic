@@ -33,18 +33,18 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 ## Telegram Channel
 To inform you about the important announcements related to the course on time, an announcement channel is created in the [Telegram](https://telegram.org/) app. The detailed information can be found on documents below.  
 
-- [Telegram Channel Announcement](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Info.pdf")`)
-- [QR Code - For Phones](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Flyer.pdf")`)
+- [Telegram Channel Announcement](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Info.pdf")`) `r emo::ji(eng)`
+- [QR Code - For Phones](`r paste0(economics.path, "EE/Economics_Telegram Channel Announcement_Flyer.pdf")`) `r emo::ji(eng)`
 
 ## Syllabus and Important Dates
 | Normal Education | Secondary Education |
 | :--- | :--- |
-| [Syllabus](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Syllabus](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Important Dates](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Important Dates](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Syllabus](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) `r emo::ji(eng)` `r emo::ji(to.be.updated)` | [Syllabus](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) `r emo::ji(eng)` `r emo::ji(to.be.updated)` |
+| [Important Dates](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(eng)` `r emo::ji(to.be.updated)` | [Important Dates](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) `r emo::ji(eng)` `r emo::ji(to.be.updated)` |
 
 ## Course Book
-- [Book Selection Explanation](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`)
+- [Book Selection Explanation](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`) `r emo::ji(eng)`
 
 ## Course Evaluation Survey
-- [Course Evaluation Survey - Explanation (in Turkish)](`r paste0(economics.path, "EE/Economics_Course Evaluation Survey.pdf")`)
-- [Course Evaluation Survey - Link (in Turkish)](https://forms.gle/EEd4Whw9pqEPxzeY7)
+- [Course Evaluation Survey - Explanation](`r paste0(economics.path, "EE/Economics_Course Evaluation Survey.pdf")`) `r emo::ji(tr)`
+- [Course Evaluation Survey - Link](https://forms.gle/EEd4Whw9pqEPxzeY7) `r emo::ji(tr)`

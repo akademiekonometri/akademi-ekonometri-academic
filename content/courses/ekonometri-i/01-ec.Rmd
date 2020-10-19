@@ -16,7 +16,19 @@ menu:
 weight: 21
 ---
 
+```{r emoji, include = FALSE}
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+tr <- "tr"
+eng <- "us"
+```
+
 <br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
 
 ## Telegram Kanalı
 Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
@@ -25,8 +37,10 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 - [QR Kod - Telefon İçin](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_Telegram Kanali Duyurusu_Ilan.pdf")`)
 
 ## Ders Planı ve Önemli Günler
-- [Ders Planı - 1. Öğretim](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Ders Plani (Kara).pdf")`)
-- [Ders Planı - 2. Öğretim](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Ders Plani (Kara).pdf")`)
+| 1. Öğretim | 2. Öğretim |
+| :--- | :--- |
+| [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(in.progress)` | [Önemli Günler](`r paste0(ekonometri.i.path, "EC/Ekonometri_I_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(in.progress)` |
 
 ## Ders Kitabı
 - [Kitap Seçimi Açıklaması](`r paste0(ekonometri.i.path, "Ekonometri_I_Kitap Secimi Aciklamasi (Kara).pdf")`)

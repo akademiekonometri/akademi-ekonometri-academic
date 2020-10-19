@@ -16,7 +16,19 @@ menu:
 weight: 22
 ---
 
+```{r emoji, include = FALSE}
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+tr <- "tr"
+eng <- "us"
+```
+
 <br>
+
+{{% alert note %}}
+On the page you are reviewing, the icons and the contents they refer are as follows: `r emo::ji(tr)` <font color="red">**Turkish**</font>, `r emo::ji(eng)` <font color="red">**English**</font>, `r emo::ji(to.be.updated)` <font color="red">**Will be Updated**</font>, `r emo::ji(in.progress)` <font color="red">**In Progress**</font>, and `r emo::ji(outdated)` <font color="red">**No Longer Valid**</font>.
+{{% /alert %}}
 
 ## Telegram Channel
 To inform you about the important announcements related to the course on time, an announcement channel is created in the [Telegram](https://telegram.org/) app. The detailed information can be found on documents below.  
@@ -27,8 +39,8 @@ To inform you about the important announcements related to the course on time, a
 ## Syllabus and Important Dates
 | Normal Education | Secondary Education |
 | :--- | :--- |
-| [Syllabus](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) | [Syllabus](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) |
-| [Important Dates](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) | [Important Dates](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) |
+| [Syllabus](`r paste0(economics.path, "EE/Economics_NE - Syllabus (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Syllabus](`r paste0(economics.path, "EE/Economics_SE - Syllabus (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Important Dates](`r paste0(economics.path, "EE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Important Dates](`r paste0(economics.path, "EE/Economics_SE - Important Dates (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 
 ## Course Book
 - [Book Selection Explanation](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`)

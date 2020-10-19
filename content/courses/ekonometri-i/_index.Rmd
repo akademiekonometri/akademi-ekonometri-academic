@@ -3,11 +3,13 @@
 linktitle: "Ekonometri I"
 summary: "Verildiği son bölüm ve dönem: İktisat - Güz 2020"
 weight: 10
+categories: [Ders]
+tags: [ekonometri I, türkçe, turkish]
 
 # Page metadata.
 title: "Ekonometri I"
 date: "2020-10-05"
-lastmod: "2020-10-14"
+lastmod: "2020-10-13"
 draft: false
 # toc: true
 type: docs  # Do not modify.

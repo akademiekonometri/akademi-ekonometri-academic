@@ -4,7 +4,7 @@ title: Ders Anlatımı (Örnek)
 subtitle: ""
 summary: "Akademi Ekonometri olarak video va not paylaşımında bulunacağımız derslerle ilgili kısa bir ön gösterim yapalım dedik."
 categories: [ders]
-tags: [örnek gönderi, pdf, slayt, video]
+tags: [örnek gönderi, pdf, slayt, video, türkçe, turkish]
 author: Akademi Ekonometri
 date: "2020-10-05"
 lastmod: "2020-10-06T09:54:28+03:00"

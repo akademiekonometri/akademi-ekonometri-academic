@@ -4,7 +4,7 @@ title: Yakında Yayındayız!
 subtitle: ""
 summary: "Bu blog yazısında Akademi Ekonometri'nin ne olduğunu ve menüsünde ne olduğunu kısaca açıklamaya çalıştık."
 categories: [duyuru]
-tags: [hakkımızda]
+tags: [hakkımızda, türkçe, turkish]
 author: Akademi Ekonometri
 date: "2020-10-04"
 lastmod: "2020-10-06T01:37:14+03:00"

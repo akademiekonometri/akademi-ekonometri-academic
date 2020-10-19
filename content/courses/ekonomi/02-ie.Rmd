@@ -16,7 +16,19 @@ menu:
 weight: 22
 ---
 
+```{r emoji, include = FALSE}
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+tr <- "tr"
+eng <- "us"
+```
+
 <br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
 
 ## Telegram Kanalı
 Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
@@ -27,8 +39,8 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 ## Ders Planı ve Önemli Günler
 | 1. Öğretim | 2. Öğretim |
 | :--- | :--- |
-| [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Ders Plani (Kara).pdf")`) | [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Ders Plani (Kara).pdf")`) |
-| [Önemli Günler](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Onemli Gunler (Kara).pdf")`) | [Önemli Günler](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Onemli Gunler (Kara).pdf")`) |
+| [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Ders Plani (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Önemli Günler](`r paste0(ekonomi.path, "IE/Ekonomi_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Önemli Günler](`r paste0(ekonomi.path, "IE/Ekonomi_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 
 ## Ders Kitabı
 - [Kitap Seçimi Açıklaması](`r paste0(ekonomi.path, "Ekonomi_Kitap Secimi Aciklamasi (Kara).pdf")`)

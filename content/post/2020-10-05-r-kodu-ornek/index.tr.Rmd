@@ -4,7 +4,7 @@ title: R Kodu (Örnek)
 subtitle: ""
 summary: "Akademi Ekonometri olarak R'da neler yapabileceğinizi RMarkdown kullanarak çok kısaca anlatmaya çalıştık."
 categories: [R]
-tags: [örnek gönderi, grafik, R Markdown, regresyon]
+tags: [örnek gönderi, grafik, R Markdown, regresyon, türkçe, turkish]
 author: Akademi Ekonometri
 date: "2020-10-05"
 lastmod: "2020-10-05T22:59:01+03:00"

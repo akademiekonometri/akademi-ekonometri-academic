@@ -119,10 +119,16 @@ Load.Install(c("devtools", "png", "proto"))
 Load.Install(c("renv")) ## Note that to activate the "renv" package you need to use "renv::init()" once.
 
 #=================================
-# Packages for reproducible research.
-Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR"))
+# Packages for emojis and icons.
+if("fontawesome" %in% rownames(installed.packages()) == FALSE) {devtools::install_github("rstudio/fontawesome")}
+library("fontawesome")
+
 if("emo" %in% rownames(installed.packages()) == FALSE) {devtools::install_github("hadley/emo")}
 library("emo")
+
+#=================================
+# Packages for reproducible research.
+Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR"))
 
 # Packages for general miscellaneous actions.
 Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm", "lubridate", "NCmisc", "classInt"))

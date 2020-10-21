@@ -42,7 +42,12 @@ outdated <- "no_entry"
 - [R Rastgele - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlK87V9m6L0hT2jfKmWkNct) `r emo::ji(tr)` `r emo::ji(in.progress)`
 
 ## Diğer Dokümanlar
-- `r emo::ji(in.progress)`
+- [İstatistiksel Tablolar - Wooldridge](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar - Wooldridge.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar (Önemli Olanlar) - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar (Onemli Olanlar) - Baskent Universitesi.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar - Güriş](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar - Guris.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Formüller ve Tablolar - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel Formuller ve Tablolar - Baskent Universitesi.pdf")`) `r emo::ji(tr)`
+- [Yunan Harfleri](`r paste0(ekonometri.i.path, "Yunan Harfleri.pdf")`) `r emo::ji(tr)`
+- [wooldridge - R Paketi](`r paste0(ekonometri.i.path, "Package - wooldridge.pdf")`) `r emo::ji(eng)``r fa("r-project", fill = "steelblue")`
 
 ## Online-Ders
 - [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`

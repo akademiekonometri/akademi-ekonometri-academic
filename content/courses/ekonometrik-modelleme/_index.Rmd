@@ -1,0 +1,27 @@
+---
+# Course title, summary, and position.
+linktitle: "Ekonometrik Modelleme ve Zaman Serileri Analizi"
+summary: "Verildiği son bölüm ve dönem: İktisat (YL) - Güz 2020"
+weight: 40
+categories: [Ders]
+tags: [ekonometrik modelleme, türkçe, turkish]
+
+# Page metadata.
+title: "Ekonometrik Modelleme"
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs  # Do not modify.
+
+# Add menu entry to sidebar.
+menu:
+  ekonometrik-modelleme:
+    name: Ekonometrik Modelleme
+    weight: 10
+---
+
+<br>
+
+Ekonometrik Modelleme ve Zaman Serileri Analizi dersine hoş geldiniz!  
+

@@ -1,0 +1,45 @@
+---
+title: Ödev ve Sınavlar
+linktitle: Ödev ve Sınavlar
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometrik-modelleme:
+    parent: 
+    weight: 40
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 40
+---
+
+```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
+
+## Ödevler
+- [CANVAS'ta Online Çoktan Seçmeli Ödev Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
+
+## Sınavlar
+- [Ara Sınav - İnceleme](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme - Ara Sinav Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ara Sınav - Örnek Sorular](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme - Ara Sinav Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Final Sınavı - İnceleme](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme - Final Sinavi Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Final Sınavı - Örnek Sorular](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme - Final Sinavi Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [CANVAS'ta Online Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
+- [CANVAS'ta Online Yazılı Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Yazılı Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=wsUB6-fTxA8&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`

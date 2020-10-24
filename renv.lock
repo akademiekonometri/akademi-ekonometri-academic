@@ -249,10 +249,10 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.25",
+      "Version": "0.6.26",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f697db7d92b7028c4b3436e9603fb636"
+      "Hash": "312b822306ececbbf7b9731937d9ec55"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -286,6 +286,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "7fce217eaaf8016e72065e85c73027b5"
+    },
+    "fontawesome": {
+      "Package": "fontawesome",
+      "Version": "0.1.0",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "fontawesome",
+      "RemoteUsername": "rstudio",
+      "RemoteRef": "master",
+      "RemoteSha": "2b64e3148c9c5c70e415cdeb3e33ac3200edadbf",
+      "Hash": "56015195afd4027e594d0d83ff0abdce"
     },
     "forcats": {
       "Package": "forcats",
@@ -709,10 +721,10 @@
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "0.4.7",
+      "Version": "0.4.8",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c06d2a6887f4b414f8e927afd9ee976a"
+      "Hash": "843a6af51414bce7f8a8e372f11d6cd0"
     },
     "rmarkdown": {
       "Package": "rmarkdown",

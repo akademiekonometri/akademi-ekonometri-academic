@@ -31,8 +31,8 @@ outdated <- "no_entry"
 {{% /alert %}}
 
 ## Ödevler
-- [CANVAS'ta Online Çoktan Seçmeli Ödev Nasıl Yapılır?]() `r emo::ji(tr)` `r emo::ji(in.progress)`
-    - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)` `r emo::ji(outdated)`
+- [CANVAS'ta Online Çoktan Seçmeli Ödev Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 
 ## Sınavlar
 | Türkçe `r emo::ji(tr)` | İngilizce `r emo::ji(eng)` |
@@ -40,7 +40,7 @@ outdated <- "no_entry"
 | [Ara Sınav - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Ara Sinav Inceleme (Kara).pdf")`) | [Midterm Exam - Review](`r paste0(economics.path, "Economics - Midterm Exam Review (Kara).pdf")`) |
 | [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Final Sinavi Inceleme (Kara).pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics - Final Exam Review (Kara).pdf")`) |
 
-- [CANVAS'ta Online Sınav Nasıl Yapılır?]() `r emo::ji(tr)` `r emo::ji(in.progress)`
-    - [DYS'de Online Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)` `r emo::ji(outdated)`
-- [CANVAS'ta Online Yazılı Sınav Nasıl Yapılır?]() `r emo::ji(tr)` `r emo::ji(in.progress)`
-    - [DYS'de Online Yazılı Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=wsUB6-fTxA8&feature=youtu.be) `r emo::ji(tr)` `r emo::ji(outdated)`
+- [CANVAS'ta Online Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
+- [CANVAS'ta Online Yazılı Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS'de Online Yazılı Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=wsUB6-fTxA8&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`

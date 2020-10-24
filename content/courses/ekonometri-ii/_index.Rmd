@@ -1,0 +1,27 @@
+---
+# Course title, summary, and position.
+linktitle: "Ekonometri II"
+summary: "Verildiği son bölüm ve dönem: İktisat - Yaz 2020"
+weight: 20
+categories: [Ders]
+tags: [ekonometri II, türkçe, turkish]
+
+# Page metadata.
+title: "Ekonometri II"
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs  # Do not modify.
+
+# Add menu entry to sidebar.
+menu:
+  ekonometri-ii:
+    name: Ekonometri II
+    weight: 10
+---
+
+<br>
+
+Ekonometri II dersine hoş geldiniz!  
+Bu dersin amacı Ekonometri I dersinde doğrusal regresyon modellerini oluşturmak için kullanılan Gauss Markov varsayımlarının geçerli olmadığı durumları detaylı olarak incelenmek ve ekonometride kullanılan temel modelleme tekniklerini tanıtmaktır. Ayrıntılı olarak ele alınacak konu başlıkları arasında otokorelasyon, çoklu doğrusal bağıntı ve değişen varyans sorunlarının sebepleri, sonuçları, test edilmesi ve düzeltilmesi bulunmaktadır.

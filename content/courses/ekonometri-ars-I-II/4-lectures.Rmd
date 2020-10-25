@@ -30,6 +30,65 @@ outdated <- "no_entry"
 İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
 {{% /alert %}}
 
-## Hafta #1
-- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar]() `r emo::ji(tr)``r emo::ji(in.progress)`
+{{% alert note %}}
+`MK`, <font color="red">**[Prof. Dr. Ş. Metin Kara](https://scholar.google.com/citations?user=U45CVc0AAAAJ&hl=tr)**</font> tarafından kaleme alınan içerikleri ifade eder...
+{{% /alert %}}
+
+## Data Kaynakları
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Akademik Makale Yazım Esasları
+#### Kitaplar ve Makaleler
+- [Akademik Yazım Kuralları Kitapçığı (Kökdemir)](`r paste0(ekonometri.ars.path, "Kokdemir__Akademik Yazim Kurallari Kitapcigi.pdf")`) `r emo::ji(tr)`
+- [Bilimsel Bir Makale Nasıl Yazılır? (Seçkin)](`r paste0(ekonometri.ars.path, "Seckin-(2003a)-Bilimsel Bir Makale Nasil Yazilir-(article).pdf")`) `r emo::ji(tr)`
+- [Bilimsel Makale Nasıl Yazılır? (Yılmaz)](`r paste0(ekonometri.ars.path, "Yilmaz-(2005a)-Bilimsel Makale Nasil Yazilir-(article).pdf")`) `r emo::ji(tr)`
+- [Bilimsel Bir Makale Nasıl Yazılır ve Yayımlanır? (Day)](`r paste0(ekonometri.ars.path, "Day__Bilimsel Bir Makale Nasil Yazilir ve Yayimlanir.pdf")`) `r emo::ji(tr)`
+
+#### Slaytlar
+- [1 - Akademik Makale Yazım Tekniklerine Giriş (MK)](`r paste0(ekonometri.ars.path, "1 - Akademik Makale Yazim Tekniklerine Giris.ppt")`) `r emo::ji(tr)`
+- [2 - Akademik Makale Yazımı (MK)](`r paste0(ekonometri.ars.path, "2 - Akademik Makale Yazimi.ppt")`) `r emo::ji(tr)`
+- [3 - Akademik Makale (MK)](`r paste0(ekonometri.ars.path, "3 - Akademik Makale.ppt")`) `r emo::ji(tr)`
+- [4 - Yazım Öncesi Hazırlık (MK)](`r paste0(ekonometri.ars.path, "4 - Yazim Oncesi Hazirlik.ppt")`) `r emo::ji(tr)`
+- [5 - Başlık (MK)](`r paste0(ekonometri.ars.path, "5 - Baslik.ppt")`) `r emo::ji(tr)`
+- [6 - Yazar İsimleri (MK)](`r paste0(ekonometri.ars.path, "6 - Yazar Isimleri.ppt")`) `r emo::ji(tr)`
+- [7 - Özet (MK)](`r paste0(ekonometri.ars.path, "7 - Ozet.ppt")`) `r emo::ji(tr)`
+- [8 - Giriş (MK)](`r paste0(ekonometri.ars.path, "8 - Giris.ppt")`) `r emo::ji(tr)`
+- [9 - Materyal ve Metotlar (MK)](`r paste0(ekonometri.ars.path, "9 - Materyal ve Metotlar.ppt")`) `r emo::ji(tr)`
+- [10 - Bulgular (MK)](`r paste0(ekonometri.ars.path, "10 - Bulgular.ppt")`) `r emo::ji(tr)`
+- [11 - Tartışma (MK)](`r paste0(ekonometri.ars.path, "11 - Tartisma.ppt")`) `r emo::ji(tr)`
+- [12 - Kaynaklar ve Atıf (MK)](`r paste0(ekonometri.ars.path, "12 - Kaynaklar ve Atif.ppt")`) `r emo::ji(tr)`
+
+#### Diğer Kaynaklar
+- [Bilimsel Makale Yazım Teknikleri (Uluoğlu)](`r paste0(ekonometri.ars.path, "Uluoglu__Bilimsel Makale Yazim Teknikleri.pdf")`) `r emo::ji(tr)`
+- [Makale Nasıl Yazılır?](https://www.akademikkaynak.com/makale-nasil-yazilir.html) `r emo::ji(tr)`
+
+## Akademik Makale Sunum Esasları
+#### Kitaplar ve Makaleler
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+#### Slaytlar
+- [1 - Makale Nasıl Sunulur? (MK)](`r paste0(ekonometri.ars.path, "1 - Makale Nasil Sunulur.ppt")`) `r emo::ji(tr)`
+
+#### Diğer Kaynaklar
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Akademik Makale Yayınlama Esasları
+#### Kitaplar ve Makaleler
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+#### Slaytlar
+- [1 - Makale Yayınlama Süreci (MK)](`r paste0(ekonometri.ars.path, "1 - Makale Yayinlama Sureci.ppt")`) `r emo::ji(tr)`
+- [2 - Makale Değerlendirme - Editör ve Hakemler (MK)](`r paste0(ekonometri.ars.path, "2 - Makale Degerlendirme__Editor ve Hakemler.ppt")`) `r emo::ji(tr)`
+
+#### Diğer Kaynaklar
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Tez Yazım Esasları
+#### Kitaplar ve Makaleler
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+#### Slaytlar
+- [1 - Tez Nasıl Yazılır? (MK)](`r paste0(ekonometri.ars.path, "1 - Tez Nasil Yazilir.ppt")`) `r emo::ji(tr)`
+
+#### Diğer Kaynaklar
+- `r emo::ji(tr)``r emo::ji(in.progress)`

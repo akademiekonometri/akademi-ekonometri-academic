@@ -1,0 +1,27 @@
+---
+# Course title, summary, and position.
+linktitle: "Ekonometri Araştırmaları I-II"
+summary: "Verildiği son bölüm ve dönem: İktisat - Güz 2020"
+weight: 30
+categories: [Ders]
+tags: [ekonometri araştırmaları I-II, türkçe, turkish]
+
+# Page metadata.
+title: "Ekonometri Araştırmaları I-II"
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs  # Do not modify.
+
+# Add menu entry to sidebar.
+menu:
+  ekonometri-ars-i-ii:
+    name: Ekonometri Araştırmaları I-II
+    weight: 10
+---
+
+<br>
+
+Ekonometri Araştırmaları I-II dersine hoş geldiniz!  
+

@@ -1,0 +1,35 @@
+---
+title: Ders Notları
+linktitle: Ders Notları
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri-ars-i-ii:
+    parent: 
+    weight: 50
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 50
+---
+
+```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
+
+## Hafta #1
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar]() `r emo::ji(tr)``r emo::ji(in.progress)`

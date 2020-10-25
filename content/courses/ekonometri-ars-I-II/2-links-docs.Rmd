@@ -1,0 +1,63 @@
+---
+title: Önemli Link ve Diğer Dokümanlar
+linktitle: Link ve Diğer Dokümanlar
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri-ars-i-ii:
+    parent: 
+    weight: 30
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 30
+---
+
+```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+{{% /alert %}}
+
+## Akademi Ekonometri
+- [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
+- [Ekonometri I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlqshWDBUxxktcyDo8V4BvN) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ekonometri I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitkkBYmrluukSunncmvL7JSF) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometri I - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlwPLlG1nEh7TczOXZrYw-9) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonometri II - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ekonometri II - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmWlaoQxv-_3bGhKG8C7FOX) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometri II - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitkl1NkezEC8S9FEyBufaK13) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonometri Araştırmaları I-II - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+- [Ekonometrik Modelleme - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmX4rFuzwEPV6LwSIkW2wfi) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ekonometrik Modelleme - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk83Yi1sMWWviJXi2oeUTiS) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometrik Modelleme - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk5XQXH9JYm81CJrr4o9Zhl) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [R ile 15 Dakikada Kolay Kodlama - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitml03Ea8sOjblldkZW-XU5J) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [R Rastgele - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlK87V9m6L0hT2jfKmWkNct) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Diğer Dokümanlar
+- [İstatistiksel Tablolar - Wooldridge](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar - Wooldridge.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar (Önemli Olanlar) - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar (Onemli Olanlar) - Baskent Universitesi.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar - Güriş](`r paste0(ekonometri.i.path, "Istatistiksel Tablolar - Guris.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Formüller ve Tablolar - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel Formuller ve Tablolar - Baskent Universitesi.pdf")`) `r emo::ji(tr)`
+- [Yunan Harfleri](`r paste0(ekonometri.i.path, "Yunan Harfleri.pdf")`) `r emo::ji(tr)`
+- [wooldridge - R Paketi](`r paste0(ekonometri.i.path, "Package - wooldridge.pdf")`) `r emo::ji(eng)``r fa("r-project", fill = "steelblue")`
+
+## Online-Ders
+- [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
+- [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`
+    - [DYS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnUtMAi-Xi-q79LA4lG0Bbe) `r emo::ji(tr)``r emo::ji(outdated)`
+
+## Diğer Linkler
+- [YÖK Dersleri Platformu](https://yokdersleri.yok.gov.tr/) `r emo::ji(tr)`
+- [TÜBA Açık Ders Malzemeleri Portalı](https://acikders.tuba.gov.tr/) `r emo::ji(tr)`

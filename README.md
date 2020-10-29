@@ -1,19 +1,24 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2a352c3b-95ae-4338-98ce-95412f55742c/deploy-status)](https://app.netlify.com/sites/akademiekonometri/deploys)
 
-# [Akademi Ekonometri-Lithium Website](https://akademiekonometri.rbind.io/) Working Directory
+# [Akademi Ekonometri-Academic Website](https://akademiekonometri.rbind.io/) Working Directory
 
 ## Folder Structure for Akademi Ekonometri Website 
 
-- `Akademi Ekonometri-Lithium` folder consists of the HTML and other type of documents.
+- `Akademi Ekonometri-Academic` folder consists of the HTML and other type of documents.
 - `archetypes` folder consists of all the archetypes.
-- `content` folder consists of all the posts.
+- `assets` folder consists of website icon and css.
+- `config` folder consists of website configuration options.
+- `content` folder consists of all the posts, courses, talks, projects, and etc.
+- `data` folder consists of website font, theme, and sharing configuration options.
+- `layouts` folder consists of website page layout configuration options.
 - `R` folder consists of the scripts to build Rmd documents with custom output formats.
+- `resources` folder consists of the automatically generated assets and images for website pages.
 - `renv` folder consists of the settings about the `renv` package for package version control.
 - `static` folder consists of all the static files such as css, fonts, images, js, repo folder which consists of all user related static files, redirects file, and google site verification file.
 - `themes` folder consists of materials related to themes used in this project.
-- `_output.yml` file consists of YAML setting for HTML files.
+- `_data_helper.R`, `_estimation_helper.R`, `_later.R`, and `_notes.R` files consist of notes and codes which are for test, important, and future referance.
 - `_settings.R` file consists of loading all the necessary functions and paths to the general environment, packages, and seed.
-- `Akademi Ekonometri - Lithium.Rproj` file consists of the R project settings.
+- `Akademi Ekonometri - Academic.Rproj` file consists of the R project settings.
 - `Avatar_Bitbucket.png` file is the avatar of the web site.
 - `config.toml` file consists of global site settings.
 - `index.Rmd` file consists of indexing code. Do not touch it.
@@ -23,8 +28,8 @@
 
 ## Important Notes
 - The Akademi Ekonometri web site address is: [https://akademiekonometri.rbind.io/](https://akademiekonometri.rbind.io/)
-- The whole website is created using the [`blogdown`](https://bookdown.org/yihui/blogdown/) package, [`Hugo`](https://gohugo.io/) static website builder, [`Netlify`](https://www.netlify.com/) website deployer, and [`GitHub`](https://github.com/) cloud version control software.
-- You can view the website source files [here](https://github.com/akademiekonometri/akademi-ekonometri-lithium).
+- The whole website is created using the [`blogdown`](https://bookdown.org/yihui/blogdown/) package, [`Hugo`](https://gohugo.io/) static website builder, [`Netlify`](https://www.netlify.com/) website deployer, [Academic Starter theme](https://wowchemy.com/), and [`GitHub`](https://github.com/) cloud version control software.
+- You can view the website source files [here](https://github.com/akademiekonometri/akademi-ekonometri-academic).
 - Please feel free to use any of the content without the permission of the repository owner.
 - All comments, suggestions, and other correspondences should be sent to our e-mail address [akademiekonometri@gmail.com](<mailto:akademiekonometri@gmail.com>).
 

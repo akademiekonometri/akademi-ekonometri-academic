@@ -2,14 +2,14 @@
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
 draft: false
-slug: 
 title: "{{ replace .Name "-" " " | title }}"
-subtitle: ""
-summary: ""
-tags: []
-categories: []
 author: Akademi Ekonometri
 date: {{ .Date }}
+slug: 
+categories: []
+tags: []
+subtitle: ""
+summary: ""
 lastmod: {{ .Date }}
 publishDate: ""
 featured: false

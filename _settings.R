@@ -128,7 +128,10 @@ library("emo")
 
 #=================================
 # Packages for reproducible research.
-Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR"))
+Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR")) ## Use the following code for all the options of knitr: "str(knitr::opts_chunk$get())"
+
+# Packages for YAML options.
+Load.Install(c("ymlthis")) ## https://ymlthis.r-lib.org/index.html
 
 # Packages for general miscellaneous actions.
 Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm", "lubridate", "NCmisc", "classInt"))

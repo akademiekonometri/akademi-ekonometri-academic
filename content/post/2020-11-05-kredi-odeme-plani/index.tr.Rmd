@@ -35,11 +35,7 @@ projects: []
 #   icon_pack: fab
 #   name: demo code
 #   url: https://example.com
-# output:
-#   blogdown::html_page:
 runtime: shiny
-# output: html_document
-# runtime: shiny
 ---
 
 ```{r emoji, include = FALSE}
@@ -49,8 +45,6 @@ to.be.updated <- "arrows_counterclockwise"
 in.progress <- "fire"
 outdated <- "no_entry"
 ```
-
-<br>
 
 {{% alert note %}}
 <font color="red">**İncelediğiniz sayfa ileri bir tarihte güncellenecek ve yeni bilgiler eklenecektir...**</font>`r emo::ji(to.be.updated)`

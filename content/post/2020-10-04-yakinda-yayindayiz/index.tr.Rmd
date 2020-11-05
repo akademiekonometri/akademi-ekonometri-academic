@@ -2,9 +2,9 @@
 title: Yakında Yayındayız!
 author: Akademi Ekonometri
 date: "2020-10-04"
+slug: yakinda-yayindayiz
 categories: [duyuru]
 tags: [hakkımızda, türkçe, turkish]
-slug: yakinda-yayindayiz
 subtitle: ""
 summary: "Bu blog yazısında Akademi Ekonometri'nin ne olduğunu ve menüsünde ne olduğunu kısaca açıklamaya çalıştık."
 lastmod: "2020-10-06T01:37:14+03:00"

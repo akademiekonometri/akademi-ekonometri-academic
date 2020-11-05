@@ -1,0 +1,65 @@
+---
+title: Kredi Ödeme Planı
+author: Akademi Ekonometri
+date: '2020-11-05'
+slug: kredi-odeme-plani
+categories: [R, shiny]
+tags: [shiny, kredi ödeme planı, türkçe, turkish]
+subtitle: ''
+summary: "Kredi faizlerinin sürekli değiştiği bu günlerde kullanmayı düşündüğünüz krediye ait ödeme planını sizi yormadan ve kafanızı karıştırmadan tüm detaylarıyla gösteren basit, hızlı, otomatik ve en önemlisi tam dinamik bir uygulama hazırladık."
+lastmod: '2020-11-05T09:19:52+03:00'
+publishDate: ''
+featured: no
+disable_jquery: no
+image:
+  caption: '[Photo from Unsplash](https://unsplash.com/)'
+  focal_point: ''
+  preview_only: no
+projects: []
+# disable_codefolding: no
+# codefolding_show: show
+# codefolding_nobutton: no
+# output:
+#   blogdown::html_page:
+#     number_sections: yes
+#     toc: yes
+#     toc_depth: 2
+#     mathjax: local
+#     self_contained: no
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
+# output:
+#   blogdown::html_page:
+runtime: shiny
+# output: html_document
+# runtime: shiny
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><br></p>
+<p>{{% alert note %}}
+<font color="red"><strong>İncelediğiniz sayfa ileri bir tarihte güncellenecek ve yeni bilgiler eklenecektir…</strong></font>🔄
+{{% /alert %}}</p>
+<p>Merhaba,</p>
+<p>Bildiğiniz gibi pandemi nedeniyle tüm dünyada görülen kredi bolluğu Türkiye’de yerini yavaş yavaş kredilerde daralmaya bıraktı. Bununla paralel olarak kredi faizleri her geçen gün değişmekte ve hatta hızlı bir şekilde artmakta.</p>
+<ul>
+<li><a href="https://www.tcmb.gov.tr/">Türkiye Cumhuriyeti Merkez Bankası</a>’nın uyguladığı güncel gecelik faiz oranlarını görmek için <a href="https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Temel+Faaliyetler/Para+Politikasi/Merkez+Bankasi+Faiz+Oranlari/faiz-oranlari">tıklayın</a>.</li>
+<li>Devlet tahvili faiz oranlarını tarihsel ve karşılastırmalı olarak incelemek için <a href="https://tr.investing.com/rates-bonds/">tıklayın</a>.</li>
+</ul>
+<p>Yukarıda verdiğimiz linklerden de görüldüğü üzere kredi faizleri hızla değişiyor ve bu durumda ise kredi çekmek isteyen birey ve firmaların karşılaştıkları belirsizliği ve bununla beraber risklerini arttırıyor. Artan belirsizlik ve risklerle zaten oldukça kafası karışan kredi kullanıcısı bunların yanı sıra çoğu kişi için oldukça karışık görünen <em>kredi ödeme planı</em> hesabıyla uğraşmak durumunda kalıyor. Bu plan genellikle banka tarafından <em>kredi onayından hemen önce</em> gösterilse de krediyi kullanacak kişi bu planı daha önceden görüp belirsizliği biraz olsun azaltmak için alternatiflerini görmek istiyor.</p>
+<p>Kısa bir araştırmadan sonra otomatik ama malesef tam dinamik olmayan şekilde <em>kredi ödeme planı</em> oluşturan bir çok web sitesi bulabilirsiniz. Örneğin, <a href="https://www.hangikredi.com/kredi/hesaplama-araclari">hangikredi.com</a> adlı web sitesi, kredi ödeme planını otomatik olarak oluştururken, kredi kullanacak kişiye sadece <em>kredi miktarı</em> ve <em>ödeme sayısı (ay)</em> üzerinde değişiklik yapmaya izin veriyor. Tam dinamik bir rapor sunmayan bu tarz web siteleri genellikle kredi faizi ve vergi oranlarında değişikliğe izin vermedikleri gibi kredi ödeme planını grafikle görüntüleme ve farklı dosya formatlarında indirmeye de izin vermiyor.</p>
+<p>Akademi Ekonometri olarak yukarıda bahsettiğimiz bu açıkları kapatmak ve kredi kullanıcısına <strong>basit</strong>, <strong>hızlı</strong>, <strong>otomatik</strong> ve <strong>tam dinamik</strong> bir <em>kredi ödeme planı</em> oluşturmak için aşağıdaki uygulamayı hazırladık.</p>
+<p>{{% alert note %}}
+<em>Kredi Ödeme Planı</em> uygulamasına <a href="https://akademiekonometri.shinyapps.io/kredi-odeme-plani/">bu linkten</a> de ulaşabilirsiniz. İleri bir tarihte bu sayfa güncellenecek ve uygulamanın detaylarından da bahsedeceğiz.
+{{% /alert %}}</p>
+<iframe width="1200" height="800" frameborder="no" src="https://akademiekonometri.shinyapps.io/kredi-odeme-plani/">
+</iframe>

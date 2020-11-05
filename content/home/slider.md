@@ -37,7 +37,7 @@ height = "325px"
 [[item]]
   title = ""
   content = "\"Oldukça keyifli ve akıcı bir anlatımdı, teşekkürler.\""
-  align = "left"
+  align = "center"
 
   overlay_color = "#404040"  # An HTML color value.
   overlay_img = "headers/leaf1.jpg"
@@ -69,6 +69,20 @@ height = "325px"
 
   overlay_color = "#404040"  # An HTML color value.
   overlay_img = "headers/leaf4.jpg"
+  overlay_filter = 0.4
+
+  cta_label = "Videoyu inceleyin"
+  cta_url = "https://www.youtube.com/watch?v=JIpF9at8540"
+  cta_icon_pack = "fas"
+  cta_icon = "seedling" # leaf can also be used.
+
+[[item]]
+  title = ""
+  content = "\"Hocam merhaba, dersi İngilizce aldığım için zorlanıyordum fakat sizin hem Türkçe hem İngilizce videolarınızı izleyince çok iyi bir şekilde pekiştiriyorum, böyle bir imkanı sunduğunuz için çok teşekkür ederim.\""
+  align = "right"
+
+  overlay_color = "#404040"  # An HTML color value.
+  overlay_img = "headers/branch2.jpg"
   overlay_filter = 0.4
 
   cta_label = "Videoyu inceleyin"

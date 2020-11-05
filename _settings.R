@@ -6,6 +6,7 @@
 # ---- Settings.Paths.1 ----
 # Main path of the "—AkademiEkonometri.io" folder.
 base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic)", getwd(), perl = TRUE)), "/") ## "base.path" is the unix path of "./Akademi Ekonometri-Academic.Rproj" folder.
+# base.path <- paste0(dirname(rstudioapi::getActiveDocumentContext()$path), "/") ## Note that this works when Running or Sourcing your file. The code automatically find out the location of the current file.
 
 # Path for the ".static/repo" folder
 repo.path <- paste0(base.path, "static/repo/")
@@ -55,7 +56,7 @@ func.path <- paste0(repo.path, "scripts/functions/")
 # Path for "./slides" folder.
 slides.path <- paste0(repo.path, "slides/")
 
-#================================= Functions ===================================
+#=============================== Relative Paths ================================
 # ---- Settings.Relative.Paths.1 ----
 
 # Relative path extension which carries the folder path from /courses/CourseName/FileName to /repo/
@@ -120,10 +121,10 @@ Load.Install(c("renv")) ## Note that to activate the "renv" package you need to 
 
 #=================================
 # Packages for emojis and icons.
-if("fontawesome" %in% rownames(installed.packages()) == FALSE) {devtools::install_github("rstudio/fontawesome")}
+if("fontawesome" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install_github("rstudio/fontawesome")}
 library("fontawesome")
 
-if("emo" %in% rownames(installed.packages()) == FALSE) {devtools::install_github("hadley/emo")}
+if("emo" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install_github("hadley/emo")}
 library("emo")
 
 #=================================

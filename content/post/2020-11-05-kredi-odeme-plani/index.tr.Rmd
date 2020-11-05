@@ -1,0 +1,76 @@
+---
+title: Kredi Ödeme Planı
+author: Akademi Ekonometri
+date: '2020-11-05'
+slug: kredi-odeme-plani
+categories: [R, shiny]
+tags: [shiny, kredi ödeme planı, türkçe, turkish]
+subtitle: ''
+summary: "Kredi faizlerinin sürekli değiştiği bu günlerde kullanmayı düşündüğünüz krediye ait ödeme planını sizi yormadan ve kafanızı karıştırmadan tüm detaylarıyla gösteren basit, hızlı, otomatik ve en önemlisi tam dinamik bir uygulama hazırladık."
+lastmod: '2020-11-05T09:19:52+03:00'
+publishDate: ''
+featured: no
+disable_jquery: no
+image:
+  caption: '[Photo from Unsplash](https://unsplash.com/)'
+  focal_point: ''
+  preview_only: no
+projects: []
+# disable_codefolding: no
+# codefolding_show: show
+# codefolding_nobutton: no
+# output:
+#   blogdown::html_page:
+#     number_sections: yes
+#     toc: yes
+#     toc_depth: 2
+#     mathjax: local
+#     self_contained: no
+# links:
+# - icon: flask
+#   icon_pack: fas
+#   name: demo slides
+#   url: ../../slides/rladies-demo-slides.html
+# - icon: github
+#   icon_pack: fab
+#   name: demo code
+#   url: https://example.com
+# output:
+#   blogdown::html_page:
+runtime: shiny
+# output: html_document
+# runtime: shiny
+---
+
+```{r emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+<font color="red">**İncelediğiniz sayfa ileri bir tarihte güncellenecek ve yeni bilgiler eklenecektir...**</font>`r emo::ji(to.be.updated)`
+{{% /alert %}}
+
+Merhaba,
+
+Bildiğiniz gibi pandemi nedeniyle tüm dünyada görülen kredi bolluğu Türkiye'de yerini yavaş yavaş kredilerde daralmaya bıraktı. Bununla paralel olarak kredi faizleri her geçen gün değişmekte ve hatta hızlı bir şekilde artmakta.  
+
+- [Türkiye Cumhuriyeti Merkez Bankası](https://www.tcmb.gov.tr/)'nın uyguladığı güncel gecelik faiz oranlarını görmek için [tıklayın](https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/Temel+Faaliyetler/Para+Politikasi/Merkez+Bankasi+Faiz+Oranlari/faiz-oranlari).
+- Devlet tahvili faiz oranlarını tarihsel ve karşılastırmalı olarak incelemek için [tıklayın](https://tr.investing.com/rates-bonds/).
+
+Yukarıda verdiğimiz linklerden de görüldüğü üzere kredi faizleri hızla değişiyor ve bu durumda ise kredi çekmek isteyen birey ve firmaların karşılaştıkları belirsizliği ve bununla beraber risklerini arttırıyor. Artan belirsizlik ve risklerle zaten oldukça kafası karışan kredi kullanıcısı bunların yanı sıra çoğu kişi için oldukça karışık görünen *kredi ödeme planı* hesabıyla uğraşmak durumunda kalıyor. Bu plan genellikle banka tarafından *kredi onayından hemen önce* gösterilse de krediyi kullanacak kişi bu planı daha önceden görüp belirsizliği biraz olsun azaltmak için alternatiflerini görmek istiyor.
+
+Kısa bir araştırmadan sonra otomatik ama malesef tam dinamik olmayan şekilde *kredi ödeme planı* oluşturan bir çok web sitesi bulabilirsiniz. Örneğin, [hangikredi.com](https://www.hangikredi.com/kredi/hesaplama-araclari) adlı web sitesi, kredi ödeme planını otomatik olarak oluştururken, kredi kullanacak kişiye sadece *kredi miktarı* ve *ödeme sayısı (ay)* üzerinde değişiklik yapmaya izin veriyor. Tam dinamik bir rapor sunmayan bu tarz web siteleri genellikle kredi faizi ve vergi oranlarında değişikliğe izin vermedikleri gibi kredi ödeme planını grafikle görüntüleme ve farklı dosya formatlarında indirmeye de izin vermiyor.
+
+Akademi Ekonometri olarak yukarıda bahsettiğimiz bu açıkları kapatmak ve kredi kullanıcısına **basit**, **hızlı**, **otomatik** ve **tam dinamik** bir *kredi ödeme planı* oluşturmak için aşağıdaki uygulamayı hazırladık.
+
+{{% alert note %}}
+*Kredi Ödeme Planı* uygulamasına [bu linkten](https://akademiekonometri.shinyapps.io/kredi-odeme-plani/) de ulaşabilirsiniz. İleri bir tarihte bu sayfa güncellenecek ve uygulamanın detaylarından da bahsedeceğiz.
+{{% /alert %}}
+
+<iframe width="1200" height="800" frameborder="no" src="https://akademiekonometri.shinyapps.io/kredi-odeme-plani/"></iframe>

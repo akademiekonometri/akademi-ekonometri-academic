@@ -23,15 +23,17 @@ source("renv/activate.R")
 #============================== Blogdown Options ===============================
 # Blogdown options.
 options(
-  blogdown.author = "Ömer Kara", ## Default author for posts.
+  blogdown.author = "Akademi Ekonometri", ## Default author for posts.
   blogdown.ext = ".Rmd", ## Default file type for posts.
   blogdown.subdir = "post", ## Default directory for posts.
   blogdown.yaml.empty = TRUE,
-  blogdown.method = "html",
+  blogdown.method = "html", ## Might crash the Rstudio.
   blogdown.new_bundle = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
+  blogdown.hugo.version = "0.78.2",
+  blogdown.serve_site.startup = FALSE,
   # blogdown.publishDir = "../public_site", ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
   # blogdown.widgetsID = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  # blogdown.hugo.server = c("--buildDrafts", "--buildFuture", "--navigateToChanged"), ## See: https://bookdown.org/yihui/blogdown/livereload.html
+  blogdown.hugo.server = c('-D', '-F', '--navigateToChanged'), ## See: https://bookdown.org/yihui/blogdown/livereload.html
   blogdown.title_case = TRUE
 )
 

@@ -36,7 +36,7 @@ outdated <- "no_entry"
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=2X_-CiNAr6w&list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY&index=1) | [Video - Part #1](https://www.youtube.com/watch?v=rEZfMve6Vm0&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=1) |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=jeNwjaAVs4o&list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY&index=2) | [Video - Part #2](https://www.youtube.com/watch?v=1wAclMe5c6M&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=2) |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 1 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Notes](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 | [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet](`r paste0(economics.path, "Economics - Week 1 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 | [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS Cevaplar (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 1 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
 

@@ -38,7 +38,7 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(Package.Names = c("XLConnect", "var"))
+Load.Install(Package.Names = c("XLConnect", "vars"))
 #==========
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc"))
@@ -104,7 +104,7 @@ temp$Ln.Dis.Borc.KB <- log(temp$Dis.Borc.KB) ## Model icinde yorumlamak daha kol
 
 #===================== Coklu Dogrusal Regresyon ile Tahmin =====================
 # Coklu dogrusal regresyonla model tahmini.
-## Zaman serisi datasinin kesinlikle SEKK yontemi kullanarak coklu regresyonla tahmin edilmemesi gerekir. Bunun nedeni zaman serisi datasinda siklikla gorulen otokorolasyondur. Zaman serisi datasinda siklikla pozitif otokorelasyon gorulur ve bunun sonucunda parametre tahmincilerinin varyansi duser, t degerleri buyur, modelin geneli icin yapilan F testinde F degeri buyur ve R2 degeri buyur. Kisacasi cikan sonuclara guvenilmemesi gerekir.
+## Zaman serisi datasinin kesinlikle SEKK yontemi kullanarak coklu regresyonla tahmin edilmemesi gerekir. Bunun nedeni zaman serisi datasinda siklikla gorulen otokorolasyondur. Zaman serisi datasinda siklikla pozitif otokorelasyon gorulur ve bunun sonucunda parametre tahmincilerinin varyansi duser, t degerleri buyur (yani H0 hipotezi yanlis olarak red edilir ve parametre tahmincileri gercekte istatistiki olarak anlamli olmamalarina ragmen anlamli sonucuna varilir), modelin geneli icin yapilan F testinde F degeri buyur (yani H0 hipotezi yanlis olarak red edilir ve model genel olarak anlamli olmamasina ragmen anlamli sonucuna varilir) ve R2 degeri buyur. Kisacasi cikan sonuclara guvenilmemesi gerekir.
 ## Fakat simdilik sadece gosterim olmasi acisindan bir bu yontemi kullanacagiz.
 model <- lm(data = temp, formula = Ln.GSYH.KB ~ Sermaye + Ihracat + Ln.Dis.Borc.KB, singular.ok = FALSE)
 summary(model)

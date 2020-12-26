@@ -38,7 +38,7 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(Package.Names = c("FinCal"))
+Load.Install(Package.Names = c("FinCal", "plotly", "reshape2"))
 #==========
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc"))
@@ -67,13 +67,22 @@ Load.Install(Package.Names = c("FinCal"))
 ## k = KKDF (Kaynak Kullanımı Destekleme Fonu). Kredi için alınan faiz üzerinden Gelir İdaresi Başkanlığına aktarılmak üzere banka tarafından %15 olarak alınır. Konut kredisi hariç tüm kredi işlemlerinde hesaplanan faiz üzerinden alınır.
 ## b = BSMV (Banka Sigorta Muamele Vergisi). Kredi için alınan faiz üzerinden Gelir İdaresi Başkanlığına aktarılmak üzere banka tarafından %5 olarak alınır. Konut kredisi ve konut ipotekli ihtiyaç kredisi haricinde tüm kredi işlemlerinde hesaplanan faiz üzerinden alınır.
 
-#==========
+#=============================== Kredi Bilgileri ===============================
 # Aylik odeme miktarinin hesabi icin on bilgiler.
+#==========
 P <- 10000 ## Kredi miktari.
-r <- 0.0079 ## Aylik faiz orani (ondalik olarak).
+r <- 0.79 ## Aylik faiz orani (yuzde olarak).
 n <- 60 ## Toplam aylik odeme sayisi.
-k <- 0.15 ## KKDF vergisi (ondalik olarak).
-b <- 0.05 ## BSMV vergisi (ondalik olarak).
+k <- 15 ## KKDF vergisi (yuzde olarak).
+b <- 5 ## BSMV vergisi (yuzde olarak).
+
+#=============================== Elle Hesaplama ================================
+# Aylik odeme, toplam geri odeme ve toplam faiz odemesini elle hesaplama.
+#==========
+# Faiz, KKDF ve BSMV yuzdelik oranlarinin odaliga donusturulmasi.
+r <- r/100
+k <- k/100
+b <- b/100
 
 # Vergisiz durumda (KKDF ve BSMV yokken) aylik odeme miktarinin hesabi.
 m <- P/((((1 + r)^n) - 1)/(r * (1 + r)^n))
@@ -81,9 +90,9 @@ m ## Aylik odeme miktari
 
 # Vergili durumda (KKDF ve BSMV varken) aylik odeme miktarinin hesabi.
 ## KKDF ve BSMV faiz uzerinden aldigi icin yeni faiz oraninin hesaplanmasi gerekir.
-r <- r * (1 + (k + b)) ## Vergiyle beraber odeyeceginiz faiz orani.
-m <- P/((((1 + r)^n) - 1)/(r * (1 + r)^n))
-m ## Aylik odeme miktari
+r.kb <- r * (1 + (k + b)) ## Vergiyle beraber odeyeceginiz faiz orani.
+m <- P/((((1 + r.kb)^n) - 1)/(r.kb * (1 + r.kb)^n))
+m ## Aylik odeme miktari.
 
 A <- m * n ## Toplam geri odeme miktari.
 A ## Toplam geri odeme miktari.
@@ -92,35 +101,19 @@ I <- A - P ## Toplam faiz odemesi.
 I ## Toplam faiz odemesi.
 #==========
 
+#=============================== Elle Hesaplama ================================
+# FinCal paketi ile aylik odeme miktarinin hesaplanmasi.
 #==========
-# FinCal paketi ile aylik odeme miktarinin hesaplanmasi icin verilen on bilgiler.
-P <- 10000 ## Kredi miktari.
-r <- 0.0079 ## Aylik faiz orani (ondalik olarak).
-n <- 60 ## Toplam aylik odeme sayisi.
-k <- 0.15 ## KKDF vergisi (ondalik olarak).
-b <- 0.05 ## BSMV vergisi (ondalik olarak).
-
 # Vergili durumda (KKDF ve BSMV varken) aylik odeme miktarinin hesabi.
-r <- r * (1 + (k + b)) ## Vergiyle beraber odeyeceginiz faiz orani.
-m <- pmt(pv = -P, r = r, n = n, fv = 0, type = 0) ## FinCal paketindeki pmt fonksiyonunu kullandik. Kredi miktarinin onundeki -'ye dikkat edin (kredi bir borc oldugundan negatif olarak yazildi.) Fonksiyonun argumanlari: pv (present value - simdiki deger), r (interest rate - faiz orani), n (number of periods - period sayisi), fv (future value - gelecekteki deger), type (eger odemi donemin sonunda ise 0, basinda ise 1 olmali).
+r.kb <- r * (1 + (k + b)) ## Vergiyle beraber odeyeceginiz faiz orani.
+m <- pmt(pv = -P, r = r.kb, n = n, fv = 0, type = 0) ## FinCal paketindeki pmt fonksiyonunu kullandik. Kredi miktarinin onundeki -'ye dikkat edin (kredi bir borc oldugundan negatif olarak yazildi.) Fonksiyonun argumanlari: pv (present value - simdiki deger), r (interest rate - faiz orani), n (number of periods - period sayisi), fv (future value - gelecekteki deger), type (eger odeme donemin sonunda ise 0, basinda ise 1 olmali).
 m ## Aylik odeme miktari
 #==========
 
-#==========
-# Aylik odeme planini ve diger bilgileri tablo uzerinde gosterilmesi icin on bilgiler.
-P <- 10000 ## Kredi miktari.
-r <- 0.0079 ## Aylik faiz orani (ondalik olarak).
-n <- 60 ## Toplam aylik odeme sayisi.
-k <- 0.15 ## KKDF vergisi (ondalik olarak).
-b <- 0.05 ## BSMV vergisi (ondalik olarak).
-
-# Vergili durumda (KKDF ve BSMV varken) aylik odeme miktarinin hesabi.
-r.bk <- r * (1 + (b + k)) ## Vergiyle beraber odeyeceginiz faiz orani.
-m <- P/((((1 + r.bk)^n) - 1)/(r.bk * (1 + r.bk)^n))
-m ## Aylik odeme miktari
-
+#================================ Odeme Tablosu ================================
 # Simdi yukarida verilen bilgilere gore bir odeme tablosu olusturalim.
-degiskenler <- c("Donem", "Borc", "Taksit.Tutari", "Anapara", "Faiz.Vergi", "Faiz", "KKDF", "BSMV", "Kalan.Borc") ## Tablodaki degisken isimleri.
+#==========
+degiskenler <- c("Ay", "Borc", "Odeme", "Anapara", "Faiz", "KKDF", "BSMV", "Vergi", "Faiz.Vergi", "Kalan.Borc") ## Tablodaki degisken isimleri.
 o.tablo <- matrix(nrow = n, ncol = length(degiskenler)) ## Odeme tablosu olulsturuldu.
 o.tablo <- as.data.frame(o.tablo) ## Odeme tablosu data.frame'e cevrildi.
 colnames(o.tablo) <- degiskenler ## Sutun isimleri girildi.
@@ -128,40 +121,50 @@ colnames(o.tablo) <- degiskenler ## Sutun isimleri girildi.
 ## Verilerin toplu halde for dongusu ile girilmesi.
 for (i in 1:n) {
     if (i == 1) {
-        o.tablo$Donem[i] <- i ## Donem sayisi.
         o.tablo$Borc[i] <- P ## Borc.
-        o.tablo$Taksit.Tutari[i] <- m ## Taksit tutari.
-        o.tablo$Faiz[i] <- P * r ## Faiz odemesi.
-        o.tablo$KKDF[i] <- o.tablo$Faiz[i] * k ## KKDF vergisi odemesi.
-        o.tablo$BSMV[i] <- o.tablo$Faiz[i] * b ## BSMV vergisi odemesi.
-        o.tablo$Faiz.Vergi[i] <- o.tablo$Faiz[i] + o.tablo$KKDF[i] + o.tablo$BSMV[i] ## Toplam faiz ve vergi odemesi.
-        o.tablo$Anapara[i] <- o.tablo$Taksit.Tutari[i] - o.tablo$Faiz.Vergi[i] ## Anapara odemesi.
-        o.tablo$Kalan.Borc[i] <- P - o.tablo$Anapara[i] ## Kalan borc.
     }
     if (i != 1) {
-        o.tablo$Donem[i] <- i ## Donem sayisi.
         o.tablo$Borc[i] <- o.tablo$Kalan.Borc[i - 1] ## Borc.
-        o.tablo$Taksit.Tutari[i] <- m ## Taksit tutari.
-        o.tablo$Faiz[i] <- o.tablo$Kalan.Borc[i - 1] * r ## Faiz odemesi.
-        o.tablo$KKDF[i] <- o.tablo$Faiz[i] * k ## KKDF vergisi odemesi.
-        o.tablo$BSMV[i] <- o.tablo$Faiz[i] * b ## BSMV vergisi odemesi.
-        o.tablo$Faiz.Vergi[i] <- o.tablo$Faiz[i] + o.tablo$KKDF[i] + o.tablo$BSMV[i] ## Toplam faiz ve vergi odemesi.
-        o.tablo$Anapara[i] <- o.tablo$Taksit.Tutari[i] - o.tablo$Faiz.Vergi[i] ## Anapara odemesi.
-        o.tablo$Kalan.Borc[i] <- o.tablo$Kalan.Borc[i - 1] - o.tablo$Anapara[i] ## Kalan borc.
     }
+    o.tablo$Ay[i] <- i ## Ay sayisi.
+    o.tablo$Odeme[i] <- m ## Taksit tutari.
+    o.tablo$Faiz[i] <- o.tablo$Borc[i] * r ## Faiz odemesi.
+    o.tablo$KKDF[i] <- o.tablo$Faiz[i] * k ## KKDF vergisi odemesi.
+    o.tablo$BSMV[i] <- o.tablo$Faiz[i] * b ## BSMV vergisi odemesi.
+    o.tablo$Vergi[i] <- o.tablo$KKDF[i] + o.tablo$BSMV[i] ## Toplam vergisi odemesi.
+    o.tablo$Faiz.Vergi[i] <- o.tablo$Faiz[i] + o.tablo$Vergi[i] ## Toplam faiz ve vergi odemesi.
+    o.tablo$Anapara[i] <- o.tablo$Odeme[i] - o.tablo$Faiz.Vergi[i] ## Anapara odemesi.
+    o.tablo$Kalan.Borc[i] <- o.tablo$Borc[i] - o.tablo$Anapara[i] ## Kalan borc.
 }
 
-o.tablo <- data.frame(sapply(o.tablo, function(round) round(round, 2)), stringsAsFactors = FALSE) ## Daha iyi gorunmesi icin rakamsal degerler yuvarlaniyor.
-
-## Tablonun sonunda toplam satirinin eklenmesi
+## Tablonun sonunda toplam satirinin eklenmesi ve rakamsal degerlerin yuvarlanmasi.
+temp.plot <- o.tablo
 o.tablo <- rbind(o.tablo, NA)
-o.tablo$Donem[n + 1] <- "Toplam"
-o.tablo$Taksit.Tutari[n + 1] <- sum(o.tablo$Taksit.Tutari, na.rm = TRUE)
+o.tablo$Odeme[n + 1] <- sum(o.tablo$Odeme, na.rm = TRUE)
 o.tablo$Anapara[n + 1] <- sum(o.tablo$Anapara, na.rm = TRUE)
-o.tablo$Faiz.Vergi[n + 1] <- sum(o.tablo$Faiz.Vergi, na.rm = TRUE)
 o.tablo$Faiz[n + 1] <- sum(o.tablo$Faiz, na.rm = TRUE)
 o.tablo$KKDF[n + 1] <- sum(o.tablo$KKDF, na.rm = TRUE)
 o.tablo$BSMV[n + 1] <- sum(o.tablo$BSMV, na.rm = TRUE)
+o.tablo$Vergi[n + 1] <- sum(o.tablo$Vergi, na.rm = TRUE)
+o.tablo$Faiz.Vergi[n + 1] <- sum(o.tablo$Faiz.Vergi, na.rm = TRUE)
+o.tablo <- data.frame(sapply(o.tablo, function(round) round(round, 2)), stringsAsFactors = FALSE) ## Rakamsal degerler yuvarlaniyor.
+o.tablo$Ay[n + 1] <- "Toplam"
+
+## Grafigin olusturulmasi.
+temp <- temp.plot
+temp$Ay <- as.factor(temp$Ay)
+temp <- reshape2::melt(temp[, c("Vergi", "Faiz", "Anapara", "Ay")], id.vars = "Ay")
+temp$value <- round(temp$value, 2)
+colnames(temp) <- c("Ay", "Ödeme", "Miktar")
+
+ggplot(temp, aes(x = Ay, y = Miktar, fill = Ödeme)) +
+    geom_bar(position = "stack", stat = "identity") +
+    labs(y = "Ödeme") +
+    scale_y_continuous(limits = c(0, m + 1), labels = scales::comma_format(big.mark = ".", decimal.mark = ",")) +
+    theme_minimal() +
+    theme(legend.title = element_blank(), legend.position = "top")
+
+plotly::ggplotly(p = ggplot2::last_plot())
 #==========
 
 #==================================== SON ======================================

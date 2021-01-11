@@ -213,7 +213,7 @@ end(data.ts)
 
 # Zaman serisi objesinde analizlerin yapilabilmesi icin datanin icinde bos degerlerin (NA) olmamasi gerekiyor. Ayrica ilerleyen analizlerde duzey formundaki degiskenleri mi yoksa buyume formundaki degiskenleri kullanacagimizi henuz bilmedigimizden datayi iki ayri parcaya boluyoruz. Ilk parca tamamen duzey formundaki degiskenleri kapsarken, ikinci parca tamamen buyume formundaki degiskenleri kapsiyor.
 data1 <- data[, c("Date", "Year", "RCAD", "RGDP", "RER")]
-data2 <- data[-1, c("Date", "Year", "Gr.RCAD", "Gr.RGDP", "Gr.RER")]
+data2 <- data[-1, c("Date", "Year", "Gr.RCAD", "Gr.RGDP", "Gr.RER")] ## Ikinci parca buyume formunda oldugu icin ilk gozlem siliniyor.
 
 # Datanin zaman serisi objesine cevirilmesi.
 data1.ts <- ts(data1[, 3:ncol(data1)], frequency = 1, start = c(as.numeric(data1$Year[1])))

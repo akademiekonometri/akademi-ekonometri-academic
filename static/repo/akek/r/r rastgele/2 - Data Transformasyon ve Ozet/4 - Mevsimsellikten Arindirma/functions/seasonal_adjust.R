@@ -1,3 +1,14 @@
+#============================= Akademi Ekonometri ==============================
+#================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
+
+#=============================== Bizi Takip Edin ===============================
+# Web Sitemiz: https://akademiekonometri.rbind.io/
+# YouTube: https://www.youtube.com/c/AkademiEkonometri
+# Twitter: https://twitter.com/AEkonometri
+# Instagram: https://www.instagram.com/akademiekonometri/
+# E-mail: akademiekonometri@gmail.com
+#===============================================================================
+
 #============================== Seasonal.Adjust ================================
 #========================== Seasonally Adjusts Data ============================
 
@@ -114,3 +125,5 @@ Seasonal.Adjust <- function(Data, Significance.Level, Adjust = FALSE) {
     # Revert the working directory to initial path.
     setwd(WD.temp)
 }
+
+#==================================== END ======================================

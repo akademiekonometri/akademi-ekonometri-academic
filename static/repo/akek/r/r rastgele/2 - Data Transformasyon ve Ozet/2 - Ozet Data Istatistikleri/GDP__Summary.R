@@ -23,6 +23,12 @@ getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
+#============================ Gerekli Dosya Isimleri ===========================
+# Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
+#=========================
+functions.folder.name <- "functions"
+figs.tabs.folder.name <- "figs-tabs"
+
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
@@ -38,7 +44,7 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "pastecs", "stargazer", "gridExtra"))
+Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
 options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
 #==========
@@ -102,7 +108,7 @@ str(temp.summary)
 #============ Ozet Data Istatistikleri Tablosunun Disa Aktarilmasi =============
 # Simdi de ozet data istatistikleri tablosunu daha sonra kullanilmak amaciyla farkli formatlarda disa aktaralim.
 file.name <- "summary_statistics" ## Disa aktarirken her seferinde dosya adini girmekle ugrasmamak adina dosya ismini iceren bir deger olusturuyoruz.
-file.path <- paste0("figs-tabs", "/", file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
+file.path <- paste0(figs.tabs.folder.name, "/", file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
 
 ## stargazer paketi ile.
 stargazer(temp.summary, summary = FALSE, type = "text", out = paste0(file.path, ".txt")) ## txt dosyasi olarak.
@@ -113,7 +119,7 @@ png(paste0(file.path, ".png"), height = 50*nrow(temp.summary), width = 125*ncol(
 grid.table(temp.summary)
 dev.off()
 
-jpeg(paste0(file.path, ".jpeg"), height = 50*nrow(temp.summary), width = 125*ncol(temp.summary)) ## png dosyasi olarak.
+jpeg(paste0(file.path, ".jpeg"), height = 50*nrow(temp.summary), width = 125*ncol(temp.summary)) ## jpeg dosyasi olarak.
 grid.table(temp.summary)
 dev.off()
 
@@ -123,7 +129,6 @@ dev.off()
 
 ## latexpdf paketi ile.
 as.pdf(temp.summary, stem = paste0(file.name, "-latex"), dir = "./figs-tabs") ## pdf dosyasi olarak
-dev.off()
 
 # Ozet data istatistigini gosteren data objesinin yapisi.
 str(temp.summary)

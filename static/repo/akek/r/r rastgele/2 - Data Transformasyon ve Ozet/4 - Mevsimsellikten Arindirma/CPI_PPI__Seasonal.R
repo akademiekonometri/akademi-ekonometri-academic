@@ -23,6 +23,18 @@ getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
+#============================ Gerekli Dosya Isimleri ===========================
+# Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
+#=========================
+functions.folder.name <- "functions"
+figs.tabs.folder.name <- "figs-tabs"
+
+#============================= Gerekli Fonksiyonlar ============================
+# Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
+#=========================
+## "Seasonal.Adjust" fonksiyonu ici n"seasonal_adjust.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
+
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
@@ -39,17 +51,12 @@ Load.Install <- function(Package.Names) {
 }
 #=========================
 Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-Load.Install(c("seas")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
+Load.Install(c("seasonal")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
 options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
 #==========
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
-#============================= Gerekli Fonksiyonlar ============================
-# Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#=========================
-## "Seasonal.Adjust" fonksiyonu ici "seasonal_adjust.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", "functions", "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada enflasyon ve istihdam ile ilgili verileri yayinlayan kurum olan Bureau of Labor Statistics (BLS)'den direkt olarak 2 farkli veri seti (CPI ve PPI) indirip bu veri setinden 3 adet indeksi kullanip (CUSR0000SA0, CUUR0000SA0, WPU00000000) datayi temizlemistik. Son olarak ise temizlenmis datayi .RData dosyasi olarak CPI_PPI_Processed.RData adi altinda kaydetmistik.

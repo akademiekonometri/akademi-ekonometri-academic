@@ -23,6 +23,18 @@ getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
+#============================ Gerekli Dosya Isimleri ===========================
+# Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
+#=========================
+functions.folder.name <- "functions"
+figs.tabs.folder.name <- "figs-tabs"
+
+#============================= Gerekli Fonksiyonlar ============================
+# Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
+#=========================
+## "human_usd" fonksiyonu icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "human_numbers.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "human_numbers.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
+
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
@@ -38,18 +50,12 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales"))
+Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2"))
 options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
 #==========
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
-
-#============================= Gerekli Fonksiyonlar ============================
-# Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#=========================
-## "human_usd" fonksiyonu icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "human_numbers.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", "functions", "/", "human_numbers.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada enflasyon ve istihdam ile ilgili verileri yayinlayan kurum olan Bureau of Labor Statistics (BLS)'den direkt olarak 2 farkli veri seti (CPI ve PPI) indirip bu veri setinden 3 adet indeksi (CUSR0000SA0, CUUR0000SA0, WPU00000000) kullanip datayi temizlemistik. Daha sonra bu temizlenmis data uzerinde bazi transformasyonlar yapip datanin son halini CPI_PPI_Processed_Trans.RData olarak kaydetmistik.
@@ -103,6 +109,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , "CPI.S"], colour = "Vari
     geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
     scale_colour_manual(name = "", labels = c("Consumer Price Index (S)"), values = c("Variable" = "black")) +
     scale_fill_manual(name = "", labels = c("Great Depression", "Great Recession", "Covid Recession"), values = c("Great Depression" = "green", "Great Recession" = "blue", "Covid Recession" = "red")) +
+    guides(fill = guide_legend(override.aes = list(fill = c("green", "blue", "red")))) +
     theme_grey() +
     theme(legend.position = "top")
 print(g)
@@ -122,6 +129,7 @@ for (i in 1:length(variables)) {
         geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
         scale_colour_manual(name = "", labels = c(variable.names[i]), values = c("Variable" = "black")) +
         scale_fill_manual(name = "", labels = c("Great Depression", "Great Recession", "Covid Recession"), values = c("Great Depression" = "green", "Great Recession" = "blue", "Covid Recession" = "red")) +
+        guides(fill = guide_legend(override.aes = list(fill = c("green", "blue", "red")))) +
         theme_grey() +
         theme(legend.position = "top")
     print(g)
@@ -144,6 +152,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = value, colour = "Variable"), lin
     geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
     scale_colour_manual(name = "", labels = c("Index"), values = c("Variable" = "black")) +
     scale_fill_manual(name = "", labels = c("Great Depression", "Great Recession", "Covid Recession"), values = c("Great Depression" = "green", "Great Recession" = "blue", "Covid Recession" = "red")) +
+    guides(fill = guide_legend(override.aes = list(fill = c("green", "blue", "red")))) +
     facet_grid(variable ~ ., scales = "free_y", switch = "y") +
     theme_grey() +
     theme(legend.position = "top")
@@ -160,7 +169,7 @@ variable.names <- c("Firts Differenced CPI (US)", "First Differenced PPI (US)", 
 temp <- cbind(data[-1, c(grep("(Date)|(Year)|(Month)", colnames(data)))], as.data.frame(diff(data.ts, lag = 1, diff = 1))) ## Tum degiskenlerin (zamanla ilgili olanlar haric) ilk farklarini aliyoruz ve ilk farklari alinmis datayi temp olarak kaydediyoruz.
 
 for (i in 1:length(variables)) {
-    pdf(paste0("figs-tabs", "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+    pdf(paste0(figs.tabs.folder.name, "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
     par(mar = c(2, 2, 2, 2))
 
     g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variables[i]], colour = "Variable"), linetype = 1, size = 1) +
@@ -173,6 +182,7 @@ for (i in 1:length(variables)) {
         geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
         scale_colour_manual(name = "", labels = c(variable.names[i]), values = c("Variable" = "black")) +
         scale_fill_manual(name = "", labels = c("Great Depression", "Great Recession", "Covid Recession"), values = c("Great Depression" = "green", "Great Recession" = "blue", "Covid Recession" = "red")) +
+        guides(fill = guide_legend(override.aes = list(fill = c("green", "blue", "red")))) +
         theme_grey() +
         theme(legend.position = "top") +
         theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 18)) +
@@ -227,6 +237,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , "GDP"], colour = "Variab
     geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
     scale_colour_manual(name = "", labels = c("Gross Domestic Product"), values = c("Variable" = "black")) +
     scale_fill_manual(name = "", labels = c("Great Recession", "Covid Recession"), values = c("Great Recession" = "blue", "Covid Recession" = "red")) +
+    guides(fill = guide_legend(override.aes = list(fill = c("blue", "red")))) +
     theme_grey() +
     theme(legend.position = "top")
 print(g)
@@ -245,6 +256,7 @@ for (i in 1:length(variables)) {
         geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
         scale_colour_manual(name = "", labels = c(variable.names[i]), values = c("Variable" = "black")) +
         scale_fill_manual(name = "", labels = c("Great Recession", "Covid Recession"), values = c("Great Recession" = "blue", "Covid Recession" = "red")) +
+        guides(fill = guide_legend(override.aes = list(fill = c("blue", "red")))) +
         theme_grey() +
         theme(legend.position = "top")
     print(g)
@@ -267,6 +279,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = value, colour = "Variable"), lin
     geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
     scale_colour_manual(name = "", labels = c("Index"), values = c("Variable" = "black")) +
     scale_fill_manual(name = "", labels = c("Great Recession", "Covid Recession"), values = c("Great Recession" = "blue", "Covid Recession" = "red")) +
+    guides(fill = guide_legend(override.aes = list(fill = c("blue", "red")))) +
     facet_grid(variable ~ ., scales = "free_y", switch = "y") +
     theme_grey() +
     theme(legend.position = "top")
@@ -283,7 +296,7 @@ variable.names <- c("Firts Differenced GDP", "Firts Differenced RGDP", "Firts Di
 temp <- cbind(data[-1, c(grep("(Date)|(Year)|(Quarter)", colnames(data)))], as.data.frame(diff(data.ts, lag = 1, diff = 1))) ## Tum degiskenlerin (zamanla ilgili olanlar haric) ilk farklarini aliyoruz ve ilk farklari alinmis datayi temp olarak kaydediyoruz.
 
 for (i in 1:length(variables)) {
-    pdf(paste0("figs-tabs", "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+    pdf(paste0(figs.tabs.folder.name, "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
     par(mar = c(2, 2, 2, 2))
 
     g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variables[i]], colour = "Variable"), linetype = 1, size = 1) +
@@ -295,6 +308,7 @@ for (i in 1:length(variables)) {
         geom_ribbon(data = subset(temp, covid.recession[1] <= Date & Date <= covid.recession[2]), aes(x = Date, ymin = -Inf, ymax = Inf, fill = "Covid Recession"), alpha = 0.2, show.legend = TRUE) +
         scale_colour_manual(name = "", labels = c(variable.names[i]), values = c("Variable" = "black")) +
         scale_fill_manual(name = "", labels = c("Great Recession", "Covid Recession"), values = c("Great Recession" = "blue", "Covid Recession" = "red")) +
+        guides(fill = guide_legend(override.aes = list(fill = c("blue", "red")))) +
         theme_grey() +
         theme(legend.position = "top") +
         theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 18)) +

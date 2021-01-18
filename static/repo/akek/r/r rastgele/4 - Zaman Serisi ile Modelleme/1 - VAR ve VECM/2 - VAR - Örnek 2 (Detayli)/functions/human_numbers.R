@@ -1,6 +1,5 @@
 #============================= Akademi Ekonometri ==============================
 #================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
-#============================== R Rastgele Serisi ==============================
 
 #=============================== Bizi Takip Edin ===============================
 # Web Sitemiz: https://akademiekonometri.rbind.io/
@@ -10,7 +9,9 @@
 # E-mail: akademiekonometri@gmail.com
 #===============================================================================
 
-#===============================================================================
+#=============================== human_numbers =================================
+#==================== Convert Number to Human Readable Way =====================
+
 # Notes:
 #
 ## Formatting functions for ggplot graph axis.
@@ -81,6 +82,9 @@ human_usd <- function(x) {
 }
 human_euro <- function(x) {
     human_numbers(x, smbl = "€")
+}
+human_tl <- function(x) {
+    human_numbers(x, smbl = "TL")
 }
 
 #==================================== SON ======================================

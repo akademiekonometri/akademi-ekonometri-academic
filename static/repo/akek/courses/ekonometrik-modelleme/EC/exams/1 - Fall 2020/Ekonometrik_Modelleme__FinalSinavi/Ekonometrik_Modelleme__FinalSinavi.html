@@ -493,9 +493,9 @@ div.tocify {
 <ul>
 <li>Aşağıda <code>R</code> kodu için ayrılan bölümde sizin için “x”, “y” ve “z” objeleri oluşturulmuştur. Öncelikle “str” fonksiyonunu kullanarak bu 3 objenin yapısını inceleyin. Daha sonra “==” operatörünü kullanarak bu 3 objenin birbirine eşit olup olmadığını inceleyin. Bu 3 objeden hangileri birbirine vektörel olarak eşittir. Yorumlarınızı “##” kullanarak aşağıda <code>R</code> kodu için ayrılan bölümde belirtin.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="dv">1</span>) <span class="do">## Değiştirmeyin. Gözlem sayısı.</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>, <span class="dv">1</span>) <span class="do">## Değiştirmeyin. Gözlem sayısı.</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="do">## Değiştirmeyin.</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;TRUE&quot;</span>, <span class="st">&quot;FALSE&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="do">## Değiştirmeyin.</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;true&quot;</span>, <span class="st">&quot;false&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="do">## Değiştirmeyin.</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(x) <span class="do">## Değiştirmeyin.</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
@@ -507,7 +507,7 @@ div.tocify {
 <div id="Soru.3.1" class="section level2">
 <h2>Soru 3.1</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, “rnorm” fonksiyonunu kullanarak ortalaması 9 ve standart sapması 3 olan 621 gözlemli normal dağılım yapan bir örneklem oluşturun. Bu örneklemi “x” objesi olarak kaydedin. Daha sonra oluşturduğunuz bu “x” objesinin ilk 6 gözlemini ve son 7 gözlemini “head” ve “tail” fonksiyonlarını kullanarak gösterin.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, “rnorm” fonksiyonunu kullanarak ortalaması -8 ve standart sapması 2 olan 407 gözlemli normal dağılım yapan bir örneklem oluşturun. Bu örneklemi “x” objesi olarak kaydedin. Daha sonra oluşturduğunuz bu “x” objesinin ilk 5 gözlemini ve son 10 gözlemini “head” ve “tail” fonksiyonlarını kullanarak gösterin.</li>
 </ul>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -555,7 +555,7 @@ div.tocify {
 <div id="Soru.4.2" class="section level2">
 <h2>Soru 4.2</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren 10 satırdan ve 5 sütündan oluşan “x” matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve “y” matrisini oluşturun. Son olarak “y” matrisini yazdırın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren 5 satırdan ve 5 sütündan oluşan “x” matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve “y” matrisini oluşturun. Son olarak “y” matrisini yazdırın.</li>
 </ul>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -591,7 +591,7 @@ div.tocify {
 <div id="Soru.5.2" class="section level2">
 <h2>Soru 5.2</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesini öncelikle yazdırın. Daha sonra “temp” datasının ilk 6 gözlemini ve son 4 gözlemini “head” ve “tail” fonksiyonlarını kullanarak gösterin.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesini öncelikle yazdırın. Daha sonra “temp” datasının ilk 6 gözlemini ve son 8 gözlemini “head” ve “tail” fonksiyonlarını kullanarak gösterin.</li>
 </ul>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -607,7 +607,7 @@ div.tocify {
 <div id="Soru.5.4" class="section level2">
 <h2>Soru 5.4</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sütun.2”’de NA değerlerini içermeyen bir alt kümesini yazdırın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sutun.2”’de NA değerlerini içermeyen bir alt kümesini yazdırın.</li>
 </ul>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -615,7 +615,7 @@ div.tocify {
 <div id="Soru.5.5" class="section level2">
 <h2>Soru 5.5</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sütun.3”’de sadece “GS” değerlerini içeren bir alt kümesini yazdırın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sutun.3”’de sadece “GS” değerlerini içeren bir alt kümesini yazdırın.</li>
 </ul>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -623,7 +623,7 @@ div.tocify {
 <div id="Soru.5.6" class="section level2">
 <h2>Soru 5.6</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sütun.2”’de NA değerlerini içermeyen, “Sütun.3”’de sadece “GS” değerlerini içeren ve “Sütun.5”’de sadece TRUE değerlerini içeren bir alt kümesini “temp.1” olarak kaydedin ve yazdırın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz “temp” adlı data.frame objesinin “Sutun.2”’de NA değerlerini içermeyen, “Sutun.3”’de sadece “GS” değerlerini içeren ve “Sutun.5”’de sadece TRUE değerlerini içeren bir alt kümesini “temp.1” olarak kaydedin ve yazdırın.</li>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -634,7 +634,7 @@ div.tocify {
 <div id="Soru.6.1" class="section level2">
 <h2>Soru 6.1</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının 2. üssü ile 33 sayısının toplamını veren basit bir fonksiyon yazın ve “func.1” ismini verin. Daha sonra bu fonksiyonu kullanarak “func.1(10)” değerini hesaplayın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının 4. üssü ile 29 sayısının toplamını veren basit bir fonksiyon yazın ve “func.1” ismini verin. Daha sonra bu fonksiyonu kullanarak “func.1(x = 4)” değerini hesaplayın.</li>
 </ul>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -642,7 +642,7 @@ div.tocify {
 <div id="Soru.6.2" class="section level2">
 <h2>Soru 6.2</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının “y”. üssü ile “z” sayısının toplamını veren basit bir fonksiyon yazın ve “func.2” ismini verin. Daha sonra bu fonksiyonu kullanarak “func.2(x = 5, y = 8, z = 68)” değerini hesaplayın.</li>
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, verilen herhangi bir pozitif “x” tam sayısının “y”. üssü ile “z” sayısının toplamını veren basit bir fonksiyon yazın ve “func.2” ismini verin. Daha sonra bu fonksiyonu kullanarak “func.2(x = 9, y = 9, z = 62)” değerini hesaplayın.</li>
 </ul>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
 <hr />
@@ -650,7 +650,7 @@ div.tocify {
 <div id="Soru.6.3" class="section level2">
 <h2>Soru 6.3</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan “func.3” isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %20’sini ödevler, %30’unu ara sınav ve %50’sini ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak “func.3(puanlar = c(31, 65, 54))” değerini hesaplayın.<br />
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan “func.3” isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %20’sini ödevler, %30’unu ara sınav ve %50’sini ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak “func.3(puanlar = c(21, 56, 95))” değerini hesaplayın.<br />
 <strong>Not:</strong> “puanlar” argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir.</li>
 </ul>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
@@ -659,7 +659,7 @@ div.tocify {
 <div id="Soru.6.4" class="section level2">
 <h2>Soru 6.4</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan “func.4” isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %A kadarını ödevler, %B kadarını ara sınav ve %C kadarını ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak “func.4(puanlar = c(32, 78, 53), oranlar = c(0.2478443, 0.6358219, 0.1163338))” değerini hesaplayın.<br />
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan “func.4” isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %A kadarını ödevler, %B kadarını ara sınav ve %C kadarını ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak “func.4(puanlar = c(93, 84, 32), oranlar = c(0.6374212, 0.2623778, 0.1002009))” değerini hesaplayın.<br />
 <strong>Not:</strong> “puanlar” argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. “oranlar” argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
@@ -671,7 +671,7 @@ div.tocify {
 <div id="Soru.7.1" class="section level2">
 <h2>Soru 7.1</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız “func.4” fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: “func.4(puanlar = c(53, 11, 53), oranlar = c(0.2, 0.4, 0.4))”. Daha sonra “if”, “else” ve &quot;“else if” kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu belirleyin.<br />
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız “func.4” fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: “func.4(puanlar = c(74, 91, 71), oranlar = c(0.2, 0.4, 0.4))”. Daha sonra “if”, “else” ve &quot;“else if” kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu içeren “harf” objesini oluşturun ve yazdırın.<br />
 <strong>Not:</strong> “puanlar” argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. “oranlar” argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R kodu buraya yazılmalı.</span></span></code></pre></div>
@@ -680,7 +680,7 @@ div.tocify {
 <div id="Soru.7.2" class="section level2">
 <h2>Soru 7.2</h2>
 <ul>
-<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 60 altı FF, 60 (dahil) ve 95 (hariç) arası BB, 95 ve üstü AA. Bu durumda daha önceden yazdığınız “func.4” fonksiyonunu kullanarak aşağıda “ogrenci.puanlar” objesinde “list” olarak verilmiş birçok öğrencinin aldığı puanı şu şekilde hesaplayın: “func.4(puanlar = ogrenci.puanlar[[i]], oranlar = c(0.2, 0.4, 0.4))”. Daha sonra “if”, “else” ve &quot;“else if” kontrol yapılarından istediğinizi kullanarak ve “for” loop kullanarak öğrencilerin aldığı harf notunu teker teker sırası ile belirleyin ve yazdırın.<br />
+<li>Aşağıda <code>R</code> kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 60 altı FF, 60 (dahil) ve 95 (hariç) arası BB, 95 ve üstü AA. Bu durumda daha önceden yazdığınız “func.4” fonksiyonunu kullanarak aşağıda “ogrenci.puanlar” objesinde “list” olarak verilmiş birçok öğrencinin aldığı puanı şu şekilde hesaplayın: “func.4(puanlar = ogrenci.puanlar[[i]], oranlar = c(0.2, 0.4, 0.4))”. Daha sonra “if”, “else” ve &quot;“else if” kontrol yapılarından istediğinizi kullanarak ve “for” loop kullanarak öğrencilerin aldığı harf notunu teker teker sırasıyla içeren “harfler” objesini oluşturun ve yazdırın.<br />
 <strong>Not:</strong> “puanlar” argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. “oranlar” argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.</li>
 </ul>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>ogrenci.puanlar <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="do">## Değiştirmeyin.</span></span>

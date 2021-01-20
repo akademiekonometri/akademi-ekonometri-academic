@@ -177,9 +177,9 @@ a <- paste0(sample(letters, 3), collapse = "") ## Değiştirmeyin.
 ## Soru 2.6 {#Soru.2.6}
 - Aşağıda `R` kodu için ayrılan bölümde sizin için "x", "y" ve "z" objeleri oluşturulmuştur. Öncelikle "str" fonksiyonunu kullanarak bu 3 objenin yapısını inceleyin. Daha sonra "==" operatörünü kullanarak bu 3 objenin birbirine eşit olup olmadığını inceleyin. Bu 3 objeden hangileri birbirine vektörel olarak eşittir. Yorumlarınızı "##" kullanarak aşağıda `R` kodu için ayrılan bölümde belirtin.
 ```{r Creating.Objects.6}
-n <- sample(1:7, 1) ## Değiştirmeyin. Gözlem sayısı.
+n <- sample(2:7, 1) ## Değiştirmeyin. Gözlem sayısı.
 x <- sample(c(TRUE, FALSE), n, replace = TRUE) ## Değiştirmeyin.
-y <- sample(c("TRUE", "FALSE"), n, replace = TRUE) ## Değiştirmeyin.
+y <- sample(c("true", "false"), n, replace = TRUE) ## Değiştirmeyin.
 z <- as.numeric(x) ## Değiştirmeyin.
 
 ## R kodu buraya yazılmalı.
@@ -250,7 +250,7 @@ w <- matrix(data = w.start:(w.start + 3), nrow = 2, ncol = 2) ## Değiştirmeyin
 a <- sample(2:10, 1) ## Değiştirmeyin.
 b <- sample(2:5, 1) ## Değiştirmeyin.
 ```
-- Aşağıda `R` kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren `r a` satırdan ve `r b` sütündan oluşan "x" matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve  "y" matrisini oluşturun. Son olarak "y" matrisini yazdırın.
+- Aşağıda `R` kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren `r a` satırdan ve `r b` sütündan oluşan "x" matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve "y" matrisini oluşturun. Son olarak "y" matrisini yazdırın.
 ```{r Matrix.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -304,7 +304,7 @@ b <- sample(3:8, 1) ## Değiştirmeyin.
 ----
 
 ## Soru 5.4 {#Soru.5.4}
-- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.2"'de NA değerlerini içermeyen bir alt kümesini yazdırın.
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sutun.2"'de NA değerlerini içermeyen bir alt kümesini yazdırın.
 ```{r Data.4}
 ## R kodu buraya yazılmalı.
 ```
@@ -312,7 +312,7 @@ b <- sample(3:8, 1) ## Değiştirmeyin.
 ----
 
 ## Soru 5.5 {#Soru.5.5}
-- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.3"'de sadece "GS" değerlerini içeren bir alt kümesini yazdırın.
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sutun.3"'de sadece "GS" değerlerini içeren bir alt kümesini yazdırın.
 ```{r Data.5}
 ## R kodu buraya yazılmalı.
 ```
@@ -320,7 +320,7 @@ b <- sample(3:8, 1) ## Değiştirmeyin.
 ----
 
 ## Soru 5.6 {#Soru.5.6}
-- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.2"'de NA değerlerini içermeyen, "Sütun.3"'de sadece "GS" değerlerini içeren ve "Sütun.5"'de sadece TRUE değerlerini içeren bir alt kümesini "temp.1" olarak kaydedin ve yazdırın.
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sutun.2"'de NA değerlerini içermeyen, "Sutun.3"'de sadece "GS" değerlerini içeren ve "Sutun.5"'de sadece TRUE değerlerini içeren bir alt kümesini "temp.1" olarak kaydedin ve yazdırın.
 ```{r Data.6}
 ## R kodu buraya yazılmalı.
 ```
@@ -334,7 +334,7 @@ a <- sample(2:10, 1) ## Değiştirmeyin.
 b <- sample(20:50, 1) ## Değiştirmeyin.
 c <- sample(2:10, 1) ## Değiştirmeyin.
 ```
-- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının `r a`. üssü ile `r b` sayısının toplamını veren basit bir fonksiyon yazın ve "func.1" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.1(`r c`)" değerini hesaplayın.
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının `r a`. üssü ile `r b` sayısının toplamını veren basit bir fonksiyon yazın ve "func.1" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.1(x = `r c`)" değerini hesaplayın.
 ```{r Function.1}
 ## R kodu buraya yazılmalı.
 ```
@@ -347,7 +347,7 @@ a <- sample(2:10, 1) ## Değiştirmeyin.
 b <- sample(5:10, 1) ## Değiştirmeyin.
 c <- sample(40:100, 1) ## Değiştirmeyin.
 ```
-- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının "y". üssü ile "z" sayısının toplamını veren basit bir fonksiyon yazın ve "func.2" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.2(x = `r a`, y = `r b`, z = `r c`)" değerini hesaplayın.
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif "x" tam sayısının "y". üssü ile "z" sayısının toplamını veren basit bir fonksiyon yazın ve "func.2" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.2(x = `r a`, y = `r b`, z = `r c`)" değerini hesaplayın.
 ```{r Function.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -390,7 +390,7 @@ a <- sample(40:100, 1) ## Değiştirmeyin.
 b <- sample(5:100, 1) ## Değiştirmeyin.
 c <- sample(15:100, 1) ## Değiştirmeyin.
 ```
-- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = c(`r a`, `r b`, `r c`), oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu belirleyin.  
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = c(`r a`, `r b`, `r c`), oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu içeren "harf" objesini oluşturun ve yazdırın.  
 **Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
 ```{r Conditional.Statement}
 ## R kodu buraya yazılmalı.
@@ -399,7 +399,7 @@ c <- sample(15:100, 1) ## Değiştirmeyin.
 ----
 
 ## Soru 7.2 {#Soru.7.2}
-- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 60 altı FF, 60 (dahil) ve 95 (hariç) arası BB, 95 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak aşağıda "ogrenci.puanlar" objesinde "list" olarak verilmiş birçok öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = ogrenci.puanlar[[i]], oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak ve "for" loop kullanarak öğrencilerin aldığı harf notunu teker teker sırası ile belirleyin ve yazdırın.  
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 60 altı FF, 60 (dahil) ve 95 (hariç) arası BB, 95 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak aşağıda "ogrenci.puanlar" objesinde "list" olarak verilmiş birçok öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = ogrenci.puanlar[[i]], oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak ve "for" loop kullanarak öğrencilerin aldığı harf notunu teker teker sırasıyla içeren "harfler" objesini oluşturun ve yazdırın.  
 **Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
 ```{r Loop}
 ogrenci.puanlar <- list() ## Değiştirmeyin.

@@ -3,6 +3,8 @@
 #================= Ignore the following folder/files for git ===================
 
 #============================ User Folders/Files ===============================
+—Helper
+—repo
 blogdown
 public/
 _data_helper.R

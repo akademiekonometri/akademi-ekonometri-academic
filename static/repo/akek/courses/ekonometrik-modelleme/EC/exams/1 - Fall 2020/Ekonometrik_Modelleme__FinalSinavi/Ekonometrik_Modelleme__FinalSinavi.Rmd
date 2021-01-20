@@ -1,0 +1,341 @@
+---
+title: "Ekonometrik Modelleme ve Zaman Serileri Analizi"
+subtitle: "2020 Güz Dönemi - Final Sınavı"
+author: "[Öğrencinin Adı ve Soyadı - Öğrenci Numarası](<mailto:öğrencinin_ogu_email_adresi>)"
+date: "`r format(Sys.time(), '%A, %B %d, %Y')`"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 9
+    highlight: zenburn
+    keep_md: no
+    number_sections: no
+    theme: readable
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  pdf_document:
+    fig_height: 4
+---
+
+```{r R.Code.Chunk.Setup, include = FALSE, purl = FALSE}
+# Değiştirmeyin.
+knitr::opts_chunk$set(cache = FALSE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "default", fig.cap = NULL, fig.height = 4, fig.width = 9, highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, warning = TRUE)
+```
+
+----
+
+**Önemli Notlar**  
+
+- Bu belgedeki 4. satırda bulunan **Öğrencinin Adı ve Soyadı - Öğrenci Numarası** kısmını verilen formata sadık kalarak değiştirdiğinize emin olun. Ör: **Ömer Kara - 123456789123**
+- Bu belgedeki 4. satırda bulunan **öğrencinin_ogu_email_adresi** kısmını verilen formata sadık kalarak değiştirdiğinize emin olun. Ör: **okara@ogu.edu.tr**
+- Yanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
+- Sorulardaki açıklamaları dikkatlice okuyun.
+- Soruların sırasını **KESİNLİKLE** değiştirmeyin.
+- [Seed](#Seed) bölümünde öğrenci numaranızın doğru girdiğinize **KESİNLİKLE** emin olun. Aksi taktirde cevaplarınız yanlış olarak değerlendirilecektir.
+    + Sınavınızdaki bazı sorular öğrenci numaranız kullanılarak size özgü hale getirilecektir.
+    + Sınavınız değerlendirilirmeden önce öğrenci numaranız kullanılarak doğru cevaplar oluşturulacak ve ona göre değerlendirme yapılacaktır. Bu nedenle öğrenci numarasının yanlış girilmesi bazı sorulardan puan alamamanıza neden olabilir.
+- Sınavınızı yaparken, benim yazdığım [R mini BootCamp](https://karaomer.bitbucket.io/R_mini_BootCamp/R_mini_BootCamp.html) adlı ingilizce kaynaktan faydalanabilirsiniz.
+
+---
+
+# Seed {#Seed}
+```{r Set.Seed, purl = FALSE}
+ogrenci.numarasi <- 123456789123 ## 12 haneli öğrenci numaranızı yazın. Doğru yazdığınızdan KESİNLİKLE emin olun. Aksi taktirde cevapların yanlış olarak değerlendirilecektir.
+
+n_last <- 8 ## Değiştirmeyin.
+x <- substr(ogrenci.numarasi, nchar(ogrenci.numarasi) - n_last + 1, nchar(ogrenci.numarasi)) ## Değiştirmeyin.
+set.seed(x) ## Değiştirmeyin.
+```
+
+----
+
+# 1. Bölüm {#Bölüm.1}
+## Soru 1.1 {#Soru.1.1}
+- Aşağıda `R` kodu için ayrılan bölümde, "sessionInfo()" kodunu yazın. Bu kod kullandığınız R versiyonu ve paketler hakkında bilgi verecektir.
+```{r R, promt = TRUE}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 1.2 {#Soru.1.2}
+- Aşağıda `R` kodu için ayrılan bölümde, "getwd()" kodunu kullanarak, şimdiki çalışma dizininizi inceleyin. Kişisel verilerin gizliliği ilkesi nedeniyle bu kodu çalışmayacak şekilde yazın (yani yorum olarak). Ayrıca "setwd("uzantı")" kodunu kullanarak çalışma dizinini değiştirebileceğinizi unutmayın.
+```{r WD}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 1.3 {#Soru.1.3}
+- Aşağıda `R` kodu için ayrılan bölümde, "help" fonksiyonunu ve ayrıca "?" kodunu kullanarak "lm" fonksiyonu hakkında bilgi almak için gerekli kodu yazın.
+```{r Help}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 1.4 {#Soru.1.4}
+- Aşağıda `R` kodu için ayrılan bölümde, "wooldridge" adlı R paketini internetten indirmek ve bilgisayarınıza kurmak için gerekli olan kodları yazın. Bu kodları çalışmayacak şekilde yazın (yani yorum olarak).
+```{r Packages}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 1.5 {#Soru.1.5}
+- Aşağıda `R` kodu için ayrılan bölümde, `r sample(1:100, 3)` sayılarını toplayın.
+```{r Console, promt = TRUE}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 1.6 {#Soru.1.6}
+- Aşağıda `R` kodu için ayrılan bölümde, `r sample(1:100, 1)` sayısının `r sample(2:10, 1)`. üssü ile `r sample(5:100, 1)` sayısının doğal logaritmasını toplayın.
+```{r Editor}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 2. Bölüm {#Bölüm.2}
+## Soru 2.1 {#Soru.2.1}
+- Aşağıda `R` kodu için ayrılan bölümde, değeri `r sample(1:100, 1)` olan bir "`r sample(letters, 1)`" numerik objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r Creating.Objects.1}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 2.2 {#Soru.2.2}
+- Aşağıda `R` kodu için ayrılan bölümde, değerleri "`r paste0(sample(letters, 2), collapse = "")`" ve "`r paste0(sample(letters, 4), collapse = "")`" olan bir "`r sample(letters, 1)`" karakter objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r Creating.Objects.2}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 2.3 {#Soru.2.3}
+- Aşağıda `R` kodu için ayrılan bölümde, ":" operatörünü kullanarak `r sample(1:10, 1)` ve `r sample(15:25, 1)` arasındaki sayıları ardışık olarak içeren bir "x" objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r Creating.Objects.3}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 2.4 {#Soru.2.4}
+- Aşağıda `R` kodu için ayrılan bölümde, "seq" fonksiyonunu kullanarak `r sample(1:20, 1)` ve `r sample(40:60, 1)` arasındaki sayıları `r sample(4:7, 1)` sayı farkla gösteren bir "x" objesi oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "length", "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
+```{r Creating.Objects.4}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 2.5 {#Soru.2.5}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "x" objesini "c" fonksiyonunu kullanarak "`r paste0(sample(letters, 3), collapse = "")`" ile birleştirin ve "y" objesini oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
+```{r Creating.Objects.5}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 2.6 {#Soru.2.6}
+- Aşağıda `R` kodu için ayrılan bölümde sizin için "x", "y" ve "z" objeleri oluşturulmuştur. Öncelikle "str" fonksiyonunu kullanarak bu 3 objenin yapısını inceleyin. Daha sonra "==" operatörünü kullanarak bu 3 objenin birbirine eşit olup olmadığını inceleyin. Bu 3 objeden hangileri birbirine vektörel olarak eşittir. Yorumlarınızı "##" kullanarak aşağıda `R` kodu için ayrılan bölümde belirtin.
+```{r Creating.Objects.6}
+n <- sample(1:7, 1) ## Değiştirmeyin. Gözlem sayısı.
+x <- sample(c(TRUE, FALSE), n, replace = TRUE) ## Değiştirmeyin.
+y <- sample(c("TRUE", "FALSE"), n, replace = TRUE) ## Değiştirmeyin.
+z <- as.numeric(x) ## Değiştirmeyin.
+
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 3. Bölüm {#Bölüm.3}
+## Soru 3.1 {#Soru.3.1}
+- Aşağıda `R` kodu için ayrılan bölümde, "rnorm" fonksiyonunu kullanarak ortalaması `r sample(-10:10, 1)` ve standart sapması `r sample(1:4, 1)` olan `r sample(100:1000, 1)` gözlemli normal dağılım yapan bir örneklem oluşturun. Bu örneklemi "x" objesi olarak kaydedin. Daha sonra oluşturduğunuz bu "x" objesinin ilk `r sample(3:6, 1)` gözlemini ve son `r sample(5:10, 1)` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
+```{r Stats.1}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 3.2 {#Soru.3.2}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz normal dağılım yapan "x" objesinin varyansını, standart sapmasını, ortalamasını, minimum ve maksimum değerlerini gerekli fonksiyonları kullanarak hesaplayın.
+```{r Stats.2}
+## R kodu buraya yazılmalı.
+```
+
+
+----
+
+## Soru 3.3 {#Soru.3.3}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz normal dağılım yapan "x" objesinin ortalamasını "sum" ve "length" fonksiyonlarını kullanarak hesaplayın ve bu değeri "mean.x" olarak adlandırın. Daha sonra hesapladığınız bu "mean.x" değerinin "mean" fonksiyonu ile hesaplanan "x"in ortalamasına eşit olup olmadığını "==" operatörü ile test edin.
+```{r Stats.3}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 3.4 {#Soru.3.4}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz normal dağılım yapan "x" objesini standardize edin ve "y" objesi olarak kaydedin. "y" objesinin varyansını, standart sapmasını ve ortalamasını gerekli fonksiyonları kullanarak hesaplayın.
+```{r Stats.4}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 4. Bölüm {#Bölüm.4}
+## Soru 4.1 {#Soru.4.1}
+- Aşağıda `R` kodu için ayrılan bölümde sizin için "z" ve "w" matrisleri oluşturulmuştur. Öncelikle "z" matrisinin terisi alın ve bu yeni matrisi "z.inv" olarak kaydedin. Daha sonra "`r sample(c("rbind", "cbind"), 1)`" fonksiyonunu kullanarak, "z.inv" matrisini ve "w" matrisini birleştirin, ve yazdırın.
+```{r Matrix.1}
+z.start <- sample(1:10, 1) ## Değiştirmeyin.
+w.start <- sample(5:10, 1) ## Değiştirmeyin.
+z <- matrix(data = z.start:(z.start + 3), nrow = 2, ncol = 2) ## Değiştirmeyin.
+w <- matrix(data = w.start:(w.start + 3), nrow = 2, ncol = 2) ## Değiştirmeyin.
+
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 4.2 {#Soru.4.2}
+- Aşağıda `R` kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren `r sample(2:10, 1)` satırdan ve `r sample(2:5, 1)` sütündan oluşan "x" matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve  "y" matrisini oluşturun. Son olarak "y" matrisini yazdırın.
+```{r Matrix.2}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 4.3 {#Soru.4.3}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "y" matrisini "as.data.frame" fonksiyonunu kullanarak "data.frame" sınıfındaki bir objeye çevirin ve "temp" olarak adlandırın (stringsAsFactors = FALSE argümanını kullanmayı unutmayın). Daha sonra oluşturduğunuz bu "temp" datasının sütün isimlerini "Sutun.1", "Sutun.2", ... olarak adlandırın ve datayı yazdırın. Son olarak "str" fonksiyonunu kullanarak oluşturduğunuz datanın yapısını inceleyin.
+```{r Matrix.to.Data}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 5. Bölüm {#Bölüm.5}
+## Soru 5.1 {#Soru.5.1}
+- Aşağıda `R` kodu için ayrılan bölümde sizin için "temp" adlı bir data.frame objesi oluşturulmuştur. "temp" datasının sütün isimlerini "Sutun.1", "Sutun.2", ... olarak adlandırmak için **tek bir satırlık** kod kullanın. Daha sonra "class" ve "str" fonksiyonlarını "temp" datası üzerinde kullanın.
+```{r Data.1}
+n <- sample(10:30, 1) ## Değiştirmeyin. Gözlem sayısı.
+column.1 <- round(rnorm(n = n, mean = 10, sd = 2), digits = 2) ## Değiştirmeyin.
+column.2 <- sample(x = c(-10:10, rep(NA, 20)), size = n, replace = TRUE) ## Değiştirmeyin.
+column.3 <- sample(x = c("GS", "FB", "BJK", "TS"), size = n, replace = TRUE) ## Değiştirmeyin.
+column.4 <- factor(sample(x = c("Yes", "No"), size = n, replace = TRUE)) ## Değiştirmeyin.
+column.5 <- sample(x = c(TRUE, FALSE), size = n, replace = TRUE) ## Değiştirmeyin.
+
+temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3, Column.4 = column.4, Column.5 = column.5, stringsAsFactors = FALSE) ## Değiştirmeyin.
+
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 5.2 {#Soru.5.2}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesini öncelikle yazdırın. Daha sonra "temp" datasının ilk `r sample(4:8, 1)` gözlemini ve son `r sample(3:8, 1)` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
+```{r Data.2}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 5.3 {#Soru.5.3}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinde toplamda kaç tane NA yani eksik değer olduğunu **tek bir satırlık** kod kullanarak hesaplayın. Daha sonra "rowSums" ve "colSums" fonksiyonlarını **ayrı ayrı tek bir satırlık** kod kullanarak "her satırda" ve "her sütünda" toplamda kaç tane NA değeri olduğunu hesaplayın.
+```{r Data.3}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 5.4 {#Soru.5.4}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.2"'de NA değerlerini içermeyen bir alt kümesini yazdırın.
+```{r Data.4}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 5.5 {#Soru.5.5}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.3"'de sadece "GS" değerlerini içeren bir alt kümesini yazdırın.
+```{r Data.5}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 5.6 {#Soru.5.6}
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesinin "Sütun.2"'de NA değerlerini içermeyen, "Sütun.3"'de sadece "GS" değerlerini içeren ve "Sütun.5"'de sadece TRUE değerlerini içeren bir alt kümesini "temp.1" olarak kaydedin ve yazdırın.
+```{r Data.6}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 6. Bölüm {#Bölüm.6}
+## Soru 6.1 {#Soru.6.1}
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının `r sample(2:10, 1)`. üssü ile `r sample(20:50, 1)` sayısının toplamını veren basit bir fonksiyon yazın ve "func.1" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.1(`r sample(2:10, 1)`)" değerini hesaplayın.
+```{r Function.1}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 6.2 {#Soru.6.2}
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının "y". üssü ile "z" sayısının toplamını veren basit bir fonksiyon yazın ve "func.2" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.2(x = `r sample(2:10, 1)`, y = `r sample(5:10, 1)`, z = `r sample(40:100, 1)`)" değerini hesaplayın.
+```{r Function.2}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 6.3 {#Soru.6.3}
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.3" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %20'sini ödevler, %30'unu ara sınav ve %50'sini ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.3(puanlar = c(`r sample(1:100, 1)`, `r sample(30:100, 1)`, `r sample(20:100, 1)`))" değerini hesaplayın.  
+**Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir.
+```{r Function.3}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 6.4 {#Soru.6.4}
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.4" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %A kadarını ödevler, %B kadarını ara sınav ve %C kadarını ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.4(puanlar = c(`r sample(1:100, 1)`, `r sample(30:100, 1)`, `r sample(20:100, 1)`), oranlar = c(`r diff(c(0, sort(runif(2)), 1))`))" değerini hesaplayın.  
+**Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
+```{r Function.4}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+# 7. Bölüm {#Bölüm.7}
+## Soru 7.1 {#Soru.7.1}
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = c(`r sample(40:100, 1)`, `r sample(5:100, 1)`, `r sample(15:100, 1)`), oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu belirleyin.  
+**Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
+```{r Conditional.Statement}
+## R kodu buraya yazılmalı.
+```
+
+----
+
+## Soru 7.2 {#Soru.7.2}
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 60 altı FF, 60 (dahil) ve 95 (hariç) arası BB, 95 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak aşağıda "ogrenci.puanlar" objesinde "list" olarak verilmiş birçok öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = ogrenci.puanlar[[i]], oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak ve "for" loop kullanarak öğrencilerin aldığı harf notunu teker teker sırası ile belirleyin ve yazdırın.  
+**Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
+```{r Loop}
+ogrenci.puanlar <- list() ## Değiştirmeyin.
+n <- sample(10:20, 1) ## Değiştirmeyin. Gözlem sayısı.
+for (i in 1:n) { ## Değiştirmeyin.
+  ogrenci.puanlar[[i]] <- c(sample(1:100, 3)) ## Değiştirmeyin.
+} ## Değiştirmeyin.
+
+## R kodu buraya yazılmalı.
+```
+
+<!-- ================================ SON ================================== -->

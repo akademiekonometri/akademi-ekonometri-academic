@@ -65,7 +65,7 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 1.2 {#Soru.1.2}
-- Aşağıda `R` kodu için ayrılan bölümde, "getwd()" kodunu kullanarak, şimdiki çalışma dizininizi inceleyin. Kişisel verilerin gizliliği ilkesi nedeniyle bu kodu çalışmayacak şekilde yazın (yani yorum olarak). Ayrıca "setwd("uzantı")" kodunu kullanarak çalışma dizinini değiştirebileceğinizi unutmayın.
+- Aşağıda `R` kodu için ayrılan bölümde, "getwd()" kodunu kullanarak, şimdiki çalışma dizininizi inceleyin. Kişisel verilerin gizliliği ilkesi nedeniyle bu kodu çalışmayacak şekilde yazın (yani yorum olarak). Ayrıca "setwd("yol")" kodunu kullanarak çalışma dizinini değiştirebileceğinizi unutmayın.
 ```{r WD}
 ## R kodu buraya yazılmalı.
 ```
@@ -89,7 +89,10 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 1.5 {#Soru.1.5}
-- Aşağıda `R` kodu için ayrılan bölümde, `r sample(1:100, 3)` sayılarını toplayın.
+```{r echo = FALSE}
+a <- sample(1:100, 3) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, `r a` sayılarını toplayın.
 ```{r Console, promt = TRUE}
 ## R kodu buraya yazılmalı.
 ```
@@ -97,7 +100,12 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 1.6 {#Soru.1.6}
-- Aşağıda `R` kodu için ayrılan bölümde, `r sample(1:100, 1)` sayısının `r sample(2:10, 1)`. üssü ile `r sample(5:100, 1)` sayısının doğal logaritmasını toplayın.
+```{r echo = FALSE}
+a <- sample(1:100, 1) ## Değiştirmeyin.
+b <- sample(2:10, 1) ## Değiştirmeyin.
+c <- sample(5:100, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, `r a` sayısının `r b`. üssü ile `r c` sayısının doğal logaritmasını toplayın.
 ```{r Editor}
 ## R kodu buraya yazılmalı.
 ```
@@ -106,7 +114,11 @@ set.seed(x) ## Değiştirmeyin.
 
 # 2. Bölüm {#Bölüm.2}
 ## Soru 2.1 {#Soru.2.1}
-- Aşağıda `R` kodu için ayrılan bölümde, değeri `r sample(1:100, 1)` olan bir "`r sample(letters, 1)`" numerik objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r echo = FALSE}
+a <- sample(1:100, 1) ## Değiştirmeyin.
+b <- sample(letters, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, değeri `r a` olan bir "`r b`" numerik objesi oluşturun. Daha sonra oluşturduğunuz bu objeyi yazdırın.
 ```{r Creating.Objects.1}
 ## R kodu buraya yazılmalı.
 ```
@@ -114,7 +126,12 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 2.2 {#Soru.2.2}
-- Aşağıda `R` kodu için ayrılan bölümde, değerleri "`r paste0(sample(letters, 2), collapse = "")`" ve "`r paste0(sample(letters, 4), collapse = "")`" olan bir "`r sample(letters, 1)`" karakter objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r echo = FALSE}
+a <- paste0(sample(letters, 2), collapse = "") ## Değiştirmeyin.
+b <- paste0(sample(letters, 4), collapse = "") ## Değiştirmeyin.
+c <- sample(letters, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, değerleri "`r a`" ve "`r b`" olan bir "`r c`" karakter objesi oluşturun. Daha sonra oluşturduğunuz bu objeyi yazdırın.
 ```{r Creating.Objects.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -122,7 +139,11 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 2.3 {#Soru.2.3}
-- Aşağıda `R` kodu için ayrılan bölümde, ":" operatörünü kullanarak `r sample(1:10, 1)` ve `r sample(15:25, 1)` arasındaki sayıları ardışık olarak içeren bir "x" objesi oluşturun. Daha sonra oluşturduğun bu objeyi yazdırın.
+```{r echo = FALSE}
+a <- sample(1:10, 1) ## Değiştirmeyin.
+b <- sample(15:25, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, ":" operatörünü kullanarak `r a` ve `r b` arasındaki sayıları ardışık olarak içeren bir "x" objesi oluşturun. Daha sonra oluşturduğunuz bu objeyi yazdırın.
 ```{r Creating.Objects.3}
 ## R kodu buraya yazılmalı.
 ```
@@ -130,7 +151,12 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 2.4 {#Soru.2.4}
-- Aşağıda `R` kodu için ayrılan bölümde, "seq" fonksiyonunu kullanarak `r sample(1:20, 1)` ve `r sample(40:60, 1)` arasındaki sayıları `r sample(4:7, 1)` sayı farkla gösteren bir "x" objesi oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "length", "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
+```{r echo = FALSE}
+a <- sample(1:20, 1) ## Değiştirmeyin.
+b <- sample(40:60, 1) ## Değiştirmeyin.
+c <- sample(4:7, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, "seq" fonksiyonunu kullanarak `r a` ve `r b` arasındaki sayıları `r c` sayı farkla gösteren bir "x" objesi oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "length", "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
 ```{r Creating.Objects.4}
 ## R kodu buraya yazılmalı.
 ```
@@ -138,7 +164,10 @@ set.seed(x) ## Değiştirmeyin.
 ----
 
 ## Soru 2.5 {#Soru.2.5}
-- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "x" objesini "c" fonksiyonunu kullanarak "`r paste0(sample(letters, 3), collapse = "")`" ile birleştirin ve "y" objesini oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
+```{r echo = FALSE}
+a <- paste0(sample(letters, 3), collapse = "") ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "x" objesini "c" fonksiyonunu kullanarak "`r a`" ile birleştirin ve "y" objesini oluşturun ve oluşturduğunuz bu objeyi yazdırın. Daha sonra "is.numeric", "is.character", "class" ve "str" fonksiyonlarını oluşturduğunuz bu obje üzerinde kullanın.
 ```{r Creating.Objects.5}
 ## R kodu buraya yazılmalı.
 ```
@@ -160,7 +189,14 @@ z <- as.numeric(x) ## Değiştirmeyin.
 
 # 3. Bölüm {#Bölüm.3}
 ## Soru 3.1 {#Soru.3.1}
-- Aşağıda `R` kodu için ayrılan bölümde, "rnorm" fonksiyonunu kullanarak ortalaması `r sample(-10:10, 1)` ve standart sapması `r sample(1:4, 1)` olan `r sample(100:1000, 1)` gözlemli normal dağılım yapan bir örneklem oluşturun. Bu örneklemi "x" objesi olarak kaydedin. Daha sonra oluşturduğunuz bu "x" objesinin ilk `r sample(3:6, 1)` gözlemini ve son `r sample(5:10, 1)` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
+```{r echo = FALSE}
+a <- sample(-10:10, 1) ## Değiştirmeyin.
+b <- sample(1:4, 1) ## Değiştirmeyin.
+c <- sample(100:1000, 1) ## Değiştirmeyin.
+d <- sample(3:6, 1) ## Değiştirmeyin.
+e <- sample(5:10, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, "rnorm" fonksiyonunu kullanarak ortalaması `r a` ve standart sapması `r b` olan `r c` gözlemli normal dağılım yapan bir örneklem oluşturun. Bu örneklemi "x" objesi olarak kaydedin. Daha sonra oluşturduğunuz bu "x" objesinin ilk `r d` gözlemini ve son `r e` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
 ```{r Stats.1}
 ## R kodu buraya yazılmalı.
 ```
@@ -194,7 +230,10 @@ z <- as.numeric(x) ## Değiştirmeyin.
 
 # 4. Bölüm {#Bölüm.4}
 ## Soru 4.1 {#Soru.4.1}
-- Aşağıda `R` kodu için ayrılan bölümde sizin için "z" ve "w" matrisleri oluşturulmuştur. Öncelikle "z" matrisinin terisi alın ve bu yeni matrisi "z.inv" olarak kaydedin. Daha sonra "`r sample(c("rbind", "cbind"), 1)`" fonksiyonunu kullanarak, "z.inv" matrisini ve "w" matrisini birleştirin, ve yazdırın.
+```{r echo = FALSE}
+a <- sample(c("rbind", "cbind"), 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde sizin için "z" ve "w" matrisleri oluşturulmuştur. Öncelikle "z" matrisinin terisi alın ve bu yeni matrisi "z.inv" olarak kaydedin. Daha sonra "`r a`" fonksiyonunu kullanarak, "z.inv" matrisini ve "w" matrisini birleştirin, ve yazdırın.
 ```{r Matrix.1}
 z.start <- sample(1:10, 1) ## Değiştirmeyin.
 w.start <- sample(5:10, 1) ## Değiştirmeyin.
@@ -207,7 +246,11 @@ w <- matrix(data = w.start:(w.start + 3), nrow = 2, ncol = 2) ## Değiştirmeyin
 ----
 
 ## Soru 4.2 {#Soru.4.2}
-- Aşağıda `R` kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren `r sample(2:10, 1)` satırdan ve `r sample(2:5, 1)` sütündan oluşan "x" matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve  "y" matrisini oluşturun. Son olarak "y" matrisini yazdırın.
+```{r echo = FALSE}
+a <- sample(2:10, 1) ## Değiştirmeyin.
+b <- sample(2:5, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, öncelikle sizin seçtiğiniz rakamları içeren `r a` satırdan ve `r b` sütündan oluşan "x" matrisi oluşturun. Daha sonra oluşturduğunuz bu matrisin tranpozunu alın ve  "y" matrisini oluşturun. Son olarak "y" matrisini yazdırın.
 ```{r Matrix.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -241,7 +284,11 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 ----
 
 ## Soru 5.2 {#Soru.5.2}
-- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesini öncelikle yazdırın. Daha sonra "temp" datasının ilk `r sample(4:8, 1)` gözlemini ve son `r sample(3:8, 1)` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
+```{r echo = FALSE}
+a <- sample(4:8, 1) ## Değiştirmeyin.
+b <- sample(3:8, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, bir önceki soruda oluşturduğunuz "temp" adlı data.frame objesini öncelikle yazdırın. Daha sonra "temp" datasının ilk `r a` gözlemini ve son `r b` gözlemini "head" ve "tail" fonksiyonlarını kullanarak gösterin.
 ```{r Data.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -282,7 +329,12 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 
 # 6. Bölüm {#Bölüm.6}
 ## Soru 6.1 {#Soru.6.1}
-- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının `r sample(2:10, 1)`. üssü ile `r sample(20:50, 1)` sayısının toplamını veren basit bir fonksiyon yazın ve "func.1" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.1(`r sample(2:10, 1)`)" değerini hesaplayın.
+```{r echo = FALSE}
+a <- sample(2:10, 1) ## Değiştirmeyin.
+b <- sample(20:50, 1) ## Değiştirmeyin.
+c <- sample(2:10, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının `r a`. üssü ile `r b` sayısının toplamını veren basit bir fonksiyon yazın ve "func.1" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.1(`r c`)" değerini hesaplayın.
 ```{r Function.1}
 ## R kodu buraya yazılmalı.
 ```
@@ -290,7 +342,12 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 ----
 
 ## Soru 6.2 {#Soru.6.2}
-- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının "y". üssü ile "z" sayısının toplamını veren basit bir fonksiyon yazın ve "func.2" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.2(x = `r sample(2:10, 1)`, y = `r sample(5:10, 1)`, z = `r sample(40:100, 1)`)" değerini hesaplayın.
+```{r echo = FALSE}
+a <- sample(2:10, 1) ## Değiştirmeyin.
+b <- sample(5:10, 1) ## Değiştirmeyin.
+c <- sample(40:100, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, verilen herhangi bir pozitif tam sayının "y". üssü ile "z" sayısının toplamını veren basit bir fonksiyon yazın ve "func.2" ismini verin. Daha sonra bu fonksiyonu kullanarak "func.2(x = `r a`, y = `r b`, z = `r c`)" değerini hesaplayın.
 ```{r Function.2}
 ## R kodu buraya yazılmalı.
 ```
@@ -298,7 +355,12 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 ----
 
 ## Soru 6.3 {#Soru.6.3}
-- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.3" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %20'sini ödevler, %30'unu ara sınav ve %50'sini ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.3(puanlar = c(`r sample(1:100, 1)`, `r sample(30:100, 1)`, `r sample(20:100, 1)`))" değerini hesaplayın.  
+```{r echo = FALSE}
+a <- sample(1:100, 1) ## Değiştirmeyin.
+b <- sample(30:100, 1) ## Değiştirmeyin.
+c <- sample(20:100, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.3" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %20'sini ödevler, %30'unu ara sınav ve %50'sini ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.3(puanlar = c(`r a`, `r b`, `r c`))" değerini hesaplayın.  
 **Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir.
 ```{r Function.3}
 ## R kodu buraya yazılmalı.
@@ -307,7 +369,13 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 ----
 
 ## Soru 6.4 {#Soru.6.4}
-- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.4" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %A kadarını ödevler, %B kadarını ara sınav ve %C kadarını ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.4(puanlar = c(`r sample(1:100, 1)`, `r sample(30:100, 1)`, `r sample(20:100, 1)`), oranlar = c(`r diff(c(0, sort(runif(2)), 1))`))" değerini hesaplayın.  
+```{r echo = FALSE}
+a <- sample(1:100, 1) ## Değiştirmeyin.
+b <- sample(30:100, 1) ## Değiştirmeyin.
+c <- sample(20:100, 1) ## Değiştirmeyin.
+d <- diff(c(0, sort(runif(2)), 1)) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersinden alacağınız toplam notu hesaplayan "func.4" isimli bir fonksiyon yazın. Varsayalım ki Ekonometri I dersinde toplam notun %A kadarını ödevler, %B kadarını ara sınav ve %C kadarını ise final sınavı oluşturuyor. Daha sonra bu fonksiyonu kullanarak "func.4(puanlar = c(`r a`, `r b`, `r c`), oranlar = c(`r d`))" değerini hesaplayın.  
 **Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
 ```{r Function.4}
 ## R kodu buraya yazılmalı.
@@ -317,7 +385,12 @@ temp <- data.frame(Column.1 = column.1, Column.2 = column.2, Column.3 = column.3
 
 # 7. Bölüm {#Bölüm.7}
 ## Soru 7.1 {#Soru.7.1}
-- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = c(`r sample(40:100, 1)`, `r sample(5:100, 1)`, `r sample(15:100, 1)`), oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu belirleyin.  
+```{r echo = FALSE}
+a <- sample(40:100, 1) ## Değiştirmeyin.
+b <- sample(5:100, 1) ## Değiştirmeyin.
+c <- sample(15:100, 1) ## Değiştirmeyin.
+```
+- Aşağıda `R` kodu için ayrılan bölümde, Ekonometri I dersindeki öğrencilerin aldığı toplam not için harf aralıklarının şu şekilde olduğunu varsayalım: 50 altı FF, 50 (dahil) ve 90 (hariç) arası BB, 90 ve üstü AA. Bu durumda daha önceden yazdığınız "func.4" fonksiyonunu kullanarak öğrencinin aldığı puanı şu şekilde hesaplayın: "func.4(puanlar = c(`r a`, `r b`, `r c`), oranlar = c(0.2, 0.4, 0.4))". Daha sonra "if", "else" ve ""else if" kontrol yapılarından istediğinizi kullanarak öğrencinin aldığı harf notunu belirleyin.  
 **Not:** "puanlar" argümanı sırası ile ödev, ara sınav ve final sınavından alınan notu belirtmektedir. "oranlar" argümanı sırası ile ödev, ara sınav ve final sınavlarının oranlarını belirtmektedir.
 ```{r Conditional.Statement}
 ## R kodu buraya yazılmalı.

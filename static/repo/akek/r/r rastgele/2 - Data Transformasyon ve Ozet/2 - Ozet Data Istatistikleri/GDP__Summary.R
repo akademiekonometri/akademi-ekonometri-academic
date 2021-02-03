@@ -44,12 +44,11 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
-options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
 #==========
-## Load.Install(Package.Names = "XLConnect")
-## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
 
 #================================= Genel Bilgi =================================
@@ -59,8 +58,8 @@ options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memor
 
 #=============================== Datayi Yuklemek ===============================
 # Datanin yuklenmesi.
-load(file = "GDP_Processed_Trans.RData", verbose = FALSE)
-data <- GDP_Processed_Trans ## R icine aktarilan bu temizlenmis ve transforme edilmis datanin ismi GDP_Processed_Trans oldugundan, data ile degistiriliyor.
+load(file = "GDP__Processed__Trans.RData", verbose = FALSE)
+data <- GDP__Processed__Trans ## R icine aktarilan bu temizlenmis ve transforme edilmis datanin ismi GDP_Processed_Trans oldugundan, data ile degistiriliyor.
 
 # Temizlenmis ve transforme edilmis datanin yapisi.
 str(data)

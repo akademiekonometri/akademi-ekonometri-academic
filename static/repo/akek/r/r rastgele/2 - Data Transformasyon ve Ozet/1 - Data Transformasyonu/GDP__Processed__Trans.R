@@ -38,11 +38,10 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
-## Load.Install(Package.Names = "XLConnect")
-## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
 
 #================================= Genel Bilgi =================================
@@ -66,14 +65,13 @@ fileURL <- c("https://apps.bea.gov/national/Release/XLS/Survey/Section1All_xls.x
 invisible(file.remove(list.files(pattern = file.name))) ## Datayi guncellemek icin daha onceden indirilen dosyalarin silinmesi.
 download.file(url = fileURL, file.name, method = "auto") ## Datanin indirilmesi.
 
-# Indirilen ham datanin excel olarak yuklenmesi.
-workbook <- loadWorkbook(filename = file.name, create = FALSE) ## Once excel workbook yukleniyor.
+# GDP ham datanin yuklenmesi.
+gdp <- read_excel(path = file.name, sheet = "T10105-Q", range = cell_limits(c(8, 3), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yukledigimiz gdp datasini read_excel fonksiyonu tibble formatinda kaydediyor.
+gdp <- as.data.frame(gdp, stringsAsFactors = TRUE) ## GDP datasini data.frame formatina ceviriyoruz.
 
-# GDP ham datasinin excel icinden yuklenmesi.
-gdp <- readWorksheetFromFile(file = file.name, sheet = "T10105-Q", startRow = 8, startCol = 3, header = TRUE, colTypes = "character") ## Direkt olarak excel workbook icindeki belirli bir worksheet yukleniyor.
-
-# GDP Deflator ham datasinin excel icinden yuklenmesi.
-gdp.deflator <- readWorksheetFromFile(file = file.name, sheet = "T10109-Q", startRow = 8, startCol = 3, header = TRUE, colTypes = "character") ## Direkt olarak excel workbook icindeki belirli bir worksheet yukleniyor.
+# GDP ham datanin yuklenmesi.
+gdp.deflator <- read_excel(path = file.name, sheet = "T10109-Q", range = cell_limits(c(8, 3), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yukledigimiz gdp deflator datasini read_excel fonksiyonu tibble formatinda kaydediyor.
+gdp.deflator <- as.data.frame(gdp.deflator, stringsAsFactors = TRUE) ## GDP deflator datasini data.frame formatina ceviriyoruz.
 
 # GDP ve GDP Deflator datalarinin birlestirilmeleri.
 sum(colnames(gdp) != colnames(gdp.deflator)) ## Birlestirilme sirasinda basit bir yontem kullanilacagindan her iki datanin sutun isimlerinin ayni olup olmadigina bakiliyor.
@@ -131,7 +129,7 @@ data <- test
 str(data)
 
 # Islenmis datanin RData formatinda disa aktarilmasi.
-RData.Name <- "GDP_Processed"
+RData.Name <- "GDP__Processed"
 assign(RData.Name, data)
 save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak RData uzantili bu dosya, bu kaynak kodun lokasyonunda olacaktir. Bilgisayarinizda uzerine tikladiginizda RStudio direkt olarak bu dosyayi acacak ve ham datayi R'a yukleyecektir.
 
@@ -171,7 +169,7 @@ data <- temp ## Tekrar ayni ismi kullanmaya basliyoruz.
 str(data)
 
 # Islenmis datanin RData formatinda disa aktarilmasi.
-RData.Name <- "GDP_Processed_Trans"
+RData.Name <- "GDP__Processed__Trans"
 assign(RData.Name, data)
 save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak RData uzantili bu dosya, bu kaynak kodun lokasyonunda olacaktir. Bilgisayarinizda uzerine tikladiginizda RStudio direkt olarak bu dosyayi acacak ve ham datayi R'a yukleyecektir.
 

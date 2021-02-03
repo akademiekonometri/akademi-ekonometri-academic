@@ -10,7 +10,7 @@
 # E-mail: akademiekonometri@gmail.com
 #===============================================================================
 
-#============================ VAR Ornek 2 (Detayli) ============================
+#=========================== VAR - Ornek 2 (Detayli) ===========================
 #====== R'da Excel Uzantılı Data Yüklemek, Temizlemek, ve Grafik Cikarmak ======
 #========== Birim Kok Testleri, VAR, Granger Nedensellik Testi ve IRF ==========
 # Notlar:
@@ -79,13 +79,12 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
-Load.Install(c("seasonal")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
-options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
+Load.Install(c("seasonal", "uroot")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
 #==========
-## Load.Install(Package.Names = "XLConnect")
-## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc"))
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
 
 #================================= Genel Bilgi =================================
@@ -104,9 +103,9 @@ options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memor
 # Data dosyasinin adi.
 file.name <- "CAD.xlsx"
 
-# Ham datanin yuklenmesi: Yontem 1.
-workbook <- loadWorkbook(filename = file.name, create = FALSE) ## Once excel workbook yukleniyor.
-data <- readWorksheet(object = workbook, sheet = 1, startRow = 1, startCol = 1, header = TRUE, colTypes = "character") ## Sonra workbook icindeki belirli bir worksheet yukleniyor.
+# Ham datanin yuklenmesi.
+data <- read_excel(path = file.name, sheet = 1, range = cell_limits(c(1, 1), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yukledigimiz datayi read_excel fonksiyonu tibble formatinda kaydediyor.
+data <- as.data.frame(data, stringsAsFactors = TRUE) ## Datayi data.frame formatina ceviriyoruz.
 
 # Ham datanin yapisi.
 str(data)
@@ -130,7 +129,7 @@ rownames(data) <- 1:nrow(data)
 str(data)
 
 # Islenmis datanin RData formatinda disa aktarilmasi.
-RData.Name <- "CAD_Processed"
+RData.Name <- "CAD__Processed"
 assign(RData.Name, data)
 save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak RData uzantili bu dosya, bu kaynak kodun lokasyonunda olacaktir. Bilgisayarinizda uzerine tikladiginizda RStudio direkt olarak bu dosyayi acacak ve ham datayi R'a yukleyecektir.
 
@@ -157,7 +156,7 @@ data <- temp ## Tekrar ayni ismi kullanmaya basliyoruz.
 str(data)
 
 # Islenmis datanin RData formatinda disa aktarilmasi.
-RData.Name <- "CAD_Processed_Trans"
+RData.Name <- "CAD__Processed__Trans"
 assign(RData.Name, data)
 save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak RData uzantili bu dosya, bu kaynak kodun lokasyonunda olacaktir. Bilgisayarinizda uzerine tikladiginizda RStudio direkt olarak bu dosyayi acacak ve ham datayi R'a yukleyecektir.
 
@@ -333,28 +332,28 @@ dev.off()
 # Her degiskendeki birim kok durumunu ayri ayri test etmeden once, degiskenlerde mevsimsel birim kok olup olmadigini test etmek yararli olacaktir (belki bazi degiskenlerde mevsimsel farkin, seasonal differencing, alinmasi gerekli olabilir). Kullanilan iki yontem: Canova-Hansen, Canova and Hansen (1995) testi ve Osborn-Chui-Smith-Birchenhall, Osborn et. al (1988) testi.
 # Note: Datanin frekansi 1 oldugundan yani data yillik oldugundan mevsimsel birim kok testine gerek yoktur.
 
-temp.ts <- data1.ts
-
-season.diff <- NULL
-for (i in 1:ncol(temp.ts)) {
-    ts <- temp.ts[, colnames(temp.ts)[i]]
-    ch <- nsdiffs(ts, m = frequency(ts), test = c("ch")) ## Canova-Hansen
-    if (ch != 0) {
-        message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing in Canova-Hansen test."))
-    }
-    ocsb <- nsdiffs(ts, m = frequency(ts), test = c("ocsb")) ## Osborn-Chui-Smith-Birchenhall
-    if (ocsb != 0) {
-        message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing in Osborn-Chui-Smith-Birchenhall test."))
-    }
-    season.diff[i] <- ifelse(ch + ocsb == 2, 1, 0)
-    if (season.diff[i] != 0) {
-        message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing."))
-    }
-}
-if (sum(season.diff) == 0) {
-    message("None of the univariate time series needs seasonal differencing.")
-}
-print(season.diff) ## Degiskenlerde mevsimsel birim kok olup olmamasi sonucuna gore degiskenlerde mevsimsel ilk farklarin alinmasi ya da ayni haliyle birakilmasi gerekir.
+# temp.ts <- data1.ts
+#
+# season.diff <- NULL
+# for (i in 1:ncol(temp.ts)) {
+#     ts <- temp.ts[, colnames(temp.ts)[i]]
+#     ch <- nsdiffs(ts, m = frequency(ts), test = c("ch")) ## Canova-Hansen
+#     if (ch != 0) {
+#         message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing in Canova-Hansen test."))
+#     }
+#     ocsb <- nsdiffs(ts, m = frequency(ts), test = c("ocsb")) ## Osborn-Chui-Smith-Birchenhall
+#     if (ocsb != 0) {
+#         message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing in Osborn-Chui-Smith-Birchenhall test."))
+#     }
+#     season.diff[i] <- ifelse(ch + ocsb == 2, 1, 0)
+#     if (season.diff[i] != 0) {
+#         message(paste0(dQuote(colnames(temp.ts)[i]), " needs seasonal differencing."))
+#     }
+# }
+# if (sum(season.diff) == 0) {
+#     message("None of the univariate time series needs seasonal differencing.")
+# }
+# print(season.diff) ## Degiskenlerde mevsimsel birim kok olup olmamasi sonucuna gore degiskenlerde mevsimsel ilk farklarin alinmasi ya da ayni haliyle birakilmasi gerekir.
 
 #=================== Unit Root Tests - (Birim Kok Testleri) ====================
 # Her degisken icin unit root test yapiyoruz.
@@ -576,7 +575,7 @@ coint <- 1 ## Secilen cointegration. Lag BIC ile secildikten sonra, Johansen coi
 
 # Kisitlanmis VECM (Restricted VECM)
 ## Kisitlanmis VECM'yi SEKK ile tahmin ediyoruz ve her denklem icin kisitlanmis VECM tahminlerini gosteriyoruz.
-vecm.rest <- cajorls(johansen, r = coint, reg.number = NULL) ## Kisitlanmis VECM (Restricted VECM). Yani VECM, cointegration = 1 kisiti ile yeniden tahmin ediliyoe ve data icindeki ilk degiskene (Gr.RCAD) gore long-run relationship (uzun-donemli) iliski normalize ediliyor.
+vecm.rest <- cajorls(jo, r = coint, reg.number = NULL) ## Kisitlanmis VECM (Restricted VECM). Yani VECM, cointegration = 1 kisiti ile yeniden tahmin ediliyoe ve data icindeki ilk degiskene (Gr.RCAD) gore long-run relationship (uzun-donemli) iliski normalize ediliyor.
 vecm.rest.summary <- summary(vecm.rest$rlm) ## Her denklem icin kisitlanmis VECM tahminleri.
 vecm.rest.summary
 

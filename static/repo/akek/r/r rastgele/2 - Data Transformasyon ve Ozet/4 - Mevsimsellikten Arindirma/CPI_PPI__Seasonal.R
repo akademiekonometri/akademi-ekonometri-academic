@@ -50,12 +50,11 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 Load.Install(c("seasonal")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
-options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
 #==========
-## Load.Install(Package.Names = "XLConnect")
-## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
 
 #================================= Genel Bilgi =================================
@@ -66,8 +65,8 @@ options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memor
 
 #=============================== Datayi Yuklemek ===============================
 # Daha once temizlenmis CPI_PPI_Processed.RData datasini yukleme.
-load(file = "CPI_PPI_Processed.RData", verbose = FALSE)
-data <- CPI_PPI_Processed ## R icine aktarilan bu temizlenmis datanin ismi CPI_PPI_Processed oldugundan, data ile degistiriliyor.
+load(file = "CPI_PPI__Processed.RData", verbose = FALSE)
+data <- CPI_PPI__Processed ## R icine aktarilan bu temizlenmis datanin ismi CPI_PPI_Processed oldugundan, data ile degistiriliyor.
 
 # Daha once Temizlenmis datanin yapisi.
 str(data)

@@ -38,11 +38,10 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-options(java.parameters = "-Xmx8000m") ## Bazen excel datalarini yuklerken memory sorunu ciktigi icin gerekli bir kod.
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
-## Load.Install(Package.Names = "XLConnect")
-## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
 
 #================================= Genel Bilgi =================================
@@ -123,7 +122,7 @@ colnames(data)[3:ncol(data)] <- c("CPI.S", "CPI.US", "PPI.US")
 str(data)
 
 # Islenmis datanin RData formatinda disa aktarilmasi.
-RData.Name <- "CPI_PPI_Processed"
+RData.Name <- "CPI_PPI__Processed"
 assign(RData.Name, data)
 save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak RData uzantili bu dosya, bu kaynak kodun lokasyonunda olacaktir. Bilgisayarinizda uzerine tikladiginizda RStudio direkt olarak bu dosyayi acacak ve ham datayi R'a yukleyecektir.
 

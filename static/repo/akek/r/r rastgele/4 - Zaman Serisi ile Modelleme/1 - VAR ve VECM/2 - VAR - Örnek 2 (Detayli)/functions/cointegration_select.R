@@ -1,14 +1,3 @@
-#============================= Akademi Ekonometri ==============================
-#================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
-
-#=============================== Bizi Takip Edin ===============================
-# Web Sitemiz: https://akademiekonometri.rbind.io/
-# YouTube: https://www.youtube.com/c/AkademiEkonometri
-# Twitter: https://twitter.com/AEkonometri
-# Instagram: https://www.instagram.com/akademiekonometri/
-# E-mail: akademiekonometri@gmail.com
-#===============================================================================
-
 #================================= Coint.Select ================================
 #============ Cointegration Rank Calculation from Johansen Object ==============
 
@@ -16,22 +5,37 @@
 #
 ## Function takes the johansen object and number of equations, and assignes the cointegration rank to general environment named as coint.number.
 ## Johansen.Object is the johansen object calculated with ca.jo function from vars package.
-## Equation.Number is the number of equations or the number of the total series used in the johansen object.
+## Equation.Number is the number of equations or the number of the total series used in the johansen object. Note that function is written only for at max 6 equations (6 endogenous variables). For more than 6 equations, additional code should be appended to the bottom. See the codes of equation 6 for help.
 ## After calculation, function prints the critial values, test statistics and the selected cointegration rank. Also, the selected cointegration rank is assigned to coint.number object in the general environment.
+## The outputs of the function is named as "coint.number" data frames.
 
 # Usage:
 #
 # Coint.Select(Johansen.Object, Equation.Number)
 #
 ## Johansen.Object: Johansen object calcualted with the ca.jo. function in vars package.
-## Equation.Number: Number of the equations in numeric form.
+## Equation.Number: Numeric. Number of the equations in numeric form.
+## To run the function without any argument matching problem, make sure to specify all arguments with their names always (if non-default values are selected).
 
 # Examples:
 #
-## Coint.Select(johansen, 3)
-## Coint.Select(johansen, 6)
+## Coint.Select(Johansen.Object = johansen, Equation.Number = 3)
+## Coint.Select(Johansen.Object = johansen, Equation.Number = 6)
 
 Coint.Select <- function(Johansen.Object, Equation.Number) {
+    # Checks Johansen.Object argument.
+    if (length(Johansen.Object) != 1)
+        stop("Invalid Johansen.Object. Please choose only one Johansen.Object.\n")
+    if (class(Johansen.Object)[1] != "ca.jo")
+        stop("Invalid Johansen.Object. Please choose a Johansen.Object which has a class of ca.jo.\n")
+
+    # Checks Equation.Number argument.
+    if (length(Equation.Number) != 1)
+        stop("Invalid Equation.Number. Please choose only one Equation.Number.\n")
+    if (Equation.Number >= 7)
+        stop("Invalid Equation.Number. Please choose at max 6 for Equation.Number.\n")
+
+    # Cointegration results.
     coint.results <- cbind(t(matrix(Johansen.Object@teststat, nrow = 1, ncol = Equation.Number, dimnames = list(c("test")))), Johansen.Object@cval)
     temp <- coint.results
     print(temp)

@@ -40,29 +40,26 @@ source(paste0(main.path, "/", functions.folder.name, "/", "human_numbers.R")) ##
 ## "Seasonal.Adjust" fonksiyonu icin "seasonal_adjust.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
 
-## "ADF.Enders.Procedure" fonksiyonu icin "adf_enders_procedure.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "adf_enders_procedure.R")) ## Degiskenler icin Enders'in kitabinda bulunan ve ADF unit root testinin kullanildigi proseduru takip eder ve unit root testi yapar. Az sayida gozlem iceren data icin calismayabilir.
+## "ADF.Enders.Procedure" fonksiyonu icin "unit_root_adf_enders_procedure_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_adf_enders_procedure_tests.R")) ## Degiskenler icin Enders'in kitabinda bulunan ve ADF unit root testinin kullanildigi proseduru takip eder ve unit root testi yapar. Az sayida gozlem iceren data icin calismayabilir.
 
-## "UR.Stationary.Tests" fonksiyonu icin "unit_root_stationary_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_stationary_tests.R")) ## Degiskenler icin unit root testleri (PP ve ERS) ve stationary testi (KPSS). Az sayida gozlem iceren data icin calismayabilir.
+## "UR.Stationary.Tests" fonksiyonu icin "unit_root_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_tests.R")) ## Degiskenler icin unit root testleri (PP ve ERS) ve stationary testi (KPSS). Az sayida gozlem iceren data icin calismayabilir.
 
-## "UR.Stationary.Results" fonksiyonu icin "unit_root_stationary_results.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_stationary_results.R")) ## Degiskenler icin uygulanan "ADF Unit Root Procedure" ve unit root testlerini (PP ve ERS) ve stationary testini (KPSS) gorsel olarak gostermek amaciyla tabloya doker. Az sayida gozlem iceren data icin calismayabilir.
+## "PO.Coint.Pairwise.Test" fonksiyonu icin "cointegration_pairwise_po_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_po_tests.R")) ## Phillips-Ouliaris (PO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
 
-## "Coint.Pairwise.Tests.1" fonksiyonu icin "cointegration_pairwise_tests_1.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_tests_1.R")) ## Degiskenler icin uygulanan cointegration pairwise testleri. Phillips-Ouliaris (PO) - Asimetrik ve JO (Johansen) - Simetrik testleri. Az sayida gozlem iceren data icin calismayabilir. Not: Kullanicinin belirledigi anlamlilik duzeyine gore sonucu istatistikleri gostermeden verir.
+## "JO.Coint.Pairwise.Test" fonksiyonu icin "cointegration_pairwise_jo_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_jo_tests.R")) ## Joahnsen (JO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
 
-## "Coint.Pairwise.Tests.2" fonksiyonu icin "cointegration_pairwise_tests_1.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_tests_2.R")) ## Degiskenler icin uygulanan cointegration pairwise testleri. Phillips-Ouliaris (PO) - Asimetrik ve JO (Johansen) - Simetrik testleri. Az sayida gozlem iceren data icin calismayabilir. Not: Test istatistiklerini ve hangi anlamlilik duzeylerine gore red edebilebilecegini gosterir.
+## "Coint.Select" fonksiyonu icin "cointegration_select.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_select.R")) ## Ikili ya da daha fazla degisken icin uygulanan Johansen Cointegration testinin sonucunu direkt olarak verir.
 
-## "Coint.Select" fonksiyonu icin "cointegration_rank_select.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_rank_select.R")) ## Ikili ya da daha fazla degisken icin uygulanan johansen cointegration testinin sonucunu direkt olarak verir.
+## "Granger.Causality.TYDL.Pairwise" fonksiyonu icin "granger_causality_TYDL_pairwise_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_pairwise_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda iki denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
 
-## "Granger.Causality.TYDL.1" fonksiyonu icin "granger_causality_TYDL_1.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_1.R")) ## VAR ya da VECM analizinde kullanilacak olak degiskenler arasinda iki denklemli ve cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir. Not: Kullanicinin belirledigi anlamlilik duzeyine gore sonucu istatistikleri gostermeden verir.
-
-## "Granger.Causality.TYDL.2" fonksiyonu icin "granger_causality_TYDL_2.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_2.R")) ## VAR ya da VECM analizinde kullanilacak olak degiskenler arasinda iki denklemli ve cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir. Not: Test istatistiklerini ve hangi anlamlilik duzeylerine gore red edebilebilecegini gosterir.
+## "Granger.Causality.TYDL.Multivariate" fonksiyonu icin "granger_causality_TYDL_multivariate_tests.R" dosyasina bakabilirsiniz.
+source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_multivariate_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
@@ -230,7 +227,7 @@ as.pdf(temp.summary, stem = paste0(file.name, "-latex"), dir = "./figs-tabs") ##
 str(data)
 
 # Datanin zaman serisi objesine cevirilmesi.
-data.ts <- ts(data[, 3:ncol(data)], frequency = 1, start = c(as.numeric(data$Year[1]))) ## Data objesi frekansi 11 olan zaman serisi objesine cevriliyor. Baslangic olarak ilk yil aliniyor.
+data.ts <- ts(data[, 3:ncol(data)], frequency = 1, start = c(as.numeric(data$Year[1]))) ## Data objesi frekansi 12 olan zaman serisi objesine cevriliyor. Baslangic olarak ilk yil aliniyor.
 
 # Zaman serisi objesine cevrilmis datanin yapisi.
 str(data.ts)
@@ -240,7 +237,7 @@ start(data.ts)
 end(data.ts)
 
 # Zaman serisi objesinde analizlerin yapilabilmesi icin datanin icinde bos degerlerin (NA) olmamasi gerekiyor. Ayrica ilerleyen analizlerde duzey formundaki degiskenleri mi yoksa buyume formundaki degiskenleri kullanacagimizi henuz bilmedigimizden datayi iki ayri parcaya boluyoruz. Ilk parca tamamen duzey formundaki degiskenleri kapsarken, ikinci parca tamamen buyume formundaki degiskenleri kapsiyor.
-data1 <- data[, c("Date", "Year", "RCAD", "RGDP", "RER")] ## Birinci parce duzey formunda.
+data1 <- data[, c("Date", "Year", "RCAD", "RGDP", "RER")] ## Birinci parca duzey formunda.
 data2 <- data[-1, c("Date", "Year", "Gr.RCAD", "Gr.RGDP", "Gr.RER")] ## Ikinci parca buyume formunda oldugu icin ilk gozlem siliniyor.
 
 # Iki parcanin da ayri olarak zaman serisi objesine cevirilmesi.
@@ -437,23 +434,25 @@ kpss.test(ts2.diff, lag.short = TRUE, output = TRUE) ## Buyume ilk farklar: stat
 
 #=========================
 # Detayli unit root ve stationary testleri.
-## Detayli bilgi icin "—note_unit-root_stationary.R" dosyasini inceleyin.
-## urca adli R paketindeki unit root testleri kullanarak asagidaki 3 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak ADF, PP, ERS ve KPSS testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
+## Detayli bilgi icin "—note_unit-root_tests.R" dosyasini inceleyin.
+## urca adli R paketindeki unit root testleri kullanarak asagidaki 2 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak ADF, PP, ERS ve KPSS testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
 ## urca paketi unit root testleri icin size en genis ve dogru bilgiyi verir. Fakat ozellikle ADF testlerinde yorumlamasi zor oldugundan genelde tercih edilmez. Asagida verilen fonksiyonlarin icerigine bakarak ADF testinde izlemeniz gereken test surecini anlayabilirsiniz.
 ## Asagidaki fonksiyonlarin kullanilabilmesi icin gozlem sayinizin buyuk olmasi beklenir.
 
-# ADF.Enders.Procedure(data2.ts, Significance.Level = 5, Diff = FALSE, Reshape = TRUE) ## Buyume formundaki degiskelere uygulandi.
-# adf.tests ## Yukaridaki fonksiyonun sonucu
-# UR.Stationary.Tests(data2.ts, Significance.Level = 5, Diff = FALSE, Reshape = TRUE) ## Buyume formundaki degiskelere uygulandi.
-# ur.stationary.tests ## Yukaridaki fonksiyonun sonucu
-# UR.Stationary.Results(data2.ts, Significance.Level = 5, Diff = FALSE, Table = TRUE) ## Buyume formundaki degiskelere uygulandi.
-# ur.stationary.results ## Yukaridaki fonksiyonun sonucu
+ADF.Enders.Procedure(Data = data2.ts, Significance.Level = 5, Diff = FALSE, Reshape = TRUE) ## Buyume formundaki degiskelere uygulandi.
+adf.tests.results ## Yukaridaki fonksiyonun sonucu
+adf.tests.results.conv ## Yukaridaki fonksiyonun sonucu
+
+UR.Stationary.Tests(Data = data2.ts, Diff = FALSE, Lags = NULL, Subset = NULL, Reshape = TRUE, LaTeX = FALSE) ## Buyume formundaki degiskelere uygulandi.
+ur.stationary.tests.results ## Yukaridaki fonksiyonun sonucu
+ur.stationary.tests.results.conv ## Yukaridaki fonksiyonun sonucu
 #=========================
 
 #======== Cointegration Pairwise Tests - (Esbutunlesme Ikili Testleri) =========
 # Her ikili degisken arasinda cointegration testleri yapiyoruz.
-## Kullanilan testler: Engle-Granger test (EG) - Asimetrik, Phillips-Ouliaris (PO) - Asimetrik ve JO (Johansen) - Simetrik. Burada dikkat edilmesi gereken PO simetrik degil ve JO ise simetriktir.
-## PO testinde type argumaninda Pu yerine Pz kullanildiginda denklemin sol tarafinda hangi degiskenin oldugu fark etmez. Eger simetrik bir PO testi yapmak isterseniz bunu kullanabilirsiniz.
+## Kullanilan testler: Engle-Granger test (EG) - Asimetrik, Phillips-Ouliaris (PO) - Asimetrik/Simetrik, ve JO (Johansen) - Simetrik.
+## Burada dikkat edilmesi gereken JO her zaman simetrikken (yani hangi degiskenin once kullanildigi fark etmez iken), PO'da bu durum secilen teste gore degisebilir. Pu: asimetrik PO testi icin. Pz: simetrik PO testi icin.
+## PO testinde type argumaninda Pu yerine Pz kullanildiginda denklemin sag tarafinda hangi degiskenin oldugu fark etmez. Eger simetrik bir PO testi yapmak isterseniz Pz kullanabilirsiniz. Simetrik bir test sonuc farkini ortadan kaldiracagi icin biz simetrik PO testini kullanacagiz.
 ## Tum testlerde belirli anlamlilik duzeyindeki hesapladigimiz test istatistiginin kritik degerden buyuk olup olmadigine bakiyoruz.
 ## Asagida bu testleri uygularken urca ve aTSA paketleri kullanildi.
 ## Not: Asagidaki cointegration pairwise (esbutunlesme ikili) testleri ben sadece "Gr.RCAD" ve "Gr.RCAD" arasinda uyguladim. Eger siz isterseniz diger ikili degiskenler icin de bu testlerin aynisini uygulayabilirsiniz.
@@ -463,19 +462,19 @@ kpss.test(ts2.diff, lag.short = TRUE, output = TRUE) ## Buyume ilk farklar: stat
 ### aTSA paketi ile Engle-Granger test (EG) - Asimetrik
 ts1 <- data2.ts[, c("Gr.RGDP")]
 ts2 <- data2.ts[, c("Gr.RCAD")]
-coint.test(ts1, ts2, d = 0, nlag = NULL, output = TRUE) ## RCAD'den RGDP'ye: Cointegration yok.
-coint.test(ts2, ts1, d = 0, nlag = NULL, output = TRUE) ## RGDP'den RCAD'ye: Cointegration yok.
+coint.test(y = ts1, X = ts2, d = 0, nlag = NULL, output = TRUE) ## RCAD'den RGDP'ye: Cointegration yok.
+coint.test(y = ts2, X = ts1, d = 0, nlag = NULL, output = TRUE) ## RGDP'den RCAD'ye: Cointegration yok.
 
-### urca paketi ile Phillips-Ouliaris (PO)
+### urca paketi ile Phillips-Ouliaris (PO): Simetrik test yani Pz kullanildi.
 #### Gr.RCAD'den Gr.RGDP'ye dogru.
 ts <- data2.ts[, c("Gr.RCAD", "Gr.RGDP")]
-po <- ca.po(ts, demean = "constant", lag = "short", type = "Pu")
-po@teststat; po@cval ## Gr.RCAD'den Gr.RGDP'ye: Cointegration yok.
+po <- ca.po(ts, demean = "constant", lag = "short", type = "Pz")
+po@teststat; po@cval ## Gr.RCAD ve Gr.RGDP arasinda: Cointegration yok.
 
 #### Gr.RGDP'den Gr.RCAD'ye dogru.
 ts <- data2.ts[, c("Gr.RGDP", "Gr.RCAD")]
-po <- ca.po(ts, demean = "constant", lag = "short", type = "Pu")
-po@teststat; po@cval ## Gr.RGDP'den Gr.RCAD'ye: Cointegration yok.
+po <- ca.po(ts, demean = "constant", lag = "short", type = "Pz")
+po@teststat; po@cval ## Gr.RCAD ve Gr.RGDP arasinda: Cointegration yok.
 
 ### urca paketi ile Johansen (JO)
 ts <- data2.ts[, c("Gr.RCAD", "Gr.RGDP")]
@@ -483,23 +482,23 @@ eq.num <- ncol(ts)
 jo.lag <- VARselect(ts, lag.max = frequency(ts), type = "const", season = NULL)
 jo.lag$selection ## Tum degerlendirmelere gore secilmesi gereken gecikme uzunlugu (lag) 1. Fakat Johansen cointegration testini uygulayabilmek icin secilmesi gerekn minumum lag 2. Bu nedenle johansen testini yaparken lag'i 2 olarak seciyoruz.
 jo <- ca.jo(ts, type = "trace", ecdet = "const", K = 2, spec = "transitory") ## Johansen cointegration testte Lag = 1 olamaz. Cunku secilen bu lag degeri VAR'daki lag degeridir. VECM'da lag - 1 kullanilacagindan Lag = 1 olamaz. Bu nedenle Lag = 2 olarak aliniyor.
-summary(jo) ## Gr.RGDP ve Gr.RCAD arasinda cointegration yok.
+summary(jo) ## Gr.RGDP ve Gr.RCAD arasinda: Cointegration yok.
 Coint.Select(Johansen.Object = jo, Equation.Number = eq.num) ## Benim yazdigim Coint.Select fonksiyonunu kullanarak otomatikman johansnen test sonucunu bulabiliriz.
 
 #=========================
 # Detayli cointegration pairwise testleri.
-## Detayli bilgi icin "—note_cointegration_pairwise.R" dosyasini inceleyin.
-## urca adli R paketindeki cointegration testleri kullanarak asagidaki 2 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak Phillips-Ouliaris (PO) cointegration - Asimetrik ve JO (Johansen) cointegration - Simetrik testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
+## Detayli bilgi icin "—note_cointegration_pairwise_tests.R" dosyasini inceleyin.
+## urca adli R paketindeki cointegration testleri kullanarak asagidaki 2 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak Phillips-Ouliaris (PO) cointegration - Simetrik ve JO (Johansen) cointegration - Simetrik testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
+ts <- data2.ts ## Buyume formundaki degiskenler kullaniliyor.
 
-Coint.Pairwise.Tests.1(data2.ts, Significance.Level = 5, PO.Lag = "Short", Johansen.Lag = "BIC", Model.Type = "Constant", Johansen.Type = "Trace", Season = NULL) ## %1 anlamlilik duzeyinde sadece johansen testi ile Gr.RGDP ve Gr.RER arasinda cointegration bulunmus. DS (difference stationary), LS (level stationary), N (not cointegrated), C (cointegrated).
-coint.pairwise.results ## Ust ucgende ikili denklemden elde edilen Johansen Cointegration testi - Simetrik sonucu varken alt ucgende ikili denklemden elde edilen Phillips-Ouliaris (PO) - Asimetrik testi sonucu var.
+PO.Coint.Pairwise.Test(Data = ts, Lag = "Short", Deterministic = "Constant", LaTeX = FALSE)
+po.coint.pairwise.results ## %1 anlamlilik duzeyinde hic bir ikili seri arasinda cointegration bulunmamis.
 
-Coint.Pairwise.Tests.2(data2.ts, PO.Lag = "Short", Johansen.Lag = "BIC", Model.Type = "Constant", Johansen.Type = "Trace", Season = NULL) ## %1 anlamlilik duzeyinde sadece johansen testi ile Gr.RGDP ve Gr.RER arasinda cointegration bulunmus. DS (difference stationary), LS (level stationary), N (not cointegrated), C (cointegrated).
-coint.pairwise.po.results ## Phillips-Ouliaris (PO) cointegration - Asimetrik
-coint.pairwise.jo.results ## JO (Johansen) cointegration - Simetrik
+JO.Coint.Pairwise.Test(Data = ts, Lag = "AIC", Deterministic = "Constant", Type = "Trace", Season = NULL, LaTeX = FALSE)
+jo.coint.pairwise.results ## %1 anlamlilik duzeyinde sadece  Gr.RCAD ve Gr.RER arasinda cointegration bulunmus.
 
 ## Genel sonuc:
-### 1. Phillips-Ouliaris (PO) cointegration - Asimetrik testinin sonucuna gore hic bir iki degisken arasinda cointegration yok, yani VAR kullan.
+### 1. Phillips-Ouliaris (PO) cointegration - Simetrik testinin sonucuna gore hic bir iki degisken arasinda cointegration yok, yani VAR kullan.
 ### 2. JO (Johansen) cointegration - Simetrik testinin sonucuna gore:
     #### a. Gr.RCAD ve Gr.RGDP kullanilarak yapilan modelde cointegration (r) = 0 ==> DS (differance stationary - ilk farklar duragan), yani first difference VAR (ilk farklar alinmis).
     #### b. Gr.RCAD ve Gr.RER kullanilarak yapilan modelde cointegration (r) = 1 ==> C (cointegration var), yani VECM kullan.
@@ -518,7 +517,7 @@ eq.num <- ncol(ts) ## Toplam denklem sayisi. Tum degiskenler endojen (endogenous
 jo.lag <- VARselect(ts, lag.max = frequency(ts), type = "const", season = NULL)
 jo.lag$selection ## Tum degerlendirmelere gore secilmesi gereken gecikme uzunlugu (lag) 1.
 lag <- jo.lag$selection[[1]] ## AIC ile secilmis lag
-lag <- lag + 1 ## Johansen cointegration testini uygulayabilmek ve VECM yapabilmek icin secilmesi gerekn minumum lag 2. Bu nedenle johansen testini yaparken lag'i 2 olarak seciyoruz.
+lag <- lag + 1 ## Johansen cointegration testini uygulayabilmek ve VECM yapabilmek icin secilmesi gereken minumum lag 2. Bu nedenle johansen testini yaparken lag'i 2 olarak seciyoruz.
 jo <- ca.jo(ts, type = "trace", ecdet = "const", K = lag, spec = "transitory", season = NULL, dumvar = NULL) ## Johansen cointegration testte Lag = 1 olamaz. Cunku secilen bu lag degeri VAR'daki lag degeridir. VECM'da lag - 1 kullanilacagindan Lag = 1 olamaz. Bu nedenle Lag = 2 olarak aliniyor.
 summary(jo) ## Gr.RGDP, Gr.RCAD ve Gr.RCER arasinda %1 anlamlilik duzeyinde 1 tane cointegration var.
 Coint.Select(Johansen.Object = jo, Equation.Number = eq.num) ## Benim yazdigim Coint.Select fonksiyonunu kullanarak otomatikman johansnen test sonucunu bulabiliriz.
@@ -536,20 +535,19 @@ Coint.Select(Johansen.Object = jo, Equation.Number = eq.num) ## Benim yazdigim C
 
 ts <- data2.ts ## Buyume formundaki degiskenler kullaniliyor.
 int.numbers <- c(rep(1, ncol(ts))) ## Her degisken icin integration seviyesi, yani I(1) ise 1 degeri veriliyor. I(0) ise 0 degeri veriliyor. Kullanici bu degerleri unit root ve stationary testlerinin sonuclarina bakarak bulmali ve sirasi ile yazmali. Buyume degiskenleri kullanildigindan ve I(1) olduklarindan in.numbers 1 degerlerinden olusuyor.
-Granger.Causality.TYDL.1(data2.ts, Significance.Level = 5, Int.Numbers = int.numbers, Lag.Selection = "BIC", Divide.Lag.Max = 1, Model.Type = "Constant", Season = NULL, Exogen = NULL, Result.Type = "Both")
-granger.TYDL.multivariate.pairwise.results ## Ust ucgende cok denklemli modelden elde edilen TYDL Granger nedensellik testi sonucu varken alt ucgende ikili denklemden elde edilen TYDL Granger nedensellik testi sonucu var.
+Granger.Causality.TYDL.Pairwise(Data = ts, Int.Numbers = int.numbers, Lag = "AIC", Deterministic = "Constant", Season = NULL, Exogen = NULL, LaTeX = FALSE)
+granger.causality.TYDL.pairwise.results
 
-Granger.Causality.TYDL.2(data2.ts, Int.Numbers = int.numbers, Lag.Selection = "BIC", Divide.Lag.Max = 1, Model.Type = "Constant", Season = NULL, Exogen = NULL, Result.Type = "Both")
-granger.TYDL.pairwise.results ## Iki denklemli modelden elde edilen TYDL Granger nedensellik testi istatistikleri.
-granger.TYDL.multivariate.results ## Cok denklemli modelden elde edilen TYDL Granger nedensellik testi istatistikleri.
+Granger.Causality.TYDL.Multivariate(Data = ts, Int.Numbers = int.numbers, Lag = "AIC", Deterministic = "Constant", Season = NULL, Exogen = NULL, LaTeX = FALSE)
+granger.causality.TYDL.multivariate.results
 
 ## Genel sonuc:
 ### 1. TYDL Granger Causality pairwise: "==>" granger nedenselligi belirtir.
-    #### a. Gr.RGDP ==> GR.RCAD, Gr.RGDP ==> GR.RER, Gr.RER ==> GR.RGDP
+    #### a. Gr.RGDP ==> GR.RCAD, Gr.RER ==> GR.RGDP
 ### 2. TYDL Granger Causality multivariate: "==>" granger nedenselligi belirtir.
-    #### a. Gr.RGDP ==> GR.RCAD, Gr.RGDP ==> GR.RER, Gr.RER ==> GR.RCAD
+    #### a. Gr.RGDP ==> GR.RCAD, Gr.RER ==> GR.RGDP
 ### 3. Sonuc olarak pairwise ve multivariate'de benzer sonuclar bulduk.
-### 4. Multivariate'de 1 cointegration bulmustuk. Granger nedensellik sonucu da bunu dogruluyor 3 adet nedensellik bulduk. Dikkat ceken ise Gr.RGDP'den diger degiskenlere gidis var.
+### 4. Multivariate'de 1 cointegration bulmustuk. Granger nedensellik sonucu da bunu dogruluyor 2 adet nedensellik bulduk.
 ### 5. Buyume degiskenleri I(1) oldugundan ve aralarindan cointegration bulundugundan dolayi tahminde VECM modeli kullanilacaktir.
 
 #==================================== VECM =====================================

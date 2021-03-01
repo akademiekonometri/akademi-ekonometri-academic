@@ -55,18 +55,18 @@ log.percent <- function(Variable, Percent) {
 # Lag function with padding.
 lagpad <- function(x, k) {
     if (!is.vector(x))
-        stop('x must be a vector')
+        stop("x must be a vector")
     if (!is.numeric(x))
-        stop('x must be numeric')
+        stop("x must be numeric")
     if (!is.numeric(k))
-        stop('k must be numeric')
+        stop("k must be numeric")
     if (1 != length(k))
-        stop('k must be a single number')
+        stop("k must be a single number")
     c(rep(NA, k), x)[1:length(x)]
 }
 
 #===============================================================================
-# Takes the difference of specified columns. Takes only ts (time-series) object as input.
+# Takes the difference of specified columns. Takes only ts (time-series) object as input. This function should not be used for taking differences of all variables. Only a subset of variables can be used. Other variables are bind to the differenced data at the end.
 ## Ex: Diff.Col(data.ts, c("SP.Shiller", "CL", "57"), Output = "data.pdiff")
 Diff.Col <- function(Data, Diff.ColNames, Output) {
     temp.level <- Data[-1, colnames(Data)[!(colnames(Data) %in% Diff.ColNames)], drop = FALSE]
@@ -84,18 +84,18 @@ Diff.Col <- function(Data, Diff.ColNames, Output) {
 }
 
 #===============================================================================
-# Takes the difference of the given time series data and pads it with the selected lag length while maintaining the attributes of the input data.
-pad.diff <- function(x, lag = 1) {
-    output <- rbind(rep(NA, lag), diff(x, lag = lag, diff = 1))
+# Takes the first difference of the given time series data or vector and pads it with the selected lag length while maintaining the attributes of the input data. ts object or vector can be used.
+pad.diff <- function(x) {
+    output <- rbind(rep(NA, 1), diff(x, lag = 1, diff = 1))
     attributes(output) <- attributes(x)
     return(output)
 }
 
 #===============================================================================
-# Takes the difference of the given time series data without padding it while maintaining the attributes of the input data.
+# Takes the first difference of the given time series data or vector without padding it while maintaining the attributes of the input data. ts object or vector can be used.
 nopad.diff <- function(x) {
     output <- diff(x, lag = 1, diff = 1)
-    attributes(output) <- attributes(x)
+    # attributes(output) <- attributes(x)
     return(output)
 }
 
@@ -170,6 +170,9 @@ human_usd <- function(x) {
 }
 human_euro <- function(x) {
     human_numbers(x, smbl = "€")
+}
+human_tl <- function(x) {
+    human_numbers(x, smbl = "TL")
 }
 
 #==================================== END ======================================

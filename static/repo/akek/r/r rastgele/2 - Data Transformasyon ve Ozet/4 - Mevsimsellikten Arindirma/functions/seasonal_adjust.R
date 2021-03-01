@@ -26,7 +26,7 @@
 ## Data: Time series (ts) object. It can be multivariate or univariate.
 ## Significance Level: Significance level for all QS seasonality tests.
 ## Adjust: Adjusts the original data with seasonality.
-## To run the function witout any argument matching confusion make sure to specifiy Significance.Level and Convert arguments with their names always (if non-default values are selected).
+## To run the function without any argument matching confusion make sure to specify Significance.Level and Convert arguments with their names always (if non-default values are selected).
 
 # Examples:
 #

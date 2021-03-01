@@ -68,3 +68,15 @@ outdated <- "no_entry"
 - [Video - Bölüm #1](https://www.youtube.com/watch?v=WLjZYBj_cfE&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=11) `r emo::ji(tr)`
 - [Video - Bölüm #2](https://www.youtube.com/watch?v=hSQWbzQB9Yc&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=12) `r emo::ji(tr)`
 - [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II - Hafta 9 (Kara).pdf")`) `r emo::ji(tr)`
+
+## Hafta #10
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II - Hafta 10 (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #11
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II - Hafta 11 (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #12
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II - Hafta 12 (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`

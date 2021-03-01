@@ -1,14 +1,3 @@
-#============================= Akademi Ekonometri ==============================
-#================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
-
-#=============================== Bizi Takip Edin ===============================
-# Web Sitemiz: https://akademiekonometri.rbind.io/
-# YouTube: https://www.youtube.com/c/AkademiEkonometri
-# Twitter: https://twitter.com/AEkonometri
-# Instagram: https://www.instagram.com/akademiekonometri/
-# E-mail: akademiekonometri@gmail.com
-#===============================================================================
-
 #=============================== human_numbers =================================
 #==================== Convert Number to Human Readable Way =====================
 

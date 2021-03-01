@@ -81,6 +81,77 @@ Decimal.Num.Count <- function(x) {
     nchar(x)
 }
 
+#========================= Cubic.Spline.interpolation ==========================
+#=============== Interpolates Selected Columns with Cubic Spline ===============
+
+# Notes:
+#
+## Interpolates the selected columns with cubic spline interpolation.
+## Aim is to interpolate the values between two entries.
+## Argument maxgap is internally selected with the below code to interpolate all missing values.
+## na.rm = FALSE is selected since other NA values should be kept, if there is any.
+
+# Usage:
+#
+# Cubic.Spline.Interpolation(Data, Column.Names)
+#
+## Data: Data as in data.frame class.
+## Column.Names: Name of the columns to be interpolated.
+
+# Examples:
+#
+## Cubic.Spline.Interpolation(data, c("Open", "Close"))
+## Cubic.Spline.Interpolation(data, c("Open", "High", "Low", "Close"))
+
+Cubic.Spline.Interpolation <- function(Data, Column.Names) {
+    # Checks Data argument.
+    if (!is.data.frame(Data))
+        stop("Invalid Data. Please choose a data.frame object for Data.\n")
+
+    # Checks Column.Names argument.
+    if (ncol(Data) < length(Column.Names))
+        stop("Invalid Column.Names. Please choose a Column.Names object with lower length then number of columns in Data.\n")
+    if (sum(!(Column.Names %in% colnames(Data))) != 0)
+        stop(paste0("Invalid Column.Names. ", paste0(dQuote(Column.Names[!(Column.Names %in% colnames(Data))]), collapse = " and "), " columns does not exists in Data.\n"))
+
+    # Storing the original colnames.
+    col.names <- colnames(Data)
+
+    # Interpolating.
+    for (j in 1:length(Column.Names)) {
+        k <- Column.Names[j]
+        if (!(is.na(Data[1, k]))) {
+            Data$count[1] <- ifelse(is.na(Data[1, k]) == TRUE, 1, 0)
+            for (i in 2:nrow(Data)) {
+                Data$count[i] <- ifelse(is.na(Data[i, k]) == TRUE, Data$count[i - 1] + 1, 0)
+            }
+        }
+        if (is.na(Data[1, k])) {
+            Data$count <- NA
+            Data$count[as.numeric(rownames(Data[(is.na(Data[, k]) == FALSE),])[1])] <- ifelse(is.na(Data[as.numeric(rownames(Data[(is.na(Data[, k]) == FALSE),])[1]), k]) == TRUE, 1, 0)
+            for (i in (as.numeric(rownames(Data[(is.na(Data[, k]) == FALSE),])[1]) + 1):nrow(Data)) {
+                Data$count[i] <- ifelse(is.na(Data[i, k]) == TRUE, Data$count[i - 1] + 1, 0)
+            }
+        }
+        max <- max(Data$count, na.rm = TRUE)
+        Data <- Data[, -(grep("count", names(Data)))]
+        variable <- Data[, k]
+        if (j == 1) {
+            main <- data.frame(na.spline(variable, maxgap = max, na.rm = FALSE))
+            main <- cbind(Data[, colnames(Data)[!(colnames(Data) %in% Column.Names)]], main[, 1])
+            colnames(main)[ncol(main)] <- k
+        } else {
+            temp <- data.frame(na.spline(variable, maxgap = max, na.rm = FALSE))
+            main <- cbind(main, temp[, 1])
+            colnames(main)[ncol(main)] <- k
+        }
+    }
+    Data <- main[, col.names]
+
+    # Naming and extracting the Data file to the general environment.
+    assign("data.interpolate", Data, envir = globalenv()) ## Output data will be named as "data.interpolate".
+}
+
 #============================ Conversion Functions =============================
 Dash.Convert.NA <- function(data, variable) {
     temp <- data
@@ -171,6 +242,5 @@ NaN.Convert.NA <- function(data, variable) {
     }
     return(temp)
 }
-
 
 #==================================== END ======================================

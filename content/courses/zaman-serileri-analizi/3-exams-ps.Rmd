@@ -1,14 +1,14 @@
 ---
 title: Ödev ve Sınavlar
 linktitle: Ödev ve Sınavlar
-date: "2020-10-05"
-lastmod: "2020-10-13"
+date: "2021-03-04"
+lastmod: "2021-03-04"
 draft: false
 # toc: true
 type: docs
 
 menu:
-  ekonometri-ii:
+  zaman-serileri-analizi:
     parent: 
     weight: 40
 
@@ -35,10 +35,10 @@ outdated <- "no_entry"
     - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 
 ## Sınavlar
-- [Ara Sınav - İnceleme](`r paste0(ekonometri.ii.path, "Ekonometri_II - Ara Sinav Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
-    + [Ara Sınav - Örnek Sorular](`r paste0(ekonometri.ii.path, "Ekonometri_II - Ara Sinav Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Final Sınavı - İnceleme](`r paste0(ekonometri.ii.path, "Ekonometri_II - Final Sinavi Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
-    + [Final Sınavı - Örnek Sorular](`r paste0(ekonometri.ii.path, "Ekonometri_II - Final Sinavi Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ara Sınav - İnceleme](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi - Ara Sinav Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ara Sınav - Örnek Sorular](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi - Ara Sinav Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Final Sınavı - İnceleme](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi - Final Sinavi Inceleme (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Final Sınavı - Örnek Sorular](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi - Final Sinavi Ornek Sorular (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 - [CANVAS'ta Online Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
     - [DYS'de Online Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 - [CANVAS'ta Online Yazılı Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`

@@ -74,6 +74,9 @@ ekonometri.i.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-i/")
 # Relative path for "./akek/courses/ekonometri-ii" folder.
 ekonometri.ii.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-ii/")
 
+# Relative path for "./akek/courses/zaman-serileri-analizi" folder.
+zaman.serileri.analizi.path <- paste0(courses.to.repo, "repo/akek/courses/zaman-serileri-analizi/")
+
 # Relative path for "./akek/courses/ekonometrik-modelleme" folder.
 ekonometrik.modelleme.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometrik-modelleme/")
 

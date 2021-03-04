@@ -1,14 +1,14 @@
 ---
 title: Ders Notları
 linktitle: Ders Notları
-date: "2020-10-05"
-lastmod: "2020-10-13"
+date: "2021-03-04"
+lastmod: "2021-03-04"
 draft: false
 # toc: true
 type: docs
 
 menu:
-  ekonometrik-modelleme:
+  zaman-serileri-analizi:
     parent: 
     weight: 50
 
@@ -32,16 +32,16 @@ outdated <- "no_entry"
 
 ## Hafta #1
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme_-_Hafta_1.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_1.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ## Hafta #2
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme_-_Hafta_2.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_2.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ## Hafta #3
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme_-_Hafta_3.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_3.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ## Hafta #4
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(ekonometrik.modelleme.path, "Ekonometrik Modelleme_-_Hafta_4.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_4.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`

@@ -1,14 +1,14 @@
 ---
 title: Önemli Link ve Diğer Dokümanlar
 linktitle: Link ve Diğer Dokümanlar
-date: "2020-10-05"
-lastmod: "2020-10-13"
+date: "2021-03-04"
+lastmod: "2021-03-04"
 draft: false
 # toc: true
 type: docs
 
 menu:
-  ekonometri-i:
+  zaman-serileri-analizi:
     parent: 
     weight: 30
 

@@ -32,16 +32,16 @@ outdated <- "no_entry"
 
 ## Hafta #1
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_1.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman_Serileri_Analizi_-Hafta_1.pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)`
 
 ## Hafta #2
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_2.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman_Serileri_Analizi_-_Hafta_2.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ## Hafta #3
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_3.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman_Serileri_Analizi_-_Hafta_3.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ## Hafta #4
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
-- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_-_Hafta_4.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman_Serileri_Analizi_-_Hafta_4.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`

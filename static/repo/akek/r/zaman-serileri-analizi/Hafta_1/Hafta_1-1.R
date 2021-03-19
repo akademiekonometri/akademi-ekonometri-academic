@@ -663,18 +663,18 @@ dev.off()
 #=========================
 # Pur Rassal Surec
 #==========
-n <- 100 ## Gozlem sayisi.
+n <- 200 ## Gozlem sayisi.
 WN <- arima.sim(model = list(order = c(0, 0, 0)), n = n)
 mean(WN)
 var(WN)
 
-data <- data.frame(Date = 1:length(WN), WN = as.matrix(WN), stringsAsFactors = FALSE)
+data <- data.frame(Date = 1:length(WN), White.Noise = as.matrix(WN), stringsAsFactors = FALSE)
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayi tarihe gore siraliyoruz.
 rownames(data) <- 1:nrow(data) ## Satir sayilarini duzenliyoruz.
 
 # WN grafigi.
 temp <- data
-variable <- "WN"
+variable <- "White.Noise"
 variable.name <- "Simüle Edilmiş Pür Rassal Süreç"
 file.name <- "White.Noise"
 
@@ -694,13 +694,5 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
     theme(legend.key.size = unit(1, "cm")) + theme(legend.key.width = unit(1.2, "cm")) + theme(legend.title = element_text(size = 24)) + theme(legend.text = element_text(size = 24))
 print(g)
 dev.off()
-
-
-
-
-plot.ts(WN , col = 4, main = "White Noise Series")
-
-
-
 
 #==================================== SON ======================================

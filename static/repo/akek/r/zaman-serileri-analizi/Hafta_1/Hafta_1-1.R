@@ -692,6 +692,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
     theme(legend.position = "top") +
     theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 24)) +
     theme(legend.key.size = unit(1, "cm")) + theme(legend.key.width = unit(1.2, "cm")) + theme(legend.title = element_text(size = 24)) + theme(legend.text = element_text(size = 24))
+g <- g + annotation_compass(label = latex2exp::TeX(paste0("$n = ", n)), position = "NE")
 print(g)
 dev.off()
 

@@ -682,6 +682,7 @@ cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times
 par(mar = c(2, 2, 2, 2))
 
 g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
+    annotation_compass(label = latex2exp::TeX(paste0("$n = ", n)), position = "NE") +
     xlab("Zaman") + ylab(latex2exp::TeX(variable.name)) +
     # labs(title = variable.names) + ## Grafik icin isterseniz baslik eklenebilir.
     # scale_x_date(date_breaks = "1 year", date_labels = "%Y") +

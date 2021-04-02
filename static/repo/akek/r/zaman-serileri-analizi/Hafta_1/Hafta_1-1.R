@@ -14,7 +14,28 @@
 # Notlar:
 #
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
-## Aşağıdaki R kodu, öncelikle working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor ve daha sonra gerekli R paketlerini yüklüyor. Son olarak ise ilgili R kodunu çalıştırıyor.
+## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
+
+#=============================== Gerekli Paketler ==============================
+# Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
+# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
+#=========================
+Load.Install <- function(Package.Names) {
+    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
+    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
+    for (Package.Names in Package.Names) {
+        if (!is_installed(Package.Names)) {
+            utils::install.packages(Package.Names, dependencies = TRUE)
+        }
+        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
+    }
+}
+#=========================
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas"))
+#==========
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+#==========
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
@@ -38,27 +59,6 @@ source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.
 
 # "annotation_compass" fonsiyonu icin "graphic_functions.R"dosyasina bakabilirsiniz. Bu fonksiyon ile ggplot grafiklerine yazi ekleyebiliriz.
 source(paste0(main.path, "/", functions.folder.name, "/", "graphic_functions.R"))
-
-#=============================== Gerekli Paketler ==============================
-# Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
-# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
-    }
-}
-#=========================
-Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas"))
-#==========
-## Load.Install(Package.Names = "readxl")
-## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
 
 #=============================== Seed Belirlenmesi =============================
 # Rassal sayilar kullanarak olusturdugumuz verilerin her seferinde ayni olmasi ve yeniden uretilebilir bir analiz (reproducible analysis) icin seed ayarlaniyor.
@@ -1355,5 +1355,49 @@ g <- ggplot(temp, aes(x = Value)) +
     ggplot2::annotate(geom = "text", label = latex2exp::TeX(paste0("$n = ", n, "$")), x = Inf, y = Inf, hjust = 1.1, vjust = 1.5, size = 10, parse = TRUE)
 print(g)
 dev.off()
+
+#====================================
+Load.Install("ggseas")
+library(ggseas)
+
+AirPassengers
+ap_df <- tsdf(AirPassengers)
+head(ap_df)
+
+ggplot(ap_df, aes(x = x, y = y)) +
+    geom_line(colour = "grey75")
+
+ggplot(ap_df, aes(x = x, y = y)) +
+    stat_index(index.ref = 1)
+
+ggplot(ap_df, aes(x = x, y = y)) +
+    stat_index(index.ref = 120, index.basis = 1000)
+
+ggplot(ap_df, aes(x = x, y = y)) +
+    geom_line(colour = "grey75") +
+    stat_rollapplyr(width = 12, align = "right") +
+    labs(x = "", y = "Number of US Air Passengers\n(rolling average and original)")
+
+
+ap_df <- tsdf(AirPassengers)
+ggsdc(ap_df, aes(x = x, y = y), method = "decompose") +
+    geom_line()
+
+ggsdc(ap_df, aes(x = x, y = y), method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) +
+    geom_line(colour = "blue", size = 0.5) +
+    theme_grey()
+
+ggplot(ap_df, aes(x = x, y = y)) +
+    geom_line(colour = "grey50") +
+    stat_seas(colour = "blue") +
+    stat_stl(s.window = 7, colour = "red") +
+    stat_decomp(type = "multiplicative", colour = "purple")
+
+
+
+
+#====================================
+
+
 
 #==================================== SON ======================================

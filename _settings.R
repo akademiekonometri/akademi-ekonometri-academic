@@ -131,6 +131,10 @@ if("emo" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install
 library("emo")
 
 #=================================
+# Packages for various data sets.
+Load.Install(c("datasets", "quantmod", "WDI"))
+
+#=================================
 # Packages for reproducible research.
 Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR")) ## Use the following code for all the options of knitr: "str(knitr::opts_chunk$get())"
 Load.Install("blogdown")
@@ -169,10 +173,12 @@ library("carData")
 # Packages for specific econometric analyses.
 # Load.Install(c("lme4", "aod", "pbkrtest", "strucchange"))
 
-#=================================
-# Packages for time series analysis.
-# Load.Install(c("zoo", "xts", "vars", "tsDyn", "FitAR", "lgarch", "seasonal", "x13binary", "urca", "fUnitRoots", "CADFtest", "forecast"))
-# Load.Install(c("MTS", "tseries", "timeSeries"))
+# #=================================
+# # Packages for time series analysis.
+# Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas"))
+# Load.Install(c("fpp2", "fpp3"))
+# # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
+# # Load.Install(c("MTS", "tseries", "timeSeries"))
 
 #=================================
 # Packages for spatial and spatio-temporal analysis.

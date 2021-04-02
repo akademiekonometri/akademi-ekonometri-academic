@@ -16,7 +16,30 @@
 # Notlar:
 #
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
-## Aşağıdaki R kodu, öncelikle working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor ve daha sonra gerekli R paketlerini yüklüyor. Son olarak ise ilgili R kodunu çalıştırıyor.
+## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
+
+#=============================== Gerekli Paketler ==============================
+# Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
+# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
+#=========================
+Load.Install <- function(Package.Names) {
+    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
+    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
+    for (Package.Names in Package.Names) {
+        if (!is_installed(Package.Names)) {
+            utils::install.packages(Package.Names, dependencies = TRUE)
+        }
+        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
+    }
+}
+#=========================
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
+Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
+Load.Install(c("seasonal", "uroot")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
+#==========
+## Load.Install(Package.Names = "readxl")
+## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+#==========
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
@@ -60,29 +83,6 @@ source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYD
 
 ## "Granger.Causality.TYDL.Multivariate" fonksiyonu icin "granger_causality_TYDL_multivariate_tests.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_multivariate_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
-
-#=============================== Gerekli Paketler ==============================
-# Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
-# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
-    }
-}
-#=========================
-Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
-Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
-Load.Install(c("seasonal", "uroot")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
-#==========
-## Load.Install(Package.Names = "readxl")
-## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
 
 #================================= Genel Bilgi =================================
 # Bu bolumde Turkiye Istatistik Kurumu'ndan (TUIK) elde ettigimiz 3 farkli degiskene (Reel Cari Acik - Real Current Account Deficit, Reel Gayri Safi Yurtici Hasila - Real GDP ve Reel Doviz Kuru - Real Exchange Rate) ait 2005-2019 arasindaki yillik verilerini kullanacagiz (baz yil 2005=100). Temel amacimiz bu verileri kullanarak VAR modeli uygulamak olacak. VAR modelinden elde ettigmiz tahminlerle son olarak Impulse Respons Function (Etki-Tepki Fonksiyonlari) hesaplayip bu fonksiyonlari grafige dokecegiz. Asagida bu bolumde yapilacak analizler sirasiyla verilmistir.
@@ -220,7 +220,7 @@ grid.table(temp.summary)
 dev.off()
 
 ## latexpdf paketi ile.
-as.pdf(temp.summary, stem = paste0(file.name, "-latex"), dir = "./figs-tabs") ## pdf dosyasi olarak
+as.pdf(temp.summary, stem = paste0(file.name, "-latex"), dir = figs.tabs.folder.name) ## pdf dosyasi olarak
 
 #================== Datayi Zaman Serisi Objesine Donusturmek ===================
 # Temizlenmis ve transforme edilmis datanin yapisi.

@@ -14,19 +14,7 @@
 # Notlar:
 #
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
-## Aşağıdaki R kodu, öncelikle working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor ve daha sonra gerekli R paketlerini yüklüyor. Son olarak ise ilgili R kodunu çalıştırıyor.
-
-#======================== Working Directory'yi Belirlemek ======================
-# Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
-getwd() ## Şimdiki working directory.
-main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
-setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
-
-#============================ Gerekli Dosya Isimleri ===========================
-# Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
-#=========================
-figs.tabs.folder.name <- "_figs-tabs"
+## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
@@ -43,12 +31,24 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
 #==========
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #==========
+
+#======================== Working Directory'yi Belirlemek ======================
+# Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
+#=========================
+getwd() ## Şimdiki working directory.
+main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
+setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
+
+#============================ Gerekli Dosya Isimleri ===========================
+# Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
+#=========================
+figs.tabs.folder.name <- "_figs-tabs"
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada GSYH ile ilgili verileri yayinlayan kurum olan Bureau of Economic Analysis (BEA)'den direkt olarak 1 veri seti (GDP) indirip bu veri serinden 2 farkli degiskeni (GDP (Gross Domestic Product) yani GSYH ve GDP Deflator (Implicit Price Deflators for Gross Domestic Product) yani GSYH Deflatoru indeksi) kullanip datayi temizlemistik. Daha sonra bu temizlenmis data uzerinde bazi transformasyonlar yapip datanin son halini GDP_Processed_Trans.RData olarak kaydetmistik.

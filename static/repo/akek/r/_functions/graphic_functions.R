@@ -19,6 +19,13 @@ g_legend <- function(a.gplot) {
 #===============================================================================
 # This function adds text to the specified places (using compas style) of a ggplot.
 ## For more information see: https://stackoverflow.com/questions/47916307/specify-position-of-geom-text-by-keywords-like-top-bottom-left-right
+
+# Example:
+#
+## g + annotation_compass(label = "sometext", position = "NE")
+## You can always use:
+## 1. g + geom_text(data=data.frame(), aes(label = "sometext", x = -Inf, y = Inf), hjust = 0, vjust = 1)
+## 2. g + ggplot2::annotate(geom = "text", label = "sometext", x = Inf, y = Inf, hjust = 1, vjust = 1, size = 24)
 annotation_compass <- function(label,
                                position = c('N','NE','E','SE','S','SW','W','NW'),
                                padding = grid::unit(c(0.5,0.5),"line"), ...){

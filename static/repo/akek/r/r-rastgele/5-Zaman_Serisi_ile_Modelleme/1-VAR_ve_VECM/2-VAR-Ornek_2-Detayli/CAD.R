@@ -581,17 +581,11 @@ vecm.rest.summary
 ## Kisitlanmis VECM'yi VAR'a donduruyoruz (bu islem sirasinda daha once buldugumuz cointegration degerini kisitlama yapmak icin belirtiyoruz) ve her denklem icin Transformed VAR formunda VECM katsayilarini gosteriyoruz.
 vecm.to.var <- vec2var(z = jo, r = coint) ## VECM'yi VAR'a donusturuluyor.
 
-
-
 # Diagnostic Test (Teshis Testleri)
 # Daha sonra yapilacak.
-
-
 
 # Impulse Response Functions (Etki Tepki Fonksiyonlari)
 irfs <- vars::irf(vecm.to.var, impulse = NULL, response = NULL, n.ahead = 10, ortho = TRUE, boot = TRUE, ci = 0.95, runs = 100, seed = 123456)
 plot(irfs)
-
-IRF.vecm2var(vecm.to.var, impulse = NULL, response = NULL, n.ahead = 10, IRF.Type = "Generalized", Unit.or.Std = "Unit", DF.Correct = FALSE, cumulative = FALSE, boot = TRUE, ci = 0.95, runs = 100, seed = 123456)
 
 #==================================== SON ======================================

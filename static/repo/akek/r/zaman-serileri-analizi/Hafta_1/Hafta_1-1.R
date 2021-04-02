@@ -54,7 +54,7 @@ Load.Install <- function(Package.Names) {
     }
 }
 #=========================
-Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "forecast", "ggseas"))
+Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas"))
 #==========
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))

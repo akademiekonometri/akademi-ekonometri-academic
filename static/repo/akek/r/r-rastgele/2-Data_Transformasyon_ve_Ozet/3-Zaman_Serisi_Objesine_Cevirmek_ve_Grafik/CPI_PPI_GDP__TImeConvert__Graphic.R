@@ -8,7 +8,7 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#=============================== Bizi Takip Edin ===============================
 
 #================== Zaman Serisi Objesine Cevirmek ve Grafik ===================
 # Notlar:
@@ -19,7 +19,7 @@
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -30,29 +30,29 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2"))
-#==========
+#===
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
-#=========================
+#===
 functions.folder.name <- "../../../_functions"
 figs.tabs.folder.name <- "_figs-tabs"
 
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#=========================
+#===
 ## "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
 
@@ -63,10 +63,10 @@ source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.
     ## Bu datalari indirmek, temizlemek ve transformasyona sokmak icin gerekli bilgilere onceki bolumlerden ulasabilirsiniz.
     ## Bu bolumde ise temizlenmis ve transformasyona ugratilmis CPI_PPI_Processed_Trans.RData ve GDP_Processed_Trans.RData dosyalarini direkt olarak R'in icine cekecegiz ve bu datalari ayri ayri zaman serisi objesine donusturup degiskenlerin grafiklerini olusturmaya calisacagiz.
 
-#=========================
-# CPI_PPI_Processed_Trans datasi
 #================== Datayi Zaman Serisi Objesine Donusturmek ===================
 # Datanin yuklenmesi.
+# CPI_PPI_Processed_Trans datasi
+#===
 load(file = "CPI_PPI__Processed__Trans.RData", verbose = FALSE)
 data <- CPI_PPI__Processed__Trans ## R icine aktarilan bu temizlenmis ve transforme edilmis datanin ismi CPI_PPI_Processed_Trans oldugundan, data ile degistiriliyor.
 
@@ -190,10 +190,10 @@ for (i in 1:length(variables)) {
     dev.off()
 }
 
-#=========================
-# GDP_Processed_Trans datasi
 #================== Datayi Zaman Serisi Objesine Donusturmek ===================
 # Datanin yuklenmesi.
+# GDP_Processed_Trans datasi
+#===
 load(file = "GDP__Processed__Trans.RData", verbose = FALSE)
 data <- GDP__Processed__Trans ## R icine aktarilan bu temizlenmis ve transforme edilmis datanin ismi GDP_Processed_Trans oldugundan, data ile degistiriliyor.
 

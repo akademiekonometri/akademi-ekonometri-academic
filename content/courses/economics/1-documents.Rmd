@@ -19,5 +19,5 @@ weight: 20
 <br>
 
 {{% alert note %}}
-The course you are reviewing may be given to more than one department. You can access important documents that concern you from the link of your department on the left-side of this page. You can also access other documents, links, videos, and information by clicking the links on the left-side...
+The course you are reviewing may be given to more than one department. You can access important documents that concern you from the link of your department on the left-side of this page. You can also access other documents, links, videos, and information by clicking the links on the left-side of this page.
 {{% /alert %}}

@@ -8,7 +8,7 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#============================== Bizi Takip Edin ================================
 
 #========================= R'da Kredi Odemesi Hesaplama ========================
 # Notlar:
@@ -19,7 +19,7 @@
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -30,16 +30,16 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "FinCal", "ggplot2", "plotly"))
-#==========
+#===
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
@@ -69,7 +69,7 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 
 #=============================== Kredi Bilgileri ===============================
 # Aylik odeme miktarinin hesabi icin on bilgiler.
-#==========
+#===
 P <- 10000 ## Kredi miktari.
 r <- 0.79 ## Aylik faiz orani (yuzde olarak).
 n <- 60 ## Toplam aylik odeme sayisi.
@@ -78,7 +78,7 @@ b <- 5 ## BSMV vergisi (yuzde olarak).
 
 #=============================== Elle Hesaplama ================================
 # Aylik odeme, toplam geri odeme ve toplam faiz odemesini elle hesaplama.
-#==========
+#===
 # Faiz, KKDF ve BSMV yuzdelik oranlarinin odaliga donusturulmasi.
 r <- r/100
 k <- k/100
@@ -99,20 +99,20 @@ A ## Toplam geri odeme miktari.
 
 I <- A - P ## Toplam faiz odemesi.
 I ## Toplam faiz odemesi.
-#==========
+#===
 
 #=============================== Elle Hesaplama ================================
 # FinCal paketi ile aylik odeme miktarinin hesaplanmasi.
-#==========
+#===
 # Vergili durumda (KKDF ve BSMV varken) aylik odeme miktarinin hesabi.
 r.kb <- r * (1 + (k + b)) ## Vergiyle beraber odeyeceginiz faiz orani.
 m <- pmt(pv = -P, r = r.kb, n = n, fv = 0, type = 0) ## FinCal paketindeki pmt fonksiyonunu kullandik. Kredi miktarinin onundeki -'ye dikkat edin (kredi bir borc oldugundan negatif olarak yazildi.) Fonksiyonun argumanlari: pv (present value - simdiki deger), r (interest rate - faiz orani), n (number of periods - period sayisi), fv (future value - gelecekteki deger), type (eger odeme donemin sonunda ise 0, basinda ise 1 olmali).
 m ## Aylik odeme miktari
-#==========
+#===
 
 #================================ Odeme Tablosu ================================
 # Simdi yukarida verilen bilgilere gore bir odeme tablosu olusturalim.
-#==========
+#===
 degiskenler <- c("Ay", "Borc", "Odeme", "Anapara", "Faiz", "KKDF", "BSMV", "Vergi", "Faiz.Vergi", "Kalan.Borc") ## Tablodaki degisken isimleri.
 o.tablo <- matrix(nrow = n, ncol = length(degiskenler)) ## Odeme tablosu olulsturuldu.
 o.tablo <- as.data.frame(o.tablo) ## Odeme tablosu data.frame'e cevrildi.
@@ -165,6 +165,6 @@ ggplot(temp, aes(x = Ay, y = Miktar, fill = Ödeme)) +
     theme(legend.title = element_blank(), legend.position = "top")
 
 plotly::ggplotly(p = ggplot2::last_plot())
-#==========
+#===
 
 #==================================== SON ======================================

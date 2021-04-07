@@ -1,6 +1,7 @@
 #============================= Akademi Ekonometri ==============================
 #================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
 #=========================== Zaman Serileri Analizi ============================
+#=============== Ekonometrik Modelleme ve Zaman Serileri Analizi ===============
 
 #=============================== Bizi Takip Edin ===============================
 # Web Sitemiz: https://akademiekonometri.rbind.io/
@@ -8,18 +9,18 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#=============================== Bizi Takip Edin ===============================
 
 #================================= Hafta #1-1 ==================================
 # Notlar:
-#
+## Bu bolumde Zaman Serileri Analizi Dersi ve ayrica Ekonometrik Modelleme ve Zaman Serileri Analizi Dersi - Hafta #1 konulariyla alakali kod ve grafikler gosterilecektir.
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
 ## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -30,29 +31,29 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas"))
-#==========
+#===
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas", "slider"))
+#===
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
-#=========================
+#===
 functions.folder.name <- "../../_functions"
 figs.tabs.folder.name <- "_figs-tabs"
 
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#=========================
+#===
 # "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
 # "lagpad" fonsiyonu icin "estimation_functions.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R"))
@@ -60,22 +61,14 @@ source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.
 # "annotation_compass" fonsiyonu icin "graphic_functions.R"dosyasina bakabilirsiniz. Bu fonksiyon ile ggplot grafiklerine yazi ekleyebiliriz.
 source(paste0(main.path, "/", functions.folder.name, "/", "graphic_functions.R"))
 
-#=============================== Seed Belirlenmesi =============================
+#=============================== Seed Belirleme ================================
 # Rassal sayilar kullanarak olusturdugumuz verilerin her seferinde ayni olmasi ve yeniden uretilebilir bir analiz (reproducible analysis) icin seed ayarlaniyor.
-#=========================
+#===
 set.seed(1234)
 
-#================================= Genel Bilgi =================================
-# Bu bolumde cesitli kaynaklardan elde ettigimiz zaman serisi datalarini grafikle gostermeye calisacagiz.
-# Daha sonra bu grafikleri pdf formatinda kaydedecegiz.
-
-#================================== Grafikler ==================================
-# Belirli alt basliklar icinde grafikler ve onlara bagli tablolar.
-#=========================
-
-#=========================
-# World Bank'ten Turkiye icin Gayri Safi Yurtici Hasila, GSYH Deflatoru (2009 Baz Yili) ve Populasyon datasi.
-#==========
+#=================== Turkiye icin Gayri Safi Yurtici Hasila ====================
+# World Bank'ten Turkiye icin Gayri Safi Yurtici Hasila, GSYH Deflatoru (2009 Baz Yili) ve Populasyon datasi
+#===
 Load.Install("WDI")
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasini kullanacagiz.
 WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasini kullanacagiz.
@@ -155,9 +148,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-#=========================
+#============== Turkiye icin Kisi Basi Gayri Safi Yurtici Hasila ===============
 # World Bank'ten Turkiye icin Kisi basi Gayri Safi Yurtici Hasila Datasi (2010 US Doları)
-#==========
+#===
 Load.Install("WDI")
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasini kullanacagiz.
 
@@ -317,9 +310,9 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 20, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
+#================ Kore icin Kisi Basi Gayri Safi Yurtici Hasila ================
 # World Bank'ten Kore icin Kisi basi Gayri Safi Yurtici Hasila Datasi (2010 US Doları)
-#==========
+#===
 Load.Install("WDI")
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasini kullanacagiz.
 
@@ -407,9 +400,9 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 20, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
-# World Bank'ten secilmis bazi ulkeler icin basi Gayri Safi Yurtici Hasila Datasi (2010 US Doları)
-#==========
+#============ Bazi Ulkeler icin Kisi Basi Gayri Safi Yurtici Hasila ============
+# World Bank'ten secilmis bazi ulkeler icin kisi basi Gayri Safi Yurtici Hasila Datasi (2010 US Doları)
+#===
 Load.Install("WDI")
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasini kullanacagiz.
 
@@ -467,9 +460,9 @@ g <- g + theme(legend.title = element_blank()) + guides(col = guide_legend(nrow 
 print(g)
 dev.off()
 
-#=========================
+#=================== Turkiye icin Tuketici Fiyatlari Indeksi ===================
 # World Bank'ten Turkiye icin Tuketici Fiyatlari Indeksi (2010 Baz yili)
-#==========
+#===
 Load.Install("WDI")
 WDIsearch(string = "consumer.*price.*index", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "FP.CPI.TOTL" Consumer price index (2010 = 100) datasini kullanacagiz.
 
@@ -584,10 +577,10 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-#=========================
+#========================= Avustralya Elektrik Uretimi =========================
 # Avustralya Elektrik Uretimi (milyar kWh) (Ceyreklik) - Quarterly Australian Electricity production
 ## fpp2 paketindeki qauselec adli data kullanilmistir.
-#==========
+#===
 Load.Install("fpp2")
 dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
 dat[dat$Item == "qauselec", c(1,3,4)] ## Data hakkindaki bilgi.
@@ -647,6 +640,7 @@ dev.off()
 # Elec.Prod'in Mevsimsel Altseri grafigi.
 variable <- "Elec.Prod"
 temp <- ts(data = data[, variable], start = c(year(data$Date[1]), month(data$Date[1])), frequency = 4)
+temp <- window(temp, start = NULL, end = c(2009, 4)) ## 2010 yilına ait veri tam olmadigi icin cikartiliyor.
 variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
 title <- "Avustralya Elektrik Üretimi (milyar kWh): Mevsimsel Altseri Grafiği"
 quarter.labels <- c("Ç1", "Ç2", "Ç3", "Ç4")
@@ -685,10 +679,35 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 20, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
+# Elec.Prod'in Klasık Dekompozizasyon grafigi
+Load.Install("ggseas")
+
+temp <- data
+variable <- "Elec.Prod"
+colnames(temp)[colnames(temp) == variable] <- "y"
+variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
+title <- "Avustralya Elektrik Üretimi (milyar kWh): Çarpımsal Klasik Dekompozizasyon"
+frequency <- 4
+file.name <- "elec-prod-classical-decomp"
+
+cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
+par(mar = c(2, 2, 2, 2))
+
+g <- ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) + geom_line(colour = "darkblue", size = 1) +
+    xlab("Zaman (Çeyreklik)") + ylab(latex2exp::TeX(variable.name)) +
+    labs(title = latex2exp::TeX(title)) +
+    scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
+    theme_grey() +
+    theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 24)) +
+    theme(plot.title = element_text(size = 24, hjust = 0.5)) +
+    theme(strip.text.x = element_text(size = 24, colour = "black"))
+print(g)
+dev.off()
+
+#========================= Nottingham Ortalama Sicaklik ========================
 # Nottingham Ortalama Sicaklik (F°) (Aylik) - Average Monthly Temperatures at Nottingham
 ## datasets paketindeki nottem adli data kullanilmistir.
-#==========
+#===
 Load.Install("datasets")
 dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
 dat[dat$Item == "nottem", c(1,3,4)] ## Data hakkindaki bilgi.
@@ -740,17 +759,16 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 30, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
+#==================== İstanbul'a Verilen Temiz Su Miktarları ===================
 # İstanbul'a Verilen Temiz Su Miktarları (Aylik)
 ## Dataya su linkten ulasilabilir: https://data.ibb.gov.tr/dataset/istanbul-a-verilen-temiz-su-miktarlari
-#==========
+#===
 Load.Install("forecast")
 
 # Data dosyasinin adi.
 file.path <- "clean-water.xlsx"
 
 # Ham data dosyasinin yuklenmesi.
-# Ham datanin yuklenmesi.
 data <- read_excel(path = file.path, sheet = 3, range = cell_limits(c(1, 1), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yukledigimiz datayi read_excel fonksiyonu tibble formatinda kaydediyor.
 data <- as.data.frame(data, stringsAsFactors = FALSE) ## Datayi data.frame formatina ceviriyoruz.
 colnames(data)[1] <- "Month"
@@ -856,10 +874,101 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 30, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
+# Clean.Water'in Klasık Dekompozizasyon grafigi
+Load.Install("ggseas")
+
+temp <- data
+variable <- "Clean.Water"
+colnames(temp)[colnames(temp) == variable] <- "y"
+variable.name <- "İstanbul'a Verilen Temiz Su Miktarı (Ton)"
+title <- "İstanbul'a Verilen Temiz Su Miktarı (Ton): Toplamsal Klasik Dekompozizasyon"
+frequency <- 12
+file.name <- "clean-water-classical-decomp"
+
+cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
+par(mar = c(2, 2, 2, 2))
+
+g <- ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) + geom_line(colour = "darkblue", size = 1) +
+    xlab("Zaman (Çeyreklik)") + ylab(latex2exp::TeX(variable.name)) +
+    labs(title = latex2exp::TeX(title)) +
+    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+    theme_grey() +
+    theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 24)) +
+    theme(plot.title = element_text(size = 24, hjust = 0.5)) +
+    theme(strip.text.x = element_text(size = 24, colour = "black"))
+print(g)
+dev.off()
+
+# Clean.Water'in Hareketli Ortalama tablosu ve grafigi icin data hazirligi
+Load.Install("slider")
+temp <- data
+variable <- "Clean.Water"
+temp$`3-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 1, .after = 1, .complete = TRUE) ## 3-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
+temp$`5-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 2, .after = 2, .complete = TRUE) ## 5-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
+temp$`7-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 3, .after = 3, .complete = TRUE) ## 5-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
+temp$`9-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 4, .after = 4, .complete = TRUE) ## 9-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
+temp.table <- temp ## Hareketli ortalama tablosunda kullanilacak data.
+
+temp1 <- reshape2::melt(temp, id.vars = c(grep("(Date)|(Year)|(Day)|(Week)|(Month)", colnames(temp), value = TRUE)), measure.vars = c(grep("(MA)", colnames(temp), value = TRUE)), variable_name = "Variable", na.rm = FALSE)
+temp.figure <- temp1 ## Hareketli ortalama grafiginde kullanilacak data.
+
+# Clean.Water'in Hareketli Ortalama tablosu
+temp <- temp.table
+file.name <- "clean-water-moving-average"
+
+temp$`3-MA` <- round(temp$`3-MA`, 0) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
+temp$`5-MA` <- round(temp$`5-MA`, 0) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
+temp$`7-MA` <- round(temp$`7-MA`, 0) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
+temp$`9-MA` <- round(temp$`9-MA`, 0) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
+temp <- temp[, -1] ## Date degiskeni cikariliyor.
+for (i in 3:ncol(temp)) {
+    temp[which(!is.na(temp[, i])), i][1] <- paste0("\\red{", temp[which(!is.na(temp[, i])), i][1], "}")
+    temp[which(!is.na(temp[, i])), i][length(temp[which(!is.na(temp[, i])), i])] <- paste0("\\red{", temp[which(!is.na(temp[, i])), i][length(temp[which(!is.na(temp[, i])), i])], "}")
+}
+for (i in 1:ncol(temp)) {
+    temp[which(!is.na(temp[, i])), i] <- paste0("$", temp[which(!is.na(temp[, i])), i], "$")
+}
+temp <- rbind(temp[1:5, ], "$\\vdots$", temp[(nrow(temp)-4):nrow(temp), ])
+col.names <- c("Yıl", "Ay", "Temiz Su$_{t}$", "3-MA", "5-MA", "7-MA", "9-MA")
+colnames(temp) <- col.names
+
+temp.output.path <- paste0(figs.tabs.folder.name, "/", file.name, ".tex")
+temp.output <- print.xtable(xtable(temp), type = "latex", file = "", sanitize.text.function = function(x){x}, print.results = FALSE, NA.string = "NA", include.rownames = FALSE, include.colnames = TRUE, only.contents = TRUE, booktabs = TRUE, comment = FALSE) ## sanitize.text.function should be added to correctly run the output in latex.
+table.correction <- "\\toprule\n"
+cat(table.correction, temp.output, file = temp.output.path) ## Writing the table.
+
+# Clean.Water'in Hareketli Ortalama grafigi
+Load.Install("slider")
+
+temp <- data
+temp1 <- temp.figure
+variable <- "Clean.Water"
+variable.name <- "İstanbul'a Verilen Temiz Su Miktarı (Ton)"
+title <- "İstanbul'a Verilen Temiz Su Miktarı (Ton): Hareketli Ortalama ($m$-MA)"
+frequency <- 12
+file.name <- "clean-water-moving-average"
+
+cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
+par(mar = c(2, 2, 2, 2))
+
+g <- ggplot(temp1, aes(x = Date, y = value)) + geom_line(colour = "#FF6666", size = 0.5, linetype = 1) +
+    facet_wrap(variable ~ ., scales = "free_y", strip.position = "top") +
+    geom_line(data = temp, aes(x = Date, y = Clean.Water), colour = "darkblue", size = 0.5) +
+    xlab("Zaman (Ay)") + ylab(latex2exp::TeX(variable.name)) +
+    labs(title = latex2exp::TeX(title)) +
+    scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+    scale_y_continuous(breaks = pretty(temp[ , variable]), labels = human_num) +
+    theme_grey() +
+    theme(axis.title = element_text(size = 24)) + theme(axis.text = element_text(size = 24)) +
+    theme(plot.title = element_text(size = 24, hjust = 0.5)) +
+    theme(strip.text.x = element_text(size = 24, colour = "black"))
+print(g)
+dev.off()
+
+#==================== Istanbul Barajlarinin Doluluk Oranlari ===================
 # Istanbul barajlarinin doluluk oranlari (Gunluk)
 ## Dataya su linkten ulasilabilir: https://data.ibb.gov.tr/dataset/istanbul-dam-occupany-rates-data
-#==========
+#===
 # Data dosyasinin adi.
 file.path <- "dam_occupancy.csv"
 
@@ -894,9 +1003,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-#=========================
+#========================= Tesla, Twitter ve Facebook ==========================
 # Yahoo Finance: Tesla, Twitter ve Facebook hisseleri (Gunluk)
-#==========
+#===
 Load.Install("quantmod")
 loadSymbols(Symbols = "TSLA", periodicity = "daily", return.class = "data.frame")
 loadSymbols(Symbols = "FB", periodicity = "daily", return.class = "data.frame")
@@ -941,9 +1050,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = Symb
 print(g)
 dev.off()
 
-#=========================
+#============================== Amazon ve Google ===============================
 # Yahoo Finance: Amazon ve Google hisseleri (Gunluk)
-#==========
+#===
 Load.Install("quantmod")
 loadSymbols(Symbols = "AMZN", periodicity = "daily", return.class = "data.frame")
 loadSymbols(Symbols = "GOOG", periodicity = "daily", return.class = "data.frame")
@@ -985,9 +1094,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = Symb
 print(g)
 dev.off()
 
-#=========================
+#========================= Google Gunluk Getiri Orani ==========================
 # Yahoo Finance: Google hissesi gunluk getiri orani (Gunluk)
-#==========
+#===
 Load.Install("quantmod")
 loadSymbols(Symbols = "GOOG", periodicity = "daily", return.class = "data.frame")
 
@@ -1032,9 +1141,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-#=========================
+#============================== TR/USD Doviz Kuru ==============================
 # Yahoo Finance: TR/USD doviz kuru (Gunluk)
-#==========
+#===
 Load.Install(c("quantmod", "forecast"))
 loadSymbols(Symbols = "TRY=X", periodicity = "daily", return.class = "data.frame")
 
@@ -1130,9 +1239,9 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-#=========================
+#=================================== BTC/USD ===================================
 # Yahoo Finance: BTC/USD (Gunluk)
-#==========
+#===
 Load.Install("quantmod")
 loadSymbols(Symbols = "BTC-USD", periodicity = "daily", return.class = "data.frame")
 
@@ -1145,9 +1254,9 @@ par(mar = c(2, 2, 2, 2))
 candleChart(`BTC-USD`, theme = "white", TA = "addSMA()", subset = "2020-12::2021") ## With simple moving average
 dev.off()
 
-#=========================
+#============================== Pur Rassal Surec ===============================
 # Pur Rassal Surec
-#==========
+#===
 n <- 1000 ## Gozlem sayisi.
 WN <- arima.sim(model = list(order = c(0, 0, 0)), n = n)
 mean(WN)
@@ -1225,11 +1334,10 @@ g <- ggAcf(x = temp, ci = 0.95, lag.max = 10, type = "correlation", plot = TRUE,
 print(g)
 dev.off()
 
-#=========================
-# Matematiksel Transformasyon
-## Bu bolumde ornek olmasi acisindan Beta Dagilimi kullanilacak ve matematiksel transformasyon sonucunda verinin normal dagilima yakinsadigi gosterilecektir.
-## Matematiksel transformasyonlar olarak sadece dogal logaritma ve box-cox transfromasyonu kullanilacaktir.
-#==========
+#========================= Matematiksel Transformasyon =========================
+# Bu bolumde ornek olmasi acisindan Beta Dagilimi kullanilacak ve matematiksel transformasyon sonucunda verinin normal dagilima yakinsadigi gosterilecektir.
+# Matematiksel transformasyonlar olarak sadece dogal logaritma ve box-cox transfromasyonu kullanilacaktir.
+#===
 Load.Install("forecast")
 
 # Beta dagilimi.
@@ -1355,49 +1463,5 @@ g <- ggplot(temp, aes(x = Value)) +
     ggplot2::annotate(geom = "text", label = latex2exp::TeX(paste0("$n = ", n, "$")), x = Inf, y = Inf, hjust = 1.1, vjust = 1.5, size = 10, parse = TRUE)
 print(g)
 dev.off()
-
-#====================================
-Load.Install("ggseas")
-library(ggseas)
-
-AirPassengers
-ap_df <- tsdf(AirPassengers)
-head(ap_df)
-
-ggplot(ap_df, aes(x = x, y = y)) +
-    geom_line(colour = "grey75")
-
-ggplot(ap_df, aes(x = x, y = y)) +
-    stat_index(index.ref = 1)
-
-ggplot(ap_df, aes(x = x, y = y)) +
-    stat_index(index.ref = 120, index.basis = 1000)
-
-ggplot(ap_df, aes(x = x, y = y)) +
-    geom_line(colour = "grey75") +
-    stat_rollapplyr(width = 12, align = "right") +
-    labs(x = "", y = "Number of US Air Passengers\n(rolling average and original)")
-
-
-ap_df <- tsdf(AirPassengers)
-ggsdc(ap_df, aes(x = x, y = y), method = "decompose") +
-    geom_line()
-
-ggsdc(ap_df, aes(x = x, y = y), method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) +
-    geom_line(colour = "blue", size = 0.5) +
-    theme_grey()
-
-ggplot(ap_df, aes(x = x, y = y)) +
-    geom_line(colour = "grey50") +
-    stat_seas(colour = "blue") +
-    stat_stl(s.window = 7, colour = "red") +
-    stat_decomp(type = "multiplicative", colour = "purple")
-
-
-
-
-#====================================
-
-
 
 #==================================== SON ======================================

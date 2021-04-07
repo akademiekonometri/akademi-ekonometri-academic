@@ -8,7 +8,7 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#============================== Bizi Takip Edin ================================
 
 #========================= R'da Birlesik Faiz Hesaplama ========================
 # Notlar:
@@ -19,7 +19,7 @@
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -30,16 +30,16 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
@@ -64,7 +64,7 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 ## n = Birim zamandaki toplam period / yil icinde kac kere birlesik faiz hesabi yapilacagi
 ## t = Zaman (yil olarak yazilmali)
 
-#==========
+#===
 # Toplam faiz hesaplamasi icin on bilgiler.
 P <- 10000 ## Ana para.
 r <- 0.0079 * 12 ## Yillik faiz orani (ondalik olarak).
@@ -82,9 +82,9 @@ A <- P * exp(1)^(r * t) ## Toplam geri odeme miktari.
 A ## Toplam geri odeme miktari.
 I <- A - P ## Faiz miktari.
 I ## Faiz miktari.
-#==========
+#===
 
-#==========
+#===
 # Zaman hesaplamasi icin on bilgiler.
 A <- 16034.18 ## Toplam geri odenmesi gereken miktar.
 P <- 10000 ## Ana para
@@ -96,9 +96,9 @@ n <- 12 ## Birim zamandaki toplam period.
 ## t: ln(A/P) / (n * (ln(1 + r/n)))
 t <- log(A/P) / (n * (log(1 + r/n))) ## Zaman.
 t ## Zaman.
-#==========
+#===
 
-#==========
+#===
 # Faiz oraninin hesaplanmasi icin on bilgiler.
 A <- 16034.18 ## Toplam geri odenmesi gereken miktar.
 P <- 10000 ## Ana para
@@ -110,6 +110,6 @@ t <- 5
 ## r: n * ((A/P)^(1/(n * t)) - 1)
 r <- n * ((A/P)^(1/(n * t)) - 1) ## Faiz orani.
 r ## Faiz orani.
-#==========
+#===
 
 #==================================== SON ======================================

@@ -8,7 +8,7 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#============================== Bizi Takip Edin ================================
 
 #================ R'da ggplot ile Histogram ve Yogunluk Grafigi ================
 # Notlar:
@@ -19,7 +19,7 @@
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -30,23 +30,23 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "ggplot2"))
-#==========
+#===
 ## Load.Install(Package.Names = "XLConnect")
 ## Load.Install(c("XLConnect", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
 #=============================== Beta Dagilimi =================================
 # Beta dagiliminin histogramini ve yogunlugunu olusturma.
-#==========
+#===
 # Beta dagilimi datasini olusturma.
 n <- 5000 ## Gozlem sayisi
 p.alpha <- 2 ## Beta dagilimi alfa parametresi.
@@ -82,7 +82,7 @@ g
 
 #============================== Normal Dagilim =================================
 # Normal dagilimin histogramini ve yogunlugunu olusturma.
-#==========
+#===
 # Normal dagilim datasini olusturma.
 n <- 5000 ## Gozlem sayisi
 p.mean <- 0 ## Normal dagilim mean (ortalama) parametresi.

@@ -17,6 +17,9 @@ akek.path <- paste0(repo.path, "akek/")
 # Paths for "./akek/courses" folder.
 courses.path <- paste0(repo.path, "akek/courses/")
 
+# Path for "./scripts/functions" folder.
+func.path <- paste0(repo.path, "akek/r/_functions/")
+
 # Paths for "./akek/r" folder.
 r.path <- paste0(repo.path, "akek/r/")
 
@@ -49,9 +52,6 @@ pdf.path <- paste0(repo.path, "pdf/")
 
 # Path for the "./scripts" folder.
 scripts.path <- paste0(repo.path, "scripts/")
-
-# Path for "./scripts/functions" folder.
-func.path <- paste0(repo.path, "scripts/functions/")
 
 # Path for "./slides" folder.
 slides.path <- paste0(repo.path, "slides/")
@@ -115,12 +115,14 @@ source(paste0(func.path, "spatial_functions.R")) ## Spatial Functions in collect
 #================================= Packages ====================================
 # ---- Settings.Packages.1 ----
 #=================================
+# update.packages(ask = FALSE, checkBuilt = TRUE)
+
 # Package that MUST be installed.
 Load.Install(c("devtools", "png", "proto"))
 
 #=================================
 # Package for package control during collaboration.
-Load.Install(c("renv")) ## Note that to activate the "renv" package you need to use "renv::init()" once.
+Load.Install(c("renv")) ## Note that to activate the "renv" package you need to use "renv::init()" once. Sometimes loading the renv package in the .Rprofile might cause not printing the data frames in Rmarkdown files; therefore, it would be better to load the renv package later.
 
 #=================================
 # Packages for emojis and icons.
@@ -131,13 +133,9 @@ if("emo" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install
 library("emo")
 
 #=================================
-# Packages for various data sets.
-Load.Install(c("datasets", "quantmod", "WDI"))
-
-#=================================
 # Packages for reproducible research.
 Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR")) ## Use the following code for all the options of knitr: "str(knitr::opts_chunk$get())"
-Load.Install("blogdown")
+
 # Packages for YAML options.
 Load.Install(c("ymlthis")) ## https://ymlthis.r-lib.org/index.html
 
@@ -145,17 +143,22 @@ Load.Install(c("ymlthis")) ## https://ymlthis.r-lib.org/index.html
 Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm", "lubridate", "NCmisc", "classInt"))
 
 #=================================
+# Packages for various data sets.
+Load.Install(c("datasets", "quantmod", "WDI"))
+
+#=================================
 # Packages for data loading, manipulation, and data reshaping.
-Load.Install(c("reshape", "reshape2", "tidyr", "data.table"))
+Load.Install(c("readxl", "reshape", "reshape2", "tidyr", "data.table"))
 # Load.Install(c("XLConnect")) ## Loading XLConnect package before RStudio opens, makes Java unstable and causes R to crash. Therefore, load the XLConnect package after RStudio opens preferably just before the loading function.
+# options(java.parameters = "-Xmx8000m") ## Use this code if loading excel file with XLConnect package fails.
 
 #=================================
 # Packages for table generation and LaTeX.
-Load.Install(c("stargazer", "xtable", "tikzDevice", "latex2exp"))
+Load.Install(c("stargazer", "xtable", "tikzDevice", "latex2exp", "latexpdf"))
 
 #=================================
 # Packages for graphics and related packages.
-Load.Install(c("ggplot2", "ggthemes", "ggThemeAssist", "cowplot", "grid", "gridExtra", "gtable", "lattice", "latticeExtra", "dygraphs", "RColorBrewer"))
+Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "grid", "gridExtra", "gtable", "lattice", "latticeExtra", "dygraphs", "RColorBrewer"))
 
 #=================================
 # Packages for web scraping.
@@ -163,7 +166,7 @@ Load.Install(c("ggplot2", "ggthemes", "ggThemeAssist", "cowplot", "grid", "gridE
 
 #=================================
 # Packages for general econometric analyses.
-Load.Install(c("lmtest", "sandwich", "car", "wooldridge", "nortest", "normtest", "gvlma", "moments"))
+Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "wooldridge", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
 
 # Extra packages for the car package.
 if("carData" %in% rownames(installed.packages()) == FALSE) {install.packages("carData")}
@@ -171,14 +174,14 @@ library("carData")
 
 #=================================
 # Packages for specific econometric analyses.
-# Load.Install(c("lme4", "aod", "pbkrtest", "strucchange"))
+# Load.Install(c("lme4", "pbkrtest", "strucchange"))
 
-# #=================================
-# # Packages for time series analysis.
-# Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas"))
-# Load.Install(c("fpp2", "fpp3"))
-# # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
-# # Load.Install(c("MTS", "tseries", "timeSeries"))
+#=================================
+# Packages for time series analysis.
+Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider"))
+Load.Install(c("fpp2", "fpp3"))
+# Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
+# Load.Install(c("MTS", "tseries", "timeSeries"))
 
 #=================================
 # Packages for spatial and spatio-temporal analysis.

@@ -8,20 +8,20 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#=============================== Bizi Takip Edin ===============================
 
 #=========================== VAR - Ornek 2 (Detayli) ===========================
-#====== R'da Excel Uzantılı Data Yüklemek, Temizlemek, ve Grafik Cikarmak ======
-#========== Birim Kok Testleri, VAR, Granger Nedensellik Testi ve IRF ==========
 # Notlar:
 #
+## R'da Excel Uzantılı Data Yüklemek, Temizlemek, ve Grafik Cikarmak
+## Birim Kok Testleri, VAR, Granger Nedensellik Testi ve IRF
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
 ## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -32,31 +32,31 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
 Load.Install(c("seasonal", "uroot")) ## Sadece seasonal adjustment (mevsimsel duzeltme) yapacaksiniz kullanin.
-#==========
+#===
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
 
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
-#=========================
+#===
 functions.folder.name <- "../../../../_functions"
 figs.tabs.folder.name <- "_figs-tabs"
 
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#=========================
+#===
 ## "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
 
@@ -85,7 +85,7 @@ source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYD
 source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_multivariate_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
 
 #================================= Genel Bilgi =================================
-# Bu bolumde Turkiye Istatistik Kurumu'ndan (TUIK) elde ettigimiz 3 farkli degiskene (Reel Cari Acik - Real Current Account Deficit, Reel Gayri Safi Yurtici Hasila - Real GDP ve Reel Doviz Kuru - Real Exchange Rate) ait 2005-2019 arasindaki yillik verilerini kullanacagiz (baz yil 2005=100). Temel amacimiz bu verileri kullanarak VAR modeli uygulamak olacak. VAR modelinden elde ettigmiz tahminlerle son olarak Impulse Respons Function (Etki-Tepki Fonksiyonlari) hesaplayip bu fonksiyonlari grafige dokecegiz. Asagida bu bolumde yapilacak analizler sirasiyla verilmistir.
+# Bu bolumde Turkiye Istatistik Kurumu'ndan (TUIK) elde ettigimiz 3 farkli degiskene (Reel Cari Acik - Real Current Account Deficit, Reel Gayri Safi Yurtici Hasila - Real GDP ve Reel Doviz Kuru - Real Exchange Rate) ait 2005-2019 arasindaki yillik verilerini kullanacagiz (baz yil 2005=100). Temel amacimiz bu verileri kullanarak VAR modeli uygulamak olacak. Asagida bu bolumde yapilacak analizler sirasiyla verilmistir.
     ## 1. Datayi R'a yukleyip temizleme
     ## 2. Datayi transforme etme
     ## 3. Ozet data istatistiklerini bulma
@@ -93,8 +93,10 @@ source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYD
     ## 5. Unit Root Tests (Birim Kok Testleri)
     ## 6. Cointegration Tests (Es-butunlesme Testleri)
     ## 7. Granger Causality Tests (Granger Nedensellik Testleri)
-    ## 8. VAR and VECM Models (VAR ve VECM Modelleri)
-    ## 9. Impulse Response Functions (Etki-Tepki Fonksiyonlari)
+    ## 8. VECM Model Tahmini
+    ## 9. Diagnostic testleri
+    ## 10. Impulse Response Functions (Etki-Tepki Fonksiyonlari)
+    ## 11. FEVD: Forecast Error Variance Decomposition (Tahmin Hatasi Varyans Ayristirma)
 
 #========================= Datayi Yukleme ve Temizleme =========================
 # Data dosyasinin adi.
@@ -432,7 +434,7 @@ kpss.test(ts2.diff, lag.short = TRUE, output = TRUE) ## Buyume ilk farklar: stat
 ### 1. Eger buyume formundaki degiskenler arasinda cointegration bulunursa VECM modelini buyume formundaki degiskenlerle tahmin edecegiz. VECM modelinde degiskenlerin I(I) olmasi gerekir. Not: Buyume formundaki degiskenleri I(1) bulmustuk.
 ### 2. Eger buyume formundaki degiskenler arasinda cointegration bulunmaz ise bu durumda VAR modelini buyume ilk farklar formundaki degiskenlerle (yani I(0) olan degiskenlerle) tahmin edecegiz.
 
-#=========================
+#===
 # Detayli unit root ve stationary testleri.
 ## Detayli bilgi icin "—note_unit-root_tests.R" dosyasini inceleyin.
 ## urca adli R paketindeki unit root testleri kullanarak asagidaki 2 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak ADF, PP, ERS ve KPSS testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
@@ -446,7 +448,7 @@ adf.tests.results.conv ## Yukaridaki fonksiyonun sonucu
 UR.Stationary.Tests(Data = data2.ts, Diff = FALSE, Lags = NULL, Subset = NULL, Reshape = TRUE, LaTeX = FALSE) ## Buyume formundaki degiskelere uygulandi.
 ur.stationary.tests.results ## Yukaridaki fonksiyonun sonucu
 ur.stationary.tests.results.conv ## Yukaridaki fonksiyonun sonucu
-#=========================
+#===
 
 #======== Cointegration Pairwise Tests - (Esbutunlesme Ikili Testleri) =========
 # Her ikili degisken arasinda cointegration testleri yapiyoruz.
@@ -485,7 +487,7 @@ jo <- ca.jo(ts, type = "trace", ecdet = "const", K = 2, spec = "transitory") ## 
 summary(jo) ## Gr.RGDP ve Gr.RCAD arasinda: Cointegration yok.
 Coint.Select(Johansen.Object = jo, Equation.Number = eq.num) ## Benim yazdigim Coint.Select fonksiyonunu kullanarak otomatikman johansnen test sonucunu bulabiliriz.
 
-#=========================
+#===
 # Detayli cointegration pairwise testleri.
 ## Detayli bilgi icin "—note_cointegration_pairwise_tests.R" dosyasini inceleyin.
 ## urca adli R paketindeki cointegration testleri kullanarak asagidaki 2 fonksiyonu hazirladim. Bu fonksiyonlari kullanarak Phillips-Ouliaris (PO) cointegration - Simetrik ve JO (Johansen) cointegration - Simetrik testlerini uygulayabilir ve bunlarin sonuclarini tablo olarak kolayca yazdirabilirsiniz.
@@ -496,6 +498,7 @@ po.coint.pairwise.results ## %1 anlamlilik duzeyinde hic bir ikili seri arasinda
 
 JO.Coint.Pairwise.Test(Data = ts, Lag = "AIC", Deterministic = "Constant", Type = "Trace", Season = NULL, LaTeX = FALSE)
 jo.coint.pairwise.results ## %1 anlamlilik duzeyinde sadece  Gr.RCAD ve Gr.RER arasinda cointegration bulunmus.
+#===
 
 ## Genel sonuc:
 ### 1. Phillips-Ouliaris (PO) cointegration - Simetrik testinin sonucuna gore hic bir iki degisken arasinda cointegration yok, yani VAR kullan.
@@ -580,12 +583,44 @@ vecm.rest.summary
 # VECM tahminini VAR donusturuyoruz.
 ## Kisitlanmis VECM'yi VAR'a donduruyoruz (bu islem sirasinda daha once buldugumuz cointegration degerini kisitlama yapmak icin belirtiyoruz) ve her denklem icin Transformed VAR formunda VECM katsayilarini gosteriyoruz.
 vecm.to.var <- vec2var(z = jo, r = coint) ## VECM'yi VAR'a donusturuluyor.
+vecm.to.var
 
 # Diagnostic Test (Teshis Testleri)
-# Daha sonra yapilacak.
+## Gecikme uzunlugu secimi
+    ## 1. Otokorelasyon testlerinde ve degisen varyans testlerinde Tsay, R.S. (2005) {Analysis of Financial Time Series. Vol. 543. John Wiley &; Sons. page 33)} tarafindan onerilen gecikme uzunlugu = lag ≈ ln(length(residuals)) kullanildi.
+    ## 2. Bazi simlasyonlar sonucunda kullanilmasi gereken gecikme uzunlugu 10 olmali diyor: http://robjhyndman.com/hyndsight/ljung-box-test/.
+
+## Otokorelasyon testi (Ljung-Box Portmanteau testi)
+    ## 1. Buyuk orneklem icin "PT.asymptotic" ya da "BG" kullanin, kucuk orneklem icin ise "PT.adjusted" ya da "ES" kullanin.
+    ## 2. Bos hipotez otokorelasyon olmadigini soyler.
+    ## 3. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+lag.serial <- ceiling(log(nrow(residuals(vecm.to.var))))
+serial.test(vecm.to.var, lags.pt = lag.serial, lags.bg = lag.serial, type = "PT.adjusted") ## Otokorelasyon var.
+lag.serial <- 10
+serial.test(vecm.to.var, lags.pt = lag.serial, lags.bg = lag.serial, type = "PT.adjusted") ## Otokorelasyon yok.
+
+## Degisen Varyans testi (ARCH-LM testi)
+    ## 1. Bos hipotez degisen varyans olmadigini, yani sabit varyans oldugunu soyler.
+    ## 2. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+lag.arch <- ceiling(log(nrow(residuals(vecm.to.var))))
+arch.test(vecm.to.var, lags.multi = lag.arch, lags.single = lag.arch, multivariate.only = TRUE) ## Degisen varyans yok.
+
+## Normallik testi (Jarque-Bera testi)
+    ## 1. Bos hipotez hata terimlerinin normal dagildiigni soyler.
+    ## 2. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+normality.test(vecm.to.var, multivariate.only = TRUE) ## Normallik var.
 
 # Impulse Response Functions (Etki Tepki Fonksiyonlari)
-irfs <- vars::irf(vecm.to.var, impulse = NULL, response = NULL, n.ahead = 10, ortho = TRUE, boot = TRUE, ci = 0.95, runs = 100, seed = 123456)
-plot(irfs)
+irf.ahead <- 10 ## Kac donem ilerisi gosterilsin?
+irf.runs <- 100 ## Bootstrap'de kac kere calistirilsin.
+irf.ci <- 0.95 ## Bootstrap hata bandi icin guven araligi.
+irf.obj <- vars::irf(vecm.to.var, impulse = NULL, response = NULL, n.ahead = irf.ahead, ortho = TRUE, boot = TRUE, ci = irf.ci, runs = irf.runs, seed = 1234)
+plot(irf.obj)
+
+# FEVD: Forecast Error Variance Decomposition (Tahmin Hatasi Varyans Ayristirma)
+## FEVD, her bir değişkenin modeldeki diğer değişkenlere katkıda bulunduğu bilgi miktarını gösterir. Her bir değişkenin tahmin hatası varyansının ne kadarının diğer değişkenlere exojen şoklarla açıklanabileceğini belirler.
+fevd.ahead <- 10 ## Kac donem ilerisi gosterilsin?
+fevd.obj <- vars::fevd(vecm.to.var, n.ahead = fevd.ahead)
+plot(fevd.obj)
 
 #==================================== SON ======================================

@@ -8,19 +8,19 @@
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/
 # E-mail: akademiekonometri@gmail.com
-#===============================================================================
+#=============================== Bizi Takip Edin ===============================
 
 #============================ VAR - Ornek 1 (Basit) ============================
-#==== R'da Excel Uzantılı Data Yüklemek, Temizlemek, CDR ve VAR ile Tahmin =====
 # Notlar:
 #
+## R'da Excel Uzantılı Data Yüklemek, Temizlemek, CDR ve VAR ile Tahmin
 ## Bu yazıda kullandığımız datayı (eger varsa) web sitemizdeki ilgili bölümde bulabilirsiniz.
 ## Aşağıdaki R kodu, öncelikle gerekli R paketlerini yüklüyor ve daha sonra working directory'yi bilgisayarınızda bu kaynak dosyasının bulunduğu lokasyona göre değiştiriyor. Son olarak ise ilgili R kodunu çalıştırıyor.
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
-#=========================
+#===
 Load.Install <- function(Package.Names) {
     #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
     is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
@@ -31,19 +31,30 @@ Load.Install <- function(Package.Names) {
         suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
     }
 }
-#=========================
+#===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "vars", "pastecs"))
-#==========
+#===
 ## Load.Install(Package.Names = "readxl")
 ## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
-#==========
+#===
 
 #======================== Working Directory'yi Belirlemek ======================
 # Working directory'nin bu kaynak dosyasının olduğu lokasyonda belirlenmesi.
-#=========================
+#===
 getwd() ## Şimdiki working directory.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının uzantısını buluyor.
 setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının lokasyonunda belirleniyor.
+
+#================================= Genel Bilgi =================================
+# Bu bolumde WorldBank'ten elde ettigimiz 5 farkli degiskene "NY.GDP.MKTP.CD" (GDP - GSYH Simdiki US Fiyatlariyla), "NE.GDI.TOTL.ZS" (Capital - Sermaye Stogu % GSYH olarak), "DT.DOD.DECT.CD" (Ext.Debt - Dis Borc Stogu Simdiki US Fiyatlariyla), "NE.EXP.GNFS.ZS" (Export - Ihracat % GSYH olarak) ve son olarak "SP.POP.TOTL" (Population - Toplam Nufus GSYH ve Dis Borc Stogu'ndaki nufusun etkisini yok etmek icin) ait 1970-2018 arasindaki yillik nominal verilerini kullanacagiz. Temel amacimiz bu verileri kullanarak VAR modeli uygulamak olacak. Asagida bu bolumde yapilacak analizler sirasiyla verilmistir.
+    ## 1. Datayi R'a yukleyip temizleme
+    ## 2. Datayi transforme etme
+    ## 3. Ozet data istatistiklerini bulma
+    ## 4. Datayi zaman serine cevirme
+    ## 5. VAR Modeli tahmini
+    ## 6. Diagnostic testleri
+    ## 7. Impulse Response Functions (Etki-Tepki Fonksiyonlari)
+    ## 8. FEVD: Forecast Error Variance Decomposition (Tahmin Hatasi Varyans Ayristirma)
 
 #========================= Datayi Yukleme ve Temizleme =========================
 # Data dosyasinin adi.
@@ -104,11 +115,11 @@ temp <- test[, series] ## test datasinin secilen degiskenlere gore alt kumesi al
 colnames(temp) <- series.names ## temp datasinin sutun isimleri degistirildi.
 temp <- temp[complete.cases(temp), ] ## temp datasindaki tum NA iceren satirlar silindi.
 
-temp$GDP.pC <- temp$GDP / temp$Population ## Kisi basi GDP.
-temp$Ext.Debt.pC <- temp$Ext.Debt / temp$Population ## Kisi basi Ext.Debt.
+temp$GDP.PC <- temp$GDP / temp$Population ## Kisi basi GDP.
+temp$Ext.Debt.PC <- temp$Ext.Debt / temp$Population ## Kisi basi Ext.Debt.
 
-temp$Ln.GDP.pC <- log(temp$GDP.pC) ## Model icinde yorumlamak daha kolay olsun diye GDP.pC degiskeninin dogal logaritmasi aliniyor.
-temp$Ln.Ext.Debt.pC <- log(temp$Ext.Debt.pC) ## Model icinde yorumlamak daha kolay olsun diye Ext.Debt.pC degiskeninin dogal logaritmasi aliniyor.
+temp$Ln.GDP.PC <- log(temp$GDP.PC) ## Model icinde yorumlamak daha kolay olsun diye GDP.PC degiskeninin dogal logaritmasi aliniyor.
+temp$Ln.Ext.Debt.PC <- log(temp$Ext.Debt.PC) ## Model icinde yorumlamak daha kolay olsun diye Ext.Debt.PC degiskeninin dogal logaritmasi aliniyor.
 
 # Islenmis datayi data olarak kaydediyoruz.
 data <- temp
@@ -125,12 +136,12 @@ save(list = RData.Name, file = paste0(RData.Name, ".RData")) ## Disa aktarilacak
 # Coklu dogrusal regresyonla model tahmini.
 ## Zaman serisi datasinin kesinlikle SEKK yontemi kullanarak coklu regresyonla tahmin edilmemesi gerekir. Bunun nedeni zaman serisi datasinda siklikla gorulen otokorolasyondur. Zaman serisi datasinda siklikla pozitif otokorelasyon gorulur ve bunun sonucunda parametre tahmincilerinin varyansi duser, t degerleri buyur (yani H0 hipotezi yanlis olarak red edilir ve parametre tahmincileri gercekte istatistiki olarak anlamli olmamalarina ragmen anlamli sonucuna varilir), modelin geneli icin yapilan F testinde F degeri buyur (yani H0 hipotezi yanlis olarak red edilir ve model genel olarak anlamli olmamasina ragmen anlamli sonucuna varilir) ve R2 degeri buyur. Kisacasi cikan sonuclara guvenilmemesi gerekir.
 ## Fakat simdilik sadece gosterim olmasi acisindan bir bu yontemi kullanacagiz.
-model <- lm(data = data, formula = Ln.GDP.pC ~ Per.Capital + Per.Export + Ln.Ext.Debt.pC, singular.ok = FALSE)
+model <- lm(data = data, formula = Ln.GDP.PC ~ Per.Capital + Per.Export + Ln.Ext.Debt.PC, singular.ok = FALSE)
 summary(model)
 
 #================= VAR (Vector Autoregressive Model) ile Tahmin ================
 # VAR (Vector Autoregressive Model) ile model tahmin oncesi bazi duzenlemeler.
-data <- data[, c("Year", "Ln.GDP.pC", "Per.Capital", "Per.Export", "Ln.Ext.Debt.pC")] ## Oncelikle sadece VAR'da kullanacagimiz degiskenler icin datanin alt kumesini alalim.
+data <- data[, c("Year", "Ln.GDP.PC", "Per.Capital", "Per.Export", "Ln.Ext.Debt.PC")] ## Oncelikle sadece VAR'da kullanacagimiz degiskenler icin datanin alt kumesini alalim.
 data.ts <- ts(data[, grep("(Year)", colnames(data), invert = TRUE)], frequency = 1, start = data$Year[1]) ## Alt kumesi alinmis datayi, "Year" degiskenini datanin icinden atip, frekansini ve baslangic zamanini secerek datayi artik zaman serisi datasina cevirelim. Son olarak zaman serisine cevrilmis datayi data.ts olarak kaydedelim.
 str(data.ts) ## temp.ts'nin yapisi.
 frequency(data.ts) ## temp.ts'nin frekansi.
@@ -143,6 +154,61 @@ deterministic.selected <- "const" ## Deterministik terim.
 
 # VAR (Vector Autoregressive Model) ile model tahmin.
 var.est <- vars::VAR(data.ts, p = lag, type = deterministic.selected, season = NULL, exogen = NULL) ## VAR tahmin edildi.
+var.est ## Model.
 summary(var.est) ## Modelin ozeti.
+
+# Model Denge Kontrollu
+## roots(model) fonsksiyonu katsayi matriksine ait eigenvalueleri verir.
+## Eger eigenvaluler birim kok icinde olursa sistem dinamik olarak dengededir.
+if (sum(!(roots(var.est) < 1)) == 0) { ## Stability check
+    stability.note <- "Tüm kökler birim çemberin içinde ve sistem dinamik olarak dengede."
+}
+if (sum(!(roots(var.est) < 1)) != 0) { ## Stability check
+    stability.note <- "Bazı kökler birim çemberin dışında ve sistem dinamik olarak dengede değil."
+}
+message(stability.note)
+
+## Modelin dengede olup olmadigini kontrol etmek icin ayrica stability() fonksiyonu kullanilabilir.
+var.est.stabil <- stability(var.est, type = "Rec-CUSUM") ## Diger opsiyonlar: "OLS-CUSUM", "Rec-MOSUM", "OLS-MOSUM", "RE", "ME", "Score-CUSUM", "Score-MOSUM" and "fluctuation".
+par(mar = c(1, 1, 1, 1))
+plot(var.est.stabil)
+
+# Diagnostic Test (Teshis Testleri)
+## Gecikme uzunlugu secimi
+## 1. Otokorelasyon testlerinde ve degisen varyans testlerinde Tsay, R.S. (2005) {Analysis of Financial Time Series. Vol. 543. John Wiley &; Sons. page 33)} tarafindan onerilen gecikme uzunlugu = lag ≈ ln(length(residuals)) kullanildi.
+## 2. Bazi simlasyonlar sonucunda kullanilmasi gereken gecikme uzunlugu 10 olmali diyor: http://robjhyndman.com/hyndsight/ljung-box-test/.
+
+## Otokorelasyon testi (Ljung-Box Portmanteau testi)
+## 1. Buyuk orneklem icin "PT.asymptotic" ya da "BG" kullanin, kucuk orneklem icin ise "PT.adjusted" ya da "ES" kullanin.
+## 2. Bos hipotez otokorelasyon olmadigini soyler.
+## 3. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+lag.serial <- ceiling(log(nrow(residuals(var.est))))
+serial.test(var.est, lags.pt = lag.serial, lags.bg = lag.serial, type = "PT.adjusted") ## Otokorelasyon var.
+lag.serial <- 10
+serial.test(var.est, lags.pt = lag.serial, lags.bg = lag.serial, type = "PT.adjusted") ## Otokorelasyon yok.
+
+## Degisen Varyans testi (ARCH-LM testi)
+## 1. Bos hipotez degisen varyans olmadigini, yani sabit varyans oldugunu soyler.
+## 2. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+lag.arch <- ceiling(log(nrow(residuals(var.est))))
+arch.test(var.est, lags.multi = lag.arch, lags.single = lag.arch, multivariate.only = TRUE) ## Degisen varyans yok.
+
+## Normallik testi (Jarque-Bera testi)
+## 1. Bos hipotez hata terimlerinin normal dagildiigni soyler.
+## 2. Asagidaki testler model geneli icin yapilmistir. Tekil denklemler icin degil.
+normality.test(var.est, multivariate.only = TRUE) ## Normallik yok.
+
+# Impulse Response Functions (Etki Tepki Fonksiyonlari)
+irf.ahead <- 10 ## Kac donem ilerisi gosterilsin?
+irf.runs <- 100 ## Bootstrap'de kac kere calistirilsin.
+irf.ci <- 0.95 ## Bootstrap hata bandi icin guven araligi.
+irf.obj <- vars::irf(var.est, impulse = NULL, response = NULL, n.ahead = irf.ahead, ortho = TRUE, boot = TRUE, ci = irf.ci, runs = irf.runs, seed = 1234)
+plot(irf.obj)
+
+# FEVD: Forecast Error Variance Decomposition (Tahmin Hatasi Varyans Ayristirma)
+## FEVD, her bir değişkenin modeldeki diğer değişkenlere katkıda bulunduğu bilgi miktarını gösterir. Her bir değişkenin tahmin hatası varyansının ne kadarının diğer değişkenlere exojen şoklarla açıklanabileceğini belirler.
+fevd.ahead <- 10 ## Kac donem ilerisi gosterilsin?
+fevd.obj <- vars::fevd(var.est, n.ahead = fevd.ahead)
+plot(fevd.obj)
 
 #==================================== SON ======================================

@@ -27,7 +27,7 @@ outdated <- "no_entry"
 <br>
 
 {{% alert note %}}
-İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder...
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
 {{% /alert %}}
 
 ## Hafta #1

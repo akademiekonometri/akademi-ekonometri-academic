@@ -33,6 +33,8 @@ outdated <- "no_entry"
 ## Hafta #1
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
 - [Notlar](`r paste0(zaman.serileri.analizi.path, "Zaman_Serileri_Analizi_-_Hafta_1.pdf")`) `r emo::ji(tr)`
+- [Uygulama - HTML](`r paste0(zaman.serileri.analizi.r.path, "/", "Hafta_1/", "Hafta_1_Notlar.html")`) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+- [Uygulama - RMarkdown](`r paste0(zaman.serileri.analizi.r.path, "/", "Hafta_1/", "Hafta_1_Notlar.Rmd")`) `r emo::ji(tr)``r emo::ji(to.be.updated)`
 
 ## Hafta #2
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`

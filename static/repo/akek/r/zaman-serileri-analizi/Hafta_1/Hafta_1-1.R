@@ -71,11 +71,11 @@ set.seed(1234)
 #===
 Load.Install("WDI")
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasini kullanacagiz.
-WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasini kullanacagiz.
+WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasini kullanacagiz. 2009 baz yili kullaniliyor.
 WDIsearch(string = "gdp.*capita.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olasi seriler ve kodlari. Biz "NY.GDP.PCAP.KN" GDP per capita (constant LCU) datasini kullanacagiz. 2009 baz yili kullaniliyor.
 
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN", "NY.GDP.MKTP.KN", "NY.GDP.PCAP.KN"), start = 1960, end = 2019, extra = FALSE)
-data <- data[, c("year", "NY.GDP.MKTP.CN", "NY.GDP.MKTP.KN", "NY.GDP.PCAP.KN")] ## IStedigimiz degiskenleri seciyoruz.
+data <- data[, c("year", "NY.GDP.MKTP.CN", "NY.GDP.MKTP.KN", "NY.GDP.PCAP.KN")] ## Istedigimiz degiskenleri seciyoruz.
 colnames(data) <- c("Year", "GDP", "R.GDP", "R.GDP.PCAP") ## Degiskenlere yeni isimler veriyoruz.
 data$Date <- as.Date(paste(data$Year, "1", "1", sep = "-")) ## Date adli yeni bir degisken olusturuyoruz.
 data <- data[, c("Date", "Year", "GDP", "R.GDP", "R.GDP.PCAP")] ## Degiskenleri siraliyoruz.
@@ -474,7 +474,7 @@ data <- data[, c("Date", "Year", "CPI.2010")] ## Degiskenleri siraliyoruz.
 data <- data[order(data$Date, data$Year, decreasing = FALSE, na.last = FALSE), ] ## Datayi tarihe gore siraliyoruz.
 rownames(data) <- 1:nrow(data) ## Satir sayilarini duzenliyoruz.
 
-# Yeni bir baz yilina gore (2000 Baz Yili) indeksi tekrar hesapliyoruz.
+# Yeni bir baz yilina gore (2019 Baz Yili) indeksi tekrar hesapliyoruz.
 data$CPI.2019 <- (data$CPI.2010/data[data$Year == 2019, "CPI.2010"]) * 100
 
 # Turkiye icin Tuketici Fiyatlari Indeksi (2010 Baz yili)'nin Buyume Orani yani enflasyon hesaplaniyor.
@@ -1204,17 +1204,15 @@ dev.off()
 temp <- data
 variable <- "Close"
 value <- temp[, variable]
-## Box-Cox Transformasyonu yapılmıs Beta dagiliminin'nin Olasilik Yogunluk grafigi
-### Box-cox transformasyonu.
-#### Box-cox transformasyonu ile bulunan lambda degerine gore ham veri degistiriliyor: Eger lambda = 1 ise transformasyona gerek yok, eger lambda == 0 ise ln(x), ve eger lambda farkli bir deger ise (x^lambda - 1)/lambda.
-s.lambda <- forecast::BoxCox.lambda(value, method = c("loglik"), lower = -2, upper = 2) ## Box-cox transformasyonu sonucunda bulunan lambda degeri. method = c("guerrero") kriteri de kullanilabilir. Genelde kullanilan alt limit -2 ve ust limit ise 2'dir.
+## Box-cox transformasyonu ile bulunan lambda değerine göre ham veri değiştiriliyor: Eğer lambda = 1 ise transformasyona gerek yok, eğer lambda == 0 ise ln(x), ve eğer lambda farklı bir değer ise (x^lambda - 1)/lambda.
+s.lambda <- forecast::BoxCox.lambda(value, method = c("loglik"), lower = -2, upper = 2) ## Box-cox transformasyonu sonucunda bulunan lambda değeri. method = c("guerrero") kriteri de kullanılabilir. Genelde kullanılan alt limit -2 ve üst limit ise 2'dir.
 if(s.lambda == 1) { ## Lambda = 1.
     value.boxcox <- value
     message("Box-Cox transformasyonu sonucu: Transformasyona gerek yok.")
 } else if(s.lambda == 0) { ## Lambda = 0.
     value.boxcox <- log(value)
     message("Box-Cox transformasyonu sonucu: Logaritmik Transformasyon yapıldı.")
-} else { ## Lambda farkli bir deger ise.
+} else { ## Lambda farklı bir değer ise.
     value.boxcox <- (value^s.lambda - 1)/s.lambda
     message(paste0("Box-Cox transformasyonu sonucu: λ = ", round(s.lambda, 2), " kullanılarak Box-Cox transformasyonu yapıldı."))
 }

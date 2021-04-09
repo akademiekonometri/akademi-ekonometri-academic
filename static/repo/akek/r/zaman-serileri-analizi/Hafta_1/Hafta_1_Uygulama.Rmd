@@ -17,6 +17,7 @@ output:
     toc_float:
       collapsed: yes
       smooth_scroll: yes
+    self_contained: true
   pdf_document:
     fig_caption: yes
     highlight: zenburn

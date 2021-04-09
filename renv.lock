@@ -130,10 +130,10 @@
     },
     "blogdown": {
       "Package": "blogdown",
-      "Version": "0.20",
+      "Version": "1.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "3f5342aa58bd21ab1b5bed287a2bc5d3"
+      "Hash": "53420f3802e87f8670db68c3f3147880"
     },
     "bookdown": {
       "Package": "bookdown",
@@ -896,10 +896,10 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.5",
+      "Version": "2.7",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "20a0a94af9e8f7040510447763aab3e9"
+      "Hash": "edbf4cb1aefae783fd8d3a008ae51943"
     },
     "roxygen2": {
       "Package": "roxygen2",
@@ -952,10 +952,10 @@
     },
     "servr": {
       "Package": "servr",
-      "Version": "0.20",
+      "Version": "0.21",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c98fc352524de67e12886775ba99081f"
+      "Hash": "48d1289a847c801b3f0e76fc619fa65d"
     },
     "sessioninfo": {
       "Package": "sessioninfo",
@@ -1155,10 +1155,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.19",
+      "Version": "0.22",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a42372606cb76f34da9d090326e9f955"
+      "Hash": "eab2f8ba53809c321813e72ecbbd19ba"
     },
     "xml2": {
       "Package": "xml2",

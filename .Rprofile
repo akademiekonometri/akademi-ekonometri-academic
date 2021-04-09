@@ -29,7 +29,7 @@ options(
   blogdown.yaml.empty = TRUE,
   blogdown.method = "html", ## Might crash the Rstudio.
   blogdown.new_bundle = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  blogdown.hugo.version = "0.78.2",
+  blogdown.hugo.version = "0.81.0",
   blogdown.serve_site.startup = FALSE,
   # blogdown.publishDir = "../public_site", ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
   # blogdown.widgetsID = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html

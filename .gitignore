@@ -5,8 +5,9 @@
 #============================ User Folders/Files ===============================
 —Helper
 —repo
-blogdown
-public/
+/blogdown
+/public/
+/resources/
 _data_helper.R
 _estimation_helper.R
 _later.R
@@ -24,6 +25,7 @@ rsconnect
 #============================ Misc. Folders/Files ==============================
 .dropbox
 .DS_Store
+Thumbs.db
 Icon
 Icon?
 Iconr

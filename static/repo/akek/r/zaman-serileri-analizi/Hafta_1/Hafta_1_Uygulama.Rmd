@@ -64,7 +64,7 @@ Load.Install <- function(Package.Names) {
 
 **Önemli Notlar**  
 
-- Yanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
+- wYanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
 - Yazılardakı ve kodlardaki açıklamaları dikkatlice okuyun.
 - Kodların sırasını **mümkün olduğunca** değiştirmeyin. Aksi taktirde hata ile karşılaşabilirsiniz.
 - [Paketler](#Packages) bölümünde, gerekli [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) bu belgede kodu verilmiş `Load.Install` fonksiyonunu kullanarak indirin ve yükleyin.
@@ -134,7 +134,7 @@ ggplot(temp) +
 - Bazı R paketlerinde mevcut olan veriyi direkt olarak yüklemeye çalışalım.
 - R paketlerinde mevcut olan veriyi yüklemek için 1 fonksiyon kullanacağız: `data`.
     + `data` fonksiyonu ile istediğimiz veriyi direkt olarak R'ın içine yükleyebiliriz.
-- Örnek olması açısından `fpp2` R paketinden "Avustralya Elektrik Uretimi (milyar kWh)" verisini yükleyelim.
+- Örnek olması açısından `fpp2` R paketinden "Avustralya Elektrik Üretimi (milyar kWh)" verisini yükleyelim.
     + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.

@@ -59,49 +59,51 @@ slides.path <- paste0(repo.path, "slides/")
 #=============================== Relative Paths ================================
 # ---- Settings.Relative.Paths.1 ----
 
-# Relative path extension which carries the folder path from /courses/CourseName/FileName to /repo/
-courses.to.repo <- "../../../"
-
-# Relative path for "./akek/courses/ekonometri-ars" folder.
-ekonometri.ars.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-ars/")
-
-# Relative path for "./akek/courses/ekonometri-i" folder.
-ekonometri.i.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-i/")
-
-# Relative path for "./akek/courses/ekonometri-ii" folder.
-ekonometri.ii.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometri-ii/")
-
-# Relative path for "./akek/courses/zaman-serileri-analizi" folder.
-zaman.serileri.analizi.path <- paste0(courses.to.repo, "repo/akek/courses/zaman-serileri-analizi/")
-
-# Relative path for "./akek/courses/ekonometrik-modelleme" folder.
-ekonometrik.modelleme.path <- paste0(courses.to.repo, "repo/akek/courses/ekonometrik-modelleme/")
-
-# Relative path for "./akek/courses/economics" folder.
-economics.path <- paste0(courses.to.repo, "repo/akek/courses/economics/")
-
-# Relative path for "./akek/courses/ekonomi" folder.
-ekonomi.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi/")
-
-# Relative path for "./akek/courses/ekonomi-i" folder.
-ekonomi.i.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi-i/")
-
-# Relative path for "./akek/courses/ekonomi-ii" folder.
-ekonomi.ii.path <- paste0(courses.to.repo, "repo/akek/courses/ekonomi-ii/")
+# Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/
+courses.to.static <- "../../../"
 
 #---
 
-# Relative path for "./akek/r/ekonometri-i" folder.
-ekonometri.i.r.path <- paste0(courses.to.repo, "repo/akek/r/ekonometri-i/")
+# Relative path for "./repo/akek/courses/ekonometri-ars" folder.
+ekonometri.ars.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-ars/")
 
-# Relative path for "./akek/r/ekonometri-ii" folder.
-ekonometri.ii.r.path <- paste0(courses.to.repo, "repo/akek/r/ekonometri-ii/")
+# Relative path for "./repo/akek/courses/ekonometri-i" folder.
+ekonometri.i.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-i/")
 
-# Relative path for "./akek/r/zaman-serileri-analizi" folder.
-zaman.serileri.analizi.r.path <- paste0(courses.to.repo, "repo/akek/r/zaman-serileri-analizi/")
+# Relative path for "./repo/akek/courses/ekonometri-ii" folder.
+ekonometri.ii.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-ii/")
 
-# Relative path for "./akek/r/ekonometrik-modelleme" folder.
-ekonometrik.modelleme.r.path <- paste0(courses.to.repo, "repo/akek/r/ekonometrik-modelleme/")
+# Relative path for "./repo/akek/courses/zaman-serileri-analizi" folder.
+zaman.serileri.analizi.path <- paste0(courses.to.static, "repo/akek/courses/zaman-serileri-analizi/")
+
+# Relative path for "./repo/akek/courses/ekonometrik-modelleme" folder.
+ekonometrik.modelleme.path <- paste0(courses.to.static, "repo/akek/courses/ekonometrik-modelleme/")
+
+# Relative path for "./repo/akek/courses/economics" folder.
+economics.path <- paste0(courses.to.static, "repo/akek/courses/economics/")
+
+# Relative path for "./repo/akek/courses/ekonomi" folder.
+ekonomi.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi/")
+
+# Relative path for "./repo/akek/courses/ekonomi-i" folder.
+ekonomi.i.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi-i/")
+
+# Relative path for "./repo/akek/courses/ekonomi-ii" folder.
+ekonomi.ii.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi-ii/")
+
+#---
+
+# Relative path for "./repo/akek/r/ekonometri-i" folder.
+ekonometri.i.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometri-i/")
+
+# Relative path for "./repo/akek/r/ekonometri-ii" folder.
+ekonometri.ii.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometri-ii/")
+
+# Relative path for "./repo/akek/r/zaman-serileri-analizi" folder.
+zaman.serileri.analizi.r.path <- paste0(courses.to.static, "repo/akek/r/zaman-serileri-analizi/")
+
+# Relative path for "./repo/akek/r/ekonometrik-modelleme" folder.
+ekonometrik.modelleme.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometrik-modelleme/")
 
 #================================= Functions ===================================
 # ---- Settings.Functions.1 ----

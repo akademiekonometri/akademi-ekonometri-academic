@@ -356,7 +356,7 @@ dev.off()
 
 #=================== Unit Root Tests - (Birim Kok Testleri) ====================
 # Her degisken icin unit root test yapiyoruz.
-## Kullanilan testler: ADF, PP ve KPSS. Burada dikkat edilmesi gereken ADF ve PP'de bos hipotez unit root derken alternatif hipotez ise stationary diyor.
+## Kullanilan testler: ADF, PP ve KPSS. Burada dikkat edilmesi gereken ADF ve PP'de bos hipotez unit root derken alternatif hipotez ise stationary diyor. KPSS testinde ise durum tam tersidir.
 ## Tum testlerde belirli anlamlilik duzeyindeki hesapladigimiz test istatistiginin kritik degerden buyuk olup olmadigine bakiyoruz.
 ## Asagida bu testleri uygularken aTSA paketi kullanildi. Bu pakette sectiginiz gecikme uzunlugu 1 azaltilarak size veriliyor. Bunun nedeni ise modele giren gecikme uzunlugu p-1 olarak modele alinmis. Yorumlamada sonuc degismiyor.
 

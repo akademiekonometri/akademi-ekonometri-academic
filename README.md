@@ -33,7 +33,7 @@
 - Please feel free to use any of the content without the permission of the repository owner.
 - All comments, suggestions, and other correspondences should be sent to our e-mail address [akademiekonometri@gmail.com](<mailto:akademiekonometri@gmail.com>).
 
-## Team Members
+## Owner
 | Omer Kara |
 | :---: |
 | Faculty Member, Ph.D. |

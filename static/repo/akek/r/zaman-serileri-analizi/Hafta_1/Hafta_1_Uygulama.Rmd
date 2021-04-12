@@ -1,6 +1,6 @@
 ---
 title: "Zaman Serileri Analizi"
-subtitle: "Hafta #1 - Notlar"
+subtitle: "Hafta #1 - Uygulama"
 author: "[Dr. Ömer Kara](<mailto:okara@ogu.edu.tr>)"
 date: "`r format(Sys.time(), format = '%A, %B %d, %Y')`"
 output:
@@ -64,7 +64,7 @@ Load.Install <- function(Package.Names) {
 
 **Önemli Notlar**  
 
-- wYanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
+- Yanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
 - Yazılardakı ve kodlardaki açıklamaları dikkatlice okuyun.
 - Kodların sırasını **mümkün olduğunca** değiştirmeyin. Aksi taktirde hata ile karşılaşabilirsiniz.
 - [Paketler](#Packages) bölümünde, gerekli [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) bu belgede kodu verilmiş `Load.Install` fonksiyonunu kullanarak indirin ve yükleyin.
@@ -219,7 +219,7 @@ ggplot(temp) +
 - CSV dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
     + `read.csv` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul Barajlarinin Doluluk Oranları" verisini yükleyelim.
-- Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
+- Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r CSV.Data}
 file.path <- "dam_occupancy.csv" ## Data dosyasının ismi ve uzantısı.

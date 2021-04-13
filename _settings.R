@@ -61,49 +61,113 @@ slides.path <- paste0(repo.path, "slides/")
 
 # Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/
 courses.to.static <- "../../../"
+# Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/repo/akek/courses/
+repo.akek.courses <- paste0(courses.to.static, "repo/akek/courses/")
+# Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/repo/akek/r/_courses/
+repo.akek.r.courses <- paste0(courses.to.static, "repo/akek/r/courses/")
 
 #---
 
-# Relative path for "./repo/akek/courses/ekonometri-ars" folder.
-ekonometri.ars.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-ars/")
+# Relative path for "./static/repo/akek/courses/ekonometri-ars" folder.
+ekonometri.ars.path <- paste0(repo.akek.courses, "ekonometri-ars/")
 
-# Relative path for "./repo/akek/courses/ekonometri-i" folder.
-ekonometri.i.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-i/")
+# Relative path for "./static/repo/akek/courses/ekonometri-i" folder.
+ekonometri.i.path <- paste0(repo.akek.courses, "ekonometri-i/")
 
-# Relative path for "./repo/akek/courses/ekonometri-ii" folder.
-ekonometri.ii.path <- paste0(courses.to.static, "repo/akek/courses/ekonometri-ii/")
+# Relative path for "./static/repo/akek/courses/ekonometri-ii" folder.
+ekonometri.ii.path <- paste0(repo.akek.courses, "ekonometri-ii/")
 
-# Relative path for "./repo/akek/courses/zaman-serileri-analizi" folder.
-zaman.serileri.analizi.path <- paste0(courses.to.static, "repo/akek/courses/zaman-serileri-analizi/")
+# Relative path for "./static/repo/akek/courses/zaman-serileri-analizi" folder.
+zaman.serileri.analizi.path <- paste0(repo.akek.courses, "zaman-serileri-analizi/")
 
-# Relative path for "./repo/akek/courses/ekonometrik-modelleme" folder.
-ekonometrik.modelleme.path <- paste0(courses.to.static, "repo/akek/courses/ekonometrik-modelleme/")
+# Relative path for "./static/repo/akek/courses/ekonometrik-modelleme" folder.
+ekonometrik.modelleme.path <- paste0(repo.akek.courses, "ekonometrik-modelleme/")
 
-# Relative path for "./repo/akek/courses/economics" folder.
-economics.path <- paste0(courses.to.static, "repo/akek/courses/economics/")
+# Relative path for "./static/repo/akek/courses/economics" folder.
+economics.path <- paste0(repo.akek.courses, "economics/")
 
-# Relative path for "./repo/akek/courses/ekonomi" folder.
-ekonomi.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi/")
+# Relative path for "./static/repo/akek/courses/ekonomi" folder.
+ekonomi.path <- paste0(repo.akek.courses, "ekonomi/")
 
-# Relative path for "./repo/akek/courses/ekonomi-i" folder.
-ekonomi.i.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi-i/")
+# Relative path for "./static/repo/akek/courses/ekonomi-i" folder.
+ekonomi.i.path <- paste0(repo.akek.courses, "ekonomi-i/")
 
-# Relative path for "./repo/akek/courses/ekonomi-ii" folder.
-ekonomi.ii.path <- paste0(courses.to.static, "repo/akek/courses/ekonomi-ii/")
+# Relative path for "./static/repo/akek/courses/ekonomi-ii" folder.
+ekonomi.ii.path <- paste0(repo.akek.courses, "ekonomi-ii/")
 
 #---
 
-# Relative path for "./repo/akek/r/ekonometri-i" folder.
-ekonometri.i.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometri-i/")
+# Relative path for "./static/repo/akek/r/courses/ekonometri-ars" folder.
+ekonometri.ars.r.path <- paste0(repo.akek.r.courses, "ekonometri-ars/")
 
-# Relative path for "./repo/akek/r/ekonometri-ii" folder.
-ekonometri.ii.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometri-ii/")
+# Relative path for "./static/repo/akek/r/courses/ekonometri-i" folder.
+ekonometri.i.r.path <- paste0(repo.akek.r.courses, "ekonometri-i/")
 
-# Relative path for "./repo/akek/r/zaman-serileri-analizi" folder.
-zaman.serileri.analizi.r.path <- paste0(courses.to.static, "repo/akek/r/zaman-serileri-analizi/")
+# Relative path for "./static/repo/akek/r/courses/ekonometri-ii" folder.
+ekonometri.ii.r.path <- paste0(repo.akek.r.courses, "ekonometri-ii/")
 
-# Relative path for "./repo/akek/r/ekonometrik-modelleme" folder.
-ekonometrik.modelleme.r.path <- paste0(courses.to.static, "repo/akek/r/ekonometrik-modelleme/")
+# Relative path for "./static/repo/akek/r/courses/zaman-serileri-analizi" folder.
+zaman.serileri.analizi.r.path <- paste0(repo.akek.r.courses, "zaman-serileri-analizi/")
+
+# Relative path for "./static/repo/akek/r/courses/ekonometrik-modelleme" folder.
+ekonometrik.modelleme.r.path <- paste0(repo.akek.r.courses, "ekonometrik-modelleme/")
+
+#=================================== Links =====================================
+# ---- Settings.Links.1 ----
+# Base link for akademiekonometri.bitbucket.io
+bitbucket.io.link <- "https://akademiekonometri.bitbucket.io/"
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/".
+akek.courses.link <- paste0(bitbucket.io.link, "akek/courses/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/".
+akek.r.courses.link <- paste0(bitbucket.io.link, "akek/r/courses/")
+
+#---
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ars/".
+ekonometri.ars.link <- paste0(akek.courses.link, "ekonometri-ars/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-i/".
+ekonometri.i.link <- paste0(akek.courses.link, "ekonometri-i/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ii/".
+ekonometri.ii.link <- paste0(akek.courses.link, "ekonometri-ii/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/zaman-serileri-analizi/".
+zaman.serileri.analizi.link <- paste0(akek.courses.link, "zaman-serileri-analizi/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/".
+ekonometrik.modelleme.link <- paste0(akek.courses.link, "ekonometrik-modelleme/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/".
+economics.link <- paste0(akek.courses.link, "economics/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi/".
+ekonomi.link <- paste0(akek.courses.link, "ekonomi/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-i/".
+ekonomi.i.link <- paste0(akek.courses.link, "ekonomi-i/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-ii/".
+ekonomi.ii.link <- paste0(akek.courses.link, "ekonomi-ii/")
+
+#---
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-ars/".
+ekonometri.ars.r.link <- paste0(akek.r.courses.link, "ekonometri-ars/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-i/".
+ekonometri.i.r.link <- paste0(akek.r.courses.link, "ekonometri-i/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-ii/".
+ekonometri.ii.r.link <- paste0(akek.r.courses.link, "ekonometri-ii/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/zaman-serileri-analizi/".
+zaman.serileri.analizi.r.link <- paste0(akek.r.courses.link, "zaman-serileri-analizi/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometrik-modelleme/".
+ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, "ekonometrik-modelleme/")
 
 #================================= Functions ===================================
 # ---- Settings.Functions.1 ----

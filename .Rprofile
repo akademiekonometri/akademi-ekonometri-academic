@@ -30,8 +30,9 @@ options(
   blogdown.method = "html", ## Might crash the Rstudio.
   blogdown.new_bundle = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
   blogdown.hugo.version = "0.81.0",
+  blogdown.knit.on_save = TRUE,
   blogdown.serve_site.startup = FALSE,
-  blogdown.generator.server = TRUE, ## Sometimes RStudio crashee after the site is served. Loading these function solves the issue.
+  blogdown.generator.server = TRUE, ## Sometimes RStudio crashes after the site is served. Loading these function solves the issue.
   # blogdown.publishDir = "../public_site", ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
   # blogdown.widgetsID = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
   blogdown.hugo.server = c('-D', '-F', '--navigateToChanged'), ## See: https://bookdown.org/yihui/blogdown/livereload.html

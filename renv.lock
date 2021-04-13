@@ -11,10 +11,10 @@
   "Packages": {
     "BH": {
       "Package": "BH",
-      "Version": "1.72.0-3",
+      "Version": "1.75.0-0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "8f9ce74c6417d61f0782cbae5fd2b7b0"
+      "Hash": "e4c04affc2cac20c8fec18385cd14691"
     },
     "DT": {
       "Package": "DT",
@@ -60,10 +60,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.5",
+      "Version": "1.0.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "125dc7a0ed375eb68c0ce533b48d291f"
+      "Hash": "dbb5e436998a7eba5a9d682060533338"
     },
     "RcppArmadillo": {
       "Package": "RcppArmadillo",
@@ -130,10 +130,10 @@
     },
     "blogdown": {
       "Package": "blogdown",
-      "Version": "1.2",
+      "Version": "0.20",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "53420f3802e87f8670db68c3f3147880"
+      "Hash": "3f5342aa58bd21ab1b5bed287a2bc5d3"
     },
     "bookdown": {
       "Package": "bookdown",
@@ -476,10 +476,10 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.0",
+      "Version": "0.5.1.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "7d651b7131794fe007b1ad6f21aaa401"
+      "Hash": "af2c2531e55df5cf230c4b5444fc973c"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -490,10 +490,10 @@
     },
     "httpuv": {
       "Package": "httpuv",
-      "Version": "1.5.4",
+      "Version": "1.5.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "4e6dabb220b006ccdc3b3b5ff993b205"
+      "Hash": "b9d5d39be2150cf86538b8488334b8f8"
     },
     "httr": {
       "Package": "httr",
@@ -518,17 +518,17 @@
     },
     "jsonlite": {
       "Package": "jsonlite",
-      "Version": "1.7.1",
+      "Version": "1.7.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "1ec84e070b88b37ed169f19def40d47c"
+      "Hash": "98138e0994d41508c7a6b84a0600cfcb"
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.30",
+      "Version": "1.31",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "eed7ee0d02eee88d53881cdc92457c62"
+      "Hash": "c3994c036d19fc22c5e2a209c8298bfb"
     },
     "labeling": {
       "Package": "labeling",
@@ -637,10 +637,10 @@
     },
     "mime": {
       "Package": "mime",
-      "Version": "0.9",
+      "Version": "0.10",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e87a35ec73b157552814869f45a63aa3"
+      "Hash": "26fa77e707223e1ce042b2b5d09993dc"
     },
     "minqa": {
       "Package": "minqa",
@@ -770,10 +770,10 @@
     },
     "promises": {
       "Package": "promises",
-      "Version": "1.1.1",
+      "Version": "1.2.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a8730dcbdd19f9047774909f0ec214a4"
+      "Hash": "4ab2c43adb4d4699cf3690acd378d75d"
     },
     "ps": {
       "Package": "ps",
@@ -1064,10 +1064,10 @@
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.27",
+      "Version": "0.31",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "264b4a31d35bb6833566a7763356ab63"
+      "Hash": "25b572f764f3c19fef9aac33b5724f3d"
     },
     "tseries": {
       "Package": "tseries",

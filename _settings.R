@@ -224,7 +224,8 @@ Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm",
 
 #=================================
 # Packages for various data sets.
-Load.Install(c("datasets", "quantmod", "WDI"))
+# devtools::install_github("FinYang/tsdl")
+Load.Install(c("datasets", "tsdl", "WDI", "quantmod"))
 
 #=================================
 # Packages for data loading, manipulation, and data reshaping.
@@ -258,7 +259,7 @@ library("carData")
 
 #=================================
 # Packages for time series analysis.
-Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider"))
+Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm"))
 Load.Install(c("fpp2", "fpp3"))
 # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
 # Load.Install(c("MTS", "tseries", "timeSeries"))

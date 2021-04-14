@@ -27,35 +27,57 @@ editor_options:
 ---
 
 <!-- HTML CSS Ayarlaması -->
+```{=html}
 <style type="text/css">
 div.main-container {
     width: 100%;
     max-width: unset;
 }
 </style>
+```
 <!-- HTML CSS Ayarlaması -->
 
 ```{r Settings.Code.Chunk, include = FALSE, purl = FALSE}
 # Değiştirmeyin.
-knitr::opts_chunk$set(cache = FALSE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 9, fig.width = 16, highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 9, fig.width = 16, highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
 ```
-```{r Settings.Mirros, include = FALSE, purl = FALSE}
+```{r Settings.Mirros, include = FALSE, purl = FALSE, cache = TRUE}
 # Değiştirmeyin.
 r <- getOption("repos")
 r["CRAN"] <- "https://cloud.r-project.org/"
 options(repos = r)
 ```
-```{r Settings.Load.Install.Function, include = FALSE}
+```{r Settings.Functions, include = FALSE, cache = TRUE}
 # Değiştirmeyin.
 ## Paketleri indirmek ve yüklemek için gerekli fonksiyon.
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
+Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
+    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
+    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
+    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
+    cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
+    all.pkgs <- c(cran.pkgs, github.bare.pkgs)
+    cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+    github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    if (Update.All == TRUE) {
+        cran.missing <- cran.pkgs
+        github.missing <- github.pkgs
+    } else {
+        cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+        github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    }
+    if (length(cran.missing) > 0) {
+        suppressWarnings(utils::install.packages(cran.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    if (length(github.missing) > 0) {
+        suppressWarnings(devtools::install_github(github.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    failed.install <- all.pkgs[which(!is_installed(all.pkgs))]
+    if (length(failed.install) > 0) {
+        warning(paste0("Some packages failed to install: ", paste(failed.install, collapse = ", "), "."))
+    }
+    install.pkgs <- all.pkgs[which(is_installed(all.pkgs) == TRUE)]
+    for (install.pkgs in install.pkgs) {
+        suppressPackageStartupMessages(library(install.pkgs, character.only = TRUE, quietly = Quiet, verbose = FALSE))
     }
 }
 ```
@@ -76,9 +98,15 @@ Load.Install <- function(Package.Names) {
 # Hazırlık {#Preparation}
 ## Paketler {#Packages}
 - [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) `Load.Install` fonksiyonunu kullanarak indirin ve/veya yükleyin.
-```{r Settings.Packages}
+```{r Settings.Packages, cache = TRUE}
+# Devtools paketinin yüklenmesi
+## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
+if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools"))
+
 # Gerekli paketlerin yüklenmesi.
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas", "slider"))
+## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 ```
 
 ## Seed {#Seed}
@@ -93,7 +121,7 @@ set.seed(1234)
 - Bu bölümde zaman serileri verisinin farklı kaynaklardan yüklenmesi gösterilecektir.
 
 ## World Bank Verisi {#World.Bank.Data}
-- World Bank'ten direkt olarak `WDI` R paketini kullanarak veri indirip yüklemeye çalışalım.
+- [World Bank](https://data.worldbank.org/)'ten direkt olarak `WDI` R paketini kullanarak veri indirip yüklemeye çalışalım.
 - World Bank'ten veri indirip yüklemek için temel olarak 2 fonksiyonu kullanacağız: `WDIsearch` ve `WDI`.
     + `WDIsearch` fonksiyonu ile indirip yüklemek istediğimiz veriyi belirleyebiliriz.
     + `WDI` fonksiyonu ile belirlediğimiz veriyi indirip yükleyebiliriz.
@@ -131,17 +159,23 @@ ggplot(temp) +
 ----
 
 ## R Paketleri Verisi {#R.Packages.Data}
-- Bazı R paketlerinde mevcut olan veriyi direkt olarak yüklemeye çalışalım.
-- R paketlerinde mevcut olan veriyi yüklemek için 1 fonksiyon kullanacağız: `data`.
-    + `data` fonksiyonu ile istediğimiz veriyi direkt olarak R'ın içine yükleyebiliriz.
-- Örnek olması açısından `fpp2` R paketinden "Avustralya Elektrik Üretimi (milyar kWh)" verisini yükleyelim.
+- Bazı **R paketlerinde mevcut olan veriyi** direkt olarak yüklemeye çalışalım.
+- İndirdiğiniz ve daha sonra yüklediğiniz R paketleri içerisindeki veriyi genellikle çok basit birkaç fonksiyonu kullanarak R'ın içine yükleyebilirsiniz.
+    + R paketi içinden veri yüklemek genellikle verinin paket içindeki ismi ve `data` fonksiyonu kullanılarak yapılır. Örneğin: [`fpp2` Paketi Verisi](#ffp2.Package.Data) bölümünde, paket içindeki verinin ismi ve `data` fonksiyonu kullanılarak istenilen veri yüklenmiştir.
+    + Bazı R paketlerinde ise verinin belli bir ismi olmadığından, yüklenmek istenilen veri paket içinden belirli fonksiyonlar kullanılarak seçilmelidir. Örneğin: [`tsdl` Paketi Verisi](#tsdl.Package.Data) bölümünde, paket içindeki verinin ismi belli olmadığından farklı birkaç fonksiyon kullanılarak istenilen veri yüklenmiştir.
+- R paketlerinin içinde olan verileri toplu olarak görmek için [Vincent Arel-Bundock](http://arelbundock.com/) tarafından hazırlanan [web sitesini](https://vincentarelbundock.github.io/Rdatasets/articles/data.html) inceleyebilirsiniz.
+
+### `fpp2` Paketi Verisi {#ffp2.Package.Data}
+- R paketlerinde mevcut olan veriyi, verinin ismini kullanarak yüklemek için 1 fonksiyon kullanacağız: `data`.
+    + `data` fonksiyonu ile istediğimiz veriyi verinin R paketi içindeki ismini kullanarak direkt olarak R'ın içine yükleyebiliriz.
+- Örnek olması açısından [`fpp2`](https://cran.r-project.org/package=fpp2) R paketinden "Avustralya Elektrik Üretimi (milyar kWh)" verisini yükleyelim.
     + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
-```{r R.Packages.Data}
+```{r ffp2.Package.Data}
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
-head(data, 20) ## Datanın yapısını inceleyelim.
+head(data, 20) ## Datanın yapısını inceleyelim. İlk 20 gözlemin gösterilmesini istedik.
 data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
 data ## Datanın yapısını inceleyelim.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
@@ -163,6 +197,29 @@ ggplot(temp) +
     theme(legend.position = "top")
 ```
 
+### `tsdl` Paketi Verisi {#tsdl.Package.Data}
+- R paketlerinde mevcut olan veriyi, verinin ismini bilmeden yüklemek için 1 fonksiyon kullanacağız: `subset`
+    + `subset` fonksiyonu ile istediğimiz veriyi verinin R paketi içindeki ismini kullanmadan direkt olarak R'ın içine yükleyebiliriz.
+- Örnek olması açısından [`tsdl`](https://pkg.yangzhuoranyang.com/tsdl/articles/tsdl.html) R paketinden, veriyi adım adım ilerleyerek önce belirleyelim ve sonra yükleyelim.
++ `tsdl` R paketindeki tüm verilerin zaman serisi formatında, yani `ts()`, olduğu unutulmamalıdır.
+- Son olarak yüklediğimiz bu veriyi grafiğe dökelim.
+```{r tsdl.Package.Data.1}
+Load.Install("tsdl")
+tsdl ## tsdl paketinin içinde bulunan verilerin konulara ve frekansa göre kategorisi. Daha sonra bu obje datanın yüklenmesi için kullanılacaktır.
+datatable(meta_tsdl, filter = "top", options = list(pageLength = 5, autoWidth = TRUE)) ## tsdl paketinin içinde bulunan verilerin metadatası (bilgisi). Bu tabloya bakarak istediğimız datayı sıra numarasını kullanarak ya da diğer başka fonksiyonları kullanarak seçebiliriz.
+```
+```{r tsdl.Package.Data.2}
+# İstenilen datanın yüklenmesi.
+## İstediğimiz data 134. sırada bulunan: Monthly Australian imports from Japan: thousands of dollars. Jul 65 – Oct 93.
+data <- subset(tsdl, description = "Monthly Australian imports from Japan")[[1]] ## Alternatif olarak datayı bu şekilded yükleyebiliriz.
+data <- tsdl[[134]] ## Sıra numarası kullanarak datayı yüklüyoruz. Bu datanın zaman serisi objesi olduğuna dikkat edin.
+head(data, 30) ## Datanın yapısını inceleyelim.
+
+# Grafik
+## Elimizdeki veri zaman serisi objesi olduğu için plot fonksiyonunu kullanarak direkt olarak grafiğe dökebiliriz.
+plot(data)
+```
+
 ----
 
 ## Excel Verisi {#Excel.Data}
@@ -170,12 +227,13 @@ ggplot(temp) +
 - Excel dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
     + `read_excel` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-- Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+- Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r Excel.Data}
 file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
 
-# Ham data yüklenmesi
+# Ham datanın yüklenmesi
 data <- read_excel(path = file.path, sheet = 3, range = cell_limits(c(1, 1), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yüklediğimiz datayı tibble formatında kaydediyoruz.
 data <- as.data.frame(data, stringsAsFactors = FALSE) ## Datayı data.frame formatına çeviriyoruz.
 data ## Datanın yapısını inceleyelim.
@@ -219,12 +277,13 @@ ggplot(temp) +
 - CSV dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
     + `read.csv` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul Barajlarinin Doluluk Oranları" verisini yükleyelim.
+    + İlgili veri: [`dam_occupancy.csv`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/dam_occupancy.csv)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r CSV.Data}
 file.path <- "dam_occupancy.csv" ## Data dosyasının ismi ve uzantısı.
 
-# Ham data yüklenmesi
+# Ham datanın yüklenmesi
 data <- read.csv(file = file.path, header = TRUE, sep = ",", dec = ".", colClasses = "character", comment.char = "", na.string = "") ## Datanın yüklenmesi.
 data ## Datanın yapısını inceleyelim.
 colnames(data) <- c("Date", "Occupancy.Rate", "Reserved.Water") ## Sütun isimlerinin değiştirilmesi.
@@ -253,7 +312,7 @@ ggplot(temp) +
 ----
 
 ## Yahoo Finance Verisi {#Yahoo.Finance.Data}
-- Yahoo Finance'ten direkt olarak `quantmod` R paketini kullanarak veri indirip yüklemeye çalışalım.
+- [Yahoo Finance](https://finance.yahoo.com/)'ten direkt olarak `quantmod` R paketini kullanarak veri indirip yüklemeye çalışalım.
 - Yahoo Finance'ten veri indirip yüklemek için 1 fonksiyon kullanacağız: `loadSymbols`.
     + `loadSymbols` fonksiyonu ile istediğimiz veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "Google Hisse Senedi Fiyatı" verisini indirip yükleyelim.
@@ -287,12 +346,12 @@ ggplot(temp) +
 ----
 
 # Verinin Hazırlanması {#Data.Preparation}
-- Bu bölümde zaman serileri verisinin hazırlanması için uygulanabilecek teknikler farklı kaynaklardan veriler kullanılarak gösterilecektir.
+- Bu bölümde **zaman serileri verisinin hazırlanması için uygulanabilecek teknikler** farklı kaynaklardan veriler kullanılarak gösterilecektir.
 
 ## Enflasyon Ayarlaması {#Inflastion.Adjustment}
 - Örnek olması açısından World Bank'ten "Türkiye için Nominal Gayri Safi Yurtiçi Hasıla" verisini TL cinsinden ve "Türkiye için Gayri Safi Yurtiçi Hasıla Deflatörü (2009 Baz Yılı)" verisini beraber indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş verinin enflasyon ayarlamasını yapalım.
+- Daha sonra temizlenmiş ve düzenlenmiş verinin **enflasyon ayarlamasını** yapalım.
 - Son olarak enflasyon ayarlaması yapılmış veriyi grafiğe dökelim.
 ```{r Inflastion.Adjustment}
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasını kullanacağız.
@@ -333,7 +392,7 @@ ggplot(temp) +
 ## Nüfus Ayarlaması {#Population.Adjustment}
 - Örnek olması açısından World Bank'ten "Türkiye için Reel Gayri Safi Yurtiçi Hasıla (2009 Baz Yılı)" verisini TL cinsinden ve "Türkiye için Nüfus" verisini beraber indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş verinin nüfus ayarlamasını yapalım.
+- Daha sonra temizlenmiş ve düzenlenmiş verinin **nüfus ayarlamasını** yapalım.
 - Son olarak nüfus ayarlaması yapılmış veriyi grafiğe dökelim.
 ```{r Population.Adjustment}
 WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
@@ -374,7 +433,7 @@ ggplot(temp) +
 ## Kur Ayarlaması {#Exchange.Rate.Adjustment}
 - Örnek olması açısından World Bank'ten "Türkiye için Kişi Başı Reel Gayri Safi Yurtiçi Hasıla (2009 Baz Yılı)" verisini TL cinsinden ve "TL/USD Döviz Kuru" verisini beraber indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş verinin kur ayarlamasını (Amerikan dolarına çevirelim) yapıp USD cinsinden hesaplayalım.
+- Daha sonra temizlenmiş ve düzenlenmiş veriyi USD cinsinden (Amerikan Dolarına çevirme) hesaplayıp **kur ayarlaması** yapalım.
 - Son olarak kur ayarlaması yapılmış veriyi grafiğe dökelim.
 ```{r Exchange.Rate.Adjustment}
 WDIsearch(string = "gdp.*capita.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KN" GDP per capita (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
@@ -413,9 +472,9 @@ ggplot(temp) +
 ----
 
 ## Büyüme Oranı {#Growth.Rate}
-- Örnek olması açısından World Bank'ten "Türkiye için Kişi Başı Reel Gayri Safi Yurtiçi Hasıla (2009 Baz Yılı)" verisini USD cinsinden indirip yükleyelim.
+- Örnek olması açısından World Bank'ten "Türkiye için Kişi Başı Reel Gayri Safi Yurtiçi Hasıla (2010 Baz Yılı)" verisini USD cinsinden indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden büyüme oranı hesaplayalım.
+- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden **büyüme oranı** hesaplayalım.
 - Son olarak büyüme oranı hesaplanmış veriyi grafiğe dökelim.
 ```{r Growth.Rate}
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasını kullanacağız. 2010 baz yılı kullanılıyor.
@@ -465,7 +524,7 @@ ggplot(temp) +
 ## İndeks Ayarlaması {#Index.Adjustment}
 - Örnek olması açısından World Bank'ten "Türkiye için Tüketici Fiyatları İndeksi (2010 Baz Yılı)" verisini indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden yeni bir baz yılı belirleyelim.
+- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden yeni bir baz yılı belirleyip bu baz yila göre **indeks ayarlaması** yapalım.
 - Son olarak yeni baz yılı ile hesaplanmış veriyi grafiğe dökelim.
 ```{r Index.Adjustment}
 WDIsearch(string = "consumer.*price.*index", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "FP.CPI.TOTL" Consumer price index (2010 = 100) datasını kullanacağız. 2010 baz yılı kullanılıyor.
@@ -506,7 +565,7 @@ ggplot(temp) +
 ## Matematiksel Transformasyon {#Math.Transformation}
 - Örnek olması açısından Yahoo Finance'ten "Döviz Kuru (TL/USD)" verisini indirip yükleyelim.
 - Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
-- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinde logaritmik ve Box-Cox transformasyonu uygulayalım.
+- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinde **logaritmik transformasyon** ve **Box-Cox transformasyonu** uygulayalım.
 - Son olarak düzey formundaki, logaritmik formdaki ve Box-Cox transformasyonu ile değiştirilmiş veriyi grafiğe dökelim.
 ```{r Math.Transformation}
 loadSymbols(Symbols = "TRY=X", periodicity = "daily", return.class = "data.frame") ## Datanın indirilmesi.
@@ -581,6 +640,180 @@ ggplot(temp) +
     theme(legend.position = "top")
 ```
 
-----
+## Gecikmeli Değişkenler {#Lagged.Variables}
+- Örnek olması açısından World Bank'ten "Amerika için Satın Alma Gücü Paritesine Göre Kişi Başı Reel Gayri Safi Yurtiçi Hasıla (2017 Baz Yılı)" verisini USD cinsinden indirip yükleyelim.
+- Daha sonra indirip yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
+- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden $y_{t-s}$ gibi **gecikmeli zaman serisi değişkenlerini** hesaplayalım.
+- Son olarak cari dönemdeki değişken $y_{t}$ ve tüm gecikmeli değişkenleri bir tabloda gösterelim.
+```{r Lagged.Variables}
+WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.PP.KD" GDP per capita, PPP (constant 2017 international $) datasını kullanacağız. 2017 baz yılı kullanılıyor.
+data <- WDI(country = c("US"), indicator = c("NY.GDP.PCAP.PP.KD"), start = 1990, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data ## Datanın yapısını inceleyelim.
+
+data <- data[, c("year", "NY.GDP.PCAP.PP.KD")] ## İstediğimiz değişkenleri belirtiyoruz.
+colnames(data) <- c("Year", "GDP") ## Değişkenlere yeni isimler veriyoruz. Tablo sütunlarının iyi görünmesi için satın alma gücü paritesine göre kişi başı reel gayri safi yurtiçi hasıla özellikle GDP olarak gösterildi.
+data$Date <- as.Date(paste(data$Year, "1", "1", sep = "-")) ## Date adlı yeni bir değişken oluşturuyoruz.
+data <- data[, c("Date", "Year", "GDP")] ## Değişkenleri sütun olarak sıralıyoruz.
+data <- data[order(data$Date, data$Year, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
+data ## Datanın yapısını inceleyelim.
+
+# Tablo
+temp <- data
+variable <- "PPP.R.GDP.PCAP"
+variable.name <- "Kişi Başı Reel GSYH Büyüme Oranı (USD)"
+
+temp$GDP <- round(temp$GDP, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
+temp$t <- 1:nrow(temp) ## Trend değişkeni ya da t indeks değeri ekleniyor.
+temp <- temp[, c("Year", "t", "GDP")] ## Değişkenler sıraya dizildi.
+temp$GDP.t1 <- ecm::lagpad(x = temp$GDP, k = 1) ## 1. Gecikme oluşturuldu.
+temp$GDP.t2 <- ecm::lagpad(x = temp$GDP, k = 2) ## 2. Gecikme oluşturuldu.
+temp$GDP.t3 <- ecm::lagpad(x = temp$GDP, k = 3) ## 3. Gecikme oluşturuldu.
+temp$GDP.t4 <- ecm::lagpad(x = temp$GDP, k = 4) ## 4. Gecikme oluşturuldu.
+temp
+```
+
+---
+
+# Mevsimsel Grafikler {#Seasonal.Graphics}
+- Bu bölümde zaman serisi verisindeki mevsimsel örüntünün görsel olarak belirlenmesinde kullanılan **mevsimsel grafik** ve **mevsimsel alt seri grafiği** gösterilecektir.
+- Örnek olması açısından `fpp2` R paketinden "Avustralya Elektrik Üretimi (milyar kWh)" verisini yükleyelim.
+    + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
+- Daha sonra yüklediğimiz bu veriyi temizleyelim, düzenleyelim ve grafiğe dökelim.
+- Son olarak temizlenmiş ve düzenlemiş veriyi kullanarak mevsimsel grafik ve mevsimsel altseri grafiğini gösterelim.
+
+```{r Seasonal.Graphics}
+data(qauselec) ## Datayı yüklüyoruz.
+data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+head(data, 20) ## Datanın yapısını inceleyelim.
+data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
+data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
+
+# Grafik
+temp <- data
+variable <- "Elec.Prod"
+variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
+
+ggplot(temp) +
+    geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
+    xlab("Zaman (Yıl)") + ylab(variable.name) +
+    # labs(title = "Başlık") + ## Grafik için isterseniz başlık eklenebilir.
+    scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
+    scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +
+    theme_grey() +
+    theme(legend.position = "top")
+
+# Mevsimsel Grafik
+variable <- "Elec.Prod"
+temp <- ts(data = data[, variable], start = c(year(data$Date[1]), month(data$Date[1])), frequency = 4) ## Mevsimsel grafikleri oluşturabilmek için datanın zaman serisi objesi (time series) olması lazım. Bu nedenle dönüşüm yapıldı.
+temp <- window(temp, start = NULL, end = c(2009, 4)) ## 2010 yılına ait veri tam olmadığı için çıkartılıyor.
+variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
+title <- "Avustralya Elektrik Üretimi (milyar kWh): Mevsimsel Grafik"
+quarter.labels <- c("Ç1", "Ç2", "Ç3", "Ç4")
+
+ggseasonplot(x = temp, season.labels = quarter.labels, year.labels = TRUE, year.labels.left = TRUE, continuous = FALSE, polar = FALSE, labelgap = 0.04) + ## year.labels = FALSE ve year.labels.left = FALSE olduğunda legend gösterilmez onun yerine yıllara ait etiket gösterilir.
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
+    labs(title = title) +
+    theme_grey()
+
+# Mevsimsel Alt Seri Grafiği
+variable <- "Elec.Prod"
+temp <- ts(data = data[, variable], start = c(year(data$Date[1]), month(data$Date[1])), frequency = 4) ## Mevsimsel grafikleri oluşturabilmek için datanın zaman serisi objesi (time series) olması lazım. Bu nedenle dönüşüm yapıldı.
+temp <- window(temp, start = NULL, end = c(2009, 4)) ## 2010 yılına ait veri tam olmadığı için çıkartılıyor.
+variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
+title <- "Avustralya Elektrik Üretimi (milyar kWh): Mevsimsel Altseri Grafiği"
+quarter.labels <- c("Ç1", "Ç2", "Ç3", "Ç4")
+
+ggsubseriesplot(temp) +
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
+    labs(title = title) +
+    scale_x_continuous(breaks = 1:frequency((temp)), labels = quarter.labels) +
+    theme_grey()
+```
+
+---
+
+# Klasik Dekompozizasyon {#Classical.Decomposition}
+- Bu bölümde zaman serileri analizinde yaygın olarak kullanılan **klasik dekompozizasyon methodu** iki farklı yöntem ile gösterilecektir: **toplamsal dekompozizasyon** ve **çarpımsal dekompozizasyon**.
+
+## Toplamsal Dekompozizasyon {#Additive.Decomposition}
+- Mevsimsel dalgalanmaların büyüklüğü veya trend etrafındaki dalgalanmalar, zaman serisinin düzeyine göre değişmiyorsa, toplamsal dekompozizasyon en uygun olan yöntemdir.
+- Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+- Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
+- Son olarak temizlenmiş ve düzenlemiş verinin **toplamsal klasik dekompozizasyonunu** grafiğe dökelim.
+```{r Additive.Decomposition}
+file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
+
+# Ham datanın yüklenmesi
+data <- read_excel(path = file.path, sheet = 3, range = cell_limits(c(1, 1), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yüklediğimiz datayı tibble formatında kaydediyoruz.
+data <- as.data.frame(data, stringsAsFactors = FALSE) ## Datayı data.frame formatına çeviriyoruz.
+colnames(data)[1] <- "Month" ## İlk sütun ismini değiştiriyoruz.
+data$Month <- 1:12 ## İlk sütundaki hücrelere ay ismi yerine rakam veriyoruz.
+
+# Datanın dönüştürülmesi.
+data <- reshape2::melt(data, id.vars = c("Month"), variable_name = "value")
+
+# Bazı değişiklikler.
+data <- dplyr::rename(data, Year = variable)
+data <- dplyr::rename(data, Clean.Water = value)
+data$Year <- as.numeric(as.character(data$Year))
+data$Clean.Water <- as.numeric(data$Clean.Water)
+data$Date <- as.Date(paste(data$Year, data$Month, "1", sep = "-")) ## Date adlı tarihi belirten yeni bir değişken oluşturuyoruz.
+data <- data[, c("Date", "Year", "Month", "Clean.Water")] ## İstediğimiz değişkenleri belirtiyoruz.
+data <- data[data$Year != 2019, ] ## 2019 datasının son gözleminde bir problem olduğu için 2019 yılını siliyoruz.
+data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
+
+# Grafik
+temp <- data
+variable <- "Clean.Water"
+colnames(temp)[colnames(temp) == variable] <- "y"
+variable.name <- "İstanbul'a Verilen Temiz Su Miktarı (Ton)"
+title <- "İstanbul'a Verilen Temiz Su Miktarı (Ton): Toplamsal Klasik Dekompozizasyon"
+frequency <- 12 ## Datanın frekansı.
+
+ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "additive", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) +
+    geom_line(colour = "darkblue", size = 1) +
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
+    labs(title = title) +
+    scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+    theme_grey()
+```
+
+---
+
+## Çarpımsal Dekompozizasyon {#Multiplicative.Decomposition}
+- Mevsimsellikteki varyasyon veya trend etrafındaki varyasyon, zaman serisinin seviyesiyle orantılı göründüğünde, çarpımsal dekompozizasyon daha uygundur.
+- Örnek olması açısından `fpp2` R paketinden "Avustralya Elektrik Üretimi (milyar kWh)" verisini yükleyelim.
+    + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
+- Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
+- Son olarak temizlenmiş ve düzenlemiş verinin **çarpımsal klasik dekompozizasyonunu** grafiğe dökelim.
+```{r Multiplicative.Decomposition}
+data(qauselec) ## Datayı yüklüyoruz.
+data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+head(data, 20) ## Datanın yapısını inceleyelim.
+data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
+data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
+
+# Grafik
+temp <- data
+variable <- "Elec.Prod"
+colnames(temp)[colnames(temp) == variable] <- "y"
+variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
+title <- "Avustralya Elektrik Üretimi (milyar kWh): Çarpımsal Klasik Dekompozizasyon"
+frequency <- 4 ## Datanın frekansı.
+
+ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) +
+    geom_line(colour = "darkblue", size = 1) +
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
+    labs(title = title) +
+    scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
+    theme_grey()
+```
+
+---
 
 <!-- ================================ SON ================================== -->

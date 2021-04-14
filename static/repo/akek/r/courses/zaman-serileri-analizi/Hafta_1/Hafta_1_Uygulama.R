@@ -21,21 +21,48 @@
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 # Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
 #===
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
+Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
+    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
+    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
+    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
+    cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
+    all.pkgs <- c(cran.pkgs, github.bare.pkgs)
+    cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+    github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    if (Update.All == TRUE) {
+        cran.missing <- cran.pkgs
+        github.missing <- github.pkgs
+    } else {
+        cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+        github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    }
+    if (length(cran.missing) > 0) {
+        suppressWarnings(utils::install.packages(cran.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    if (length(github.missing) > 0) {
+        suppressWarnings(devtools::install_github(github.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    failed.install <- all.pkgs[which(!is_installed(all.pkgs))]
+    if (length(failed.install) > 0) {
+        warning(paste0("Some packages failed to install: ", paste(failed.install, collapse = ", "), "."))
+    }
+    install.pkgs <- all.pkgs[which(is_installed(all.pkgs) == TRUE)]
+    for (install.pkgs in install.pkgs) {
+        suppressPackageStartupMessages(library(install.pkgs, character.only = TRUE, quietly = Quiet, verbose = FALSE))
     }
 }
 #===
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "ggseas", "slider"))
+# Devtools paketinin yüklenmesi
+## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
+if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools"))
+
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 #===
-## Load.Install(Package.Names = "readxl")
-## Load.Install(c("readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
+## Load.Install(Package.Names = "plyr")
+## Load.Install(Package.Names = c("plyr", "dplyr"))
+## Load.Install(c("plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc"))
+## Load.Install(c("plyr", "dplyr"), Quiet = TRUE, Update.All = TRUE)
 #===
 
 #======================== Working Directory'yi Belirlemek ======================
@@ -48,7 +75,7 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-functions.folder.name <- "../../_functions"
+functions.folder.name <- "../../../_functions"
 figs.tabs.folder.name <- "_figs-tabs"
 
 #============================= Gerekli Fonksiyonlar ============================
@@ -203,10 +230,10 @@ file.name <- "real-gdp-pcap-tr"
 temp$R.GDP.PCAP <- round(temp$R.GDP.PCAP, 0) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
 temp$t <- 1:nrow(temp) ## Trend degiskeni ya da t indeks degeri ekleniyor.
 temp <- temp[, c("Year", "t", "R.GDP.PCAP")] ## Degiskenler siraya dizildi.
-temp$R.GDP.PCAP.t1 <- lagpad(temp$R.GDP.PCAP, 1) ## 1. Gecikme olusturuldu.
-temp$R.GDP.PCAP.t2 <- lagpad(temp$R.GDP.PCAP, 2) ## 2. Gecikme olusturuldu.
-temp$R.GDP.PCAP.t3 <- lagpad(temp$R.GDP.PCAP, 3) ## 3. Gecikme olusturuldu.
-temp$R.GDP.PCAP.t4 <- lagpad(temp$R.GDP.PCAP, 4) ## 4. Gecikme olusturuldu.
+temp$R.GDP.PCAP.t1 <- ecm::lagpad(x = temp$R.GDP.PCAP, k = 1) ## 1. Gecikme olusturuldu.
+temp$R.GDP.PCAP.t2 <- ecm::lagpad(x = temp$R.GDP.PCAP, k = 2) ## 2. Gecikme olusturuldu.
+temp$R.GDP.PCAP.t3 <- ecm::lagpad(x = temp$R.GDP.PCAP, k = 3) ## 3. Gecikme olusturuldu.
+temp$R.GDP.PCAP.t4 <- ecm::lagpad(x = temp$R.GDP.PCAP, k = 4) ## 4. Gecikme olusturuldu.
 for (i in 3:ncol(temp)) {
     temp[which(!is.na(temp[, i])), i][1] <- paste0("\\red{", temp[which(!is.na(temp[, i])), i][1], "}")
 }
@@ -888,7 +915,7 @@ file.name <- "clean-water-classical-decomp"
 cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
 par(mar = c(2, 2, 2, 2))
 
-g <- ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "multiplicative", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) + geom_line(colour = "darkblue", size = 1) +
+g <- ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", type = "additive", facet.titles = c("Veri", "Trend", "Mevsimsellik", "Kalıntı")) + geom_line(colour = "darkblue", size = 1) +
     xlab("Zaman (Çeyreklik)") + ylab(latex2exp::TeX(variable.name)) +
     labs(title = latex2exp::TeX(title)) +
     scale_x_date(date_breaks = "1 year", date_labels = "%Y") +

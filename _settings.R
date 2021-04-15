@@ -154,6 +154,35 @@ ekonomi.ii.link <- paste0(akek.courses.link, "ekonomi-ii/")
 
 #---
 
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ars/exams/".
+ekonometri.ars.exams.link <- paste0(akek.courses.link, "ekonometri-ars/", "exams/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-i/".
+ekonometri.i.link <- paste0(akek.courses.link, "ekonometri-i/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ii/".
+ekonometri.ii.link <- paste0(akek.courses.link, "ekonometri-ii/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/zaman-serileri-analizi/".
+zaman.serileri.analizi.link <- paste0(akek.courses.link, "zaman-serileri-analizi/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/".
+ekonometrik.modelleme.link <- paste0(akek.courses.link, "ekonometrik-modelleme/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/".
+economics.link <- paste0(akek.courses.link, "economics/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi/".
+ekonomi.link <- paste0(akek.courses.link, "ekonomi/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-i/".
+ekonomi.i.link <- paste0(akek.courses.link, "ekonomi-i/")
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-ii/".
+ekonomi.ii.link <- paste0(akek.courses.link, "ekonomi-ii/")
+
+#---
+
 # Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-ars/".
 ekonometri.ars.r.link <- paste0(akek.r.courses.link, "ekonometri-ars/")
 

@@ -172,7 +172,7 @@ ggplot(temp) +
     + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
-```{r ffp2.Package.Data}
+```{r fpp2.Package.Data}
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim. İlk 20 gözlemin gösterilmesini istedik.

@@ -206,11 +206,7 @@ Load.Install(c("renv")) ## Note that to activate the "renv" package you need to 
 
 #=================================
 # Packages for emojis and icons.
-if("fontawesome" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install_github("rstudio/fontawesome")}
-library("fontawesome")
-
-if("emo" %in% rownames(utils::installed.packages()) == FALSE) {devtools::install_github("hadley/emo")}
-library("emo")
+Load.Install(c("rstudio/fontawesome", "hadley/emo"))
 
 #=================================
 # Packages for reproducible research.
@@ -224,8 +220,7 @@ Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm",
 
 #=================================
 # Packages for various data sets.
-# devtools::install_github("FinYang/tsdl")
-Load.Install(c("datasets", "tsdl", "WDI", "quantmod"))
+Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod"))
 
 #=================================
 # Packages for data loading, manipulation, and data reshaping.

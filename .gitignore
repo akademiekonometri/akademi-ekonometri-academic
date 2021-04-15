@@ -22,6 +22,9 @@ renv/library
 .Ruserdata
 rsconnect
 
+*_cache
+*_files
+
 #============================ Misc. Folders/Files ==============================
 .dropbox
 .DS_Store

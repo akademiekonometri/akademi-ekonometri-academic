@@ -814,8 +814,140 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
     theme_grey()
 ```
 
-## Çarpımsal Dekompozizasyon {#Multiplicative.Decomposition}
-eeessss
 ---
+
+# Hareketli Ortalama {#Moving.Average}
+- Bu bölümde zaman serileri analizinde sıkça kullanılan ve klasik dekompozizasyonun ilk adımı olan **hareketli ortalama** (moving average) hesabının nasıl yapıldığı gösterilecektir.
+- Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+- Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
+- Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden farklı derecelerden hareketli ortalamaları hesaplayalım: 3-MA, 5-MA, 7-MA ve 9-MA.
+    + Hesaplamalarda hareketli ortalama merkezden alınmıştır. Fakat ilgili kodda ufak bir değişiklik ile sola ya da sağa dayalı hareketli ortalama da hesaplanabilir.
+- Son olarak merkezden hesaplanmış hareketli ortalama verisini bir tabloda gösterelim ve grafiğe dökelim.
+```{r Moving.Average}
+file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
+
+# Ham datanın yüklenmesi
+data <- read_excel(path = file.path, sheet = 3, range = cell_limits(c(1, 1), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yüklediğimiz datayı tibble formatında kaydediyoruz.
+data <- as.data.frame(data, stringsAsFactors = FALSE) ## Datayı data.frame formatına çeviriyoruz.
+colnames(data)[1] <- "Month" ## İlk sütun ismini değiştiriyoruz.
+data$Month <- 1:12 ## İlk sütundaki hücrelere ay ismi yerine rakam veriyoruz.
+
+# Datanın dönüştürülmesi.
+data <- reshape2::melt(data, id.vars = c("Month"), variable_name = "value")
+
+# Bazı değişiklikler.
+data <- dplyr::rename(data, Year = variable)
+data <- dplyr::rename(data, Clean.Water = value)
+data$Year <- as.numeric(as.character(data$Year))
+data$Clean.Water <- as.numeric(data$Clean.Water)
+data$Date <- as.Date(paste(data$Year, data$Month, "1", sep = "-")) ## Date adlı tarihi belirten yeni bir değişken oluşturuyoruz.
+data <- data[, c("Date", "Year", "Month", "Clean.Water")] ## İstediğimiz değişkenleri belirtiyoruz.
+data <- data[data$Year != 2019, ] ## 2019 datasının son gözleminde bir problem olduğu için 2019 yılını siliyoruz.
+data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
+
+# Hareketli ortalama hesabı.
+temp <- data
+variable <- "Clean.Water"
+temp$`3-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 1, .after = 1, .complete = TRUE) ## 3-MA (3 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`5-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 2, .after = 2, .complete = TRUE) ## 5-MA (5 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`7-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 3, .after = 3, .complete = TRUE) ## 5-MA (7 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`9-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 4, .after = 4, .complete = TRUE) ## 9-MA (9 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp.table <- temp ## Hareketli ortalama tablosunda kullanılacak data.
+
+temp1 <- reshape2::melt(temp, id.vars = c(grep("(Date)|(Year)|(Day)|(Week)|(Month)", colnames(temp), value = TRUE)), measure.vars = c(grep("(MA)", colnames(temp), value = TRUE)), variable_name = "Variable", na.rm = FALSE)
+temp.figure <- temp1 ## Hareketli ortalama grafiğinde kullanılacak data.
+
+# Tablo
+temp <- temp.table
+temp$`3-MA` <- round(temp$`3-MA`, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
+temp$`5-MA` <- round(temp$`5-MA`, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
+temp$`7-MA` <- round(temp$`7-MA`, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
+temp$`9-MA` <- round(temp$`9-MA`, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
+temp <- temp[, -1] ## Date değişkeni çıkarılıyor.
+temp
+
+# Grafik
+temp <- data
+temp1 <- temp.figure
+variable <- "Clean.Water"
+variable.name <- "İstanbul'a Verilen Temiz Su Miktarı (Ton)"
+title <- "İstanbul'a Verilen Temiz Su Miktarı (Ton): Hareketli Ortalama (m-MA)"
+
+ggplot(temp1, aes(x = Date, y = value)) +
+    geom_line(colour = "#FF6666", size = 0.5, linetype = 1) +
+    facet_wrap(variable ~ ., scales = "free_y", strip.position = "top") +
+    geom_line(data = temp, aes(x = Date, y = Clean.Water), colour = "darkblue", size = 0.5) +
+    xlab("Zaman (Ay)") + ylab(variable.name) +
+    labs(title = title) +
+    scale_x_date(date_breaks = "2 year", date_labels = "%Y") +
+    theme_grey()
+```
+
+---
+
+# Otokorelasyon Fonksiyonu {#Autocorrelation.Function}
+- Bu bölümde bir zaman serisinin bağımlılık yapısının incelenmesinde kullanılan ve **örneklem otokorelasyon fonksiyonu (SACF)** gösterilecektir.
+- Örnek olması açısından zaman serileri analizinde sıkça kullanılan ve stokastik bir süreç olan "Pür Rassal Süreç" verisinin örneklem otokorelasyon fonksiyonunu inceleyelim.
+    + İlgili veri: Simüle edilmiş bir pür rassal süreç örneği kullanılmıştır.
+- Daha sonra simüle ettiğimiz bu veriyi temizleyelim ve düzenleyelim.
+- Daha sonra temizlenmiş ve düzenlenmiş veriyi grafiğe dökelim.
+- Son olarak temizlenmiş ve düzenlenmiş verideki otokorelasyon varlığını belirlemek için 2 farklı grafik kullanalım:
+    + $WN_{t}$ ve $WN_{t-s}$ arasındaki grafik.
+    + Örneklem otokorelasyon fonksiyonunun grafiği.
+```{r Autocorrelation.Function}
+n <- 1000 ## Gozlem sayisi.
+WN <- arima.sim(model = list(order = c(0, 0, 0)), n = n) ## Simüle edilmiş pür rassal süreç verisi. Zaman serisi objesi olduğunu ve plot(WN) kullanılarak hemen grafiğe dökülebileceğini unutmayın.
+str(WN)
+mean(WN) ## Pür rassal sürecin ortalaması sıfırdır. Simüle edilmiş veri olduğundan sıfıra yakın çıkıyor.
+var(WN) ## Gözlem sayısı yeteri kadar büyük olduğunda merkezi limit teorimi kullanılarak pür rassal sürecin standart normal yaptığı bilinmektedir. Simüle veride de bu durum gözlenmiştir.
+
+data <- data.frame(Date = 1:length(WN), White.Noise = as.matrix(WN), stringsAsFactors = FALSE)
+data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
+rownames(data) <- 1:nrow(data) ## Satır sayılarını düzenliyoruz.
+data ## Datanın yapısını inceleyelim.
+
+# Grafik
+temp <- data
+variable <- "White.Noise"
+variable.name <- "Simüle Edilmiş Pür Rassal Süreç"
+
+ggplot(temp) +
+    geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
+    xlab("Zaman") + ylab(variable.name) +
+    scale_y_continuous(breaks = pretty(temp[ , variable])) +
+    geom_hline(aes(yintercept = 0), show.legend = FALSE, linetype = 1, colour = 2, size = 0.25) +
+    scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +
+    theme_grey() +
+    theme(legend.position = "top")
+
+# WN(t) vs WN(t-s) için bazı düzenlemeler.
+s <- 1 ## Seçili gecikme uzunluğunu belirliyoruz.
+WN <- c(WN) ## Zaman serisini normal bir vektöre çeviriyoruz.
+WNt <- WN[(1 + s):length(WN)] ## WN(t). Cari dönem verisi.
+WNts <- WN[1:(length(WN) - s)] ## WN(t-s). s gecikme önceki veri.
+data <- data.frame(WNt = WNt, WNts = WNts, stringsAsFactors = FALSE)
+
+# WN(t) vs WN(t-s) grafiği.
+temp <- data
+
+ggplot(temp) +
+    geom_point(aes(x = WNt, y = WNts, colour = "Variable"), size = 3, colour = "darkblue") +
+    xlab(paste0("wn_t")) + ylab(paste0("wn_t-", s)) +
+    labs(title = paste0("Simüle Edilmiş Pür Rassal Süreç wn_t vs wn_t-", s)) +
+    geom_hline(aes(yintercept = 0), show.legend = FALSE, linetype = 1, colour = 2, size = 0.25) +
+    geom_vline(aes(xintercept = 0), show.legend = FALSE, linetype = 1, colour = 2, size = 0.25) +
+    theme_grey()
+
+# WN'nin SACF grafigi
+temp <- WN
+title <- "Simüle Edilmiş Pür Rassal Süreç: SACF"
+
+ggAcf(x = temp, ci = 0.95, lag.max = 10, type = "correlation", plot = TRUE, demean = TRUE) +
+    xlab("Gecikme Değeri") + ylab("Örneklem Otokorelasyon Katsayısı") +
+    labs(title = title) +
+    theme_grey()
+```
 
 <!-- ================================ SON ================================== -->

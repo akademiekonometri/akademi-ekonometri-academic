@@ -930,11 +930,11 @@ dev.off()
 Load.Install("slider")
 temp <- data
 variable <- "Clean.Water"
-temp$`3-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 1, .after = 1, .complete = TRUE) ## 3-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
-temp$`5-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 2, .after = 2, .complete = TRUE) ## 5-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
-temp$`7-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 3, .after = 3, .complete = TRUE) ## 5-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
-temp$`9-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 4, .after = 4, .complete = TRUE) ## 9-MA (Donemlik hareketli ortalama) - Ortalama merkezden alinmistir.
-temp.table <- temp ## Hareketli ortalama tablosunda kullanilacak data.
+temp$`3-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 1, .after = 1, .complete = TRUE) ## 3-MA (3 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`5-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 2, .after = 2, .complete = TRUE) ## 5-MA (5 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`7-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 3, .after = 3, .complete = TRUE) ## 5-MA (7 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp$`9-MA` <- slider::slide_dbl(.x = temp[, variable], .f = mean, .before = 4, .after = 4, .complete = TRUE) ## 9-MA (9 Dönemlik hareketli ortalama) - Ortalama merkezden alınmıştır.
+temp.table <- temp ## Hareketli ortalama tablosunda kullanılacak data.
 
 temp1 <- reshape2::melt(temp, id.vars = c(grep("(Date)|(Year)|(Day)|(Week)|(Month)", colnames(temp), value = TRUE)), measure.vars = c(grep("(MA)", colnames(temp), value = TRUE)), variable_name = "Variable", na.rm = FALSE)
 temp.figure <- temp1 ## Hareketli ortalama grafiginde kullanilacak data.
@@ -972,7 +972,6 @@ temp1 <- temp.figure
 variable <- "Clean.Water"
 variable.name <- "İstanbul'a Verilen Temiz Su Miktarı (Ton)"
 title <- "İstanbul'a Verilen Temiz Su Miktarı (Ton): Hareketli Ortalama ($m$-MA)"
-frequency <- 12
 file.name <- "clean-water-moving-average"
 
 cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)

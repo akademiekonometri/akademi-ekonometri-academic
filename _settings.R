@@ -67,7 +67,6 @@ economics <- "economics"
 ekonomi <- "ekonomi"
 ekonomi.i <- "ekonomi-i"
 ekonomi.ii <- "ekonomi-ii"
-tes <- NA
 
 #=============================== Relative Paths ================================
 # ---- Settings.Relative.Paths.1 ----

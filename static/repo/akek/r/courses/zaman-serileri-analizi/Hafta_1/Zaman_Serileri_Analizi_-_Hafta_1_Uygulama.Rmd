@@ -814,6 +814,8 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
     theme_grey()
 ```
 
+## Çarpımsal Dekompozizasyon {#Multiplicative.Decomposition}
+
 ---
 
 <!-- ================================ SON ================================== -->

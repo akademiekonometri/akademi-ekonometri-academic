@@ -201,9 +201,23 @@ summary(model)
     + `dynlm` fonksiyonunda sadece zaman serisi verisi kullanılabilir. Bu nedenle, elinizdeki verinin zaman serisi objesi olması şarttır. Bu amaçla biz, elimizdeki veriyi zaman serisi objesine çevirmek için `ts` fonksiyonunu kullanacağız.
 
 ### FDL$_{(1)}$ {#FDL.Models.1}
-
+- Örnek olarak, `wooldridge` R paketinden `phillips` verisini yükleyelim.
+- `phillips` verisi genel olarak Amerika'daki **enflasyon ve işsizlik** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
+    + inf ($inf_{t}$): cari dönem enflasyon oranı
+    + unem ($unem_{t}$): cari dönem işsizlik oranı
+- Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Son olarak yüklediğimiz veriyi kullanarak aşağıdaki  modeli tahmin edelim.
+    + Model: $inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}$
 ```{r FDL.Model.1}
+data(phillips) ## Datayı yüklüyoruz.
+?phillips ## Datanın metadatası.
 
+data <- phillips ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- ts(data, start = 1948) ## Data 1948 yılından itibaren başlamış.
+
+# Cari dönemde enflasyon ve işsizlik arasındaki statik model.
+model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1), singular.ok = TRUE)
+summary(model)
 ```
 
 ### FDL$_{(2)}$ {#FDL.Models.2}
@@ -228,11 +242,11 @@ str(data) ## Datanın yapısını inceleyelim.
 data ## Datanın yapısını inceleyelim.
 data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
 
-# Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
+# Model 1: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
 model.1 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2), singular.ok = TRUE)
 summary(model.1)
 
-# Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
+# Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
 model.2 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, singular.ok = TRUE)
 summary(model.2)
 ```

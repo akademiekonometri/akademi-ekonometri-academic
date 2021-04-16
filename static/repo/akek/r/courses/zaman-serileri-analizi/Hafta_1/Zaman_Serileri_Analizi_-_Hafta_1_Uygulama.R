@@ -479,9 +479,6 @@ data ## Datanın yapısını inceleyelim.
 
 # Tablo
 temp <- data
-variable <- "PPP.R.GDP.PCAP"
-variable.name <- "Kişi Başı Reel GSYH Büyüme Oranı (USD)"
-
 temp$GDP <- round(temp$GDP, 0) ## Tablonun daha iyi görünmesi için sayılar yuvarlanıyor.
 temp$t <- 1:nrow(temp) ## Trend değişkeni ya da t indeks değeri ekleniyor.
 temp <- temp[, c("Year", "t", "GDP")] ## Değişkenler sıraya dizildi.

@@ -33,7 +33,7 @@ Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
 }
 
 
-## ----Settings.Packages, cache = TRUE------------------
+## ----Settings.Packages, cache = TRUE----------------
 # Devtools paketinin yüklenmesi
 ## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
 if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
@@ -41,14 +41,14 @@ suppressWarnings(library("devtools"))
 
 # Gerekli paketlerin yüklenmesi.
 ## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm"))
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car"))
 
 
-## ----Settings.Seed------------------------------------
+## ----Settings.Seed----------------------------------
 set.seed(1234)
 
 
-## ----Static.Models.SLR--------------------------------
+## ----Static.Models.SLR------------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -65,7 +65,7 @@ model.2 <- lm(data = data, formula = cinf ~ cunem, singular.ok = TRUE)
 summary(model.2)
 
 
-## ----Static.Models.MLR--------------------------------
+## ----Static.Models.MLR------------------------------
 data(intdef) ## Datayı yüklüyoruz.
 ?intdef ## Datanın metadatası.
 
@@ -78,7 +78,7 @@ model <- lm(data = data, formula = i3 ~ inf + def, singular.ok = TRUE)
 summary(model)
 
 
-## ----FDL.Model.1--------------------------------------
+## ----FDL.Model.1------------------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -89,8 +89,20 @@ data.ts <- ts(data, start = 1948) ## Data 1948 yılından itibaren başlamış.
 model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1), singular.ok = TRUE)
 summary(model)
 
+# Parametre tahminleri.
+coef(model)
 
-## ----FDL.Model.2--------------------------------------
+# Etki çarpanının hesaplanması.
+coef(model)[[2]]
+
+# Uzun dönem çarpanının hesaplanması.
+coef(model)[[2]] + coef(model)[[3]]
+
+# Test: \delta_{1} = 0
+linearHypothesis(model, c("L(unem, 1) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
+
+
+## ----FDL.Model.2------------------------------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
@@ -103,7 +115,31 @@ data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
 model.1 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2), singular.ok = TRUE)
 summary(model.1)
 
+# Model 1: Parametre tahminleri.
+coef(model.1)
+
+# Model 1: Etki çarpanının hesaplanması.
+coef(model.1)[[2]]
+
+# Model 1: Uzun dönem çarpanının hesaplanması.
+coef(model.1)[[2]] + coef(model.1)[[3]] + coef(model.1)[[4]]
+
+# Test: \delta_{1} = \delta_{2} = 0
+linearHypothesis(model.1, c("L(pe, 1) = 0", "L(pe, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
+
 # Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
 model.2 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, singular.ok = TRUE)
 summary(model.2)
+
+# Model 2: Parametre tahminleri.
+coef(model.2)
+
+# Model 2: Etki çarpanının hesaplanması.
+coef(model.2)[[2]]
+
+# Model 2: Uzun dönem çarpanının hesaplanması.
+coef(model.2)[[2]] + coef(model.2)[[3]] + coef(model.2)[[4]]
+
+# Test: \delta_{1} = \delta_{2} = 0
+linearHypothesis(model.2, c("L(pe, 1) = 0", "L(pe, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
 

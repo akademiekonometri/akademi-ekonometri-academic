@@ -106,7 +106,7 @@ suppressWarnings(library("devtools"))
 
 # Gerekli paketlerin yüklenmesi.
 ## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm"))
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car"))
 ```
 
 ## Seed {#Seed}
@@ -205,9 +205,13 @@ summary(model)
 - `phillips` verisi genel olarak Amerika'daki **enflasyon ve işsizlik** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
     + inf ($inf_{t}$): cari dönem enflasyon oranı
     + unem ($unem_{t}$): cari dönem işsizlik oranı
-- Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
-- Son olarak yüklediğimiz veriyi kullanarak aşağıdaki  modeli tahmin edelim.
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra olarak yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim ve model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
     + Model: $inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}$
+        * Etki çarpanı: $\delta_{0}$
+        * Uzun dönem çarpanı: $\delta_{0} + \delta_{1}$
+- Son olarak gecikmeli değişken parametre tahminlerinin istatistiki olarak anlamlı olup olmadığını hipotez testi ile test edelim: $H_{0}: \delta_{1} = 0$ (t-testi olduğuna dikkat edin)
+    + Eğer boş hipotez reddedilirse, FDL modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.
 ```{r FDL.Model.1}
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
@@ -218,6 +222,18 @@ data.ts <- ts(data, start = 1948) ## Data 1948 yılından itibaren başlamış.
 # Cari dönemde enflasyon ve işsizlik arasındaki statik model.
 model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1), singular.ok = TRUE)
 summary(model)
+
+# Parametre tahminleri.
+coef(model)
+
+# Etki çarpanının hesaplanması.
+coef(model)[[2]]
+
+# Uzun dönem çarpanının hesaplanması.
+coef(model)[[2]] + coef(model)[[3]]
+
+# Test: \delta_{1} = 0
+linearHypothesis(model, c("L(unem, 1) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
 ```
 
 ### FDL$_{(2)}$ {#FDL.Models.2}
@@ -225,14 +241,20 @@ summary(model)
 - `fertil3` verisi genel olarak Amerika'daki **vergi muafiyeti ve doğurganlık oranı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
     + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
     + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
-    + ww2 ($ww2_{t}$): 2. dünya savaşı yıllarını belirten kukla değişken (=1, 1941-1945)
-    + pill ($pill_{t}$): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (=1, 1963 ve sonrası)
-- Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
-- Son olarak yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim.
+    + ww2 ($ww2_{t}$): 2. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)
+    + pill ($pill_{t}$): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (1963 ve sonrası için 1 diğer yıllar için 0)
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra olarak yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim ve model tahminlerini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
     + Model 1: $gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + u_{t}$
         * Model 1'de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.
+        * Etki çarpanı: $\delta_{0}$
+        * Uzun dönem çarpanı: $\delta_{0} + \delta_{1} + \delta_{2}$
     + Model 2: $gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}$
-        * Model 2'de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.
+        * Model 2'de denklemin sağ tarafında bir bağımsız değişken ve ona ait gecikme değerlerinin olmasının yanı sıra başka bağımsız değişkenler de vardır. Yani, modelde bağımlı değişkeni etkileyen diğer faktörler de kontrol edilmiştir.
+        * Etki çarpanı: $\delta_{0}$
+        * Uzun dönem çarpanı: $\delta_{0} + \delta_{1} + \delta_{2}$
+- Son olarak gecikmeli değişken parametre tahminlerinin istatistiki olarak anlamlı olup olmadığını hipotez testi ile test edelim: $H_{0}: \delta_{1} = \delta_{2} = 0$ (F-testi olduğuna dikkat edin)
+    + Eğer boş hipotez reddedilirse, FDL modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.
 ```{r FDL.Model.2}
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
@@ -246,10 +268,33 @@ data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
 model.1 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2), singular.ok = TRUE)
 summary(model.1)
 
+# Model 1: Parametre tahminleri.
+coef(model.1)
+
+# Model 1: Etki çarpanının hesaplanması.
+coef(model.1)[[2]]
+
+# Model 1: Uzun dönem çarpanının hesaplanması.
+coef(model.1)[[2]] + coef(model.1)[[3]] + coef(model.1)[[4]]
+
+# Test: \delta_{1} = \delta_{2} = 0
+linearHypothesis(model.1, c("L(pe, 1) = 0", "L(pe, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
+
 # Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.
 model.2 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, singular.ok = TRUE)
 summary(model.2)
-```
 
+# Model 2: Parametre tahminleri.
+coef(model.2)
+
+# Model 2: Etki çarpanının hesaplanması.
+coef(model.2)[[2]]
+
+# Model 2: Uzun dönem çarpanının hesaplanması.
+coef(model.2)[[2]] + coef(model.2)[[3]] + coef(model.2)[[4]]
+
+# Test: \delta_{1} = \delta_{2} = 0
+linearHypothesis(model.2, c("L(pe, 1) = 0", "L(pe, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.
+```
 
 <!-- ================================ SON ================================== -->

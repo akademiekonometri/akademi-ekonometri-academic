@@ -386,13 +386,7 @@ div.main-container {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerekli paketlerin yüklenmesi.</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Installing package into &#39;/Volumes/Omer/Google Drive/PhD/Academic/2 - Softwares/—Akademi Ekonometri/Web Sites/Akademi Ekonometri-Academic/renv/library/R-4.0/x86_64-apple-darwin17.0&#39;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (as &#39;lib&#39; is unspecified)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; also installing the dependencies &#39;locfit&#39;, &#39;TSA&#39;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The downloaded binary packages are in</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  /var/folders/5g/2p0ms56j2_34dkqkykmyg3hm0000gn/T//RtmpEXp6K4/downloaded_packages</span></span></code></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>, <span class="st">&quot;car&quot;</span>))</span></code></pre></div>
 </div>
 <div id="Seed" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Seed</h2>
@@ -622,10 +616,18 @@ div.main-container {
 <li>inf (<span class="math inline">\(inf_{t}\)</span>): cari dönem enflasyon oranı</li>
 <li>unem (<span class="math inline">\(unem_{t}\)</span>): cari dönem işsizlik oranı</li>
 </ul></li>
-<li>Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
-<li>Son olarak yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+<li>Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
+<li>Daha sonra olarak yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim ve model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
 <ul>
-<li>Model: <span class="math inline">\(inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}\)</span></li>
+<li>Model: <span class="math inline">\(inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}\)</span>
+<ul>
+<li>Etki çarpanı: <span class="math inline">\(\delta_{0}\)</span></li>
+<li>Uzun dönem çarpanı: <span class="math inline">\(\delta_{0} + \delta_{1}\)</span></li>
+</ul></li>
+</ul></li>
+<li>Son olarak gecikmeli değişken parametre tahminlerinin istatistiki olarak anlamlı olup olmadığını hipotez testi ile test edelim: <span class="math inline">\(H_{0}: \delta_{1} = 0\)</span> (t-testi olduğuna dikkat edin)
+<ul>
+<li>Eğer boş hipotez reddedilirse, FDL modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phillips) <span class="do">## Datayı yüklüyoruz.</span></span>
@@ -656,7 +658,28 @@ div.main-container {
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 2.9387 on 52 degrees of freedom</span></span>
 <span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.084134,   Adjusted R-squared:  0.048909 </span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 2.3884 on 2 and 52 DF,  p-value: 0.10177</span></span></code></pre></div>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 2.3884 on 2 and 52 DF,  p-value: 0.10177</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Parametre tahminleri.</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  (Intercept)         unem   L(unem, 1) </span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  0.575837085  0.617392474 -0.047535618</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Etki çarpanının hesaplanması.</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)[[<span class="dv">2</span>]]</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.61739247</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Uzun dönem çarpanının hesaplanması.</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model)[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model)[[<span class="dv">3</span>]]</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.56985686</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Test: \delta_{1} = 0</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(model, <span class="fu">c</span>(<span class="st">&quot;L(unem, 1) = 0&quot;</span>)) <span class="do">## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.</span></span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"53","2":"449.18731","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"52","2":"449.06466","3":"1","4":"0.12264963","5":"0.014202366","6":"0.90559697","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="FDL.Models.2" class="section level3" number="2.2.2">
 <h3 number="2.2.2"><span class="header-section-number">2.2.2</span> FDL<span class="math inline">\(_{(2)}\)</span></h3>
@@ -666,20 +689,28 @@ div.main-container {
 <ul>
 <li>gfr (<span class="math inline">\(gfr_{t}\)</span>): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)</li>
 <li>pe (<span class="math inline">\(pe_{t}\)</span>): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)</li>
-<li>ww2 (<span class="math inline">\(ww2_{t}\)</span>): 2. dünya savaşı yıllarını belirten kukla değişken (=1, 1941-1945)</li>
-<li>pill (<span class="math inline">\(pill_{t}\)</span>): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (=1, 1963 ve sonrası)</li>
+<li>ww2 (<span class="math inline">\(ww2_{t}\)</span>): 2. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)</li>
+<li>pill (<span class="math inline">\(pill_{t}\)</span>): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (1963 ve sonrası için 1 diğer yıllar için 0)</li>
 </ul></li>
-<li>Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
-<li>Son olarak yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim.
+<li>Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
+<li>Daha sonra olarak yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim ve model tahminlerini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
 <ul>
 <li>Model 1: <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + u_{t}\)</span>
 <ul>
 <li>Model 1’de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.</li>
+<li>Etki çarpanı: <span class="math inline">\(\delta_{0}\)</span></li>
+<li>Uzun dönem çarpanı: <span class="math inline">\(\delta_{0} + \delta_{1} + \delta_{2}\)</span></li>
 </ul></li>
 <li>Model 2: <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}\)</span>
 <ul>
-<li>Model 2’de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.</li>
+<li>Model 2’de denklemin sağ tarafında bir bağımsız değişken ve ona ait gecikme değerlerinin olmasının yanı sıra başka bağımsız değişkenler de vardır. Yani, modelde bağımlı değişkeni etkileyen diğer faktörler de kontrol edilmiştir.</li>
+<li>Etki çarpanı: <span class="math inline">\(\delta_{0}\)</span></li>
+<li>Uzun dönem çarpanı: <span class="math inline">\(\delta_{0} + \delta_{1} + \delta_{2}\)</span></li>
 </ul></li>
+</ul></li>
+<li>Son olarak gecikmeli değişken parametre tahminlerinin istatistiki olarak anlamlı olup olmadığını hipotez testi ile test edelim: <span class="math inline">\(H_{0}: \delta_{1} = \delta_{2} = 0\)</span> (F-testi olduğuna dikkat edin)
+<ul>
+<li>Eğer boş hipotez reddedilirse, FDL modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.</li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(fertil3) <span class="do">## Datayı yüklüyoruz.</span></span>
@@ -749,35 +780,77 @@ div.main-container {
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.0061349,  Adjusted R-squared:  -0.039041 </span></span>
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 0.1358 on 3 and 66 DF,  p-value: 0.93833</span></span>
 <span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>model<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">dynlm</span>(<span class="at">data =</span> data.ts, <span class="at">formula =</span> gfr <span class="sc">~</span> pe <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">2</span>) <span class="sc">+</span> ww2 <span class="sc">+</span> pill, <span class="at">singular.ok =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="fl">.2</span>)</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Time series regression with &quot;ts&quot; data:</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Start = 1915, End = 1984</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dynlm(formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, </span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = data.ts, singular.ok = TRUE)</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -24.6461  -9.5409  -0.0312   8.3378  29.1295 </span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Estimate  Std. Error t value  Pr(&gt;|t|)    </span></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)  95.8704975   3.2819571 29.2114 &lt; 2.2e-16 ***</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pe            0.0726718   0.1255331  0.5789    0.5647    </span></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; L(pe, 1)     -0.0057796   0.1556629 -0.0371    0.9705    </span></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; L(pe, 2)      0.0338268   0.1262574  0.2679    0.7896    </span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ww2         -22.1264975  10.7319716 -2.0617    0.0433 *  </span></span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pill        -31.3049888   3.9815591 -7.8625 5.634e-11 ***</span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 14.27 on 64 degrees of freedom</span></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.4986, Adjusted R-squared:  0.45943 </span></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 12.728 on 5 and 64 DF,  p-value: 0.000000013529</span></span></code></pre></div>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Parametre tahminleri.</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.1</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  (Intercept)           pe     L(pe, 1)     L(pe, 2) </span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 93.157906989 -0.015844533 -0.021336473  0.053900526</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Etki çarpanının hesaplanması.</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">2</span>]]</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] -0.015844533</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Uzun dönem çarpanının hesaplanması.</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">3</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">4</span>]]</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.01671952</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Test: \delta_{1} = \delta_{2} = 0</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(model<span class="fl">.1</span>, <span class="fu">c</span>(<span class="st">&quot;L(pe, 1) = 0&quot;</span>, <span class="st">&quot;L(pe, 2) = 0&quot;</span>)) <span class="do">## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.</span></span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"68","2":"25936.369","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"66","2":"25832.972","3":"2","4":"103.39746","5":"0.13208376","6":"0.87649864","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  </script>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>model<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">dynlm</span>(<span class="at">data =</span> data.ts, <span class="at">formula =</span> gfr <span class="sc">~</span> pe <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">2</span>) <span class="sc">+</span> ww2 <span class="sc">+</span> pill, <span class="at">singular.ok =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="fl">.2</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Time series regression with &quot;ts&quot; data:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Start = 1915, End = 1984</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dynlm(formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, </span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = data.ts, singular.ok = TRUE)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Min       1Q   Median       3Q      Max </span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; -24.6461  -9.5409  -0.0312   8.3378  29.1295 </span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                Estimate  Std. Error t value  Pr(&gt;|t|)    </span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)  95.8704975   3.2819571 29.2114 &lt; 2.2e-16 ***</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pe            0.0726718   0.1255331  0.5789    0.5647    </span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; L(pe, 1)     -0.0057796   0.1556629 -0.0371    0.9705    </span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; L(pe, 2)      0.0338268   0.1262574  0.2679    0.7896    </span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ww2         -22.1264975  10.7319716 -2.0617    0.0433 *  </span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pill        -31.3049888   3.9815591 -7.8625 5.634e-11 ***</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 14.27 on 64 degrees of freedom</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.4986, Adjusted R-squared:  0.45943 </span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; F-statistic: 12.728 on 5 and 64 DF,  p-value: 0.000000013529</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Parametre tahminleri.</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.2</span>)</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    (Intercept)             pe       L(pe, 1)       L(pe, 2)            ww2           pill </span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  95.8704974670   0.0726718276  -0.0057795817   0.0338268444 -22.1264975121 -31.3049887997</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Etki çarpanının hesaplanması.</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.2</span>)[[<span class="dv">2</span>]]</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.072671828</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Uzun dönem çarpanının hesaplanması.</span></span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.2</span>)[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.2</span>)[[<span class="dv">3</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.2</span>)[[<span class="dv">4</span>]]</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.10071909</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Test: \delta_{1} = \delta_{2} = 0</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(model<span class="fl">.2</span>, <span class="fu">c</span>(<span class="st">&quot;L(pe, 1) = 0&quot;</span>, <span class="st">&quot;L(pe, 2) = 0&quot;</span>)) <span class="do">## p-değeri %5 anlamlılık düzeyinden küçük olduğunda boş hipotez reddedilemez ve statik model kullanılmalıdır.</span></span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Res.Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["RSS"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Sum of Sq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["F"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"66","2":"13054.405","3":"NA","4":"NA","5":"NA","6":"NA","_rn_":"1"},{"1":"64","2":"13032.644","3":"2","4":"21.760584","5":"0.053430346","6":"0.94801421","_rn_":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[5],"max":[5]},"pages":{}}}
+  </script>
+</div>
 <!-- ================================ SON ================================== -->
 </div>
 </div>

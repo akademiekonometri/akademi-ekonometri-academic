@@ -548,9 +548,9 @@ granger.causality.TYDL.multivariate.results
 ### 1. TYDL Granger Causality pairwise: "==>" granger nedenselligi belirtir.
     #### a. Gr.RGDP ==> GR.RCAD, Gr.RER ==> GR.RGDP
 ### 2. TYDL Granger Causality multivariate: "==>" granger nedenselligi belirtir.
-    #### a. Gr.RGDP ==> GR.RCAD, Gr.RER ==> GR.RGDP
+    #### a. Gr.RGDP ==> GR.RCAD, Gr.RER ==> GR.RGDP, Gr.RER ==> GR.RCAD
 ### 3. Sonuc olarak pairwise ve multivariate'de benzer sonuclar bulduk.
-### 4. Multivariate'de 1 cointegration bulmustuk. Granger nedensellik sonucu da bunu dogruluyor 2 adet nedensellik bulduk.
+### 4. Multivariate'de 1 cointegration bulmustuk. Granger nedensellik sonucu da bunu dogruluyor 3 adet nedensellik bulduk.
 ### 5. Buyume degiskenleri I(1) oldugundan ve aralarindan cointegration bulundugundan dolayi tahminde VECM modeli kullanilacaktir.
 
 #==================================== VECM =====================================

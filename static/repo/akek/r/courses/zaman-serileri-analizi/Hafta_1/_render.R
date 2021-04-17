@@ -1,7 +1,5 @@
 #============================= Akademi Ekonometri ==============================
 #================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
-#=========================== Zaman Serileri Analizi ============================
-#=============== Ekonometrik Modelleme ve Zaman Serileri Analizi ===============
 
 #=============================== Bizi Takip Edin ===============================
 # Web Sitemiz: https://akademiekonometri.rbind.io/

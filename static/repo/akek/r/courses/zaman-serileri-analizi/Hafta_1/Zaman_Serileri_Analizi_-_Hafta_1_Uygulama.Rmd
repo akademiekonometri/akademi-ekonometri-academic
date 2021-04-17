@@ -96,7 +96,7 @@ Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
 ---
 
 # Hazırlık {#Preparation}
-## Paketler {#Packages}
+## Paketler {#Settings.Packages}
 - [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) `Load.Install` fonksiyonunu kullanarak indirin ve/veya yükleyin.
 ```{r Settings.Packages, cache = TRUE}
 # Devtools paketinin yüklenmesi
@@ -109,10 +109,19 @@ suppressWarnings(library("devtools"))
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 ```
 
-## Seed {#Seed}
+## Seed {#Settings.Seed}
 - Aşağıdaki `R kodu` bölümünde istediğiniz sayıyı girebilirsiniz.
 ```{r Settings.Seed}
 set.seed(1234)
+```
+
+## Çalışma Klasörü {#Settings.Working.Directory}
+- Aşağıdaki `R kodu`, R çalışma klasörünü (yani working directory) sadece bu dosya için, bu dosyanın bilgisayarınızda bulunan lokasyonunda belirliyor.
+    + `getwd()` fonksiyonunu kullanarak mevcut çalışma klasörünün hangi lokasyonda belirlendiğine bakabilirsiniz.
+```{r Settings.Working.Directory}
+# Değiştirmeyin.
+main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
+setwd(paste0(main.path, "/")) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
 ```
 
 ----
@@ -227,7 +236,7 @@ plot(data)
 - Excel dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
     + `read_excel` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r Excel.Data}
@@ -274,7 +283,7 @@ ggplot(temp) +
 
 ## CSV Verisi {#CSV.Data}
 - CSV dosyasından den direkt olarak veri yüklemeye çalışalım.
-- CSV dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
+- CSV dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read.csv`.
     + `read.csv` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul Barajlarinin Doluluk Oranları" verisini yükleyelim.
     + İlgili veri: [`dam_occupancy.csv`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/dam_occupancy.csv)
@@ -449,7 +458,7 @@ data <- data[order(data$Date, data$Year, decreasing = FALSE, na.last = FALSE), ]
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
 data ## Datanın yapısını inceleyelim.
 
-# Nüfus ayarlaması.
+# Kur ayarlaması ayarlaması.
 data$R.GDP.PCAP.USD <- data$R.GDP.PCAP / data$Exchange.Rate ## Nüfus ayarlaması yapılıyor.
 data ## Datanın yapısını inceleyelim.
 
@@ -667,7 +676,8 @@ temp$GDP.t1 <- ecm::lagpad(x = temp$GDP, k = 1) ## 1. Gecikme oluşturuldu.
 temp$GDP.t2 <- ecm::lagpad(x = temp$GDP, k = 2) ## 2. Gecikme oluşturuldu.
 temp$GDP.t3 <- ecm::lagpad(x = temp$GDP, k = 3) ## 3. Gecikme oluşturuldu.
 temp$GDP.t4 <- ecm::lagpad(x = temp$GDP, k = 4) ## 4. Gecikme oluşturuldu.
-temp
+data <- temp
+data
 ```
 
 ---
@@ -678,7 +688,6 @@ temp
     + `fpp2` R paketinden yüklemek istediğimiz verinin ismi `qauselec`'tir.
 - Daha sonra yüklediğimiz bu veriyi temizleyelim, düzenleyelim ve grafiğe dökelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi kullanarak mevsimsel grafik ve mevsimsel altseri grafiğini gösterelim.
-
 ```{r Seasonal.Graphics}
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
@@ -737,7 +746,7 @@ ggsubseriesplot(temp) +
 ## Toplamsal Dekompozizasyon {#Additive.Decomposition}
 - Mevsimsel dalgalanmaların büyüklüğü veya trend etrafındaki dalgalanmalar, zaman serisinin düzeyine göre değişmiyorsa, toplamsal dekompozizasyon en uygun olan yöntemdir.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş verinin **toplamsal klasik dekompozizasyonunu** grafiğe dökelim.
 ```{r Additive.Decomposition}
@@ -816,7 +825,7 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
 # Hareketli Ortalama {#Moving.Average}
 - Bu bölümde zaman serileri analizinde sıkça kullanılan ve klasik dekompozizasyonun ilk adımı olan **hareketli ortalama** (moving average) hesabının nasıl yapıldığı gösterilecektir.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden farklı derecelerden hareketli ortalamaları hesaplayalım: 3-MA, 5-MA, 7-MA ve 9-MA.
     + Hesaplamalarda hareketli ortalama merkezden alınmıştır. Fakat ilgili kodda ufak bir değişiklik ile sola ya da sağa dayalı hareketli ortalama da hesaplanabilir.

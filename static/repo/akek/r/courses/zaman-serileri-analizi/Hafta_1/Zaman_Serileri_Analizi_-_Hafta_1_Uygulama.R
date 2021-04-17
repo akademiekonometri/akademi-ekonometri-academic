@@ -51,7 +51,7 @@ set.seed(1234)
 ## ----Settings.Working.Directory-------------------
 # Değiştirmeyin.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
-setwd(paste0(main.path, "/")) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
+setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
 
 
 ## ----World.Bank.Data------------------------------

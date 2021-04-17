@@ -262,7 +262,7 @@ Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm",
 
 #=================================
 # Packages for various data sets.
-Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod"))
+Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod", "wooldridge"))
 
 #=================================
 # Packages for data loading, manipulation, and data reshaping.
@@ -284,7 +284,7 @@ Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "gri
 
 #=================================
 # Packages for general econometric analyses.
-Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "wooldridge", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
+Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
 
 # Extra packages for the car package.
 if("carData" %in% rownames(installed.packages()) == FALSE) {install.packages("carData")}
@@ -296,7 +296,7 @@ library("carData")
 
 #=================================
 # Packages for time series analysis.
-Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm"))
+Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm", "dynlm"))
 Load.Install(c("fpp2", "fpp3"))
 # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
 # Load.Install(c("MTS", "tseries", "timeSeries"))

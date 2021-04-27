@@ -198,7 +198,7 @@ variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
 
 ggplot(temp) +
     geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
-    xlab("Zaman (Yıl)") + ylab(variable.name) +
+    xlab("Zaman (Çeyreklik)") + ylab(latex2exp::TeX(variable.name)) +
     # labs(title = "Başlık") + ## Grafik için isterseniz başlık eklenebilir.
     scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
     scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +
@@ -236,7 +236,7 @@ plot(data)
 - Excel dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read_excel`.
     + `read_excel` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.netlify.app/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r Excel.Data}
@@ -286,7 +286,7 @@ ggplot(temp) +
 - CSV dosyasından veri yüklemek için 1 fonksiyon kullanacağız: `read.csv`.
     + `read.csv` fonksiyonu ile veriyi direkt olarak R'ın içine yükleyebiliriz.
 - Örnek olması açısından "İstanbul Barajlarinin Doluluk Oranları" verisini yükleyelim.
-    + İlgili veri: [`dam_occupancy.csv`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/dam_occupancy.csv)
+    + İlgili veri: [`dam_occupancy.csv`](https://akademiekonometri.netlify.app/repo/akek/r/courses/zaman-serileri-analizi//Hafta_1/dam_occupancy.csv)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r CSV.Data}
@@ -746,7 +746,7 @@ ggsubseriesplot(temp) +
 ## Toplamsal Dekompozizasyon {#Additive.Decomposition}
 - Mevsimsel dalgalanmaların büyüklüğü veya trend etrafındaki dalgalanmalar, zaman serisinin düzeyine göre değişmiyorsa, toplamsal dekompozizasyon en uygun olan yöntemdir.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.netlify.app/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediği bu veriyi temizleyelim ve düzenleyelim.
 - Son olarak temizlenmiş ve düzenlemiş verinin **toplamsal klasik dekompozizasyonunu** grafiğe dökelim.
 ```{r Additive.Decomposition}
@@ -825,7 +825,7 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
 # Hareketli Ortalama {#Moving.Average}
 - Bu bölümde zaman serileri analizinde sıkça kullanılan ve klasik dekompozizasyonun ilk adımı olan **hareketli ortalama** (moving average) hesabının nasıl yapıldığı gösterilecektir.
 - Örnek olması açısından "İstanbul'a Verilen Temiz Su Miktarları" verisini yükleyelim.
-    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.rbind.io/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
+    + İlgili veri: [`clean-water.xlsx`](https://akademiekonometri.netlify.app/repo/akek/r/courses/zaman-serileri-analizi/Hafta_1/clean-water.xlsx)
 - Daha sonra yüklediğimiz bu veriyi temizleyelim ve düzenleyelim.
 - Daha sonra temizlenmiş ve düzenlenmiş veri üzerinden farklı derecelerden hareketli ortalamaları hesaplayalım: 3-MA, 5-MA, 7-MA ve 9-MA.
     + Hesaplamalarda hareketli ortalama merkezden alınmıştır. Fakat ilgili kodda ufak bir değişiklik ile sola ya da sağa dayalı hareketli ortalama da hesaplanabilir.

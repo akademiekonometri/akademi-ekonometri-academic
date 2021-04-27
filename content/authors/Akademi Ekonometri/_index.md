@@ -15,7 +15,7 @@ role: Ekonometri, Ekonomi ve Kodlama Platformu
 # Organizations/Affiliations to show in About widget
 # organizations:
 # - name: Akademi Ekonometri
-#   url: https://akademiekonometri.rbind.io/
+#   url: https://akademiekonometri.netlify.app/
 
 # Short bio (displayed in user profile at end of posts)
 bio:

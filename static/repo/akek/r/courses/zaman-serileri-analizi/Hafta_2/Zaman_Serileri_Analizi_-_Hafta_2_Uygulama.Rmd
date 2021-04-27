@@ -131,7 +131,7 @@ setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) b
     + Statik Modeller
     + Sonlu Dağıtılmış Gecikme Modelleri (Finite Distributed Lag Models) - FDL Modelleri
 - Bu modellerin uygulaması için [`wooldridge`](https://cran.r-project.org/web/packages/wooldridge/index.html) R paketinden direkt olarak veri indirip yüklemeye çalışalım.
-    + `wooldridge` R paketindeki verileri incelemek için [wooldridge CRAN klavuzunu](https://cran.r-project.org/web/packages/wooldridge/index.html) inceleyebilirsiniz.
+    + `wooldridge` R paketindeki verileri incelemek için [wooldridge CRAN klavuzunu](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf) inceleyebilirsiniz.
     + Bu verilerin daha detayli bir gösterimi ve uygulama için ise [bu linke](https://justinmshea.github.io/wooldridge/index.html) bakabilirsiniz.
 - `wooldridge` R paketinde mevcut olan veriyi, verinin ismini kullanarak yüklemek için 1 fonksiyon kullanacağız: `data`.
     + `data` fonksiyonu ile istediğimiz veriyi verinin R paketi içindeki ismini kullanarak direkt olarak R'ın içine yükleyebiliriz.

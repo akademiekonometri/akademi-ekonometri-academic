@@ -1180,11 +1180,11 @@ data$Date <- as.Date(data$Date)
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ]
 rownames(data) <- 1:nrow(data) ## Satir sayilarini duzenliyoruz.
 
-# TR-USD grafigi.
+# USD-TL grafigi.
 temp <- data
 variable <- "Close"
-variable.name <- "Döviz Kuru (TL/USD)"
-file.name <- "tr-usd"
+variable.name <- "Döviz Kuru (USD/TL)"
+file.name <- "usd-tl"
 
 cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
 par(mar = c(2, 2, 2, 2))
@@ -1202,13 +1202,13 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-# ln(TR-USD) grafigi.
+# ln(USD-TL) grafigi.
 temp <- data
 variable <- "Close"
 temp[, variable] <- log(temp[, variable])
-y.lab <- "Ln Döviz Kuru (TL/USD)"
-variable.name <- "Logaritmik Transformasyon ile Döviz Kuru (TL/USD)"
-file.name <- "tr-usd-ln"
+y.lab <- "Ln Döviz Kuru (USD/TL)"
+variable.name <- "Logaritmik Transformasyon ile Döviz Kuru (USD/TL)"
+file.name <- "usd-tl-ln"
 
 cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
 par(mar = c(2, 2, 2, 2))
@@ -1226,7 +1226,7 @@ g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variable], colour = "Var
 print(g)
 dev.off()
 
-# Box-Cox Transformasyonu yapılmıs TR-USD grafigi.
+# Box-Cox Transformasyonu yapılmıs USD-TL grafigi.
 temp <- data
 variable <- "Close"
 value <- temp[, variable]
@@ -1243,9 +1243,9 @@ if(s.lambda == 1) { ## Lambda = 1.
     message(paste0("Box-Cox transformasyonu sonucu: λ = ", round(s.lambda, 2), " kullanılarak Box-Cox transformasyonu yapıldı."))
 }
 temp[, variable] <- value.boxcox
-y.lab <- paste0("Box-Cox $(\\lambda = ", round(s.lambda, 2), ")$ ile Döviz Kuru (TL/USD)")
-variable.name <- paste0("Box-Cox Transformasyonu ile Döviz Kuru (TL/USD)")
-file.name <- "tr-usd-boxcox"
+y.lab <- paste0("Box-Cox $(\\lambda = ", round(s.lambda, 2), ")$ ile Döviz Kuru (USD/TL)")
+variable.name <- paste0("Box-Cox Transformasyonu ile Döviz Kuru (USD/TL)")
+file.name <- "usd-tl-boxcox"
 
 cairo_pdf(paste0(figs.tabs.folder.name, "/", file.name, ".pdf"), family = "Times", width = 16, height = 9, onefile = FALSE)
 par(mar = c(2, 2, 2, 2))

@@ -4,7 +4,7 @@
 #=============== Ekonometrik Modelleme ve Zaman Serileri Analizi ===============
 
 #=============================== Bizi Takip Edin ===============================
-# Web Sitemiz: https://akademiekonometri.rbind.io/
+# Web Sitemiz: https://akademiekonometri.netlify.app/
 # YouTube: https://www.youtube.com/c/AkademiEkonometri
 # Twitter: https://twitter.com/AEkonometri
 # Instagram: https://www.instagram.com/akademiekonometri/

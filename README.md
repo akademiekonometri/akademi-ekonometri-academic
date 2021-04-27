@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2a352c3b-95ae-4338-98ce-95412f55742c/deploy-status)](https://app.netlify.com/sites/akademiekonometri/deploys)
 
-# [Akademi Ekonometri-Academic Website](https://akademiekonometri.rbind.io/) Working Directory
+# [Akademi Ekonometri-Academic Website](https://akademiekonometri.netlify.app/) Working Directory
 
 ## Folder Structure for Akademi Ekonometri Website 
 
@@ -27,7 +27,7 @@
 - `renv.lock` file consists of `renv` package settings.
 
 ## Important Notes
-- The Akademi Ekonometri web site address is: [https://akademiekonometri.rbind.io/](https://akademiekonometri.rbind.io/)
+- The Akademi Ekonometri web site address is: [https://akademiekonometri.netlify.app/](https://akademiekonometri.netlify.app/)
 - The whole website is created using the [`blogdown`](https://bookdown.org/yihui/blogdown/) package, [`Hugo`](https://gohugo.io/) static website builder, [`Netlify`](https://www.netlify.com/) website deployer, [Academic Starter theme](https://wowchemy.com/), and [`GitHub`](https://github.com/) cloud version control software.
 - You can view the website source files [here](https://github.com/akademiekonometri/akademi-ekonometri-academic).
 - Please feel free to use any of the content without the permission of the repository owner.

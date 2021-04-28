@@ -198,7 +198,7 @@ variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
 
 ggplot(temp) +
     geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
-    xlab("Zaman (Çeyreklik)") + ylab(latex2exp::TeX(variable.name)) +
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
     # labs(title = "Başlık") + ## Grafik için isterseniz başlık eklenebilir.
     scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
     scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +
@@ -344,7 +344,7 @@ variable.name <- "Google Hisse Senedi Fiyatı"
 
 ggplot(temp) +
     geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
-    xlab("Zaman (Gün)") + ylab(latex2exp::TeX(variable.name)) +
+    xlab("Zaman (Gün)") + ylab(variable.name) +
     # labs(title = "Başlık") + ## Grafik için isterseniz başlık eklenebilir.
     scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
     scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +

@@ -94,3 +94,8 @@ rstudioapi
 scales
 DT
 dynlm
+exams
+purrr
+cnvs
+kableExtra
+gtools

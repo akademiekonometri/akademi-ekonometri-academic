@@ -276,7 +276,7 @@ Load.Install(c("stargazer", "xtable", "tikzDevice", "latex2exp", "latexpdf"))
 
 #=================================
 # Packages for graphics and related packages.
-Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "grid", "gridExtra", "gtable", "lattice", "latticeExtra", "dygraphs", "RColorBrewer"))
+Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "grid", "gridExtra", "gtable", "lattice", "latticeExtra", "dygraphs", "RColorBrewer", "scales"))
 
 #=================================
 # Packages for web scraping.

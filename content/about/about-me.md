@@ -51,7 +51,7 @@ Akademi Ekonometri’ye Hoş Geldiniz!
 
 Uzun yıllar Amerika Birleşik Devletleri’nde ekonomi ve ekonometri alanlarında eğitim almış bir akademisyen tarafından kurulan Akademi Ekonometri’de, biz bilginin sınır tanımadan ve ücretsiz olarak paylaşıldıkça artacağına inanıyoruz. Bu inançla, ülkemizin ihtiyaç duyduğu analitik düşünebilen dinamik beyinlerine ekonomi, ekonometri ve programlama konularında bilgi ve tecrübelerimizi aktarmak için sabırsızlanıyoruz. Elimizden geldiğince öğretmeye ve sizinle beraber öğrenmeye devam edeceğiz...
 
-▶️ Neyin Nesidir Bu Akademi Ekonometri?  
+▶️ Neyin nesidir bu Akademi Ekonometri?  
 Akademi Ekonometri en kısa tanımıyla bir Ekonometri, Ekonomi ve Kodlama Platformu'dur. İçerik ve planlarımızla ilgili detaylı  bilgi için paylaşığımız [ilk blog yazısına](/post/yakinda-yayindayiz/) bakabilirsiniz...
 
 ▶️ Bizi desteklemek mi istiyorsunuz?

@@ -146,7 +146,7 @@ human_numbers <- function(x = NULL, smbl = "", signif = 1) {
             } else if (tn < 1) {
                 paste0(y_is_positive, smbl, b ,"bn")
             } else {
-                paste0(y_is_positive, smbl, comma(tn), "tn")
+                paste0(y_is_positive, smbl, tn, "tn")
             }
         } else if (is.na(y) | is.null(y)) {
             "-"

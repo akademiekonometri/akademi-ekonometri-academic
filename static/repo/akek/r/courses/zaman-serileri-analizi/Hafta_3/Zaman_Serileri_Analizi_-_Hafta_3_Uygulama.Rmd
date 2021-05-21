@@ -1,0 +1,342 @@
+---
+title: "Zaman Serileri Analizi"
+subtitle: "Hafta #3 - Uygulama"
+author: "[Dr. Ömer Kara](<mailto:okara@ogu.edu.tr>)"
+date: "`r format(Sys.time(), format = '%A, %B %d, %Y')`"
+output:
+  html_document:
+    code_folding: show
+    df_print: paged
+    fig_caption: yes
+    highlight: zenburn
+    keep_md: no
+    number_sections: yes
+    theme: readable
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  pdf_document:
+    fig_caption: yes
+    highlight: zenburn
+    toc: yes
+    number_sections: yes
+editor_options: 
+  chunk_output_type: inline
+---
+
+<!-- HTML CSS Ayarlaması -->
+```{=html}
+<style type="text/css">
+div.main-container {
+    width: 100%;
+    max-width: unset;
+}
+</style>
+```
+<!-- HTML CSS Ayarlaması -->
+
+```{r Settings.Code.Chunk, include = FALSE, purl = FALSE}
+# Değiştirmeyin.
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 9, fig.width = 16, highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
+```
+```{r Settings.Mirros, include = FALSE, purl = FALSE, cache = TRUE}
+# Değiştirmeyin.
+r <- getOption("repos")
+r["CRAN"] <- "https://cloud.r-project.org/"
+options(repos = r)
+```
+```{r Settings.Functions, include = FALSE, cache = TRUE}
+# Değiştirmeyin.
+## Paketleri indirmek ve yüklemek için gerekli fonksiyon.
+Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
+    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
+    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
+    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
+    cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
+    all.pkgs <- c(cran.pkgs, github.bare.pkgs)
+    cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+    github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    if (Update.All == TRUE) {
+        cran.missing <- cran.pkgs
+        github.missing <- github.pkgs
+    } else {
+        cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
+        github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
+    }
+    if (length(cran.missing) > 0) {
+        suppressWarnings(utils::install.packages(cran.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    if (length(github.missing) > 0) {
+        suppressWarnings(devtools::install_github(github.missing, quiet = Quiet, dependencies = TRUE))
+    }
+    failed.install <- all.pkgs[which(!is_installed(all.pkgs))]
+    if (length(failed.install) > 0) {
+        warning(paste0("Some packages failed to install: ", paste(failed.install, collapse = ", "), "."))
+    }
+    install.pkgs <- all.pkgs[which(is_installed(all.pkgs) == TRUE)]
+    for (install.pkgs in install.pkgs) {
+        suppressPackageStartupMessages(library(install.pkgs, character.only = TRUE, quietly = Quiet, verbose = FALSE))
+    }
+}
+```
+
+----
+
+**Önemli Notlar**  
+
+- Yanında **Değiştirmeyin** ibaresi bulunan hiçbir kodu ve/veya satırı değiştirmeyin.
+- Yazılardakı ve kodlardaki açıklamaları dikkatlice okuyun.
+- Kodların sırasını **mümkün olduğunca** değiştirmeyin. Aksi taktirde hata ile karşılaşabilirsiniz.
+- [Paketler](#Packages) bölümünde, gerekli [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) bu belgede kodu verilmiş `Load.Install` fonksiyonunu kullanarak indirin ve yükleyin.
+- [Seed](#Seed) bölümünde, istediğiniz sayıyı kullanabilirsiniz. Rassal olarak seçilen değerler, eğer varsa, seçtiğiniz sayıya göre değişecektir.
+- R hakkında daha fazla bilgi için, benim yazdığım [R mini BootCamp](https://akademiekonometri.bitbucket.io/R_mini_BootCamp/R_mini_BootCamp.html) adlı İngilizce kaynaktan faydalanabilirsiniz.
+
+---
+
+# Hazırlık {#Preparation}
+## Paketler {#Settings.Packages}
+- [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) `Load.Install` fonksiyonunu kullanarak indirin ve/veya yükleyin.
+```{r Settings.Packages, cache = TRUE}
+# Devtools paketinin yüklenmesi
+## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
+if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools"))
+
+# Gerekli paketlerin yüklenmesi.
+## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car", "FSA"))
+```
+
+## Seed {#Settings.Seed}
+- Aşağıdaki `R kodu` bölümünde istediğiniz sayıyı girebilirsiniz.
+```{r Settings.Seed}
+set.seed(1234)
+```
+
+## Çalışma Klasörü {#Settings.Working.Directory}
+- Aşağıdaki `R kodu`, R çalışma klasörünü (yani working directory) sadece bu dosya için, bu dosyanın bilgisayarınızda bulunan lokasyonunda belirliyor.
+    + `getwd()` fonksiyonunu kullanarak mevcut çalışma klasörünün hangi lokasyonda belirlendiğine bakabilirsiniz.
+```{r Settings.Working.Directory}
+# Değiştirmeyin.
+main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
+setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
+```
+
+----
+
+# Hatırlatma {#ReCall}
+- Bu alt bölümde, daha önceden bahsedilen bazı konular kısaca hatırlatılmıştır.
+
+## Data: Wooldridge Paketi {#ReCall.Data}
+- Bu modellerin uygulaması için [`wooldridge`](https://cran.r-project.org/web/packages/wooldridge/index.html) R paketinden direkt olarak veri indirip yüklemeye çalışalım.
+    + `wooldridge` R paketindeki verileri incelemek için [wooldridge CRAN klavuzunu](https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf) inceleyebilirsiniz.
+    + Bu verilerin daha detaylı bir gösterimi ve uygulama için ise [bu linke](https://justinmshea.github.io/wooldridge/index.html) bakabilirsiniz.
+- `wooldridge` R paketinde mevcut olan veriyi, verinin ismini kullanarak yüklemek için 1 fonksiyon kullanacağız: `data`.
+    + `data` fonksiyonu ile istediğimiz veriyi verinin R paketi içindeki ismini kullanarak direkt olarak R'ın içine yükleyebiliriz.
+- Ayrıca, yüklediğimiz veri hakkında daha fazla bilgiye sahip olmak için, yani metadatasına ulaşmak için, `?` kodunu kullanabiliriz. Örneğin, `?wage1`:
+    + `wooldridge` R paketi içindeki `wage1` verisini `data(wage1)` kodunu kullanarak yüklediğimizi var sayalım.
+    + Daha sonra `?wage1` kodunu kullanarak bu veri hakkındaki tüm bilgilere **RStudio üzerindeki help sekmesinden** ulaşabiliriz.
+
+## Statik Model {#ReCall.Static.Models}
+- Statik modeller ile bağımlı değişken $y_{t}$ ve bağımsız değişkenler $x_{t}$ arasındaki **eşanlı ödünümü** inceleyebiliriz.
+- Statik modellerin tahmini için temel olarak 1 fonksiyon kullanacağız: `lm`.
+    + `lm` fonksiyonu ile formunu belirlediğimiz basit doğrusal regresyon ya da çoklu doğrusal regresyon modellerini kolayca tahmin edebiliriz.
+
+## FDL Modeli {#ReCall.FDL.Models}
+- FDL modelleri ile **etki çarpanı** ve **uzun dönem çarpanı** değerlerini hesaplayabiliriz.
+- FDL modellerinin tahmini için temel olarak 1 fonksiyon kullanacağız: `dynlm`.
+    + `dynlm` fonksiyonu ile formunu belirlediğimiz FDL modellerini kolayca tahmin edebiliriz.
+    + `dynlm` fonksiyonunun kullanımı `lm` fonksiyonuna çok benzerdir. Fakat ek olarak, gecikmeli değişkenlerin kullanımı için ekstra kodlar kullanmaya izin verir.
+    + `dynlm` fonksiyonunda sadece zaman serisi verisi kullanılabilir. Bu nedenle, elinizdeki verinin zaman serisi objesi olması şarttır. Bu amaçla biz, elimizdeki veriyi zaman serisi objesine çevirmek için `ts` fonksiyonunu kullanacağız.
+
+# Zaman Serisi Modeli: Çıkarsama {#Time.Series.Models.Inference}
+- Bu alt bölümde, zaman serileri modellerinde çıkarsama konusu **iki basit zaman serisi modeli** kullanılarak uygulamalı olarak gösterilecektir.
+    + Statik Modeller
+    + Sonlu Dağıtılmış Gecikme Modelleri (Finite Distributed Lag Models) - FDL Modelleri
+
+## $t$-testi {#t.test}
+- Basit zaman serisi modellerinde $t$-testi uygulamak için 3 farklı fonksiyon kullanabiliriz.
+    + `pt` fonksiyonu ile model tahmininden elde ettiğimiz $t$-istatistiğine ait $p$-değerini çift ve tek kuyruklu hipotez testleri için hesaplayabiliriz.
+    + [`FSA`](https://cran.r-project.org/web/packages/FSA/index.html) R paketindeki `hoCoef` fonksiyonunda model tahminini kullanarak çift ve tek kuyruklu hipotez testleri uygulayabiliriz.
+    + [`car`](https://cran.r-project.org/web/packages/car/index.html) R paketindeki `linearHypothesis` fonksiyonunda model tahminini kullanarak çift kuyruk hipotez testini uygulayabiliriz.
+
+### Örnek: 1 {#t.test.Example.1}
+- Örnek olarak, `wooldridge` R paketinden `phillips` verisini yükleyelim.
+- `phillips` verisi genel olarak Amerika'daki **enflasyon ve işsizlik** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + inf ($inf_{t}$): cari dönem enflasyon oranı
+    + unem ($unem_{t}$): cari dönem işsizlik oranı
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+    + Model (Statik): $inf_{t} = \beta_{0} + \beta_{1}unem_{t} + u_{t}$
+- Son olarak model tahminini kullanarak aşağıdaki hipotezleri farklı fonksiyonları kullanarak test edelim.
+    + Hipotez Testi 1 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0$
+    + Hipotez Testi 2 (Sol Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} < 0$
+    + Hipotez Testi 3 (Sağ Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} > 0$
+```{r t.test.Example.1}
+data(phillips) ## Datayı yüklüyoruz.
+?phillips ## Datanın metadatası.
+
+data <- phillips ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+str(data) ## Datanın yapısını inceleyelim.
+data ## Datanın yapısını inceleyelim.
+
+# Cari dönemde enflasyon ve işsizlik arasındaki statik model.
+model <- lm(data = data, formula = inf ~ unem, singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+
+# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+coef(summary(model))
+
+# pt fonksiyonu ile çift ve tek kuyruklu t-testi. Hesaplanan p-değeridir.
+2*pt(q = abs(coef(summary(model))[2, 3]), df = model$df, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0 
+pt(q = coef(summary(model))[2, 3], df = model$df, lower.tail = TRUE) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta1 < 0
+pt(q = coef(summary(model))[2, 3], df = model$df, lower.tail = FALSE) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 > 0
+
+# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model, term = 2, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0 
+hoCoef(model, term = 2, bo = 0, alt = c("less")) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta1 < 0
+hoCoef(model, term = 2, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 > 0
+
+# linearHypothesis fonksiyonu ile çift kuyruklu t-testi.
+linearHypothesis(model, c("unem = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, t-istatistiğine eşit olduğunu unutmayın.
+```
+
+### Örnek: 2 {#t.test.Example.2}
+- Örnek olarak, `wooldridge` R paketinden `intdef` verisini yükleyelim.
+- `intdef` verisi genel olarak Amerika'daki **faiz oranı** ve alakalı değişkenleri, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + i3 ($i3_{t}$): cari dönem 3 aylık devlet tahvili faiz oranı
+    + inf ($inf_{t}$): cari dönem enflasyon oranı
+    + def ($def_{t}$): cari dönem bütçe açığı (GSYH'ya oran olarak)
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+    + Model (Statik): $i3_{t} = \beta_{0} + \beta_{1}inf_{t} + \beta_{2}def_{t} + u_{t}$
+- Son olarak model tahminini kullanarak aşağıdaki hipotezleri farklı fonksiyonları kullanarak test edelim.
+    + Hipotez Testi 1 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{2} \neq 0$
+    + Hipotez Testi 2 (Sol Kuyruk $t$-testi): $H_{0}: \beta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{2} < 0$
+    + Hipotez Testi 3 (Sağ Kuyruk $t$-testi): $H_{0}: \beta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{2} > 0$
+```{r t.test.Example.2}
+data(intdef) ## Datayı yüklüyoruz.
+?intdef ## Datanın metadatası.
+
+data <- intdef ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+str(data) ## Datanın yapısını inceleyelim.
+data ## Datanın yapısını inceleyelim.
+
+# Cari dönemde faiz, enflasyon ve bütçe açığı arasındaki statik model.
+model <- lm(data = data, formula = i3 ~ inf + def, singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+
+# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+coef(summary(model))
+
+# pt fonksiyonu ile çift ve tek kuyruklu t-testi. Hesaplanan p-değeridir.
+2*pt(q = abs(coef(summary(model))[3, 3]), df = model$df, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 != 0 
+pt(q = coef(summary(model))[3, 3], df = model$df, lower.tail = TRUE) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta2 < 0
+pt(q = coef(summary(model))[3, 3], df = model$df, lower.tail = FALSE) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 > 0
+
+# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model, term = 3, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 != 0 
+hoCoef(model, term = 3, bo = 0, alt = c("less")) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta2 < 0
+hoCoef(model, term = 3, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 > 0
+
+# linearHypothesis fonksiyonu ile çift kuyruklu t-testi.
+linearHypothesis(model, c("def = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, t-istatistiğine eşit olduğunu unutmayın.
+```
+
+## $F$-testi {#F.test}
+- Basit zaman serisi modellerinde $F$-testi uygulamak için 2 farklı fonksiyon kullanabiliriz.
+    + `pf` fonksiyonu ile model tahmininden elde ettiğimiz $f$-istatistiğine ait $p$-değerini sadece modelin genel anlamlılığını test eden hipotez testi için hesaplayabiliriz.
+    + [`car`](https://cran.r-project.org/web/packages/car/index.html) R paketindeki `linearHypothesis` fonksiyonunda model tahminini kullanarak birçok farklı çoklu kısıt için hipotez testi uygulayabiliriz.
+
+### Örnek: 1 {#F.test.Example.1}
+- Örnek olarak, `wooldridge` R paketinden `phillips` verisini yükleyelim.
+- `phillips` verisi genel olarak Amerika'daki **enflasyon ve işsizlik** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + inf ($inf_{t}$): cari dönem enflasyon oranı
+    + unem ($unem_{t}$): cari dönem işsizlik oranı
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+    + Model (FDL$_{(2)}$): $inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + \delta_{2}unem_{t-2} + u_{t}$
+- Son olarak model tahminini kullanarak aşağıdaki hipotezleri farklı fonksiyonları kullanarak test edelim.
+    + Modelin istatistiki olarak genel anlamlılığının testi.
+        * Hipotez Testi 1 ($F$-testi): $H_{0}: \delta_{0} = \delta_{1} = \delta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+    + Tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+        * Hipotez Testi 2 ($F$-testi): $H_{0}: \delta_{1} = \delta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+        * Eğer boş hipotez reddedilirse, FDL$_{(2)}$ modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.
+```{r F.test.Example.1}
+data(phillips) ## Datayı yüklüyoruz.
+?phillips ## Datanın metadatası.
+
+data <- phillips ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- ts(data, start = 1948) ## Data 1948 yılından itibaren başlamış.
+
+# Model: Enflasyon ve işsizlik arasındaki FDL(2) modeli.
+model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1) + L(unem, 2), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+
+# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+coef(summary(model))
+
+# Modelin istatistiki olarak genel anlamlılığı için F-testi ve serbestlik dereceleri.
+summary(model)$fstatistic
+
+# Hipotez Testi 1: pf fonksiyonu ile modelin istatistiki olarak genel anlamlılığının testi. Hesaplanan p-değeridir.
+pf(q = summary(model)$fstatistic[1], df1 = summary(model)$fstatistic[2], df2 = summary(model)$fstatistic[3], lower.tail = FALSE)
+
+# Hipotez Testi 1: linearHypothesis fonksiyonu ile modelin istatistiki olarak genel anlamlılığının testi.
+linearHypothesis(model, c("unem = 0", "L(unem, 1) = 0", "L(unem, 2) = 0"))
+
+# Hipotez Testi 2: linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+linearHypothesis(model, c("L(unem, 1) = 0", "L(unem, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
+```
+
+### Örnek: 2 {#F.test.Example.2}
+- Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
+- `fertil3` verisi genel olarak Amerika'daki **vergi muafiyeti ve doğurganlık oranı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
+    + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+    + Model (FDL$_{(3)}$): $gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \delta_{3}pe_{t-3} + u_{t}$
+- Son olarak model tahminini kullanarak aşağıdaki hipotezleri farklı fonksiyonları kullanarak test edelim.
+    + Modelin istatistiki olarak genel anlamlılığının testi.
+        * Hipotez Testi 1 ($F$-testi): $H_{0}: \delta_{0} = \delta_{1} = \delta_{2} = \delta_{3} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+    + İkinci ve üçüncü gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+        * Hipotez Testi 2 ($F$-testi): $H_{0}: \delta_{2} = \delta_{3} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+    + Tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+        * Hipotez Testi 3 ($F$-testi): $H_{0}: \delta_{1} = \delta_{2} = \delta_{3} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+        * Eğer boş hipotez reddedilirse, FDL$_{(3)}$ modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.
+```{r F.test.Example.2}
+data(fertil3) ## Datayı yüklüyoruz.
+?fertil3 ## Datanın metadatası.
+
+data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+str(data) ## Datanın yapısını inceleyelim.
+data ## Datanın yapısını inceleyelim.
+data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
+
+# Model : Vergi muafiyeti ve doğurganlık arasındaki 3. dereceden FDL modeli.
+model <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + L(pe, 3), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+
+# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+coef(summary(model))
+
+# Modelin istatistiki olarak genel anlamlılığı için F-testi ve serbestlik dereceleri.
+summary(model)$fstatistic
+
+# Hipotez Testi 1: pf fonksiyonu ile modelin istatistiki olarak genel anlamlılığının testi. Hesaplanan p-değeridir.
+pf(q = summary(model)$fstatistic[1], df1 = summary(model)$fstatistic[2], df2 = summary(model)$fstatistic[3], lower.tail = FALSE)
+
+# Hipotez Testi 1: linearHypothesis fonksiyonu ile modelin istatistiki olarak genel anlamlılığının testi.
+linearHypothesis(model, c("pe = 0", "L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 0"))
+
+# Hipotez Testi 2: linearHypothesis fonksiyonu ile 2. ve 3. gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+linearHypothesis(model, c("L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğundan boş hipotez reddedilemez ve bu nedenle 2. ve 3. gecikmeli değişkenler modelde kullanılmamalıdır.
+
+# Hipotez Testi 3: linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+linearHypothesis(model, c("L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlamlılık düzeyinden küçük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
+```
+
+
+<!-- ================================ SON ================================== -->

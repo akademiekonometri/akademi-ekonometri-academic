@@ -614,13 +614,7 @@ normality.test(vecm.to.var, multivariate.only = TRUE) ## Normallik var.
 irf.ahead <- 10 ## Kac donem ilerisi gosterilsin?
 irf.runs <- 100 ## Bootstrap'de kac kere calistirilsin.
 irf.ci <- 0.95 ## Bootstrap hata bandi icin guven araligi.
-irf.obj <- vars::irf(vecm.to.var, impulse = NULL, response = NULL, n.ahead = irf.ahead, ortho = TRUE, boot = TRUE, ci = irf.ci, runs = irf.runs, seed = 1234)
+irf.obj <- vars::irf(vecm.to.var, impulse = NULL, response = NULL, n.ahead = irf.ahead, ortho = FALSE, boot = TRUE, ci = irf.ci, runs = irf.runs, seed = 1234)
 plot(irf.obj)
-
-# FEVD: Forecast Error Variance Decomposition (Tahmin Hatasi Varyans Ayristirma)
-## FEVD, her bir değişkenin modeldeki diğer değişkenlere katkıda bulunduğu bilgi miktarını gösterir. Her bir değişkenin tahmin hatası varyansının ne kadarının diğer değişkenlere exojen şoklarla açıklanabileceğini belirler.
-fevd.ahead <- 10 ## Kac donem ilerisi gosterilsin?
-fevd.obj <- vars::fevd(vecm.to.var, n.ahead = fevd.ahead)
-plot(fevd.obj)
 
 #==================================== SON ======================================

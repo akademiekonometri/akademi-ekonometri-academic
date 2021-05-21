@@ -284,7 +284,7 @@ Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "gri
 
 #=================================
 # Packages for general econometric analyses.
-Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
+Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "FSA", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
 
 # Extra packages for the car package.
 if("carData" %in% rownames(installed.packages()) == FALSE) {install.packages("carData")}

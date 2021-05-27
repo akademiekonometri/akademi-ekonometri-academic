@@ -348,7 +348,7 @@ div.tocify {
 <h1 class="title toc-ignore">Zaman Serileri Analizi</h1>
 <h3 class="subtitle">Hafta #2 - Uygulama</h3>
 <h4 class="author"><a href="mailto:okara@ogu.edu.tr">Dr. Ömer Kara</a></h4>
-<h4 class="date">Friday, May 21, 2021</h4>
+<h4 class="date">Friday, May 28, 2021</h4>
 
 </div>
 
@@ -419,7 +419,7 @@ div.main-container {
 </ul></li>
 <li>Bu modellerin uygulaması için <a href="https://cran.r-project.org/web/packages/wooldridge/index.html"><code>wooldridge</code></a> R paketinden direkt olarak veri indirip yüklemeye çalışalım.
 <ul>
-<li><code>wooldridge</code> R paketindeki verileri incelemek için <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">wooldridge CRAN klavuzunu</a> inceleyebilirsiniz.</li>
+<li><code>wooldridge</code> R paketindeki verileri incelemek için <a href="https://cran.r-project.org/web/packages/wooldridge/wooldridge.pdf">wooldridge CRAN klavuzuna</a> bakabilirsiniz.</li>
 <li>Bu verilerin daha detaylı bir gösterimi ve uygulama için ise <a href="https://justinmshea.github.io/wooldridge/index.html">bu linke</a> bakabilirsiniz.</li>
 </ul></li>
 <li><code>wooldridge</code> R paketinde mevcut olan veriyi, verinin ismini kullanarak yüklemek için 1 fonksiyon kullanacağız: <code>data</code>.
@@ -458,10 +458,10 @@ div.main-container {
 <li>cunem (<span class="math inline">\(\Delta{unem_{t}} = unem_{t} - unem_{t-1}\)</span>): ilk farklar işsizlik oranı</li>
 </ul></li>
 <li>Daha sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
-<li>Son olarak yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim.
+<li>Son olarak yüklediğimiz veriyi kullanarak aşağıdaki statik modelleri tahmin edelim.
 <ul>
-<li>Model 1: <span class="math inline">\(inf_{t} = \beta_{0} + \beta_{1}unem_{t} + u_{t}\)</span></li>
-<li>Model 2: <span class="math inline">\(\Delta{inf_{t}} = \beta_{0} + \beta_{1}\Delta{unem_{t}} + u_{t}\)</span></li>
+<li>Model 1 (Statik): <span class="math inline">\(inf_{t} = \beta_{0} + \beta_{1}unem_{t} + u_{t}\)</span></li>
+<li>Model 2 (Statik): <span class="math inline">\(\Delta{inf_{t}} = \beta_{0} + \beta_{1}\Delta{unem_{t}} + u_{t}\)</span></li>
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(phillips) <span class="do">## Datayı yüklüyoruz.</span></span>
@@ -627,9 +627,9 @@ div.main-container {
 <li>unem (<span class="math inline">\(unem_{t}\)</span>): cari dönem işsizlik oranı</li>
 <li>unem_1 (<span class="math inline">\(unem_{t-1}\)</span>): 1. gecikme işsizlik oranı</li>
 </ul></li>
-<li>Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modeli tahmin edelim.
+<li>Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki FDL<span class="math inline">\(_{(1)}\)</span> modelini tahmin edelim.
 <ul>
-<li>Model: <span class="math inline">\(inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}\)</span></li>
+<li>Model (FDL<span class="math inline">\(_{(1)}\)</span>): <span class="math inline">\(inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}\)</span></li>
 </ul></li>
 <li>Son olarak model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
 <ul>
@@ -683,21 +683,21 @@ div.main-container {
 <div id="FDL.Models.2" class="section level3" number="2.2.2">
 <h3 number="2.2.2"><span class="header-section-number">2.2.2</span> FDL<span class="math inline">\(_{(2)}\)</span></h3>
 <ul>
-<li><p>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</p></li>
-<li><p><code>fertil3</code> verisi genel olarak Amerika’daki <strong>vergi muafiyeti ve doğurganlık oranı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.</p>
+<li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
+<li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık oranı ve vergi muafiyeti</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
 <ul>
 <li>gfr (<span class="math inline">\(gfr_{t}\)</span>): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)</li>
 <li>pe (<span class="math inline">\(pe_{t}\)</span>): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)</li>
-<li>ww2 (<span class="math inline">\(ww2_{t}\)</span>): 2. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)</li>
+<li>ww2 (<span class="math inline">\(ww2_{t}\)</span>): II. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)</li>
 <li>pill (<span class="math inline">\(pill_{t}\)</span>): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (1963 ve sonrası için 1 diğer yıllar için 0)</li>
 </ul></li>
-<li><p>Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</p></li>
-<li><p>Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki modelleri tahmin edelim.</p>
+<li>Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.</li>
+<li>Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki FDL<span class="math inline">\(_{(2)}\)</span> modellerini tahmin edelim.
 <ul>
-<li>Model 1: <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + u_{t}\)</span></li>
-<li>Model 2: <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}\)</span></li>
+<li>Model 1 (FDL<span class="math inline">\(_{(2)}\)</span>): <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + u_{t}\)</span></li>
+<li>Model 2 (FDL<span class="math inline">\(_{(2)}\)</span>): <span class="math inline">\(gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}\)</span></li>
 </ul></li>
-<li><p>Son olarak model tahminlerini kullanarak her model için etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.</p>
+<li>Son olarak model tahminlerini kullanarak her model için etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
 <ul>
 <li>Model 1’de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.
 <ul>
@@ -750,7 +750,7 @@ div.main-container {
 </div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(data, <span class="at">start =</span> <span class="dv">1913</span>) <span class="do">## Data 1913 yılından itibaren başlamış.</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Doğurganlık ve vergi muafiyeti arasındaki FDL(2) modeli.</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>model<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">dynlm</span>(<span class="at">data =</span> data.ts, <span class="at">formula =</span> gfr <span class="sc">~</span> pe <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">2</span>), <span class="at">singular.ok =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="fl">.1</span>) <span class="do">## Tahmin özeti.</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -791,7 +791,7 @@ div.main-container {
 <span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">3</span>]] <span class="sc">+</span> <span class="fu">coef</span>(model<span class="fl">.1</span>)[[<span class="dv">4</span>]]</span>
 <span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.01671952</span></span>
 <span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Vergi muafiyeti ve doğurganlık arasındaki 2. dereceden FDL modeli.</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2: Doğurganlık, vergi muafiyeti, savaş ve doğurganlık hapı arasındaki FDL(2) modeli.</span></span>
 <span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>model<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">dynlm</span>(<span class="at">data =</span> data.ts, <span class="at">formula =</span> gfr <span class="sc">~</span> pe <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">L</span>(pe, <span class="dv">2</span>) <span class="sc">+</span> ww2 <span class="sc">+</span> pill, <span class="at">singular.ok =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="fl">.2</span>) <span class="do">## Tahmin özeti.</span></span>
 <span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>

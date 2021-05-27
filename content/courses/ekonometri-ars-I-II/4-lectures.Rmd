@@ -72,7 +72,7 @@ outdated <- "no_entry"
 #### Diğer Kaynaklar
 - `r emo::ji(tr)``r emo::ji(in.progress)`
 
-#### Örnek Makale Sunumlar
+#### Örnek Makale Sunumları
 - [Örnek Sunum 1](`r paste0(ekonometri.ars.path, "Ornek_1_(Crypto).pdf")`) `r emo::ji(eng)`
 - [Örnek Sunum 2](`r paste0(ekonometri.ars.path, "Ornek_2_(Meat Demand).pdf")`) `r emo::ji(eng)`
 

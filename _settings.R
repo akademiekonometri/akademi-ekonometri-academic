@@ -262,7 +262,7 @@ Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm",
 
 #=================================
 # Packages for various data sets.
-Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod", "wooldridge"))
+Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod", "wooldridge", "AER"))
 
 #=================================
 # Packages for data loading, manipulation, and data reshaping.

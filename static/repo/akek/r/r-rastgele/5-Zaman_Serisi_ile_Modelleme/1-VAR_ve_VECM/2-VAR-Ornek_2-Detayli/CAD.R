@@ -428,7 +428,7 @@ kpss.test(ts2.diff, lag.short = TRUE, output = TRUE) ## Buyume ilk farklar: stat
 ### 2. Hatta bazi degiskenler ilk farklar formunda hala unit root. Bu durum duzey formundaki degiskenlerin I(2) oldugunu gosteriyor.
 ### 3. Buyume formundaki bazi degiskenler (ilk farklar alinmis hali olarak da dusunulebilir), I(1) yani unit root formunda.
 ### 4. Buyume ilk farklar formunda ise tum degiskenler I(0) yani stationary durumunda.
-### 5. Yukaridaki sonuclar nedeniyle duzey formunda degiskenlerin I(2) oldugu anlasilmistir. Bu nedenle asil degiskenlerimizin buyume formundaki degiskenler (yani I(1)) oldugunu varsayacagiz.
+### 5. Yukaridaki sonuclar nedeniyle duzey formundaki degiskenlerin I(2) oldugu anlasilmistir. Bu nedenle asil degiskenlerimizin buyume formundaki degiskenler (yani I(1)) oldugunu varsayacagiz.
 
 ## Daha sonra yapacagimiz cointegration testlerin sonucunda:
 ### 1. Eger buyume formundaki degiskenler arasinda cointegration bulunursa VECM modelini buyume formundaki degiskenlerle tahmin edecegiz. VECM modelinde degiskenlerin I(I) olmasi gerekir. Not: Buyume formundaki degiskenleri I(1) bulmustuk.

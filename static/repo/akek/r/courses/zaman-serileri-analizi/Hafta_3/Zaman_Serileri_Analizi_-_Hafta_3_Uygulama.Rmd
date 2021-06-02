@@ -106,7 +106,7 @@ suppressWarnings(library("devtools"))
 
 # Gerekli paketlerin yüklenmesi.
 ## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car", "FSA", "AER"))
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car", "FSA", "AER", "stargazer"))
 ```
 
 ## Seed {#Settings.Seed}
@@ -191,7 +191,7 @@ summary(model) ## Tahmin özeti.
 coef(summary(model))
 
 # pt fonksiyonu ile çift ve tek kuyruklu t-testi. Hesaplanan p-değeridir.
-2*pt(q = abs(coef(summary(model))[2, 3]), df = model$df.residual, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0 
+2*pt(q = abs(coef(summary(model))[2, 3]), df = model$df.residual, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0
 pt(q = coef(summary(model))[2, 3], df = model$df.residual, lower.tail = TRUE) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta1 < 0
 pt(q = coef(summary(model))[2, 3], df = model$df.residual, lower.tail = FALSE) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 > 0
 
@@ -206,7 +206,7 @@ linearHypothesis(model, c("unem = 0")) ## linearHypothesis fonksiyonu F-istatist
 
 ### Örnek: 2 {#t.test.Example.2}
 - Örnek olarak, `wooldridge` R paketinden `intdef` verisini yükleyelim.
-- `intdef` verisi genel olarak Amerika'daki **faiz oranı** ve alakalı değişkenleri, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `intdef` verisi genel olarak Amerika'daki **faiz oranı, enflasyon ve bütçe açığı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + i3 ($i3_{t}$): cari dönem 3 aylık devlet tahvili faiz oranı
     + inf ($inf_{t}$): cari dönem enflasyon oranı
     + def ($def_{t}$): cari dönem bütçe açığı (GSYH'ya oran olarak)
@@ -233,14 +233,14 @@ summary(model) ## Tahmin özeti.
 coef(summary(model))
 
 # pt fonksiyonu ile çift ve tek kuyruklu t-testi. Hesaplanan p-değeridir.
-2*pt(q = abs(coef(summary(model))[3, 3]), df = model$df.residual, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 != 0 
-pt(q = coef(summary(model))[3, 3], df = model$df.residual, lower.tail = TRUE) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta2 < 0
-pt(q = coef(summary(model))[3, 3], df = model$df.residual, lower.tail = FALSE) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta2 > 0
+2*pt(q = abs(coef(summary(model))[3, 3]), df = model$df.residual, lower.tail = FALSE) ## Çift kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 != 0 
+pt(q = coef(summary(model))[3, 3], df = model$df.residual, lower.tail = TRUE) ## Sol kuyruk t-testi: H0: Beta2 = 0 vs H1: Beta2 < 0
+pt(q = coef(summary(model))[3, 3], df = model$df.residual, lower.tail = FALSE) ## Sağ kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 > 0
 
 # hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
-hoCoef(model, term = 3, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0 
-hoCoef(model, term = 3, bo = 0, alt = c("less")) ## Sol kuyruk t-testi: H0: Beta1 = 0 vs H1: Beta1 < 0
-hoCoef(model, term = 3, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 > 0
+hoCoef(model, term = 3, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 != 0 
+hoCoef(model, term = 3, bo = 0, alt = c("less")) ## Sol kuyruk t-testi: H0: Beta2 = 0 vs H1: Beta2 < 0
+hoCoef(model, term = 3, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 > 0
 
 # linearHypothesis fonksiyonu ile çift kuyruklu t-testi.
 linearHypothesis(model, c("def = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, aynı tek kısıt için hesaplanan t-istatistiğinin karesine eşit olduğunu unutmayın (ayrıca her iki testin sonucu da aynıdır).
@@ -275,9 +275,6 @@ data.ts <- ts(data, start = 1948) ## Data 1948 yılından itibaren başlamış.
 model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1) + L(unem, 2), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model))
-
 # Modelin istatistiki olarak genel anlamlılığı için F-testi ve serbestlik dereceleri.
 summary(model)$fstatistic
 
@@ -287,13 +284,13 @@ pf(q = summary(model)$fstatistic[1], df1 = summary(model)$fstatistic[2], df2 = s
 # Hipotez Testi 1: linearHypothesis fonksiyonu ile modelin istatistiki olarak genel anlamlılığının testi.
 linearHypothesis(model, c("unem = 0", "L(unem, 1) = 0", "L(unem, 2) = 0"))
 
-# Hipotez Testi 2: linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+# Hipotez Testi 2: linearHypothesis fonksiyonu ile tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
 linearHypothesis(model, c("L(unem, 1) = 0", "L(unem, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 ```
 
 ### Örnek: 2 {#F.test.Example.2}
 - Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
-- `fertil3` verisi genel olarak Amerika'daki **doğurganlık oranı ve vergi muafiyeti** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `fertil3` verisi genel olarak Amerika'daki **doğurganlık ve vergi muafiyeti** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
     + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
 - Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
@@ -320,9 +317,6 @@ data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
 model <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + L(pe, 3), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model))
-
 # Modelin istatistiki olarak genel anlamlılığı için F-testi ve serbestlik dereceleri.
 summary(model)$fstatistic
 
@@ -335,19 +329,19 @@ linearHypothesis(model, c("pe = 0", "L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 
 # Hipotez Testi 2: linearHypothesis fonksiyonu ile 2. ve 3. gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
 linearHypothesis(model, c("L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve bu nedenle 2. ve 3. gecikmeli değişkenler modelde kullanılmamalıdır.
 
-# Hipotez Testi 3: linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+# Hipotez Testi 3: linearHypothesis fonksiyonu ile tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
 linearHypothesis(model, c("L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 ```
 
 # Fonksiyonel Form {#Functional.Form}
 - Bu alt bölümde önce, yatay-kesit analizinde gördüğümüz fonksiyonel formlar ve parametre yorumlamaları statik zaman serisi modeli kullanılarak hatırlatılacaktır.
-    + Düzey-Düzey Fonskiyonel Formu: $y_{t} = \beta_{0} + \beta_{1}x_{t} + u_{t} \quad \longrightarrow \quad \Delta{y_{t}} = \beta_{1}\Delta{x_{t}}$  
+    + Düzey-Düzey Fonksiyonel Formu: $y_{t} = \beta_{0} + \beta_{1}x_{t} + u_{t} \quad \longrightarrow \quad \Delta{y_{t}} = \beta_{1}\Delta{x_{t}}$  
     ceteris paribus koşulu altında, bağımsız değişken $x$'deki 1 birimlik artış, bağımlı değişken $y$'de ortalamada $\beta_{1}$ birim kadar değişime neden olur.
-    + Düzey-Log Fonskiyonel Formu: $y_{t} = \beta_{0} + \beta_{1}\ln{x_{t}} + u_{t} \quad \longrightarrow \quad \Delta{y_{t}} = (\beta_{1}/100) \%\Delta{x_{t}}$  
+    + Düzey-Log Fonksiyonel Formu: $y_{t} = \beta_{0} + \beta_{1}\ln{x_{t}} + u_{t} \quad \longrightarrow \quad \Delta{y_{t}} = (\beta_{1}/100) \%\Delta{x_{t}}$  
     ceteris paribus koşulu altında, bağımsız değişken $x$'deki \%1'lik artış, bağımlı değişken $y$'de ortalamada $\beta_{1}/100$ birim kadar değişime neden olur.
-    + Düzey-Düzey Fonskiyonel Formu: $\ln{y_{t}} = \beta_{0} + \beta_{1}x_{t} + u_{t} \quad \longrightarrow \quad \%\Delta{y_{t}} = (100\beta_{1})\Delta{x_{t}}$  
-    ceteris paribus koşulu altında, bağımsız değişken $x$'deki \%1 birimlik artış, bağımlı değişken $y$'de ortalamada $\%100\beta_{1}$ kadar değişime neden olur. $100\beta_{1}$ bazen $y$'nin $x$'e göre yarı-esnekliği olarak da adlandırılır.
-    + Düzey-Düzey Fonskiyonel Formu: $\ln{y_{t}} = \beta_{0} + \beta_{1}\ln{x_{t}} + u_{t} \quad \longrightarrow \quad \%\Delta{y_{t}} = \beta_{1}\%\Delta{x_{t}}$  
+    + Düzey-Düzey Fonksiyonel Formu: $\ln{y_{t}} = \beta_{0} + \beta_{1}x_{t} + u_{t} \quad \longrightarrow \quad \%\Delta{y_{t}} = (100\beta_{1})\Delta{x_{t}}$  
+    ceteris paribus koşulu altında, bağımsız değişken $x$'deki 1 birimlik artış, bağımlı değişken $y$'de ortalamada $\%100\beta_{1}$ kadar değişime neden olur. $100\beta_{1}$ bazen $y$'nin $x$'e göre yarı-esnekliği olarak da adlandırılır.
+    + Düzey-Düzey Fonksiyonel Formu: $\ln{y_{t}} = \beta_{0} + \beta_{1}\ln{x_{t}} + u_{t} \quad \longrightarrow \quad \%\Delta{y_{t}} = \beta_{1}\%\Delta{x_{t}}$  
     ceteris paribus koşulu altında, bağımsız değişken $x$'deki \%1'lik artış, bağımlı değişken $y$'de ortalamada $\%\beta_{1}$ kadar değişime neden olur. $\beta_{1}$ bazen $y$'nin $x$'e göre esnekliği olarak da adlandırılır.
 - Daha sonra, farklı fonksiyonel formların kullanıldığı zaman serileri modellerinde çıkarsama konusu **iki basit zaman serisi modeli** kullanılarak uygulamalı olarak gösterilecektir.
     + Statik Modeller
@@ -355,7 +349,7 @@ linearHypothesis(model, c("L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-
 
 ## Örnek: 1 {#Functional.Form.Example.1}
 - Örnek olarak, `wooldridge` R paketinden `prminwge` verisini yükleyelim.
-- `prminwge` verisi genel olarak Amerika ve Porto Riko'daki **asgari ücret ve istihdam** değişkenlerini, ve ayrıca bu değişkenlere ait logatikmik ve gecikme değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `prminwge` verisi genel olarak Amerika ve Porto Riko'daki **istihdam, asgari ücret ve GSMH** değişkenlerini, ve ayrıca bu değişkenlere ait logatikmik ve gecikme değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + prepop ($prepop_{t}$): Porto Riko'daki istihdam oranı
     + mincov ($mincov_{t}$): asgari ücretin ortalama ücrete göre göreceli önemi
         * Asgari ücretin ortalama ücrete göre göreceli önemini belirten $mincov$ değişkeni şu şekilde hesaplanmıştır.
@@ -380,9 +374,6 @@ data ## Datanın yapısını inceleyelim.
 model <- lm(data = data, formula = log(prepop) ~ log(mincov) + log(usgnp), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model))
-
 # linearHypothesis fonksiyonu ile Beta1 için çift kuyruklu t-testi.
 linearHypothesis(model, c("log(mincov) = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, aynı tek kısıt için hesaplanan t-istatistiğinin karesine eşit olduğunu unutmayın (ayrıca her iki testin sonucu da aynıdır).
 
@@ -393,8 +384,8 @@ linearHypothesis(model, c("log(usgnp) = 0")) ## linearHypothesis fonksiyonu F-is
 ## Örnek: 2 {#Functional.Form.Example.2}
 - Örnek olarak, [`AER`](https://cran.r-project.org/web/packages/AER/index.html) R paketinden `USMoney` verisini yükleyelim.
 - `USMoney` verisi genel olarak Amerika'daki **para arzı ve GSMH** değişkenlerini çeyreklik olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
-    + gnp ($gnp_{t}$): Nominal Gayri Safi Milli Hasıla (GSMH)
     + m1 ($m1_{t}$): Para Arzı (Para Stoğu M1)
+    + gnp ($gnp_{t}$): Nominal Gayri Safi Milli Hasıla (GSMH)
 - Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
 - Daha sonra yüklediğimiz veriyi kullanarak GSMH'nin para arzı üzerindeki etkisini araştıran Log-Log fonksiyonel formundaki FDL$_{(4)}$ modelini tahmin edelim.
     + Model (FDL$_{(4)}$): $\ln(m1_{t}) = \alpha_{0} + \delta_{0}\ln(gnp_{t}) + \delta_{1}\ln(gnp_{t-1}) + \delta_{2}\ln(gnp_{t-2}) + \delta_{3}\ln(gnp_{t-3}) + \delta_{4}\ln(gnp_{t-4}) + u_{t}$
@@ -414,16 +405,13 @@ data(USMoney) ## Datayı yüklüyoruz.
 
 data.ts <- USMoney ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz. Yüklediğimiz datanın ts yani zaman serisi objesi olduğunu unutmayın.
 str(data.ts) ## Datanın yapısını inceleyelim.
-head(data.ts, 10) ## Datanın yapısını ts objesi olarak inceleyelim.
+head(data.ts, 5) ## Datanın yapısını ts objesi olarak inceleyelim.
 datatable(data.frame(Date = as.Date(time(data.ts)), as.matrix(data.ts), stringsAsFactors = FALSE), filter = "none", options = list(pageLength = 5, autoWidth = TRUE)) ## Datanın yapısını data frame olarak inceleyelim.
 ```
 ```{r Functional.Form.Example.2.2}
 # Amerika'daki GSMH'nin para arzı üzerindeki etkisini araştıran FDL(4) modeli.
 model <- dynlm(data = data.ts, formula = log(m1) ~ log(gnp) + L(log(gnp), 1) + L(log(gnp), 2) + L(log(gnp), 3) + L(log(gnp), 4), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
-
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model))
 
 # Parametre isimleri daha sonra kullanılmak üzere kaydediliyor.
 coef.names <- names(coef(model))
@@ -438,7 +426,7 @@ coef(model)[[2]] + coef(model)[[3]] + coef(model)[[4]] + coef(model)[[5]] + coef
 linearHypothesis(model, c("log(gnp) = 0", "L(log(gnp), 1) = 0", "L(log(gnp), 2) = 0", "L(log(gnp), 3) = 0", "L(log(gnp), 4) = 0"))
 # linearHypothesis(model, coef.names[grep("gnp", coef.names)]) ## Yukarıdaki sonucun aynısını verir.
 
-# Hipotez Testi 2: linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+# Hipotez Testi 2: linearHypothesis fonksiyonu ile tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
 linearHypothesis(model, c("L(log(gnp), 1) = 0", "L(log(gnp), 2) = 0", "L(log(gnp), 3) = 0", "L(log(gnp), 4) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 # linearHypothesis(model, coef.names[grep("L", coef.names)]) ## Yukarıdaki sonucun aynısını verir.
 ```
@@ -450,12 +438,12 @@ linearHypothesis(model, c("L(log(gnp), 1) = 0", "L(log(gnp), 2) = 0", "L(log(gnp
 
 ## Örnek: 1 {#Dummy.Variables.Example.1}
 - Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
-- `fertil3` verisi genel olarak Amerika'daki **doğurganlık oranı ve vergi muafiyeti** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `fertil3` verisi genel olarak Amerika'daki **doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
     + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
     + ww2 ($ww2_{t}$): II. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)
     + pill ($pill_{t}$): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (1963 ve sonrası için 1 diğer yıllar için 0)
-- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki statik modelini tahmin edelim.
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki statik modeli tahmin edelim.
     + Model (Statik): $gfr_{t} = \beta_{0} + \beta_{1}pe_{t} + \beta_{2}ww2_{t} + \beta_{3}pill_{t} + u_{t}$
 - Son olarak model tahminini kullanarak aşağıdaki hipotezleri [`car`](https://cran.r-project.org/web/packages/car/index.html) R paketindeki `linearHypothesis` fonksiyonuyla test edelim.
     + Hipotez Testi 1 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0$
@@ -468,8 +456,6 @@ data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
 data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
-str(data) ## Datanın yapısını inceleyelim.
-data ## Datanın yapısını inceleyelim.
 
 # Bazı değişkenlere ait önemli değerler.
 min(data$gfr); max(data$gfr)
@@ -478,9 +464,6 @@ min(data$pe); max(data$pe); mean(data$pe)
 # Model : Doğurganlık, vergi muafiyeti, savaş ve doğurganlık hapı arasındaki statik model.
 model <- lm(data = data, formula = gfr ~ pe + ww2 + pill, singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
-
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model))
 
 # Hipotez Testi 1: linearHypothesis fonksiyonu ile Beta1 için çift kuyruklu t-testi.
 linearHypothesis(model, c("pe = 0"))
@@ -497,7 +480,7 @@ linearHypothesis(model, c("pe = 0", "ww2 = 0", "pill = 0"))
 
 ## Örnek: 2 {#Dummy.Variables.Example.2}
 - Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
-- `fertil3` verisi genel olarak Amerika'daki **doğurganlık oranı ve vergi muafiyeti** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `fertil3` verisi genel olarak Amerika'daki **doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
     + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
     + ww2 ($ww2_{t}$): II. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)
@@ -525,16 +508,11 @@ data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
 data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
-str(data) ## Datanın yapısını inceleyelim.
-data ## Datanın yapısını inceleyelim.
 data.ts <- ts(data, start = 1913) ## Data 1913 yılından itibaren başlamış.
 
 # Model 1 : Doğurganlık, vergi muafiyeti, savaş ve doğurganlık hapı arasındaki FDL(2) modeli.
 model.1 <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, singular.ok = FALSE)
 summary(model.1) ## Tahmin özeti.
-
-# Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
-coef(summary(model.1))
 
 # Cari ve gecikmeli pe değerleri arasındaki korelasyon.
 cor(data$pe, data$pe_1, use = "complete.obs", method = c("pearson"))
@@ -544,7 +522,7 @@ cor(data$pe_1, data$pe_2, use = "complete.obs", method = c("pearson"))
 # Hipotez Testi 1 (Model 1): linearHypothesis fonksiyonu ile cari ve gecikmeli dönemdeki pe değişkenlerinin beraberce istatistiki anlamlılığının testi.
 linearHypothesis(model.1, c("pe = 0", "L(pe, 1) = 0", "L(pe, 2) = 0"))
 
-# Hipotez Testi 2 (Model 1): linearHypothesis fonksiyonu ile gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+# Hipotez Testi 2 (Model 1): linearHypothesis fonksiyonu ile tüm gecikmeli değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
 linearHypothesis(model.1, c("L(pe, 1) = 0", "L(pe, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 
 # Model 1 tahmini kullanılarak uzun dönem çarpanının hesaplanması.
@@ -571,6 +549,179 @@ estimate.se <- coef(summary(model.2))[2, 2] ## Parametre için standart hata tah
 t.critic <- qt(p = (1 - alpha/2), df = model.2$df.residual, lower.tail = TRUE, log.p = FALSE) ## t-kritik değeri.
 estimate.beta - (t.critic * estimate.se) ## Güven aralığı alt limiti.
 estimate.beta + (t.critic * estimate.se) ## Güven aralığı üst limiti.
+```
+
+# Trend {#Trend}
+- Bu alt bölümde, zaman serileri analizinde trende sahip değişkenlerin regresyonda kullanımı iki farklı yöntem ve **statik zaman serisi modeli** kullanılarak uygulamalı olarak gösterilecektir.
+    + Trend Değişkeni Eklenmesi
+    + Trendin Berteraf Edilmesi
+- Trende sahip değişkenler FDL modellerinde de aynı statik modellerdeki gibi kullanılabilir, fakat burada gösterilmemiştir.
+
+## Trend Değişkeni Eklenmesi {#Trend.Variable}
+### Örnek: 1 {#Trend.Variable.Example.1}
+- Örnek olarak, `wooldridge` R paketinden `hseinv` verisini yükleyelim.
+- `hseinv` verisi genel olarak Amerika'daki **ev yatırımları ve fiyatlar** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + invpc ($invpc_{t}$): reel kişi başı ev yatırımı (bin dolar)
+    + price ($price_{t}$): ev fiyatları indeksi (1982 baz yılı = 1)
+    + t ($t$): zaman trendi
+- Sonra yüklediğimiz bu verinin metadatasını ve yapısını inceleyelim.
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki statik modeli tahmin edelim.
+    + Model 1 (Statik): $\ln(invpc_{t}) = \beta_{0} + \beta_{1}\ln(price_{t}) + u_{t}$
+- Daha sonra Model 1 tahminini kullanarak aşağıdaki hipotezleri [`FSA`](https://cran.r-project.org/web/packages/FSA/index.html) R paketindeki `hoCoef` fonksiyonuyla test edelim.
+    + Hipotez Testi 1 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0$
+    + Hipotez Testi 2 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{1} = 1 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 1$
+- Daha sonra Model 1'de kullandığımız bağımlı ve bağımsız değişkenlerde trend olup olmadığını anlamak için bu değişkenleri trend ($t$) üzerine regres edip aşağıdaki modelleri tahmin edelim.
+    + Model 2 (Statik): $\ln(invpc_{t}) = \alpha_{0} + \alpha_{1}t + \epsilon_{t}$
+    + Model 3 (Statik): $\ln(price_{t}) = \alpha_{0} + \alpha_{1}t + \epsilon_{t}$
+- Daha sonra Model 2 ve Model 3'deki trend değişkenine ait parametrelerin istatistiki olarak anlamlı olup olmadığını model tahmin sonuçlarını kullanarak bulmaya ve sonuç olarak Model 1'de kullanılan bağımlı ve bağımsız değişkenlerde trend olup olmadığına karar vermeye çalışalım.
+- Daha sonra Model 1'deki bağımlı ve bağımsız değişkenlerde trend bulunduğundan dolayı **sahte regresyon problemi** ile karşılaşmamak için trend değişkeni eklenmiş aşağıdaki statik modeli tahmin edelim.
+    + Model 4 (Trendli Statik): $\ln(invpc_{t}) = \beta_{0} + \beta_{1}\ln(price_{t}) + \beta_{2}t + u_{t}$
+        * Model 4 Log-Log fonksiyonel formunda olduğundan trende ait $\beta_{2}$ parametresi bağımlı değişken $invpc_{t}$'deki büyüme oranını ifade edecektir. Yani, üstel trend modeli kullanılmıştır.
+- Son olarak Model 4 tahminini kullanarak aşağıdaki hipotezleri [`FSA`](https://cran.r-project.org/web/packages/FSA/index.html) R paketindeki `hoCoef` fonksiyonuyla test edelim.
+    + Hipotez Testi 3 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0$
+    + Hipotez Testi 4 (Çift Kuyruk $t$-testi): $H_{0}: \beta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0$
+```{r Trend.Variable.Example.1}
+data(hseinv) ## Datayı yüklüyoruz.
+?hseinv ## Datanın metadatası.
+
+data <- hseinv ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+str(data) ## Datanın yapısını inceleyelim.
+data ## Datanın yapısını inceleyelim.
+
+# Model 1: Ev yatırımları ve fiyatları arasındaki trendsiz statik model.
+model.1 <- lm(data = data, formula = log(invpc) ~ log(price), singular.ok = FALSE)
+summary(model.1) ## Tahmin özeti.
+
+# Hipotez Testi 1 (Model 1): hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model.1, term = 2, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0
+
+# Hipotez Testi 2 (Model 1): hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model.1, term = 2, bo = 1, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 1 vs H1: Beta1 != 1
+
+# Model 2: Ev yatırımları değişkeni trend üzerine regres ediliyor.
+model.2 <- lm(data = data, formula = log(invpc) ~ t, singular.ok = FALSE)
+summary(model.2) ## Tahmin özeti.
+
+# Model 3: Fiyatlar değişkeni trend üzerine regres ediliyor.
+model.3 <- lm(data = data, formula = log(price) ~ t, singular.ok = FALSE)
+summary(model.3) ## Tahmin özeti.
+
+# Model 4: Ev yatırımları ve fiyatları arasındaki trendli statik model.
+model.4 <- lm(data = data, formula = log(invpc) ~ log(price) + t, singular.ok = FALSE)
+summary(model.4) ## Tahmin özeti.
+
+# Hipotez Testi 3 (Model 4): hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model.4, term = 2, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0
+
+# Hipotez Testi 4 (Model 4): hoCoef fonksiyonu ile çift ve tek kuyruklu t-testi.
+hoCoef(model.4, term = 3, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 != 0
+```
+
+### Örnek: 2 {#Trend.Variable.Example.2}
+- Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
+- `fertil3` verisi genel olarak Amerika'daki **doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
+    + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
+    + ww2 ($ww2_{t}$): II. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)
+    + pill ($pill_{t}$): doğum kontrol hapı kullanımının yasal olduğu yılları belirten kukla değişken (1963 ve sonrası için 1 diğer yıllar için 0)
+    + t ($t$): zaman trendi
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki karesel trendli statik modeli tahmin edelim.
+    + Model (Statik): $gfr_{t} = \beta_{0} + \beta_{1}pe_{t} + \beta_{2}ww2_{t} + \beta_{3}pill_{t} + \beta_{4}t + \beta_{5}t^{2} + u_{t}$
+```{r Trend.Variable.Example.2}
+data(fertil3) ## Datayı yüklüyoruz.
+?fertil3 ## Datanın metadatası.
+
+data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+
+# Model : Doğurganlık, vergi muafiyeti, savaş ve doğurganlık hapı arasındaki karesel trendli statik model.
+model <- lm(data = data, formula = gfr ~ pe + ww2 + pill + t + I(t^2), singular.ok = FALSE) ## Burada t^2 bağımsız değişkeni modele koyabilmek için I() fonksiyonunu kullandığımıza dikkat edin.
+summary(model) ## Tahmin özeti.
+```
+
+## Trendin Berteraf Edilmesi {#Detrending.Example}
+- Örnek olarak, `wooldridge` R paketinden `hseinv` verisini yükleyelim.
+- `hseinv` verisi genel olarak Amerika'daki **ev yatırımları ve fiyatlar** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + invpc ($invpc_{t}$): reel kişi başı ev yatırımı (bin dolar)
+    + price ($price_{t}$): ev fiyatları indeksi (1982 baz yılı = 1)
+    + t ($t$): zaman trendi
+- Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki trendli statik modeli tahmin edelim.
+    + Model 1 (Trendli Statik): $\ln(invpc_{t}) = \beta_{0} + \beta_{1}\ln(price_{t}) + \beta_{2}t + u_{t}$
+        * Model 1 Log-Log fonksiyonel formunda olduğundan trende ait $\beta_{2}$ parametresi bağımlı değişken $invpc_{t}$'deki büyüme oranını ifade edecektir. Yani, üstel trend modeli kullanılmıştır.
+        * Not: Bağımlı ve bağımsız değişkenlerde trend bulunduğundan dolayı **sahte regresyon problemi** ile karşılaşmamak için Model 1'e trend eklenmiştir. Bakınız [Trend Değişkeni Eklenmesi: Örnek 1](#Trend.Variable.Example.1)
+- Daha sonra Model 1'de kullanılan bağımlı ve bağımsız değişkenleri trend değişkeni üzerine ayrı ayrı regres edip her modelden elde edilen kalıntıları ($\overset{..}{y}_{t}$ ve $\overset{..}{x}_{1t}$ gibi) hesaplayalım. Yani, tüm değişkenlerdeki trendi berteraf edelim.
+    + Model 2: $\ln(invpc_{t}) = \alpha_{0} + \alpha_{1}t + e_{t} \quad \longrightarrow \quad \hat{e}_{t} = ln(invpc_{t}) - \widehat{\ln(invpc_{t})}$
+    + Model 3: $\ln(price_{t}) = \theta_{0} + \theta_{1}t + h_{t} \quad \longrightarrow \quad \hat{h}_{t} = ln(price_{t}) - \widehat{\ln(price_{t})}$
+- Daha sonra Model 2 ve Model 3'den elde edilen artıkları birbiri üzerine regres edip aşağıdaki modeli tahmin edelim.
+    + Model 4 (Trendsiz Statik): $\hat{e}_{t} = \delta_{0} + \delta_{1}\hat{h}_{t} + u_{t}$
+- Son olarak Model 1 ve Model 4 sonuçlarının aynı olup olmadığını inceleyelim.
+```{r Detrending.Example}
+data(hseinv) ## Datayı yüklüyoruz.
+?hseinv ## Datanın metadatası.
+
+data <- hseinv ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+
+# Model 1: Ev yatırımları ve fiyatları arasındaki trendli statik model.
+model.1 <- lm(data = data, formula = log(invpc) ~ log(price) + t, singular.ok = FALSE)
+summary(model.1) ## Tahmin özeti.
+
+#===
+# Ek bilgi: Statik modeli dynlm() fonksiyonu ile tahmin etmek.
+data.ts <- ts(data, start = 1947) ## Data 1947 yılından itibaren başlamış.
+model.1 <- dynlm(data = data.ts, formula = log(invpc) ~ log(price) + trend(data.ts), singular.ok = FALSE) ## dynlm() fonksiyonu statik modeller için de kullanılabilir. dynlm() fonksiyonunun avantajı data içinde trend ya da mevsimsellik değişkenleri olmasa da otomatik olarak oluşturabilmesidir. trend() fonksiyonu kullanarak modele lineer trend eklenebilir.
+summary(model.1) ## Tahmin özeti. Yukarıdaki lm() fonksiyonu ile elde edilen sonucun aynısı.
+#===
+
+# Model 2: Ev yatırımları ve trend arasındaki model.
+model.2 <- lm(data = data, formula = log(invpc) ~ t, singular.ok = FALSE)
+ln.invpc.resid <- model.2$residuals ## Kalıntılar.
+
+# Model 3: Fiyatlar ve trend arasındaki model.
+model.3 <- lm(data = data, formula = log(price) ~ t, singular.ok = FALSE)
+ln.price.resid <- model.3$residuals ## Kalıntılar.
+
+model.4 <- lm(formula = ln.invpc.resid ~ ln.price.resid, singular.ok = FALSE) ## Data argumanını kullanmadıgımıza ve aynı uzunlukta iki değişken kullandığımıza dikkat edin.
+summary(model.4) ## Tahmin özeti.
+
+# Model 1 ve Model 4 arasında karşılaştırma yapmak amacıyla stargazer fonksiyonu kullanılıyor.
+stargazer(model.1, model.4, type = "text")
+```
+
+# Mevsimsellik {#Seasonality}
+- Bu alt bölümde, zaman serileri analizinde mevsimselliğe sahip değişkenlerin regresyonda kullanımı bir yöntem ve **statik zaman serisi modeli** kullanılarak uygulamalı olarak gösterilecektir.
+    + Mevsimsel Kukla Değişkenlerin Eklenmesi
+- Mevsimselliğe sahip değişkenler FDL modellerinde de aynı statik modellerdeki gibi kullanılabilir, fakat burada gösterilmemiştir.
+
+## Mevsimsel Kukla Değişkenlerin Eklenmesi {#Seasonal.Dummy.Variables.Example}
+- Örnek olarak, [`AER`](https://cran.r-project.org/web/packages/AER/index.html) R paketinden `USMoney` verisini yükleyelim.
+- `USMoney` verisi genel olarak Amerika'daki **para arzı ve GSMH** değişkenlerini çeyreklik olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+    + m1 ($m1_{t}$): Para Arzı (Para Stoğu M1)
+    + gnp ($gnp_{t}$): Nominal Gayri Safi Milli Hasıla (GSMH)
+- Daha sonra yüklediğimiz veriyi kullanarak GSMH'nin para arzı üzerindeki etkisini araştıran Log-Log fonksiyonel formundaki trendli ve mevsimsel kuklalı statik modeli tahmin edelim.
+    + Model (Trendli ve Mevsimsel KuklalıStatik): $\ln(m1_{t}) = \beta_{0} + \beta_{1}\ln(gnp_{t}) + \beta_{2}t + \delta_{1}Q2_{t} + \delta_{2}Q3_{t} + \delta_{3}Q4_{t} + u_{t}$
+        * Model Log-Log fonksiyonel formunda olduğundan trende ait $\beta_{2}$ parametresi bağımlı değişken $m1_{t}$'deki büyüme oranını ifade edecektir. Yani, üstel trend modeli kullanılmıştır.
+        * Çeyrek 1'i ifade eden $Q1_{t}$ baz dönem olarak alınmıştır ve bu nedenle modelde yoktur.
+        * Çeyrek 1'in $\ln(m1_{t})$ üzerindeki etkisini sabit terim $\beta_{0}$ ifade eder.
+- Son olarak model tahminini kullanarak aşağıdaki hipotezleri
+[`car`](https://cran.r-project.org/web/packages/car/index.html) R paketindeki `linearHypothesis` fonksiyonuyla test edelim.
+    + Tüm mevsimsel kukla değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+        * Hipotez Testi 1 ($F$-testi): $H_{0}: \delta_{1} = \delta_{2} = \delta_{3} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
+        * Eğer boş hipotez reddedilirse, $\ln(m1_{t})$'de ve dolayısıyla modelde mevsimsellik vardır, yani mevsimsel kukla değişkenlere ihtiyaç vardır. Aksi durumda mevsimsel kukla değişkenler kullanılmamalıdır.
+```{r #Seasonal.Dummy.Variables.Example}
+data(USMoney) ## Datayı yüklüyoruz.
+?USMoney ## Datanın metadatası.
+
+data.ts <- USMoney ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz. Yüklediğimiz datanın ts yani zaman serisi objesi olduğunu unutmayın.
+
+# Amerika'daki GSMH'nin para arzı üzerindeki etkisini araştıran trendli ve mevsimsel kuklalı statik modeli.
+model <- dynlm(data = data.ts, formula = log(m1) ~ log(gnp) + trend(data.ts) + season(data.ts), singular.ok = FALSE) ## dynlm() fonksiyonu statik modeller için de kullanılabilir. dynlm() fonksiyonunun avantajı data içinde trend ya da mevsimsellik değişkenleri olmasa da otomatik olarak oluşturabilmesidir. trend() fonksiyonu kullanarak modele lineer trend eklenebilir. season() fonksiyonu kullanarak modele mevsimsel kukla değişkenleri eklenebilir (ilk dönem, baz dönem olacaktır).
+summary(model) ## Tahmin özeti.
+
+# Parametre isimleri daha sonra kullanılmak üzere kaydediliyor.
+coef.names <- names(coef(model))
+
+# Hipotez Testi 1: linearHypothesis fonksiyonu ile tüm mevsimsel kukla değişken parametrelerinin birlikte istatistiki olarak anlamlı olup olmadığının testi.
+linearHypothesis(model, c("season(data.ts)Q2 = 0", "season(data.ts)Q3 = 0", "season(data.ts)Q4 = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve mevsimsel kukla değişkenler kullanılmamalıdır.
+linearHypothesis(model, coef.names[grep("season", coef.names)]) ## Yukarıdaki sonucun aynısını verir.
 ```
 
 <!-- ================================ SON ================================== -->

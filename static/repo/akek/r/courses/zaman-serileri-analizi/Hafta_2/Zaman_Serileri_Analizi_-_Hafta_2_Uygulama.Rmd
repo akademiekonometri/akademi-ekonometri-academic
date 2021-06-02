@@ -177,7 +177,7 @@ summary(model.2) ## Tahmin özeti.
 
 ### Statik Model (ÇDR) {#Static.Models.MLR}
 - Örnek olarak, `wooldridge` R paketinden `intdef` verisini yükleyelim.
-- `intdef` verisi genel olarak Amerika'daki **faiz oranı** ve alakalı değişkenleri, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
+- `intdef` verisi genel olarak Amerika'daki **faiz oranı, enflasyon ve bütçe açığı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
     + i3 ($i3_{t}$): cari dönem 3 aylık devlet tahvili faiz oranı
     + inf ($inf_{t}$): cari dönem enflasyon oranı
     + def ($def_{t}$): cari dönem bütçe açığı (GSYH'ya oran olarak)
@@ -212,7 +212,6 @@ summary(model) ## Tahmin özeti.
 - `phillips` verisi genel olarak Amerika'daki **enflasyon ve işsizlik** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + inf ($inf_{t}$): cari dönem enflasyon oranı
     + unem ($unem_{t}$): cari dönem işsizlik oranı
-    + unem_1 ($unem_{t-1}$): 1. gecikme işsizlik oranı
 - Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki FDL$_{(1)}$ modelini tahmin edelim.
     + Model (FDL$_{(1)}$): $inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}$
 - Son olarak model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
@@ -241,7 +240,7 @@ coef(model)[[2]] + coef(model)[[3]]
 
 ### FDL$_{(2)}$ {#FDL.Models.2}
 - Örnek olarak, `wooldridge` R paketinden `fertil3` verisini yükleyelim.
-- `fertil3` verisi genel olarak Amerika'daki **doğurganlık oranı ve vergi muafiyeti** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+- `fertil3` verisi genel olarak Amerika'daki **doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı** değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
     + gfr ($gfr_{t}$): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)
     + pe ($pe_{t}$): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)
     + ww2 ($ww2_{t}$): II. Dünya Savaşı yıllarını belirten kukla değişken (1941-1945 yılları için 1 diğer yıllar için 0)

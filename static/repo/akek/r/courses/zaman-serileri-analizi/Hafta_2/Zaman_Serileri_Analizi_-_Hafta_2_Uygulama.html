@@ -348,7 +348,7 @@ div.tocify {
 <h1 class="title toc-ignore">Zaman Serileri Analizi</h1>
 <h3 class="subtitle">Hafta #2 - Uygulama</h3>
 <h4 class="author"><a href="mailto:okara@ogu.edu.tr">Dr. Ömer Kara</a></h4>
-<h4 class="date">Friday, May 28, 2021</h4>
+<h4 class="date">Monday, May 31, 2021</h4>
 
 </div>
 
@@ -534,7 +534,7 @@ div.main-container {
 <h3 number="2.1.2"><span class="header-section-number">2.1.2</span> Statik Model (ÇDR)</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>intdef</code> verisini yükleyelim.</li>
-<li><code>intdef</code> verisi genel olarak Amerika’daki <strong>faiz oranı</strong> ve alakalı değişkenleri, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
+<li><code>intdef</code> verisi genel olarak Amerika’daki <strong>faiz oranı, enflasyon ve bütçe açığı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor.
 <ul>
 <li>i3 (<span class="math inline">\(i3_{t}\)</span>): cari dönem 3 aylık devlet tahvili faiz oranı</li>
 <li>inf (<span class="math inline">\(inf_{t}\)</span>): cari dönem enflasyon oranı</li>
@@ -625,7 +625,6 @@ div.main-container {
 <ul>
 <li>inf (<span class="math inline">\(inf_{t}\)</span>): cari dönem enflasyon oranı</li>
 <li>unem (<span class="math inline">\(unem_{t}\)</span>): cari dönem işsizlik oranı</li>
-<li>unem_1 (<span class="math inline">\(unem_{t-1}\)</span>): 1. gecikme işsizlik oranı</li>
 </ul></li>
 <li>Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki FDL<span class="math inline">\(_{(1)}\)</span> modelini tahmin edelim.
 <ul>
@@ -684,7 +683,7 @@ div.main-container {
 <h3 number="2.2.2"><span class="header-section-number">2.2.2</span> FDL<span class="math inline">\(_{(2)}\)</span></h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
-<li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık oranı ve vergi muafiyeti</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
+<li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
 <ul>
 <li>gfr (<span class="math inline">\(gfr_{t}\)</span>): doğurganlık oranı (doğurganlık yaşındaki 1000 kadına düşen bebek sayısı)</li>
 <li>pe (<span class="math inline">\(pe_{t}\)</span>): çocuk sahibi olmayı özendirmek için getirilen vergi muafiyeti ($)</li>

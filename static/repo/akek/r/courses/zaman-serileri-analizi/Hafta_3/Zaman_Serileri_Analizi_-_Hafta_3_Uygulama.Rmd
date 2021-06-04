@@ -390,8 +390,8 @@ linearHypothesis(model, c("log(usgnp) = 0")) ## linearHypothesis fonksiyonu F-is
 - Daha sonra yüklediğimiz veriyi kullanarak GSMH'nin para arzı üzerindeki etkisini araştıran Log-Log fonksiyonel formundaki FDL$_{(4)}$ modelini tahmin edelim.
     + Model (FDL$_{(4)}$): $\ln(m1_{t}) = \alpha_{0} + \delta_{0}\ln(gnp_{t}) + \delta_{1}\ln(gnp_{t-1}) + \delta_{2}\ln(gnp_{t-2}) + \delta_{3}\ln(gnp_{t-3}) + \delta_{4}\ln(gnp_{t-4}) + u_{t}$
 - Daha sonra model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
-    + Etki çarpanı (kısa dönem esnekliği): $\delta_{0}$
-    + Uzun dönem çarpanı (uzun dönem esnekliği): $\delta_{0} + \delta_{1} + \delta_{2} + \delta_{3} + \delta_{4}$
+    + Etki çarpanı (kısa dönem esnekliği): $\hat{\delta}_{0}$
+    + Uzun dönem çarpanı (uzun dönem esnekliği): $\hat{\delta}_{0} + \hat{\delta}_{1} + \hat{\delta}_{2} + \hat{\delta}_{3} + \hat{\delta}_{4}$
 - Son olarak model tahminini kullanarak aşağıdaki hipotezleri
 [`car`](https://cran.r-project.org/web/packages/car/index.html) R paketindeki `linearHypothesis` fonksiyonuyla test edelim.
     + Modelin istatistiki olarak genel anlamlılığının testi.
@@ -494,7 +494,7 @@ linearHypothesis(model, c("pe = 0", "ww2 = 0", "pill = 0"))
         * Hipotez Testi 2 ($F$-testi): $H_{0}: \delta_{1} = \delta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: H_{0} \ \text{doğru değil}$
         * Eğer boş hipotez reddedilirse, FDL$_{(2)}$ modeline ihtiyaç vardır. Aksi durumda statik model kullanılmalıdır.
 - Daha sonra Model 1 tahminini kullanarak uzun dönem çarpanı değerini hesaplayalım.
-    + Uzun dönem çarpanı: $\theta_{0} = \delta_{0} + \delta_{1} + \delta_{2}$
+    + Uzun dönem çarpanı: $\hat{\theta}_{0} = \hat{\delta}_{0} + \hat{\delta}_{1} + \hat{\delta}_{2}$
 - Daha sonra uzun dönem çarpanının istatistiki anlamlılığını test etmek için Model 1'i dönüştürüp Model 2'yi oluşturalım.
     + Model 2 (FDL$_{(2)}$): $gfr_{t} = \alpha_{0} + \theta_{0}pe_{t} + \delta_{1}(pe_{t-1} - pe_{t}) + \delta_{2}(pe_{t-2} - pe_{t}) + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}$
     + Model 2'nin çıkarılışı için ders slaytlarına bakabilirsiniz.

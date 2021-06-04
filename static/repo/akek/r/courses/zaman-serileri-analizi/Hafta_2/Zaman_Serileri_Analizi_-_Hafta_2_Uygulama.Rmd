@@ -215,8 +215,8 @@ summary(model) ## Tahmin özeti.
 - Daha sonra yüklediğimiz veriyi kullanarak aşağıdaki FDL$_{(1)}$ modelini tahmin edelim.
     + Model (FDL$_{(1)}$): $inf_{t} = \alpha_{0} + \delta_{0}unem_{t} + \delta_{1}unem_{t-1} + u_{t}$
 - Son olarak model tahminini kullanarak etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
-    + Etki çarpanı: $\delta_{0}$
-    + Uzun dönem çarpanı: $\delta_{0} + \delta_{1}$
+    + Etki çarpanı: $\hat{\delta}_{0}$
+    + Uzun dönem çarpanı: $\hat{\delta}_{0} + \hat{\delta}_{1}$
 ```{r FDL.Models.1}
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
@@ -251,11 +251,11 @@ coef(model)[[2]] + coef(model)[[3]]
     + Model 2 (FDL$_{(2)}$): $gfr_{t} = \alpha_{0} + \delta_{0}pe_{t} + \delta_{1}pe_{t-1} + \delta_{2}pe_{t-2} + \beta_{1}ww2_{t} + \beta_{2}pill_{t} + u_{t}$
 - Son olarak model tahminlerini kullanarak her model için etki çarpanı ve uzun dönem çarpanı değerlerini hesaplayalım.
     + Model 1'de denklemin sağ tarafında tek bir bağımsız değişken ve ona ait gecikme değerleri vardır.
-        * Etki çarpanı: $\delta_{0}$
-        * Uzun dönem çarpanı: $\delta_{0} + \delta_{1} + \delta_{2}$
+        * Etki çarpanı: $\hat{\delta}_{0}$
+        * Uzun dönem çarpanı: $\hat{\delta}_{0} + \hat{\delta}_{1} + \hat{\delta}_{2}$
     + Model 2'de denklemin sağ tarafında bir bağımsız değişken ve ona ait gecikme değerlerinin olmasının yanı sıra başka bağımsız değişkenler de vardır. Yani, modelde bağımlı değişkeni etkileyen diğer faktörler de kontrol edilmiştir.
-        * Etki çarpanı: $\delta_{0}$
-        * Uzun dönem çarpanı: $\delta_{0} + \delta_{1} + \delta_{2}$
+        * Etki çarpanı: $\hat{\delta}_{0}$
+        * Uzun dönem çarpanı: $\hat{\delta}_{0} + \hat{\delta}_{1} + \hat{\delta}_{2}$
 ```{r FDL.Models.2}
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.

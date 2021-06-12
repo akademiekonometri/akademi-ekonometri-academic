@@ -44,6 +44,50 @@ SummaryR.lm <- function(model, type = c("hc3", "hc0", "hc1", "hc2", "hc4"), ...)
     cat("Note: Heteroscedasticity-consistent standard errors using adjustment", type, "\n")
 }
 
+#=================================== hoCoef ====================================
+#======================== t-Tests for LM Type Objects ==========================
+
+# Notes:
+#
+## One and two tail t-tests for LM objects.
+
+# Usage:
+#
+# hoCoef(object, term = 2, bo= 0, alt = c("two.sided", "less", "greater"))
+#
+## object: Model.
+## term: Order of the parameter in the model.
+## bo: Alternative hypothesis value.
+## alt: Alternative hypothesis type.
+
+# Examples:
+#
+## hoCoef(your.model, term = 2, bo = 0, alt = "two.sioded")
+
+hoCoef <- function(object, term = 2, bo= 0, alt = c("two.sided", "less", "greater")) {
+    alt <- match.arg(alt)
+    if (!"lm" %in% class(object))
+        STOP("'object' must be from 'lm'.")
+    if (!term > 0)
+        STOP("'term' must be a positive number.")
+    tmp <- summary(object)$coefficients
+    if (term>length(rownames(tmp)))
+        STOP("'term' is greater than number of terms in the model.")
+    est <- tmp[term,"Estimate"]
+    se <- tmp[term,"Std. Error"]
+    t <- (est - bo)/se
+    df <- object$df.residual
+    switch(alt,
+           less = {p.value <- stats::pt(t, df, lower.tail = TRUE)},
+           greater = {p.value <- stats::pt(t,df,lower.tail=FALSE)},
+           two.sided = {p.value <- 2*stats::pt(abs(t), df, lower.tail = FALSE)}
+    )
+    res <- cbind(term,bo,est,se,t,df,p.value)
+    colnames(res) <- c("term", "Ho Value", "Estimate", "Std. Error", "T", "df", "p value")
+    rownames(res) <- ""
+    res
+}
+
 #===============================================================================
 # Percentage increase/decrease for log variables. The variable should be in logs. This function makes sure that the raw variable of interest increases/decrease, 10% i.e., while you are dealing with the log form.
 log.percent <- function(Variable, Percent) {

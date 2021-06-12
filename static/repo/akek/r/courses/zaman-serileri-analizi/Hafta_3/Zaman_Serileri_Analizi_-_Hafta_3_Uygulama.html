@@ -356,7 +356,7 @@ div.tocify {
 <h1 class="title toc-ignore">Zaman Serileri Analizi</h1>
 <h3 class="subtitle">Hafta #3 - Uygulama</h3>
 <h4 class="author"><a href="mailto:okara@ogu.edu.tr">Dr. Ömer Kara</a></h4>
-<h4 class="date">Friday, June 04, 2021</h4>
+<h4 class="date">Saturday, June 12, 2021</h4>
 
 </div>
 
@@ -394,7 +394,7 @@ div.main-container {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerekli paketlerin yüklenmesi.</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;FSA&quot;</span>, <span class="st">&quot;AER&quot;</span>, <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;AER&quot;</span>, <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
 </div>
 <div id="Settings.Seed" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Seed</h2>
@@ -480,7 +480,7 @@ div.main-container {
 <li>Basit zaman serisi modellerinde <span class="math inline">\(t\)</span>-testi uygulamak için 3 farklı fonksiyon kullanabiliriz.
 <ul>
 <li><code>pt</code> fonksiyonu ile model tahmininden elde ettiğimiz <span class="math inline">\(t\)</span>-istatistiğine ait <span class="math inline">\(p\)</span>-değerini çift ve tek kuyruklu hipotez testleri için hesaplayabiliriz.</li>
-<li><a href="https://cran.r-project.org/web/packages/FSA/index.html"><code>FSA</code></a> R paketindeki <code>hoCoef</code> fonksiyonunda model tahminini kullanarak çift ve tek kuyruklu hipotez testleri uygulayabiliriz.</li>
+<li><code>hoCoef</code> fonksiyonunda model tahminini kullanarak çift ve tek kuyruklu hipotez testleri uygulayabiliriz.</li>
 <li><a href="https://cran.r-project.org/web/packages/car/index.html"><code>car</code></a> R paketindeki <code>linearHypothesis</code> fonksiyonunda model tahminini kullanarak çift kuyruk hipotez testini uygulayabiliriz.</li>
 </ul></li>
 </ul>
@@ -1456,7 +1456,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 <ul>
 <li>Model 1 (Statik): <span class="math inline">\(\ln(invpc_{t}) = \beta_{0} + \beta_{1}\ln(price_{t}) + u_{t}\)</span></li>
 </ul></li>
-<li>Daha sonra Model 1 tahminini kullanarak aşağıdaki hipotezleri <a href="https://cran.r-project.org/web/packages/FSA/index.html"><code>FSA</code></a> R paketindeki <code>hoCoef</code> fonksiyonuyla test edelim.
+<li>Daha sonra Model 1 tahminini kullanarak aşağıdaki hipotezleri <code>hoCoef</code> fonksiyonuyla test edelim.
 <ul>
 <li>Hipotez Testi 1 (Çift Kuyruk <span class="math inline">\(t\)</span>-testi): <span class="math inline">\(H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0\)</span></li>
 <li>Hipotez Testi 2 (Çift Kuyruk <span class="math inline">\(t\)</span>-testi): <span class="math inline">\(H_{0}: \beta_{1} = 1 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 1\)</span></li>
@@ -1474,7 +1474,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 <li>Model 4 Log-Log fonksiyonel formunda olduğundan trende ait <span class="math inline">\(\beta_{2}\)</span> parametresi bağımlı değişken <span class="math inline">\(invpc_{t}\)</span>’deki büyüme oranını ifade edecektir. Yani, üstel trend modeli kullanılmıştır.</li>
 </ul></li>
 </ul></li>
-<li>Son olarak Model 4 tahminini kullanarak aşağıdaki hipotezleri <a href="https://cran.r-project.org/web/packages/FSA/index.html"><code>FSA</code></a> R paketindeki <code>hoCoef</code> fonksiyonuyla test edelim.
+<li>Son olarak Model 4 tahminini kullanarak aşağıdaki hipotezleri <code>hoCoef</code> fonksiyonuyla test edelim.
 <ul>
 <li>Hipotez Testi 3 (Çift Kuyruk <span class="math inline">\(t\)</span>-testi): <span class="math inline">\(H_{0}: \beta_{1} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0\)</span></li>
 <li>Hipotez Testi 4 (Çift Kuyruk <span class="math inline">\(t\)</span>-testi): <span class="math inline">\(H_{0}: \beta_{2} = 0 \;\; \text{vs.} \;\; H_{1}: \beta_{1} \neq 0\)</span></li>

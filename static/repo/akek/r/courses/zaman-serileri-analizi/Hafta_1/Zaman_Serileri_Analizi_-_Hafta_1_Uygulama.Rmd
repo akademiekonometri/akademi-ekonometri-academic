@@ -106,7 +106,7 @@ suppressWarnings(library("devtools"))
 
 # Gerekli paketlerin yüklenmesi.
 ## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
-Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
+Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "lubridate", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 ```
 
 ## Seed {#Settings.Seed}
@@ -185,7 +185,7 @@ ggplot(temp) +
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim. İlk 20 gözlemin gösterilmesini istedik.
-data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
+data <- data.frame(Date = as.Date(date_decimal(as.numeric(time(data)))), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
 data ## Datanın yapısını inceleyelim.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
@@ -692,7 +692,7 @@ data
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim.
-data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
+data <- data.frame(Date = as.Date(date_decimal(as.numeric(time(data)))), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
 
@@ -703,7 +703,7 @@ variable.name <- "Avustralya Elektrik Üretimi (milyar kWh)"
 
 ggplot(temp) +
     geom_line(aes(x = Date, y = temp[ , variable], colour = "Variable"), linetype = 1, size = 1) +
-    xlab("Zaman (Yıl)") + ylab(variable.name) +
+    xlab("Zaman (Çeyreklik)") + ylab(variable.name) +
     # labs(title = "Başlık") + ## Grafik için isterseniz başlık eklenebilir.
     scale_x_date(date_breaks = "5 year", date_labels = "%Y") +
     scale_colour_manual(name = "", labels = c(variable.name), values = c("Variable" = "darkblue")) +
@@ -800,7 +800,7 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim.
-data <- data.frame(Date = as.Date(time(data)), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
+data <- data.frame(Date = as.Date(date_decimal(as.numeric(time(data)))), Elec.Prod = as.matrix(data), stringsAsFactors = FALSE) ## Yüklediğimiz data time series formatında olduğu için bu datayı data.frame formatına çeviriyoruz.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
 

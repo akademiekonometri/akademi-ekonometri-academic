@@ -1,4 +1,3 @@
-#============================= Akademi Ekonometri ==============================
 #============================== Seasonal.Adjust ================================
 #========================== Seasonally Adjusts Data ============================
 
@@ -14,17 +13,18 @@
 # Seasonal.Adjust(Data, Significance.Level = 5, Adjust = FALSE)
 #
 ## Data: Time series (ts) object. It can be multivariate or univariate.
+## x13.Path: Path of the "x13.Path" in your computer.
 ## Significance Level: Significance level for all QS seasonality tests.
 ## Adjust: Adjusts the original data with seasonality.
-## To run the function without any argument matching confusion make sure to specify Significance.Level and Convert arguments with their names always (if non-default values are selected).
+## To run the function without any argument matching confusion make sure to specify Significance.Level and Adjust arguments with their names always (if non-default values are selected).
 
 # Examples:
 #
-## Seasonal.Adjust(data.ts, 5)
-## Seasonal.Adjust(data.ts, Significance.Level = 1)
-## Seasonal.Adjust(data.ts, Significance.Level = 5, Adjust = TRUE)
+## Seasonal.Adjust(data.ts, 5, x13.Path = "./")
+## Seasonal.Adjust(data.ts, Significance.Level = 1, x13.Path = "PATH")
+## Seasonal.Adjust(data.ts, Significance.Level = 5, Adjust = TRUE, x13.Path = paste0("PATH", "x13binary/bin"))
 
-Seasonal.Adjust <- function(Data, Significance.Level, Adjust = FALSE) {
+Seasonal.Adjust <- function(Data, Significance.Level, Adjust = FALSE, x13.Path) {
     # Saves the current working directory for further use.
     WD.temp <- getwd()
 
@@ -61,12 +61,17 @@ Seasonal.Adjust <- function(Data, Significance.Level, Adjust = FALSE) {
     if (!(Adjust %in% c("TRUE", "FALSE")))
         stop("Invalid Adjust. Please choose one of the followings: 1) To seasonally adjust the date with X-13ARIMA-SEATS automatic adjustment: TRUE. 2) To leave data as is: FALSE.\n")
 
+    # Checks x13.Path.
+    if (length(x13.Path) != 1)
+        stop("Invalid x13.Path. Please choose only one x13.Path.\n")
+
     # Changing the working directory and loading x13binary.
-    setwd("./functions/") ## This is where X13 binary is stored.
-    Sys.setenv(X13_PATH = "./x13binary/bin")
+    setwd(paste0(regmatches(x13.path, regexpr("(^.*[^x13binary\\/bin])", x13.path, perl = TRUE)), "/")) ## This is where X13 binary is stored.
+    Sys.setenv(X13_PATH = ifelse(.Platform$OS.type == "unix", "x13binary/bin", "x13binary\\bin"))
 
     # Generating the data frame containing the p-values.
     pvalues <- data.frame(Variable = rep(NA, ncol), Ori = rep(NA, ncol), S.Adj = rep(NA, ncol), stringsAsFactors = FALSE)
+    i <- 1
     for (i in 1:ncol) {
         pvalues$Variable[i] <- colname[i]
         if (ncol > 1) {

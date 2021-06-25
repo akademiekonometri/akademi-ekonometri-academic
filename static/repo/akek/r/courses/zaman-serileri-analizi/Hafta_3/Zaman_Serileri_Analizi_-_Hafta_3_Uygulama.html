@@ -356,7 +356,7 @@ div.tocify {
 <h1 class="title toc-ignore">Zaman Serileri Analizi</h1>
 <h3 class="subtitle">Hafta #3 - Uygulama</h3>
 <h4 class="author"><a href="mailto:okara@ogu.edu.tr">Dr. Ömer Kara</a></h4>
-<h4 class="date">Monday, June 14, 2021</h4>
+<h4 class="date">Wednesday, June 23, 2021</h4>
 
 </div>
 
@@ -381,9 +381,9 @@ div.main-container {
 </ul>
 <hr />
 <div id="Preparation" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> Hazırlık</h1>
+<h1><span class="header-section-number">1</span> Hazırlık</h1>
 <div id="Settings.Packages" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> Paketler</h2>
+<h2><span class="header-section-number">1.1</span> Paketler</h2>
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">R paketlerini</a> <code>Load.Install</code> fonksiyonunu kullanarak indirin ve/veya yükleyin.</li>
 </ul>
@@ -397,14 +397,14 @@ div.main-container {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;AER&quot;</span>, <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
 </div>
 <div id="Settings.Seed" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> Seed</h2>
+<h2><span class="header-section-number">1.2</span> Seed</h2>
 <ul>
 <li>Aşağıdaki <code>R kodu</code> bölümünde istediğiniz sayıyı girebilirsiniz.</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code></pre></div>
 </div>
 <div id="Settings.Working.Directory" class="section level2" number="1.3">
-<h2 number="1.3"><span class="header-section-number">1.3</span> Çalışma Klasörü</h2>
+<h2><span class="header-section-number">1.3</span> Çalışma Klasörü</h2>
 <ul>
 <li>Aşağıdaki <code>R kodu</code>, R çalışma klasörünü (yani working directory) sadece bu dosya için, bu dosyanın bilgisayarınızda bulunan lokasyonunda belirliyor.
 <ul>
@@ -418,12 +418,12 @@ div.main-container {
 </div>
 </div>
 <div id="ReCall" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> Hatırlatma</h1>
+<h1><span class="header-section-number">2</span> Hatırlatma</h1>
 <ul>
 <li>Bu alt bölümde, daha önceden bahsedilen bazı konular kısaca hatırlatılmıştır.</li>
 </ul>
 <div id="ReCall.Data" class="section level2" number="2.1">
-<h2 number="2.1"><span class="header-section-number">2.1</span> Data Yükleme</h2>
+<h2><span class="header-section-number">2.1</span> Data Yükleme</h2>
 <ul>
 <li>Bu modellerin uygulaması için R paketlerinden direkt olarak veri indirip yüklemeye çalışalım.</li>
 <li>R paketlerinin içinde olan verileri toplu olarak görmek için <a href="http://arelbundock.com/">Vincent Arel-Bundock</a> tarafından hazırlanan <a href="https://vincentarelbundock.github.io/Rdatasets/articles/data.html">web sitesini</a> inceleyebilirsiniz.</li>
@@ -443,7 +443,7 @@ div.main-container {
 </ul>
 </div>
 <div id="ReCall.Static.Models" class="section level2" number="2.2">
-<h2 number="2.2"><span class="header-section-number">2.2</span> Statik Model</h2>
+<h2><span class="header-section-number">2.2</span> Statik Model</h2>
 <ul>
 <li>Statik modeller ile bağımlı değişken <span class="math inline">\(y_{t}\)</span> ve bağımsız değişkenler <span class="math inline">\(x_{t}\)</span> arasındaki <strong>eşanlı ödünümü</strong> inceleyebiliriz.</li>
 <li>Statik modellerin tahmini için temel olarak 1 fonksiyon kullanacağız: <code>lm</code>.
@@ -453,7 +453,7 @@ div.main-container {
 </ul>
 </div>
 <div id="ReCall.FDL.Models" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> FDL Modeli</h2>
+<h2><span class="header-section-number">2.3</span> FDL Modeli</h2>
 <ul>
 <li>FDL modelleri ile <strong>etki çarpanı</strong> ve <strong>uzun dönem çarpanı</strong> değerlerini hesaplayabiliriz.</li>
 <li>FDL modellerinin tahmini için temel olarak 1 fonksiyon kullanacağız: <code>dynlm</code>.
@@ -466,7 +466,7 @@ div.main-container {
 </div>
 </div>
 <div id="Time.Series.Models.Inference" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Zaman Serisi Modeli: Çıkarsama</h1>
+<h1><span class="header-section-number">3</span> Zaman Serisi Modeli: Çıkarsama</h1>
 <ul>
 <li>Bu alt bölümde, zaman serileri modellerinde çıkarsama konusu <strong>iki basit zaman serisi modeli</strong> kullanılarak uygulamalı olarak gösterilecektir.
 <ul>
@@ -475,7 +475,7 @@ div.main-container {
 </ul></li>
 </ul>
 <div id="t.test" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> <span class="math inline">\(t\)</span>-testi</h2>
+<h2><span class="header-section-number">3.1</span> <span class="math inline">\(t\)</span>-testi</h2>
 <ul>
 <li>Basit zaman serisi modellerinde <span class="math inline">\(t\)</span>-testi uygulamak için 3 farklı fonksiyon kullanabiliriz.
 <ul>
@@ -485,7 +485,7 @@ div.main-container {
 </ul></li>
 </ul>
 <div id="t.test.Example.1" class="section level3" number="3.1.1">
-<h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Örnek: 1</h3>
+<h3><span class="header-section-number">3.1.1</span> Örnek: 1</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>phillips</code> verisini yükleyelim.</li>
 <li><code>phillips</code> verisi genel olarak Amerika’daki <strong>enflasyon ve işsizlik</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -582,7 +582,7 @@ div.main-container {
 </div>
 </div>
 <div id="t.test.Example.2" class="section level3" number="3.1.2">
-<h3 number="3.1.2"><span class="header-section-number">3.1.2</span> Örnek: 2</h3>
+<h3><span class="header-section-number">3.1.2</span> Örnek: 2</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>intdef</code> verisini yükleyelim.</li>
 <li><code>intdef</code> verisi genel olarak Amerika’daki <strong>faiz oranı, enflasyon ve bütçe açığı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -689,7 +689,7 @@ div.main-container {
 </div>
 </div>
 <div id="F.test" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> <span class="math inline">\(F\)</span>-testi</h2>
+<h2><span class="header-section-number">3.2</span> <span class="math inline">\(F\)</span>-testi</h2>
 <ul>
 <li>Basit zaman serisi modellerinde <span class="math inline">\(F\)</span>-testi uygulamak için 2 farklı fonksiyon kullanabiliriz.
 <ul>
@@ -698,7 +698,7 @@ div.main-container {
 </ul></li>
 </ul>
 <div id="F.test.Example.1" class="section level3" number="3.2.1">
-<h3 number="3.2.1"><span class="header-section-number">3.2.1</span> Örnek: 1</h3>
+<h3><span class="header-section-number">3.2.1</span> Örnek: 1</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>phillips</code> verisini yükleyelim.</li>
 <li><code>phillips</code> verisi genel olarak Amerika’daki <strong>enflasyon ve işsizlik</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -784,7 +784,7 @@ div.main-container {
 </div>
 </div>
 <div id="F.test.Example.2" class="section level3" number="3.2.2">
-<h3 number="3.2.2"><span class="header-section-number">3.2.2</span> Örnek: 2</h3>
+<h3><span class="header-section-number">3.2.2</span> Örnek: 2</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
 <li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık ve vergi muafiyeti</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -919,7 +919,7 @@ div.main-container {
 </div>
 </div>
 <div id="Functional.Form" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> Fonksiyonel Form</h1>
+<h1><span class="header-section-number">4</span> Fonksiyonel Form</h1>
 <ul>
 <li>Bu alt bölümde önce, yatay-kesit analizinde gördüğümüz fonksiyonel formlar ve parametre yorumlamaları statik zaman serisi modeli kullanılarak hatırlatılacaktır.
 <ul>
@@ -939,7 +939,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </ul></li>
 </ul>
 <div id="Functional.Form.Example.1" class="section level2" number="4.1">
-<h2 number="4.1"><span class="header-section-number">4.1</span> Örnek: 1</h2>
+<h2><span class="header-section-number">4.1</span> Örnek: 1</h2>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>prminwge</code> verisini yükleyelim.</li>
 <li><code>prminwge</code> verisi genel olarak Amerika ve Porto Riko’daki <strong>istihdam, asgari ücret ve GSMH</strong> değişkenlerini, ve ayrıca bu değişkenlere ait logatikmik ve gecikme değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1042,7 +1042,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Functional.Form.Example.2" class="section level2" number="4.2">
-<h2 number="4.2"><span class="header-section-number">4.2</span> Örnek: 2</h2>
+<h2><span class="header-section-number">4.2</span> Örnek: 2</h2>
 <ul>
 <li>Örnek olarak, <a href="https://cran.r-project.org/web/packages/AER/index.html"><code>AER</code></a> R paketinden <code>USMoney</code> verisini yükleyelim.</li>
 <li><code>USMoney</code> verisi genel olarak Amerika’daki <strong>para arzı ve GSMH</strong> değişkenlerini çeyreklik olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1153,7 +1153,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Dummy.Variables" class="section level1" number="5">
-<h1 number="5"><span class="header-section-number">5</span> Kukla Değişkenler</h1>
+<h1><span class="header-section-number">5</span> Kukla Değişkenler</h1>
 <ul>
 <li>Bu alt bölümde, zaman serileri modellerinde kukla değişkenler <strong>iki basit zaman serisi modeli</strong> kullanılarak uygulamalı olarak gösterilecektir.
 <ul>
@@ -1162,7 +1162,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </ul></li>
 </ul>
 <div id="Dummy.Variables.Example.1" class="section level2" number="5.1">
-<h2 number="5.1"><span class="header-section-number">5.1</span> Örnek: 1</h2>
+<h2><span class="header-section-number">5.1</span> Örnek: 1</h2>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
 <li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1258,7 +1258,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Dummy.Variables.Example.2" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> Örnek: 2</h2>
+<h2><span class="header-section-number">5.2</span> Örnek: 2</h2>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
 <li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1430,7 +1430,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Trend" class="section level1" number="6">
-<h1 number="6"><span class="header-section-number">6</span> Trend</h1>
+<h1><span class="header-section-number">6</span> Trend</h1>
 <ul>
 <li>Bu alt bölümde, zaman serileri analizinde trende sahip değişkenlerin regresyonda kullanımı iki farklı yöntem ve <strong>statik zaman serisi modeli</strong> kullanılarak uygulamalı olarak gösterilecektir.
 <ul>
@@ -1440,9 +1440,9 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 <li>Trende sahip değişkenler FDL modellerinde de aynı statik modellerdeki gibi kullanılabilir, fakat burada gösterilmemiştir.</li>
 </ul>
 <div id="Trend.Variable" class="section level2" number="6.1">
-<h2 number="6.1"><span class="header-section-number">6.1</span> Trend Değişkeni Eklenmesi</h2>
+<h2><span class="header-section-number">6.1</span> Trend Değişkeni Eklenmesi</h2>
 <div id="Trend.Variable.Example.1" class="section level3" number="6.1.1">
-<h3 number="6.1.1"><span class="header-section-number">6.1.1</span> Örnek: 1</h3>
+<h3><span class="header-section-number">6.1.1</span> Örnek: 1</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>hseinv</code> verisini yükleyelim.</li>
 <li><code>hseinv</code> verisi genel olarak Amerika’daki <strong>ev yatırımları ve fiyatlar</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1618,7 +1618,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 <span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     3        0 0.0098287258 0.0035122101 2.7984447 39 0.0079393592</span></span></code></pre></div>
 </div>
 <div id="Trend.Variable.Example.2" class="section level3" number="6.1.2">
-<h3 number="6.1.2"><span class="header-section-number">6.1.2</span> Örnek: 2</h3>
+<h3><span class="header-section-number">6.1.2</span> Örnek: 2</h3>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>fertil3</code> verisini yükleyelim.</li>
 <li><code>fertil3</code> verisi genel olarak Amerika’daki <strong>doğurganlık, vergi muafiyeti, savaş ve doğum kontrol hapı</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1668,7 +1668,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Detrending.Example" class="section level2" number="6.2">
-<h2 number="6.2"><span class="header-section-number">6.2</span> Trendin Berteraf Edilmesi</h2>
+<h2><span class="header-section-number">6.2</span> Trendin Berteraf Edilmesi</h2>
 <ul>
 <li>Örnek olarak, <code>wooldridge</code> R paketinden <code>hseinv</code> verisini yükleyelim.</li>
 <li><code>hseinv</code> verisi genel olarak Amerika’daki <strong>ev yatırımları ve fiyatlar</strong> değişkenlerini, ve ayrıca bu değişkenlere ait gecikme ve ilk farklar değerlerini yıllık olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1815,7 +1815,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 </div>
 </div>
 <div id="Seasonality" class="section level1" number="7">
-<h1 number="7"><span class="header-section-number">7</span> Mevsimsellik</h1>
+<h1><span class="header-section-number">7</span> Mevsimsellik</h1>
 <ul>
 <li>Bu alt bölümde, zaman serileri analizinde mevsimselliğe sahip değişkenlerin regresyonda kullanımı bir yöntem ve <strong>statik zaman serisi modeli</strong> kullanılarak uygulamalı olarak gösterilecektir.
 <ul>
@@ -1824,7 +1824,7 @@ ceteris paribus koşulu altında, bağımsız değişken <span class="math inlin
 <li>Mevsimselliğe sahip değişkenler FDL modellerinde de aynı statik modellerdeki gibi kullanılabilir, fakat burada gösterilmemiştir.</li>
 </ul>
 <div id="Seasonal.Dummy.Variables.Example" class="section level2" number="7.1">
-<h2 number="7.1"><span class="header-section-number">7.1</span> Mevsimsel Kukla Değişkenlerin Eklenmesi</h2>
+<h2><span class="header-section-number">7.1</span> Mevsimsel Kukla Değişkenlerin Eklenmesi</h2>
 <ul>
 <li>Örnek olarak, <a href="https://cran.r-project.org/web/packages/AER/index.html"><code>AER</code></a> R paketinden <code>USMoney</code> verisini yükleyelim.</li>
 <li><code>USMoney</code> verisi genel olarak Amerika’daki <strong>para arzı ve GSMH</strong> değişkenlerini çeyreklik olarak içeriyor. Örneğimizi basitleştirmek için biz sadece bazı değişkenleri kullanacağız.
@@ -1948,6 +1948,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

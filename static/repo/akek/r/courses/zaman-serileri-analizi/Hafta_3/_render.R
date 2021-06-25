@@ -1,14 +1,4 @@
 #============================= Akademi Ekonometri ==============================
-#================== Ekonometri, Ekonomi ve Kodlama Platformu ===================
-
-#=============================== Bizi Takip Edin ===============================
-# Web Sitemiz: https://akademiekonometri.netlify.app/
-# YouTube: https://www.youtube.com/c/AkademiEkonometri
-# Twitter: https://twitter.com/AEkonometri
-# Instagram: https://www.instagram.com/akademiekonometri/
-# E-mail: akademiekonometri@gmail.com
-#=============================== Bizi Takip Edin ===============================
-
 #================================= Render Rmd ==================================
 # Notlar:
 ## Aşağıdaki R kodu, bulunduğu klasördeki Rmd dosyalarını tarar ve onların içindeki R kodlarını aynı dosya ismi ile R dosyası olarak kaydeder.

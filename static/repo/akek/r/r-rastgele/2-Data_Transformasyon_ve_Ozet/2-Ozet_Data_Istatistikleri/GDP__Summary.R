@@ -18,18 +18,12 @@
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
-# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
 #===
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
-    }
-}
+# Devtools ve okara paketlerinin yüklenmesi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
+suppressWarnings(library("okara")) ## okara paketi.
 #===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.

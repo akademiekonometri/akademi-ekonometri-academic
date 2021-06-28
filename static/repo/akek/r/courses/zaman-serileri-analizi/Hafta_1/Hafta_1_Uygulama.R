@@ -19,44 +19,13 @@
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
-# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
 #===
-Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
-    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
-    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
-    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
-    cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
-    all.pkgs <- c(cran.pkgs, github.bare.pkgs)
-    cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
-    github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
-    if (Update.All == TRUE) {
-        cran.missing <- cran.pkgs
-        github.missing <- github.pkgs
-    } else {
-        cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
-        github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
-    }
-    if (length(cran.missing) > 0) {
-        suppressWarnings(utils::install.packages(cran.missing, quiet = Quiet, dependencies = TRUE))
-    }
-    if (length(github.missing) > 0) {
-        suppressWarnings(devtools::install_github(github.missing, quiet = Quiet, dependencies = TRUE))
-    }
-    failed.install <- all.pkgs[which(!is_installed(all.pkgs))]
-    if (length(failed.install) > 0) {
-        warning(paste0("Some packages failed to install: ", paste(failed.install, collapse = ", "), "."))
-    }
-    install.pkgs <- all.pkgs[which(is_installed(all.pkgs) == TRUE)]
-    for (install.pkgs in install.pkgs) {
-        suppressPackageStartupMessages(library(install.pkgs, character.only = TRUE, quietly = Quiet, verbose = FALSE))
-    }
-}
+# Devtools ve okara paketlerinin yüklenmesi
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
+suppressWarnings(library("okara")) ## okara paketi.
 #===
-# Devtools paketinin yüklenmesi
-## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
-if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools"))
-
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 #===
 ## Load.Install(Package.Names = "plyr")
@@ -81,12 +50,6 @@ figs.tabs.folder.name <- "_figs-tabs"
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
 #===
-# "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
-# "lagpad" fonsiyonu icin "estimation_functions.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R"))
-
-# "annotation_compass" fonsiyonu icin "graphic_functions.R"dosyasina bakabilirsiniz. Bu fonksiyon ile ggplot grafiklerine yazi ekleyebiliriz.
-source(paste0(main.path, "/", functions.folder.name, "/", "graphic_functions.R"))
 
 #=============================== Seed Belirleme ================================
 # Rassal sayilar kullanarak olusturdugumuz verilerin her seferinde ayni olmasi ve yeniden uretilebilir bir analiz (reproducible analysis) icin seed ayarlaniyor.

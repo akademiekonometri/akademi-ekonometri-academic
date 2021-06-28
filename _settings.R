@@ -213,34 +213,53 @@ ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, ekonometrik.modellem
 
 #================================= Functions ===================================
 # ---- Settings.Functions.1 ----
-# Load.Install
-source(paste0(func.path, "load_or_install_packages.R")) ## Loads and/or installs packages.
+# Seasonal Adjust Function
+source(paste0(func.path, "seasonal_adjust.R")) ## Seasonal Adjust Function.
 
-# Proceed.or.Stop
-source(paste0(func.path, "proceed_or_stop.R")) ## Checks whether to proceed or stop.
+# ADF Enders' Procedure Function
+source(paste0(func.path, "unit_root_adf_enders_procedure_tests.R")) ## ADF Enders' Procedure Function.
 
-# Data Functions
-source(paste0(func.path, "data_functions.R")) ## Data Functions in collection.
+# Unit Root and Stationary Tests Function
+source(paste0(func.path, "unit_root_tests.R")) ## Unit Root and Stationary Tests Function.
 
-# Other Functions
-source(paste0(func.path, "other_functions.R")) ## Other Functions in collection.
+# Phillips-Ouliaris (PO) Cointegration Pairwise Tests
+source(paste0(func.path, "cointegration_pairwise_po_tests.R")) ## Phillips-Ouliaris (PO) Cointegration Pairwise Tests.
 
-# Estimation Functions
-source(paste0(func.path, "estimation_functions.R")) ## Estimation Functions in collection.
+# Joahnsen (JO) Cointegration Pairwise Tests
+source(paste0(func.path, "cointegration_pairwise_jo_tests.R")) ## Joahnsen (JO) Cointegration Pairwise Tests.
 
-# Graphic Functions
-source(paste0(func.path, "graphic_functions.R")) ## Graphic Functions in collection.
+# Cointegration Rank Select Function
+source(paste0(func.path, "cointegration_select.R")) ## Cointegration Rank Select Function.
 
-# Spatial Functions
-source(paste0(func.path, "spatial_functions.R")) ## Spatial Functions in collection.
+# Granger Causality TYDL Pairwise Tests
+source(paste0(func.path, "granger_causality_TYDL_pairwise_tests.R")) ## Granger Causality TYDL Pairwise Tests.
+
+# Granger Causality TYDL Multivariate Tests
+source(paste0(func.path, "granger_causality_TYDL_multivariate_tests.R")) ## Granger Causality TYDL Multivariate Tests.
+
+# IRF for VAR
+# source(paste0(func.path, "irf_var.R")) ## Impulse Response Functions for VAR.
+
+# IRF for VECM
+# source(paste0(func.path, "irf_vecm2var.R")) ## Impulse Response Functions for VECM.
+
+# FEVD for VAR
+# source(paste0(func.path, "fevd_var.R")) ## Forecast Error Variance Decomposition for VAR.
+
+# FEVD for VECM
+# source(paste0(func.path, "fevd_vecm2var.R")) ## Forecast Error Variance Decomposition for VECM.
 
 #================================= Packages ====================================
 # ---- Settings.Packages.1 ----
 #=================================
 # update.packages(ask = FALSE, checkBuilt = TRUE)
 
-# Package that MUST be installed.
-Load.Install(c("devtools", "png", "proto"))
+# Packages that MUST be installed.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools")) ## devtools package is necessary for installing okara.
+suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
+suppressWarnings(library("okara")) ## okara package.
+Load.Install(c("png", "proto"))
 
 #=================================
 # Package for package control during collaboration.

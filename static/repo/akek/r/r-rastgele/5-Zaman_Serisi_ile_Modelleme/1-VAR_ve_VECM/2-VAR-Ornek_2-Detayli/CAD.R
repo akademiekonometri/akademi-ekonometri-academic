@@ -20,18 +20,12 @@
 
 #=============================== Gerekli Paketler ==============================
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
-# Bu adimi daha kolay hale getirmek için öncelikle "Load.Install" fonksiyonunu tanımlayalım.
 #===
-Load.Install <- function(Package.Names) {
-    #update.packages() ## Eger tüm paketleri güncellemek isterseniz kullanabilirsiniz.
-    is_installed <- function(mypkg) is.element(mypkg, utils::installed.packages()[ ,1])
-    for (Package.Names in Package.Names) {
-        if (!is_installed(Package.Names)) {
-            utils::install.packages(Package.Names, dependencies = TRUE)
-        }
-        suppressMessages(library(Package.Names, character.only = TRUE, quietly = TRUE, verbose = FALSE))
-    }
-}
+# Devtools ve okara paketlerinin yüklenmesi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
+suppressWarnings(library("okara")) ## okara paketi.
 #===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "pastecs", "stargazer", "gridExtra", "scales", "ggplot2", "forecast", "aTSA", "urca", "FitAR", "vars", "aod"))
 Load.Install(c("latexpdf")) ## Sadece bilgisayarinizda LaTeX kuruluysa kullanin.
@@ -57,9 +51,6 @@ figs.tabs.folder.name <- "_figs-tabs"
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
 #===
-## "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
-
 ## "Seasonal.Adjust" fonksiyonu icin "seasonal_adjust.R" dosyasina bakabilirsiniz.
 source(paste0(main.path, "/", functions.folder.name, "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
 

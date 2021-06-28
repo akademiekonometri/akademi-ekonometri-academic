@@ -19,9 +19,9 @@
 ## Load.Install(c("plyr", "dplyr"), Quiet = TRUE, Update.All = TRUE)
 
 Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
-    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
-    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
-    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
+    is_installed <- function(my.pkgs) base::is.element(my.pkgs, utils::installed.packages()[ ,1])
+    github.pkgs <- base::grep("^.*?/.*?$", Package.Names, value = TRUE)
+    github.bare.pkgs <- base::sub(".*?/", "", github.pkgs)
     cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
     all.pkgs <- c(cran.pkgs, github.bare.pkgs)
     cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]

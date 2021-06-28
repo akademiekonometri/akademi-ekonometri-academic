@@ -1,60 +1,30 @@
 ## ----Settings.Functions, include = FALSE, cache = TRUE----
 # Değiştirmeyin.
-## Paketleri indirmek ve yüklemek için gerekli fonksiyon.
-Load.Install <- function(Package.Names, Quiet = FALSE, Update.All = FALSE) {
-    is_installed <- function(my.pkgs) is.element(my.pkgs, utils::installed.packages()[ ,1])
-    github.pkgs <- grep("^.*?/.*?$", Package.Names, value = TRUE)
-    github.bare.pkgs <- sub(".*?/", "", github.pkgs)
-    cran.pkgs <- Package.Names[!(Package.Names %in% github.pkgs)]
-    all.pkgs <- c(cran.pkgs, github.bare.pkgs)
-    cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
-    github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
-    if (Update.All == TRUE) {
-        cran.missing <- cran.pkgs
-        github.missing <- github.pkgs
-    } else {
-        cran.missing <- cran.pkgs[which(!is_installed(cran.pkgs))]
-        github.missing <- github.pkgs[which(!is_installed(github.bare.pkgs))]
-    }
-    if (length(cran.missing) > 0) {
-        suppressWarnings(utils::install.packages(cran.missing, quiet = Quiet, dependencies = TRUE))
-    }
-    if (length(github.missing) > 0) {
-        suppressWarnings(devtools::install_github(github.missing, quiet = Quiet, dependencies = TRUE))
-    }
-    failed.install <- all.pkgs[which(!is_installed(all.pkgs))]
-    if (length(failed.install) > 0) {
-        warning(paste0("Some packages failed to install: ", paste(failed.install, collapse = ", "), "."))
-    }
-    install.pkgs <- all.pkgs[which(is_installed(all.pkgs) == TRUE)]
-    for (install.pkgs in install.pkgs) {
-        suppressPackageStartupMessages(library(install.pkgs, character.only = TRUE, quietly = Quiet, verbose = FALSE))
-    }
-}
 
 
-## ----Settings.Packages, cache = TRUE-------------
-# Devtools paketinin yüklenmesi
-## Load.Install fonksiyonunun çalışması için devtools paketi gereklidir.
-if("devtools" %in% rownames(installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools"))
+
+## ----Settings.Packages, cache = TRUE--------------------
+# Devtools ve okara paketlerinin yüklenmesi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
+suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
+suppressWarnings(library("okara")) ## okara paketi.
 
 # Gerekli paketlerin yüklenmesi.
-## Paketleri yüklemeden önce Load.Install fonksiyonunun yüklenip çalıştığından emin olun.
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "lubridate", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm"))
 
 
-## ----Settings.Seed-------------------------------
+## ----Settings.Seed--------------------------------------
 set.seed(1234)
 
 
-## ----Settings.Working.Directory------------------
+## ----Settings.Working.Directory-------------------------
 # Değiştirmeyin.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
 setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
 
 
-## ----World.Bank.Data-----------------------------
+## ----World.Bank.Data------------------------------------
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasını kullanacağız.
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN"), start = 1960, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
@@ -82,7 +52,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----fpp2.Package.Data---------------------------
+## ----fpp2.Package.Data----------------------------------
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim. İlk 20 gözlemin gösterilmesini istedik.
@@ -107,12 +77,12 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----tsdl.Package.Data.1-------------------------
+## ----tsdl.Package.Data.1--------------------------------
 Load.Install("tsdl")
 tsdl ## tsdl paketinin içinde bulunan verilerin konulara ve frekansa göre kategorisi. Daha sonra bu obje datanın yüklenmesi için kullanılacaktır.
 datatable(meta_tsdl, filter = "top", options = list(pageLength = 5, autoWidth = TRUE)) ## tsdl paketinin içinde bulunan verilerin metadatası (bilgisi). Bu tabloya bakarak istediğimız datayı sıra numarasını kullanarak ya da diğer başka fonksiyonları kullanarak seçebiliriz.
 
-## ----tsdl.Package.Data.2-------------------------
+## ----tsdl.Package.Data.2--------------------------------
 # İstenilen datanın yüklenmesi.
 ## İstediğimiz data 134. sırada bulunan: Monthly Australian imports from Japan: thousands of dollars. Jul 65 – Oct 93.
 data <- subset(tsdl, description = "Monthly Australian imports from Japan")[[1]] ## Alternatif olarak datayı bu şekilded yükleyebiliriz.
@@ -124,7 +94,7 @@ head(data, 30) ## Datanın yapısını inceleyelim.
 plot(data)
 
 
-## ----Excel.Data----------------------------------
+## ----Excel.Data-----------------------------------------
 file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
 
 # Ham datanın yüklenmesi
@@ -164,7 +134,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----CSV.Data------------------------------------
+## ----CSV.Data-------------------------------------------
 file.path <- "dam_occupancy.csv" ## Data dosyasının ismi ve uzantısı.
 
 # Ham datanın yüklenmesi
@@ -193,7 +163,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Yahoo.Finance.Data--------------------------
+## ----Yahoo.Finance.Data---------------------------------
 loadSymbols(Symbols = "GOOG", periodicity = "daily", return.class = "data.frame") ## Yahoo Finance uzerinden buldugumuz sembolu (GOOG) kullanarak ve datanın frekansını seçerek datayı indirip yükleyebiliriz. İndirdiğimiz datanın ismi sembol ismi ile aynı olacaktır.
 GOOG ## Datanın yapısını inceleyelim.
 
@@ -218,7 +188,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Inflastion.Adjustment-----------------------
+## ----Inflastion.Adjustment------------------------------
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasını kullanacağız.
 WDIsearch(string = "gdp.*deflator", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.DEFL.ZS" GDP deflator (base year varies by country) datasını kullanacağız. 2009 baz yılı kullanılıyor.
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN", "NY.GDP.DEFL.ZS"), start = 1960, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
@@ -252,7 +222,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Population.Adjustment-----------------------
+## ----Population.Adjustment------------------------------
 WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
 WDIsearch(string = "SP.POP.TOTL", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "SP.POP.TOTL" Total Population datasını kullanacağız.
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.KN", "SP.POP.TOTL"), start = 1960, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
@@ -286,7 +256,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Exchange.Rate.Adjustment--------------------
+## ----Exchange.Rate.Adjustment---------------------------
 WDIsearch(string = "gdp.*capita.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KN" GDP per capita (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
 WDIsearch(string = "exchange.*rate.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "PA.NUS.FCRF" Official exchange rate (LCU per US$, end period) datasını kullanacağız.
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KN", "PA.NUS.FCRF"), start = 2000, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
@@ -320,7 +290,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Growth.Rate---------------------------------
+## ----Growth.Rate----------------------------------------
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasını kullanacağız. 2010 baz yılı kullanılıyor.
 data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KD"), start = 1960, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
@@ -363,7 +333,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Index.Adjustment----------------------------
+## ----Index.Adjustment-----------------------------------
 WDIsearch(string = "consumer.*price.*index", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "FP.CPI.TOTL" Consumer price index (2010 = 100) datasını kullanacağız. 2010 baz yılı kullanılıyor.
 data <- WDI(country = c("TR"), indicator = "FP.CPI.TOTL", start = 1960, end = 2019, extra = FALSE)  ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
@@ -397,7 +367,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Math.Transformation-------------------------
+## ----Math.Transformation--------------------------------
 loadSymbols(Symbols = "TRY=X", periodicity = "daily", return.class = "data.frame") ## Datanın indirilmesi.
 data <- data.frame(Date = rownames(`TRY=X`), Close = `TRY=X`$`TRY=X.Close`, stringsAsFactors = FALSE) ## Datanın data.frame olarak kaydedilmesi.
 data$Date <- as.Date(data$Date) ## Date kategori olarak değiştirildi.
@@ -470,7 +440,7 @@ ggplot(temp) +
     theme(legend.position = "top")
 
 
-## ----Lagged.Variables----------------------------
+## ----Lagged.Variables-----------------------------------
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.PP.KD" GDP per capita, PPP (constant 2017 international $) datasını kullanacağız. 2017 baz yılı kullanılıyor.
 data <- WDI(country = c("US"), indicator = c("NY.GDP.PCAP.PP.KD"), start = 1990, end = 2019, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
@@ -496,7 +466,7 @@ data <- temp
 data
 
 
-## ----Seasonal.Graphics---------------------------
+## ----Seasonal.Graphics----------------------------------
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim.
@@ -546,7 +516,7 @@ ggsubseriesplot(temp) +
     theme_grey()
 
 
-## ----Additive.Decomposition----------------------
+## ----Additive.Decomposition-----------------------------
 file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
 
 # Ham datanın yüklenmesi
@@ -585,7 +555,7 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
     theme_grey()
 
 
-## ----Multiplicative.Decomposition----------------
+## ----Multiplicative.Decomposition-----------------------
 data(qauselec) ## Datayı yüklüyoruz.
 data <- qauselec ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 head(data, 20) ## Datanın yapısını inceleyelim.
@@ -609,7 +579,7 @@ ggsdc(temp, aes(x = Date, y = y), frequency = frequency, method = "decompose", t
     theme_grey()
 
 
-## ----Moving.Average------------------------------
+## ----Moving.Average-------------------------------------
 file.path <- "clean-water.xlsx" ## Data dosyasının ismi ve uzantısı.
 
 # Ham datanın yüklenmesi
@@ -670,7 +640,7 @@ ggplot(temp1, aes(x = Date, y = value)) +
     theme_grey()
 
 
-## ----Autocorrelation.Function--------------------
+## ----Autocorrelation.Function---------------------------
 n <- 1000 ## Gozlem sayisi.
 WN <- arima.sim(model = list(order = c(0, 0, 0)), n = n) ## Simüle edilmiş pür rassal süreç verisi. Zaman serisi objesi olduğunu ve plot(WN) kullanılarak hemen grafiğe dökülebileceğini unutmayın.
 str(WN)

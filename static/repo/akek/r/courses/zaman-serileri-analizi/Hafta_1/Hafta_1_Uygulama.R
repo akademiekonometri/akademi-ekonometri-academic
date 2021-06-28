@@ -299,10 +299,10 @@ temp$R.GDP.PCAP <- round(temp$R.GDP.PCAP, 0) ## Tablonun daha iyi gorunmesi icin
 temp$Gr.R.GDP.PCAP <- round(temp$Gr.R.GDP.PCAP, 2) ## Tablonun daha iyi gorunmesi icin sayilar yuvarlaniyor.
 temp$t <- 1:nrow(temp) ## Trend degiskeni ya da t indeks degeri ekleniyor.
 temp <- temp[, c("Year", "t", "R.GDP.PCAP", "Gr.R.GDP.PCAP")] ## Degiskenler siraya dizildi.
-temp$Gr.R.GDP.PCAP.t1 <- lagpad(temp$Gr.R.GDP.PCAP, 1) ## 1. Gecikme olusturuldu.
-temp$Gr.R.GDP.PCAP.t2 <- lagpad(temp$Gr.R.GDP.PCAP, 2) ## 2. Gecikme olusturuldu.
-temp$Gr.R.GDP.PCAP.t3 <- lagpad(temp$Gr.R.GDP.PCAP, 3) ## 3. Gecikme olusturuldu.
-temp$Gr.R.GDP.PCAP.t4 <- lagpad(temp$Gr.R.GDP.PCAP, 4) ## 4. Gecikme olusturuldu.
+temp$Gr.R.GDP.PCAP.t1 <- ecm::lagpad(x = temp$Gr.R.GDP.PCAP, k = 1) ## 1. Gecikme olusturuldu.
+temp$Gr.R.GDP.PCAP.t2 <- ecm::lagpad(x = temp$Gr.R.GDP.PCAP, k = 2) ## 2. Gecikme olusturuldu.
+temp$Gr.R.GDP.PCAP.t3 <- ecm::lagpad(x = temp$Gr.R.GDP.PCAP, k = 3) ## 3. Gecikme olusturuldu.
+temp$Gr.R.GDP.PCAP.t4 <- ecm::lagpad(x = temp$Gr.R.GDP.PCAP, k = 4) ## 4. Gecikme olusturuldu.
 for (i in 4:ncol(temp)) {
     temp[which(!is.na(temp[, i])), i][1] <- paste0("\\red{", temp[which(!is.na(temp[, i])), i][1], "}")
 }

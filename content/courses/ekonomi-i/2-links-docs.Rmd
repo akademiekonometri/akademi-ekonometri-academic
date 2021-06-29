@@ -32,9 +32,11 @@ outdated <- "no_entry"
 
 ## Akademi Ekonometri
 - [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
-- [Ekonomiye Giriş I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonomiye Giriş I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY) `r emo::ji(tr)``r emo::ji(to.be.updated)`
     + [Ekonomiye Giriş I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk1pV06IkB0XzLXldjhRfUs) `r emo::ji(tr)``r emo::ji(to.be.updated)`
-- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) [^1] `r emo::ji(eng)``r emo::ji(in.progress)`
+- [Ekonomi - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch) [^1] `r emo::ji(tr)`
+    + [Ekonomi - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitl0xLk-Ms8skA_uAHTS9H-f) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) [^2] `r emo::ji(eng)``r emo::ji(to.be.updated)`
     + [Economics - Online-Class (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnP7rJTS--Dc1SKhFw7YZYU) `r emo::ji(eng)``r emo::ji(to.be.updated)`
 
 ## Diğer Dokümanlar
@@ -49,4 +51,5 @@ outdated <- "no_entry"
 - [YÖK Dersleri Platformu](https://yokdersleri.yok.gov.tr/) `r emo::ji(tr)`
 - [TÜBA Açık Ders Malzemeleri Portalı](https://acikders.tuba.gov.tr/) `r emo::ji(tr)`
 
-[^1]: Only the first seven weeks are relevant to this course.
+[^1]: Sadece ilk yedi hafta bu dersle ilgilidir.
+[^2]: Only the first seven weeks are relevant to this course.

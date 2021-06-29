@@ -37,8 +37,8 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 - [QR Kod - Telefon İçin](`r paste0(ekonomi.path, "ME/Ekonomi_Telegram Kanali Duyurusu_Ilan.pdf")`) `r emo::ji(tr)`
 
 ## Ders Planı ve Önemli Günler
-- [Ders Planı](`r paste0(ekonomi.path, "ME/Ekonomi - Ders Plani (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)`
-- [Önemli Günler](`r paste0(ekonomi.path, "ME/Ekonomi - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+- [Ders Planı](`r paste0(ekonomi.path, "ME/Ekonomi - Ders Plani (Kara).pdf")`) `r emo::ji(tr)`
+- [Önemli Günler](`r paste0(ekonomi.path, "ME/Ekonomi - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)`
 
 ## Ders Kitabı
 - [Kitap Seçimi Açıklaması](`r paste0(ekonomi.path, "Ekonomi_Kitap Secimi Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`

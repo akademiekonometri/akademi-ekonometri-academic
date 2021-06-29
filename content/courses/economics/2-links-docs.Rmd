@@ -34,7 +34,7 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 - [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
 - [Ekonomi - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch) `r emo::ji(tr)`
     + [Ekonomi - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitl0xLk-Ms8skA_uAHTS9H-f) `r emo::ji(tr)``r emo::ji(to.be.updated)`
-- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) `r emo::ji(eng)``r emo::ji(in.progress)`
+- [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) `r emo::ji(eng)``r emo::ji(to.be.updated)`
     + [Economics - Online-Class (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnP7rJTS--Dc1SKhFw7YZYU) `r emo::ji(eng)``r emo::ji(to.be.updated)`
 
 ## Other Documents

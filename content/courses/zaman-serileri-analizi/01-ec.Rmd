@@ -39,8 +39,8 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 ## Ders Planı ve Önemli Günler
 | 1. Öğretim | 2. Öğretim | Yaz Okulu |
 | :--- | :--- | :--- |
-| [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_1O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_2O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)` | [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi - Ders Plani (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)` |
-| [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)` | [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)` | [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)` |
+| [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_1O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_2O - Ders Plani (Kara).pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi - Ders Plani (Kara).pdf")`) `r emo::ji(tr)` |
+| [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_1O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi_2O - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(zaman.serileri.analizi.path, "EC/Zaman Serileri Analizi - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)` |
 
 ## Ders Kitabı
 - [Kitap Seçimi Açıklaması](`r paste0(zaman.serileri.analizi.path, "Zaman Serileri Analizi_Kitap Secimi Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`

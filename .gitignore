@@ -23,7 +23,7 @@ renv/library
 rsconnect
 
 *_cache
-*_files
+#*_files
 
 #============================ Misc. Folders/Files ==============================
 .dropbox

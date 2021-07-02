@@ -4,7 +4,7 @@
 
 #=================================== Paths =====================================
 # ---- Settings.Paths.1 ----
-# Main path of the "—AkademiEkonometri.io" folder.
+# Main path of the "Akademi Ekonometri-Academic" folder.
 base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic)", getwd(), perl = TRUE)), "/") ## "base.path" is the unix path of "./Akademi Ekonometri-Academic.Rproj" folder.
 # base.path <- paste0(dirname(rstudioapi::getActiveDocumentContext()$path), "/") ## Note that this works when Running or Sourcing your file. The code automatically find out the location of the current file.
 

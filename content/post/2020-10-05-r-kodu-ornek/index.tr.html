@@ -37,7 +37,7 @@ output:
 #   url: https://example.com
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="{{< blogdown/postref >}}index.tr_files/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
@@ -63,40 +63,40 @@ output:
 <pre class="r"><code>x &lt;- rnorm(200, mean = 0, sd = 1)
 par(mar = c(2, 2, 0.1, 2))
 plot(x, dnorm(x))</code></pre>
-<p><img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/example-1.png" width="672" /></p>
+<p><img src="{{< blogdown/postref >}}index.tr_files/figure-html/example-1.png" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="basit-doğrusal-regresyon-örneği" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Basit Doğrusal Regresyon Örneği</h1>
 <p>R’ın içindeki <code>cars</code> datasının ilk 10 gözlemini kullanarak basit doğrusal bir regresyon oluşturalım…</p>
 <pre class="r"><code>data &lt;- cars[1:10, ] ## Yeni data seti data olarak adlandırıldı.
 summary(data)
-##      speed           dist     
-##  Min.   : 4.0   Min.   : 2.0  
-##  1st Qu.: 7.0   1st Qu.:10.0  
-##  Median : 8.5   Median :16.5  
-##  Mean   : 8.0   Mean   :15.9  
-##  3rd Qu.:10.0   3rd Qu.:21.0  
-##  Max.   :11.0   Max.   :34.0
+#&gt;      speed           dist     
+#&gt;  Min.   : 4.0   Min.   : 2.0  
+#&gt;  1st Qu.: 7.0   1st Qu.:10.0  
+#&gt;  Median : 8.5   Median :16.5  
+#&gt;  Mean   : 8.0   Mean   :15.9  
+#&gt;  3rd Qu.:10.0   3rd Qu.:21.0  
+#&gt;  Max.   :11.0   Max.   :34.0
 model &lt;- lm(dist ~ speed, data = data)
 summary(model)
-## 
-## Call:
-## lm(formula = dist ~ speed, data = data)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -9.3464 -5.8420 -1.4536  4.8232 12.9929 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)  
-## (Intercept)  -4.5286     8.9164 -0.5079  0.62523  
-## speed         2.5536     1.0688  2.3893  0.04391 *
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 7.998 on 8 degrees of freedom
-## Multiple R-squared:  0.41642,    Adjusted R-squared:  0.34348 
-## F-statistic: 5.7085 on 1 and 8 DF,  p-value: 0.043907</code></pre>
+#&gt; 
+#&gt; Call:
+#&gt; lm(formula = dist ~ speed, data = data)
+#&gt; 
+#&gt; Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -9.3464 -5.8420 -1.4536  4.8232 12.9929 
+#&gt; 
+#&gt; Coefficients:
+#&gt;             Estimate Std. Error t value Pr(&gt;|t|)  
+#&gt; (Intercept)  -4.5286     8.9164 -0.5079  0.62523  
+#&gt; speed         2.5536     1.0688  2.3893  0.04391 *
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; Residual standard error: 7.998 on 8 degrees of freedom
+#&gt; Multiple R-squared:  0.41642,    Adjusted R-squared:  0.34348 
+#&gt; F-statistic: 5.7085 on 1 and 8 DF,  p-value: 0.043907</code></pre>
 <div id="basit-doğrusal-regresyon-basit-grafik-örneği" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Basit Doğrusal Regresyon: Basit Grafik Örneği</h2>
 <p>Basit doğrusal regresyonun sonuçlarını kullanarak Örneklem Regresyon Fonksiyonu grafiğini basit bir kod kullanarak gösterelim…</p>
@@ -104,7 +104,7 @@ summary(model)
 plot(data$speed, data$dist)
 abline(model)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:regressionplot1"></span>
-<img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/regressionplot1-1.png" alt="Örneklem Regresyon Fonksiyonu Basit Grafik" width="672" />
+<img src="{{< blogdown/postref >}}index.tr_files/figure-html/regressionplot1-1.png" alt="Örneklem Regresyon Fonksiyonu Basit Grafik" width="100%" />
 <p class="caption">
 Figure 3.1: Örneklem Regresyon Fonksiyonu Basit Grafik
 </p>
@@ -120,7 +120,7 @@ text(data$dist ~ data$speed, labels = rownames(data), cex = 1, font = 2, pos = 4
 cf &lt;- round(coef(model), 2)
 mtext(TeX(paste(&quot;$&quot;, &quot;y&quot;, &quot;=&quot;, cf[[1]], ifelse(sign(cf[[2]]) == 1, &quot; + &quot;, &quot; - &quot;), abs(cf[[2]]), &quot;x&quot;, &quot;$&quot;)), adj = 1, padj = 0)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:regressionplot2"></span>
-<img src="/post/2020-10-05-r-kodu-ornek/index.tr_files/figure-html/regressionplot2-1.png" alt="Örneklem Regresyon Fonksiyonu Detaylı Grafik" width="672" />
+<img src="{{< blogdown/postref >}}index.tr_files/figure-html/regressionplot2-1.png" alt="Örneklem Regresyon Fonksiyonu Detaylı Grafik" width="100%" />
 <p class="caption">
 Figure 3.2: Örneklem Regresyon Fonksiyonu Detaylı Grafik
 </p>

@@ -37,8 +37,24 @@ output:
 #   url: https://example.com
 ---
 
-```{r packages, echo = FALSE}
-library("latex2exp")
+```{r Settings.Code.Chunk, include = FALSE, purl = FALSE}
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 5, fig.width = 7, out.width = "100%", highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
+```
+```{r Settings.Functions, include = FALSE, cache = TRUE}
+
+```
+```{r Settings.Packages, include = FALSE, cache = TRUE}
+Load.Install(c("latex2exp"))
+```
+```{r Settings.Seed, include = FALSE}
+set.seed(1234)
+```
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
 ```
 
 Akademi Ekonometri’ye Hoş Geldiniz!  
@@ -56,7 +72,7 @@ Akademi Ekonometri, çok yoğun tempoda çalışan biz akademisyenler tarafında
 
 ▶️ Akademi Ekonometri'nin menüsünda ne var?  
 Ekonometri odaklı bir platform olan Akademi Ekonometri'deki hedeflerimizden ilki ekonometrinin sadece teorik kısmını anlatmaktan ziyade, teorik bilgilerin kodlama ile uygulanmasını da olabildiğince yalın ve detaylı bir şekilde anlatmak. Bu nedenle Akademi Ekonometri olarak uygulamalı ekonometri ve büyük bir tutkuyla bağlı olduğumuz [R](https://www.r-project.org/)'a ve onun yakışıklı kardeşi [RStudio](https://rstudio.com/)'ya çok önem veriyoruz. Hatta o kadar önem veriyoruz ki, üşenmedik ve sizin için Akademi Ekonometri odak ağırlıklarını pasta grafiği kullanarak Grafik \@ref(fig:akademiekonometri)'de hemen gösterelim istedik. Evet yanlış görmediniz, [$\LaTeX$](https://www.latex-project.org/) hakkında da bol bol paylaşımda bulunacağız.   
-```{r akademiekonometri, echo = FALSE, fig.cap = "Akademi Ekonometri Odak Ağırlıkları", fig.align = "center", tidy = FALSE}
+```{r akademiekonometri, echo = FALSE, fig.cap = "Akademi Ekonometri Odak Ağırlıkları"}
 par(mar = c(0, 2, 0, 2))
 pie(c(90, 105, 105, 30, 30), c("Teorik Ekonometri", "Uygulamalı\nEkonometri", "R ve RStudio", TeX("$\\LaTeX$"), "Ekonomi"), col = c("yellow", "red", "blue", "darkgreen", "lightgreen"), clockwise = TRUE, init.angle = -50, border = NA)
 ```

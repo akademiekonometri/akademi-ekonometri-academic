@@ -16,7 +16,7 @@ menu:
 weight: 30
 ---
 
-```{r emoji, include = FALSE}
+```{r Settings.Emoji, include = FALSE}
 tr <- "tr"
 eng <- "us"
 to.be.updated <- "arrows_counterclockwise"

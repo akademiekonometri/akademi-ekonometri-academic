@@ -37,6 +37,26 @@ projects: []
 #   url: https://example.com
 ---
 
+```{r Settings.Code.Chunk, include = FALSE, purl = FALSE}
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 5, fig.width = 7, out.width = "100%", highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
+```
+```{r Settings.Functions, include = FALSE, cache = TRUE}
+
+```
+```{r Settings.Packages, include = FALSE, cache = TRUE}
+
+```
+```{r Settings.Seed, include = FALSE}
+set.seed(1234)
+```
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
 Daha [önceki blog yazımızda](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videolarını ve kulladığımız ders notlarını paylaşacağımızdan bahsetmiştik. Aşağıdaki bölümlerde [Ekonometri II](/courses/ekonometri-ii/), [Ekonomi](/courses/ekonomi/) ve [Economics](/courses/economics/) derslerine ait örnek ders notlarına ve videolarına erişebilrisiniz.
 
 ## Ekonometri II Dersi

@@ -37,13 +37,24 @@ output:
 #   url: https://example.com
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-selected.seed <- 1234
-set.seed(selected.seed)
+```{r Settings.Code.Chunk, include = FALSE, purl = FALSE}
+knitr::opts_chunk$set(cache = TRUE, collapse = TRUE, comment = "#>", echo = TRUE, engine = "R", error = FALSE, eval = TRUE, fig.align = "center", fig.height = 5, fig.width = 7, out.width = "100%", highlight = TRUE, include = TRUE, message = TRUE, prompt = FALSE, purl = TRUE, results = "markup", rows.print = 5, strip.white = TRUE, tidy = FALSE, tidy.opts = list(width.cutoff = 80), warning = TRUE)
 ```
-```{r packages, echo = FALSE}
-library("latex2exp")
+```{r Settings.Functions, include = FALSE, cache = TRUE}
+
+```
+```{r Settings.Packages, include = FALSE, cache = TRUE}
+Load.Install(c("latex2exp"))
+```
+```{r Settings.Seed, include = FALSE}
+set.seed(1234)
+```
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
 ```
 
 # R Markdown
@@ -73,7 +84,7 @@ summary(model)
 ## Basit Doğrusal Regresyon: Basit Grafik Örneği
 
 Basit doğrusal regresyonun sonuçlarını kullanarak Örneklem Regresyon Fonksiyonu grafiğini basit bir kod kullanarak gösterelim...
-```{r regressionplot1, fig.cap = "Örneklem Regresyon Fonksiyonu Basit Grafik", fig.align = "center", tidy = FALSE}
+```{r regressionplot1, fig.cap = "Örneklem Regresyon Fonksiyonu Basit Grafik"}
 par(mar = c(2, 2, 0.1, 2))
 plot(data$speed, data$dist)
 abline(model)
@@ -82,7 +93,7 @@ abline(model)
 ## Basit Doğrusal Regresyon: Detaylı Grafik Örneği
 
 Daha önce basit bir kod kullanarak Grafik \@ref(fig:regressionplot1)'de gösterdiğimiz Örneklem Regresyon Fonksiyonu grafiğini şimdi de daha detaylı bir kod kullanarak çizelim...
-```{r regressionplot2, fig.cap = "Örneklem Regresyon Fonksiyonu Detaylı Grafik", fig.align = "center", tidy = FALSE}
+```{r regressionplot2, fig.cap = "Örneklem Regresyon Fonksiyonu Detaylı Grafik"}
 par(mar = c(2, 2, 1.5, 2))
 plot(data$speed, data$dist, type = "p", pch = 16, cex = 1, col = "blue", main = "Örneklem Regresyon Fonksiyonu", xlab = "X", ylab = "Y", xlim = c(0, max(data$speed)), ylim = c(0, max(data$dist)))
 abline(model, lwd = 2, lty = 2, col = "red")

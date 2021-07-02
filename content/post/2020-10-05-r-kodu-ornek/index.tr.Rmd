@@ -99,7 +99,7 @@ plot(data$speed, data$dist, type = "p", pch = 16, cex = 1, col = "blue", main = 
 abline(model, lwd = 2, lty = 2, col = "red")
 text(data$dist ~ data$speed, labels = rownames(data), cex = 1, font = 2, pos = 4)
 cf <- round(coef(model), 2)
-mtext(TeX(paste("$", "y", "=", cf[[1]], ifelse(sign(cf[[2]]) == 1, " + ", " - "), abs(cf[[2]]), "x", "$")), adj = 1, padj = 0)
+mtext(latex2exp::TeX(paste("$", "y", "=", cf[[1]], ifelse(sign(cf[[2]]) == 1, " + ", " - "), abs(cf[[2]]), "x", "$")), adj = 1, padj = 0)
 ```
 
 # R Video ve Kodları

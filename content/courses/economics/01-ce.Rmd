@@ -40,7 +40,7 @@ To inform you about the important announcements related to the course on time, a
 | Normal Education | Summer School |
 | :--- | :--- |
 | [Syllabus](`r paste0(economics.path, "CE/Economics_NE - Syllabus (Kara).pdf")`) `r emo::ji(eng)` | [Syllabus](`r paste0(economics.path, "CE/Economics - Syllabus (Kara).pdf")`) `r emo::ji(eng)` |
-| [Important Dates](`r paste0(economics.path, "CE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(eng)` | [Important Dates](`r paste0(economics.path, "CE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(eng)` |
+| [Important Dates](`r paste0(economics.path, "CE/Economics_NE - Important Dates (Kara).pdf")`) `r emo::ji(eng)` | [Important Dates](`r paste0(economics.path, "CE/Economics - Important Dates (Kara).pdf")`) `r emo::ji(eng)` |
 
 ## Course Book
 - [Book Selection Explanation](`r paste0(economics.path, "Economics_Book Selection Explanation.pdf")`) `r emo::ji(eng)`

@@ -20,10 +20,10 @@
 # Tek bir adımda gerekli paketlerin yüklenmesi ve kurulması.
 #===
 # Devtools ve okara paketlerinin yüklenmesi.
-if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
-suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
-suppressWarnings(library("okara")) ## okara paketi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
+suppressWarnings(suppressMessages(library("devtools"))) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara", force = FALSE)))}
+suppressWarnings(suppressMessages(library("okara"))) ## okara paketi.
 #===
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2"))
 #===

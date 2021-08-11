@@ -255,10 +255,10 @@ source(paste0(func.path, "granger_causality_TYDL_multivariate_tests.R")) ## Gran
 # update.packages(ask = FALSE, checkBuilt = TRUE)
 
 # Packages that MUST be installed.
-if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools")) ## devtools package is necessary for installing okara.
-suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
-suppressWarnings(library("okara")) ## okara package.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
+suppressWarnings(suppressMessages(library("devtools"))) ## devtools package is necessary for installing okara package.
+if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara", force = FALSE)))}
+suppressWarnings(suppressMessages(library("okara"))) ## okara package.
 Load.Install(c("png", "proto"))
 
 #=================================

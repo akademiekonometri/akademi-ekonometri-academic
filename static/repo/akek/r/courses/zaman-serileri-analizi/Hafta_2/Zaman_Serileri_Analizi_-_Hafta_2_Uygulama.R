@@ -3,28 +3,28 @@
 
 
 
-## ----Settings.Packages, cache = TRUE--------------------
+## ----Settings.Packages, cache = TRUE-------------
 # Devtools ve okara paketlerinin yüklenmesi.
-if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
-suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
-suppressWarnings(library("okara")) ## okara paketi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
+suppressWarnings(suppressMessages(library("devtools"))) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara", force = FALSE)))}
+suppressWarnings(suppressMessages(library("okara"))) ## okara paketi.
 
 # Gerekli paketlerin yüklenmesi.
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "lubridate", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car"))
 
 
-## ----Settings.Seed--------------------------------------
+## ----Settings.Seed-------------------------------
 set.seed(1234)
 
 
-## ----Settings.Working.Directory-------------------------
+## ----Settings.Working.Directory------------------
 # Değiştirmeyin.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
 setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
 
 
-## ----Static.Models.SLR----------------------------------
+## ----Static.Models.SLR---------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -41,7 +41,7 @@ model.2 <- lm(data = data, formula = cinf ~ cunem, singular.ok = FALSE)
 summary(model.2) ## Tahmin özeti.
 
 
-## ----Static.Models.MLR----------------------------------
+## ----Static.Models.MLR---------------------------
 data(intdef) ## Datayı yüklüyoruz.
 ?intdef ## Datanın metadatası.
 
@@ -54,7 +54,7 @@ model <- lm(data = data, formula = i3 ~ inf + def, singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 
 
-## ----FDL.Models.1---------------------------------------
+## ----FDL.Models.1--------------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -75,7 +75,7 @@ coef(model)[[2]]
 coef(model)[[2]] + coef(model)[[3]]
 
 
-## ----FDL.Models.2---------------------------------------
+## ----FDL.Models.2--------------------------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 

@@ -356,7 +356,7 @@ div.tocify {
 <h1 class="title toc-ignore">Zaman Serileri Analizi</h1>
 <h3 class="subtitle">Hafta #3 - Uygulama</h3>
 <h4 class="author"><a href="mailto:okara@ogu.edu.tr">Dr. Ömer Kara</a></h4>
-<h4 class="date">Friday, July 02, 2021</h4>
+<h4 class="date">Tuesday, August 10, 2021</h4>
 
 </div>
 
@@ -388,10 +388,10 @@ div.main-container {
 <li><a href="https://cran.r-project.org/web/packages/available_packages_by_name.html">R paketlerini</a> <a href="https://github.com/omerkara/okara"><code>okara</code></a> paketindeki <code>Load.Install</code> fonksiyonunu kullanarak indirin ve/veya yükleyin.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Devtools ve okara paketlerinin yüklenmesi.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(utils<span class="sc">::</span><span class="fu">installed.packages</span>()) <span class="sc">==</span> <span class="cn">FALSE</span>) {<span class="fu">suppressWarnings</span>(<span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>))}</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">library</span>(<span class="st">&quot;devtools&quot;</span>)) <span class="do">## devtools paketi, okara paketinin yüklenmesi için gereklidir.</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">suppressMessages</span>(devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;omerkara/okara&quot;</span>)))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">library</span>(<span class="st">&quot;okara&quot;</span>)) <span class="do">## okara paketi.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">&quot;devtools&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(utils<span class="sc">::</span><span class="fu">installed.packages</span>()) <span class="sc">==</span> <span class="cn">FALSE</span>) {<span class="fu">suppressWarnings</span>(<span class="fu">suppressMessages</span>(<span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)))}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">&quot;devtools&quot;</span>))) <span class="do">## devtools paketi, okara paketinin yüklenmesi için gereklidir.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="st">&quot;okara&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(utils<span class="sc">::</span><span class="fu">installed.packages</span>()) <span class="sc">==</span> <span class="cn">FALSE</span>) {<span class="fu">suppressWarnings</span>(<span class="fu">suppressMessages</span>(devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;omerkara/okara&quot;</span>, <span class="at">force =</span> <span class="cn">FALSE</span>)))}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressWarnings</span>(<span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">&quot;okara&quot;</span>))) <span class="do">## okara paketi.</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerekli paketlerin yüklenmesi.</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Load.Install</span>(<span class="fu">c</span>(<span class="st">&quot;rstudioapi&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;plyr&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;stringi&quot;</span>, <span class="st">&quot;Hmisc&quot;</span>, <span class="st">&quot;reshape2&quot;</span>, <span class="st">&quot;scales&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;xtable&quot;</span>, <span class="st">&quot;DT&quot;</span>, <span class="st">&quot;latex2exp&quot;</span>, <span class="st">&quot;forecast&quot;</span>, <span class="st">&quot;WDI&quot;</span>, <span class="st">&quot;fpp2&quot;</span>, <span class="st">&quot;fpp3&quot;</span>, <span class="st">&quot;datasets&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;FinYang/tsdl&quot;</span>, <span class="st">&quot;ggseas&quot;</span>, <span class="st">&quot;slider&quot;</span>, <span class="st">&quot;ecm&quot;</span>, <span class="st">&quot;wooldridge&quot;</span>, <span class="st">&quot;dynlm&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;AER&quot;</span>, <span class="st">&quot;stargazer&quot;</span>))</span></code></pre></div>
@@ -1948,6 +1948,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

@@ -1,6 +1,7 @@
 base
 usethis
 devtools
+okara
 png
 proto
 renv
@@ -32,6 +33,11 @@ xts
 TTR
 quantmod
 wooldridge
+carData
+car
+lmtest
+sandwich
+AER
 tsdl
 readxl
 reshape
@@ -52,11 +58,8 @@ gtable
 latticeExtra
 dygraphs
 RColorBrewer
-lmtest
-sandwich
+scales
 openxlsx
-carData
-car
 nortest
 normtest
 gvlma
@@ -92,7 +95,4 @@ fabletools
 feasts
 fable
 rstudioapi
-scales
 DT
-AER
-okara

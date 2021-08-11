@@ -70,10 +70,10 @@ options(repos = r)
 - [R paketlerini](https://cran.r-project.org/web/packages/available_packages_by_name.html) [`okara`](https://github.com/omerkara/okara) paketindeki `Load.Install` fonksiyonunu kullanarak indirin ve/veya yükleyin.
 ```{r Settings.Packages, cache = TRUE}
 # Devtools ve okara paketlerinin yüklenmesi.
-if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(install.packages("devtools"))}
-suppressWarnings(library("devtools")) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
-suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara")))
-suppressWarnings(library("okara")) ## okara paketi.
+if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
+suppressWarnings(suppressMessages(library("devtools"))) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
+if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(devtools::install_github("omerkara/okara", force = FALSE)))}
+suppressWarnings(suppressMessages(library("okara"))) ## okara paketi.
 
 # Gerekli paketlerin yüklenmesi.
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "lubridate", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car"))

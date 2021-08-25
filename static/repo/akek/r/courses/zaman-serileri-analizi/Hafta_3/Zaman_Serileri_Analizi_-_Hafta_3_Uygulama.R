@@ -158,7 +158,7 @@ linearHypothesis(model, c("log(usgnp) = 0")) ## linearHypothesis fonksiyonu F-is
 data(USMoney) ## Datayı yüklüyoruz.
 ?USMoney ## Datanın metadatası.
 
-data.ts <- USMoney ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz. Yüklediğimiz datanın ts yani zaman serisi objesi olduğunu unutmayın.
+data.ts <- USMoney ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz. Yüklediğimiz datanın ts yani zaman serisi objesi olduğunu unutmayın.
 str(data.ts) ## Datanın yapısını inceleyelim.
 head(data.ts, 5) ## Datanın yapısını ts objesi olarak inceleyelim.
 datatable(data.frame(Date = as.Date(date_decimal(as.numeric(time(data.ts)))), as.matrix(data.ts), stringsAsFactors = FALSE), filter = "none", options = list(pageLength = 5, autoWidth = TRUE)) ## Datanın yapısını data frame olarak inceleyelim.

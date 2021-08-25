@@ -38,7 +38,7 @@ for (i in 1:length(file.names)) {
     unlink(rmd.r.file)
 
     ## Ayni isimli bir .R dosyasi olusturuyor. Biz burada tip 1'i kullaniyoruz cunku hem chunk isimlerini hem de R kodunu istiyoruz.
-    purl(rmd.file, documentation = 1, output = rmd.r.file) ## purl fonksiyonu icin notlar: 0 sadece kodun dahil edilmesi (tum text chunklari atiliyor); 1 (default) chunk basliklari koda ekleniyor; 2 roxygen yorum halinde tum textler chunka ekleniyor.
+    knitr::purl(rmd.file, documentation = 1, output = rmd.r.file) ## purl fonksiyonu icin notlar: 0 sadece kodun dahil edilmesi (tum text chunklari atiliyor); 1 (default) chunk basliklari koda ekleniyor; 2 roxygen yorum halinde tum textler chunka ekleniyor.
 }
 
 # Working directory ilk bastaki haline donduruluyor.

@@ -34,13 +34,12 @@
 - All comments, suggestions, and other correspondences should be sent to our e-mail address [akademiekonometri@gmail.com](<mailto:akademiekonometri@gmail.com>).
 
 ## Owner
-| Omer Kara |
+| [Omer Kara](<omer.kara.ylsy@gmail.com>) |
 | :---: |
 | Faculty Member, Ph.D. |
 | Department of Economics |
 | Eskisehir Osmangazi University |
 | Owner |
-| <okara@ogu.edu.tr> |
 
 --
 

@@ -572,8 +572,8 @@ dev.off()
 ## fpp2 paketindeki qauselec adli data kullanilmistir.
 #===
 Load.Install("fpp2")
-dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
-dat[dat$Item == "qauselec", c(1,3,4)] ## Data hakkindaki bilgi.
+# dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
+# dat[dat$Item == "qauselec", c(1, 3, 4)] ## Data hakkindaki bilgi.
 
 data(qauselec)
 data <- qauselec
@@ -699,8 +699,8 @@ dev.off()
 ## datasets paketindeki nottem adli data kullanilmistir.
 #===
 Load.Install("datasets")
-dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
-dat[dat$Item == "nottem", c(1,3,4)] ## Data hakkindaki bilgi.
+# dat <- as.data.frame(data(package = .packages(all.available = TRUE))$results)
+# dat[dat$Item == "nottem", c(1,3,4)] ## Data hakkindaki bilgi.
 
 data(nottem)
 data <- nottem

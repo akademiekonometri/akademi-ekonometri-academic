@@ -34,9 +34,6 @@ outdated <- "no_entry"
 `MK`, <font color="red">**[Prof. Dr. Ş. Metin Kara](https://scholar.google.com/citations?user=U45CVc0AAAAJ&hl=tr)**</font> tarafından kaleme alınan içerikleri ifade eder...
 {{% /alert %}}
 
-## Data Kaynakları
-- `r emo::ji(tr)``r emo::ji(in.progress)`
-
 ## Akademik Makale Yazım Esasları
 #### Kitaplar ve Makaleler
 - [Akademik Yazım Kuralları Kitapçığı (Kökdemir)](`r paste0(ekonometri.ars.path, "Kokdemir__Akademik Yazim Kurallari Kitapcigi.pdf")`) `r emo::ji(tr)`
@@ -72,10 +69,6 @@ outdated <- "no_entry"
 #### Diğer Kaynaklar
 - `r emo::ji(tr)``r emo::ji(in.progress)`
 
-#### Örnek Makale Sunumları
-- [Örnek Sunum 1](`r paste0(ekonometri.ars.path, "Ornek_1_(Crypto).pdf")`) `r emo::ji(eng)`
-- [Örnek Sunum 2](`r paste0(ekonometri.ars.path, "Ornek_2_(Meat Demand).pdf")`) `r emo::ji(eng)`
-
 ## Akademik Makale Yayınlama Esasları
 #### Kitaplar ve Makaleler
 - `r emo::ji(tr)``r emo::ji(in.progress)`
@@ -93,6 +86,16 @@ outdated <- "no_entry"
 
 #### Slaytlar
 - [1 - Tez Nasıl Yazılır? (MK)](`r paste0(ekonometri.ars.path, "1 - Tez Nasil Yazilir.ppt")`) `r emo::ji(tr)`
+
+#### Diğer Kaynaklar
+- `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Anket Uygulama Esasları
+#### Kitaplar ve Makaleler
+- [Anket Hazırlama Kılavuzu (Baş)](`r paste0(ekonometri.ars.path, "Bas__Anket Hazirlama Kilavuzu.pdf")`) `r emo::ji(tr)`
+
+#### Slaytlar
+- `r emo::ji(tr)``r emo::ji(in.progress)`
 
 #### Diğer Kaynaklar
 - `r emo::ji(tr)``r emo::ji(in.progress)`

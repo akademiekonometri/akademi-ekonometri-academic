@@ -24,4 +24,4 @@ menu:
 <br>
 
 Ekonometri Araştırmaları I-II dersine hoş geldiniz!  
-
+Bu dersin ilk amacı ekonomi ile alakalı olan bir problemi/soruyu ortaya koyup daha sonra bu problemle/soruyla alakalı test etmek istediğiniz hipotezi oluşturmaktır. Dersin nihai amacı ise daha önceki derslerde öğrendiğiniz ekonometri biliminin temel ilkelerini kullanarak bu hipotezi test etmektir. Ekonometri Araştırmaları I ve II dersleri boyunca öğrenciler ortaya koydukları bu problemi/soruyu araştırarak ve uygulayarak adım adım akademik bir makaleye dönüştüreceklerdir. Ekonometri Araştırmaları I dersinde bu makalenin sadece ilk yarısı (giriş, literatür taraması, data bölümleri) yazılacaktır. Ekonometri Araştırmaları II dersinde ise bu makalenin ikinci yarısı (ekonometrik yöntemler, tahmin ve sonuçlar, tartışma ve sonuç, referanslar bölümleri) yazılacak ve bütünüyle akademik bir makale haline getirilecektir.

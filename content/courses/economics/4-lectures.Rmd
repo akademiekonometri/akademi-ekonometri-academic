@@ -36,18 +36,18 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=2X_-CiNAr6w&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=1) | [Video - Part #1](https://www.youtube.com/watch?v=rEZfMve6Vm0&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=1) |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=jeNwjaAVs4o&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=2) | [Video - Part #2](https://www.youtube.com/watch?v=1wAclMe5c6M&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=2) |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 1 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet](`r paste0(economics.path, "Economics - Week 1 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS Cevaplar (Kara).pdf")`) `r emo::ji(to.be.updated)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 1 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 1 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS (Kara).pdf")`) | [Worksheet](`r paste0(economics.path, "Economics - Week 1 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 1 CS Cevaplar (Kara).pdf")`) | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 1 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #2
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
 | :--------------------- | :------------------------- |
 | [Video](https://www.youtube.com/watch?v=JIpF9at8540&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=3) | [Video](https://www.youtube.com/watch?v=Z347BG3oFn4&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=3) |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 2 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 2 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 2 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 2 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 2 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 2 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 2 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 2 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #3
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -55,10 +55,10 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=akfocLbvXjM&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=4) | [Video - Part #1](https://www.youtube.com/watch?v=T7EQqHhbAgk&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=4) |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=Ykk_oeJiE_I&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=5) | [Video - Part #2](https://www.youtube.com/watch?v=Xudjskkv47U&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=5) |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 3 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 3 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 3 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 3 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS Cevaplar__Grafiksel (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics - Week 3 Worksheet Solutions__Graphical (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 3 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 3 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 3 Worksheet Solutions (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi - Hafta 3 CS Cevaplar__Grafiksel (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics - Week 3 Worksheet Solutions__Graphical (Kara).pdf")`) |
 
 ## Week #4
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -66,9 +66,9 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=ggTcdWCzMq0&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=6) | [Video - Part #1](https://www.youtube.com/watch?v=KKY6iOTOQHI&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=6) |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=n4lnYcVw4z0&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=7) | [Video - Part #2](https://www.youtube.com/watch?v=E4YhqVQ3TDk&list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg&index=7) |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 4 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 4 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 4 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 4 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 4 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 4 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 4 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 4 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #5
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -77,11 +77,11 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=KT5QKjJ7ub0&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=9) | [Video - Part #2]() `r emo::ji(in.progress)` |
 | [Video - Bölüm #3](https://www.youtube.com/watch?v=etsKGUGo-Eg&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=10) | [Video - Part #3]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 5 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 5 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Vergi Örneği](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 Vergi Ornegi (Kara).jpg")`) `r emo::ji(in.progress)` | [Tax Example](`r paste0(economics.path, "Economics - Week 5 Tax Example (Kara).jpg")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 5 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 5 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS Cevaplar__Grafiksel (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics - Week 5 Worksheet Solutions__Graphical (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 5 Notes (Kara).pdf")`) |
+| [Vergi Örneği](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 Vergi Ornegi (Kara).jpg")`) `r emo::ji(in.progress)` | [Tax Example](`r paste0(economics.path, "Economics - Week 5 Tax Example (Kara).jpg")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 5 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 5 Worksheet Solutions (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi - Hafta 5 CS Cevaplar__Grafiksel (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics - Week 5 Worksheet Solutions__Graphical (Kara).pdf")`) |
 
 ## Week #6
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -89,10 +89,10 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=QJKhDzAnvRA&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=11) | [Video - Part #1]() `r emo::ji(in.progress)` |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=ebzskGeYMgo&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=12) | [Video - Part #2]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 6 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 6 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Ek Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 Ek Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Additional Notes](`r paste0(economics.path, "Economics - Week 6 Additional Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 6 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 6 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 6 Notes (Kara).pdf")`) |
+| [Ek Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 Ek Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Additional Notes](`r paste0(economics.path, "Economics - Week 6 Additional Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 6 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 6 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 6 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #7
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -100,18 +100,18 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=uACsAqu3Z-4&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=13) | [Video - Part #1]() `r emo::ji(in.progress)` |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=Unc85Ih2sIE&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=14) | [Video - Part #2]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 7 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 7 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 7 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 7 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 7 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 7 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 7 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 7 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #8
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
 | :--------------------- | :------------------------- |
 | [Video](https://www.youtube.com/watch?v=t9v1kjSLpXc&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=15) | [Video]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 8 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 8 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 8 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 8 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 8 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 8 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 8 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 8 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #9
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -120,9 +120,9 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=rdzOXmcMAMo&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=17) | [Video - Part #2]() `r emo::ji(in.progress)` |
 | [Video - Bölüm #3](https://www.youtube.com/watch?v=xrTe_yBac7E&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=18) | [Video - Part #3]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 9 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 9 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 9 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 9 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 9 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 9 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 9 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 9 Worksheet Solutions (Kara).pdf")`) |
 
 ## Week #10
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
@@ -130,6 +130,6 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Video - Bölüm #1](https://www.youtube.com/watch?v=yJ7RGbzwUn0&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=19) | [Video - Part #1]() `r emo::ji(in.progress)` |
 | [Video - Bölüm #2](https://www.youtube.com/watch?v=P8UYNqkrd8M&list=PLGdlUqXbpitn_vnaxzj2qx18n5f4P7qch&index=20) | [Video - Part #2]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 (Kara).pptx")`) | [Slides](`r paste0(economics.path, "Economics - Week 10 (Kara).pptx")`) |
-| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 10 Notes (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 10 Worksheet (Kara).pdf")`) `r emo::ji(to.be.updated)` |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 10 Worksheet Solutions (Kara).pdf")`) `r emo::ji(to.be.updated)` |
+| [Notlar](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 Notlar (Kara).pdf")`) `r emo::ji(in.progress)` | [Notes](`r paste0(economics.path, "Economics - Week 10 Notes (Kara).pdf")`) |
+| [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics - Week 10 Worksheet (Kara).pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi - Hafta 10 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics - Week 10 Worksheet Solutions (Kara).pdf")`) |

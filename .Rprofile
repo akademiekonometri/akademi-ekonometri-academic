@@ -20,6 +20,9 @@ source("renv/activate.R")
 #================================ Last Function ================================
 .Last <- function()  cat("\nGoodbye!\n")
 
+#================================ R Libraries =================================
+.libPaths("/Volumes/Omer/Google Drive/Apps/R/R Libraries")
+
 #============================== Blogdown Options ===============================
 # Blogdown options.
 options(

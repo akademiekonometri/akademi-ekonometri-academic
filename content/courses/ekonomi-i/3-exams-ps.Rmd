@@ -36,7 +36,7 @@ outdated <- "no_entry"
 
 ## Sınavlar
 - [Ara Sınav - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Ara Sinav Inceleme (Kara).pdf")`)
-- [Final Sınavı - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Final Sinavi Inceleme (Kara).pdf")`) `r emo::ji(to.be.updated)`
+- [Final Sınavı - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Final Sinavi Inceleme (Kara).pdf")`)
 - [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
     - [DYS'de Online Çoktan Seçmeli Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 - [CANVAS'a Online Klasik Sınav Nasıl Yüklenir]() `r emo::ji(tr)``r emo::ji(in.progress)`

@@ -126,6 +126,6 @@ outdated <- "no_entry"
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |
 | :--------------------- | :------------------------- |
 | [Video]() `r emo::ji(in.progress)` | [Video]() `r emo::ji(in.progress)` |
-| [Slaytlar](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Hafta 10 (Kara).pptx")`) `r emo::ji(to.be.updated)` | [Slides](`r paste0(ekonomi.i.path, "Economics_I - Week 10 (Kara).pptx")`) |
+| [Slaytlar](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Hafta 10 (Kara).pptx")`) | [Slides](`r paste0(ekonomi.i.path, "Economics_I - Week 10 (Kara).pptx")`) |
 | [Çalışma Soruları](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Hafta 10 CS (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(ekonomi.i.path, "Economics_I - Week 10 Worksheet (Kara).pdf")`) |
 | [Çalışma Soruları Cevaplar](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Hafta 10 CS Cevaplar (Kara).pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(ekonomi.i.path, "Economics_I - Week 10 Worksheet Solutions (Kara).pdf")`) |

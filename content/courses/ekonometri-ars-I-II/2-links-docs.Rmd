@@ -54,6 +54,10 @@ outdated <- "no_entry"
 - [Yunan Harfleri](`r paste0(ekonometri.i.path, "Yunan Harfleri.pdf")`) `r emo::ji(tr)`
 - [wooldridge - R Paketi](`r paste0(ekonometri.i.path, "Package - wooldridge.pdf")`) `r emo::ji(eng)``r fa("r-project", fill = "steelblue")`
 
+## R mini BootCamp
+- [HTML](https://akademiekonometri.bitbucket.io/R_mini_BootCamp/R_mini_BootCamp.html) `r emo::ji(eng)`
+    + [R](https://akademiekonometri.bitbucket.io/R_mini_BootCamp/R_mini_BootCamp.R) `r emo::ji(eng)`
+
 ## Online-Ders
 - [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
 - [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`

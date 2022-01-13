@@ -31,24 +31,24 @@ outdated <- "no_entry"
 {{% /alert %}}
 
 ## Sınavlar
-- [Konu Önerisi Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I-II_Konu Onerisi Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
-- [Örnek Konu Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I-II_Ornek Konu Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
-- [Data Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I-II_Data Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
-- [Makale Taslak Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I-II_Makale Taslak Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
-- [Akademik Etik Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I-II_Akademik Etik Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
+- [Konu Önerisi Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Konu_Onerisi_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Örnek Konu Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Ornek_Konu_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Data Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Data_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Makale Taslak Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Makale_Taslak_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Akademik Etik Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Akademik_Etik_Aciklamasi.pdf")`) `r emo::ji(tr)`
 - [JEL Sınıflandırma Kodları](https://www.aeaweb.org/jel/guide/jel.php) `r emo::ji(eng)`
 - [CANVAS'a Online Klasik Sınav Nasıl Yüklenir?]() `r emo::ji(tr)``r emo::ji(in.progress)`
     - [DYS'ye Online Klasik Sınav Nasıl Yüklenir?](https://www.youtube.com/watch?v=wsUB6-fTxA8&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 
 ## Sunum
-- [Sunum Değerlendirme Esasları (Ekonometri Araştırmaları I Dersi İçin)](`r paste0(ekonometri.ars.path, "Ekonometri Ars_I_Sunum Degerlendirme (Kara).pdf")`) `r emo::ji(tr)`
-- [Sunum Değerlendirme Esasları (Ekonometri Araştırmaları II Dersi İçin)](`r paste0(ekonometri.ars.path, "Ekonometri Ars_II_Sunum Degerlendirme (Kara).pdf")`) `r emo::ji(tr)`
+- [Sunum Değerlendirme Esasları (Ekonometri Araştırmaları I Dersi İçin)](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I_Sunum_Degerlendirme.pdf")`) `r emo::ji(tr)`
+- [Sunum Değerlendirme Esasları (Ekonometri Araştırmaları II Dersi İçin)](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_II_Sunum_Degerlendirme.pdf")`) `r emo::ji(tr)`
 - [CANVAS'a Online Klasik Ödev veya Sunum Nasıl Yüklenir?]() `r emo::ji(tr)``r emo::ji(in.progress)`
 
 ### Örnek Makale ve Sunumlar
 - [Makale Örneği - Taslak (Ömer Kara)](`r paste0(ekonometri.ars.path, "Article.pdf")`) `r emo::ji(tr)`
-- [Makale Örneği - 1 (Elif Yıldız - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_1__Elif Yildiz.pdf")`) `r emo::ji(tr)`
-- [Makale Örneği - 2 (İlknur Büşra Çakır - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_1__Ilknur Busra Cakir.pdf")`) `r emo::ji(tr)`
-- [Sunum Örneği - 1 (Ömer Kara)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_1__Omer Kara.pdf")`) `r emo::ji(eng)`
-- [Sunum Örneği - 2 (Ömer Kara)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_2__Omer Kara.pdf")`) `r emo::ji(eng)`
-- [Sunum Örneği - 3 (İlknur Büşra Çakır - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_3__Ilknur Busra Cakir.pptx")`) `r emo::ji(eng)`
+- [Makale Örneği - 1 (Elif Yıldız - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_1__Elif_Yildiz.pdf")`) `r emo::ji(tr)`
+- [Makale Örneği - 2 (İlknur Büşra Çakır - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_1__Ilknur_Busra_Cakir.pdf")`) `r emo::ji(tr)`
+- [Sunum Örneği - 1 (Ömer Kara)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_1__Omer_Kara.pdf")`) `r emo::ji(eng)`
+- [Sunum Örneği - 2 (Ömer Kara)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_2__Omer_Kara.pdf")`) `r emo::ji(eng)`
+- [Sunum Örneği - 3 (İlknur Büşra Çakır - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Sunum__Ornek_3__Ilknur_Busra_Cakir.pptx")`) `r emo::ji(eng)`

@@ -35,8 +35,8 @@ outdated <- "no_entry"
     - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 
 ## Sınavlar
-- [Ara Sınav - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Ara Sinav Inceleme (Kara).pdf")`)
-- [Final Sınavı - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I - Final Sinavi Inceleme (Kara).pdf")`)
+- [Ara Sınav - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Ara_Sinav_Inceleme.pdf")`)
+- [Final Sınavı - İnceleme](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Final_Sinavi_Inceleme.pdf")`)
 - [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
     - [DYS'de Online Çoktan Seçmeli Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 - [CANVAS'a Online Klasik Sınav Nasıl Yüklenir]() `r emo::ji(tr)``r emo::ji(in.progress)`

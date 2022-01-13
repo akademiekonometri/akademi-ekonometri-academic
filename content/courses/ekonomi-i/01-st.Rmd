@@ -33,16 +33,16 @@ outdated <- "no_entry"
 ## Telegram Kanalı
 Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
 
-- [Telegram Kanalı Duyurusu](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Telegram Kanali Duyurusu_Bilgilendirme.pdf")`) `r emo::ji(tr)`
-- [QR Kod - Telefon İçin](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Telegram Kanali Duyurusu_Ilan.pdf")`) `r emo::ji(tr)`
+- [Telegram Kanalı Duyurusu](`r paste0(ekonomi.i.path, "ST/Ekonomiye_Giris_I_-_Telegram_Kanali_Duyurusu_Bilgilendirme.pdf")`) `r emo::ji(tr)`
+- [QR Kod - Telefon İçin](`r paste0(ekonomi.i.path, "ST/Ekonomiye_Giris_I_-_Telegram_Kanali_Duyurusu_Ilan.pdf")`) `r emo::ji(tr)`
 
 ## Ders Planı ve Önemli Günler
-- [Ders Planı](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I - Ders Plani (Kara).pdf")`) `r emo::ji(tr)`
-- [Önemli Günler](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I - Onemli Gunler (Kara).pdf")`) `r emo::ji(tr)`
+- [Ders Planı](`r paste0(ekonomi.i.path, "ST/Ekonomiye_Giris_I_-_Ders_Plani.pdf")`) `r emo::ji(tr)`
+- [Önemli Günler](`r paste0(ekonomi.i.path, "ST/Ekonomiye_Giris_I_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)`
 
 ## Ders Kitabı
-- [Kitap Seçimi Açıklaması](`r paste0(ekonomi.i.path, "Ekonomiye Giris_I_Kitap Secimi Aciklamasi (Kara).pdf")`) `r emo::ji(tr)`
+- [Kitap Seçimi Açıklaması](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Kitap_Secimi_Aciklamasi.pdf")`) `r emo::ji(tr)`
 
 ## Ders Değerlendirme Anketi
-- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonomi.i.path, "ST/Ekonomiye Giris_I_Ders Degerlendirme Anketi.pdf")`) `r emo::ji(tr)`
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonomi.i.path, "ST/Ekonomiye_Giris_I_-_Ders_Degerlendirme_Anketi.pdf")`) `r emo::ji(tr)`
 - [Ders Değerlendirme Anketi - Link](https://forms.gle/sxp48WjRcgq8yrv66) `r emo::ji(tr)`

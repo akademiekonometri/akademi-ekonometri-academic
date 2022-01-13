@@ -37,8 +37,8 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 ## Exams
 | Türkçe `r emo::ji(tr)` | İngilizce `r emo::ji(eng)` |
 | :--------------------- | :------------------------- |
-| [Ara Sınav - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Ara Sinav Inceleme (Kara).pdf")`) | [Midterm Exam - Review](`r paste0(economics.path, "Economics - Midterm Exam Review (Kara).pdf")`) |
-| [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Final Sinavi Inceleme (Kara).pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics - Final Exam Review (Kara).pdf")`) |
+| [Ara Sınav - İnceleme](`r paste0(ekonomi.path, "Ekonomi_-_Ara_Sinav_Inceleme.pdf")`) | [Midterm Exam - Review](`r paste0(economics.path, "Economics_-_Midterm_Exam_Review.pdf")`) |
+| [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi_-_Final_Sinavi_Inceleme.pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics_-_Final_Exam_Review.pdf")`) |
 
 - [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
     - [DYS'de Online Çoktan Seçmeli Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`

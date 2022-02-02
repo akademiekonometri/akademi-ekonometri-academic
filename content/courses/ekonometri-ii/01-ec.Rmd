@@ -40,7 +40,7 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 | 1. Öğretim | 2. Öğretim | Yaz Okulu |
 | :--- | :--- | :--- |
 | [Ders Planı](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_1O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_2O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_-_Ders_Plani.pdf")`) `r emo::ji(tr)``r emo::ji(to.be.updated)` |
-| [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_1O - Onemli Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_2O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)` |
+| [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_1O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_2O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ii.path, "EC/Ekonometri_II_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)` |
 
 ## Ders Kitabı
 - [Kitap Seçimi Açıklaması](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Kitap_Secimi_Aciklamasi.pdf")`) `r emo::ji(tr)`

@@ -32,7 +32,6 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 
 ## Problem Sets
 - [CANVAS'ta Online Çoktan Seçmeli Ödev Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
-    - [DYS'de Online Çoktan Seçmeli Ödev Nasıl Yapılır?](https://www.youtube.com/watch?v=OOqC0JrtOaI&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 
 ## Exams
 | Türkçe `r emo::ji(tr)` | İngilizce `r emo::ji(eng)` |
@@ -41,6 +40,4 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi_-_Final_Sinavi_Inceleme.pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics_-_Final_Exam_Review.pdf")`) |
 
 - [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
-    - [DYS'de Online Çoktan Seçmeli Sınav Nasıl Yapılır?](https://www.youtube.com/watch?v=V_Oyg-WGoK4&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`
 - [CANVAS'a Online Klasik Sınav Nasıl Yüklenir]() `r emo::ji(tr)``r emo::ji(in.progress)`
-    - [DYS'ye Online Klasik Sınav Nasıl Yüklenir?](https://www.youtube.com/watch?v=wsUB6-fTxA8&feature=youtu.be) `r emo::ji(tr)``r emo::ji(outdated)`

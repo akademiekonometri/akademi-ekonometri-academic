@@ -81,7 +81,7 @@ On the page you are reviewing, the icons and the contents they refer are as foll
 | [Vergi Örneği](`r paste0(ekonomi.path, "Ekonomi_-_Hafta_5_Vergi Ornegi.jpg")`) `r emo::ji(in.progress)` | [Tax Example](`r paste0(economics.path, "Economics_-_Week_5_Tax_Example.jpg")`) |
 | [Çalışma Soruları](`r paste0(ekonomi.path, "Ekonomi_-_Hafta_5_CS.pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(economics.path, "Economics_-_Week_5_Worksheet.pdf")`) |
 | [Çalışma Soruları Cevaplar](`r paste0(ekonomi.path, "Ekonomi_-_Hafta_5_CS_Cevap.pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(economics.path, "Economics_-_Week_5_Worksheet_Solution.pdf")`) |
-| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi_-_Hafta_5_CS_Cevaplar__Grafiksel.pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics_-_Week_5_Worksheet_Solution__Graphical.pdf")`) |
+| [Çalışma Soruları Cevaplar - Grafiksel](`r paste0(ekonomi.path, "Ekonomi_-_Hafta_5_CS_Cevap__Grafiksel.pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions - Graphical](`r paste0(economics.path, "Economics_-_Week_5_Worksheet_Solution__Graphical.pdf")`) |
 
 ## Week #6
 | Türkçe `r emo::ji(tr)` | English `r emo::ji(eng)` |

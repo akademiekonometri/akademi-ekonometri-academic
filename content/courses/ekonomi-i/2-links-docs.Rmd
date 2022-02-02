@@ -30,6 +30,10 @@ outdated <- "no_entry"
 İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
 {{% /alert %}}
 
+## Online-Ders
+- [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
+- [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`
+
 ## Akademi Ekonometri
 - [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
 - [Ekonomiye Giriş I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlq2gXhN8biIYvYR4cyJPYY) `r emo::ji(tr)``r emo::ji(to.be.updated)`
@@ -39,13 +43,8 @@ outdated <- "no_entry"
 - [Economics - Course Videos (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlXmYoB4LUc2dnnI1OPAhHg) [^2] `r emo::ji(eng)``r emo::ji(to.be.updated)`
     + [Economics - Online-Class (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnP7rJTS--Dc1SKhFw7YZYU) `r emo::ji(eng)``r emo::ji(to.be.updated)`
 
-## Diğer Dokümanlar
-- `r emo::ji(in.progress)`
-
-## Online-Ders
-- [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
-- [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`
-    - [DYS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnUtMAi-Xi-q79LA4lG0Bbe) `r emo::ji(tr)``r emo::ji(outdated)`
+<!-- ## Diğer Dokümanlar -->
+<!-- - `r emo::ji(in.progress)` -->
 
 ## Diğer Linkler
 - [YÖK Dersleri Platformu](https://yokdersleri.yok.gov.tr/) `r emo::ji(tr)`

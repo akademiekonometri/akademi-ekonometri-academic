@@ -53,4 +53,3 @@ outdated <- "no_entry"
 ## Hafta #6
 - [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
 - [Slaytlar](`r paste0(ekonometri.i.path, "Ekonometri_I_-_Hafta_6.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
-

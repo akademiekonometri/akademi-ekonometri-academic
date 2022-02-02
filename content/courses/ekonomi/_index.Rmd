@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 linktitle: "Ekonomi"
-summary: "Verildiği son bölüm ve dönem: Endüstri Mühendisliği - Bahar 2021 ve Metalurji ve Malzeme Mühendisliği - Bahar 2019"
+summary: "Verildiği son bölüm ve dönem: Endüstri Mühendisliği - Bahar 2022 ve Metalurji ve Malzeme Mühendisliği - Bahar 2019"
 weight: 80
 categories: [Ders]
 tags: [ekonomi, türkçe, turkish]

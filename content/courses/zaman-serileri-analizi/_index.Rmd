@@ -2,7 +2,7 @@
 # Course title, summary, and position.
 linktitle: "Zaman Serileri Analizi"
 summary: "Verildiği son bölüm ve dönem: İktisat - Bahar 2022"
-weight: 21
+weight: 20
 categories: [Ders]
 tags: [zaman serileri analizi, türkçe, turkish]
 

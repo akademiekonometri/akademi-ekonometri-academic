@@ -1,0 +1,55 @@
+---
+title: Ders Notları
+linktitle: Ders Notları
+date: "2022-02-14"
+lastmod: "2022-02-14"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  finansal-ekonometri:
+    parent: 
+    weight: 50
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 50
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Hafta #1
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_1.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #2
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_2.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #3
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_3.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #4
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_4.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #5
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_5.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Hafta #6
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Slaytlar](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Hafta_6.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`

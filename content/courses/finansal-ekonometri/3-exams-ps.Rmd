@@ -1,0 +1,40 @@
+---
+title: Ödev ve Sınavlar
+linktitle: Ödev ve Sınavlar
+date: "2022-02-14"
+lastmod: "2022-02-14"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  finansal-ekonometri:
+    parent: 
+    weight: 40
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 40
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Ödevler
+- [CANVAS'ta Online Çoktan Seçmeli Ödev Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Sınavlar
+- [Ara Sınav - İnceleme](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Ara_Sinav_Inceleme.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Final Sınavı - İnceleme](`r paste0(finansal.ekonometri.path, "Finansal_Ekonometri_-_Final_Sinavi_Inceleme.pdf")`) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [CANVAS'a Online Klasik Sınav Nasıl Yüklenir]() `r emo::ji(tr)``r emo::ji(in.progress)`

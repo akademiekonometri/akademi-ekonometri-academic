@@ -63,6 +63,7 @@ ekonometri.i <- "ekonometri-i/"
 ekonometri.ii <- "ekonometri-ii/"
 zaman.serileri.analizi <- "zaman-serileri-analizi/"
 ekonometrik.modelleme <- "ekonometrik-modelleme/"
+finansal.ekonometri <- "finansal-ekonometri/"
 economics <- "economics/"
 ekonomi <- "ekonomi/"
 ekonomi.i <- "ekonomi-i/"
@@ -96,6 +97,9 @@ zaman.serileri.analizi.path <- paste0(repo.akek.courses, zaman.serileri.analizi)
 # Relative path for "./static/repo/akek/courses/ekonometrik-modelleme/" folder.
 ekonometrik.modelleme.path <- paste0(repo.akek.courses, ekonometrik.modelleme)
 
+# Relative path for "./static/repo/akek/courses/finansal-ekonometri/" folder.
+finansal.ekonometri.path <- paste0(repo.akek.courses, finansal.ekonometri)
+
 # Relative path for "./static/repo/akek/courses/economics/" folder.
 economics.path <- paste0(repo.akek.courses, economics)
 
@@ -125,6 +129,9 @@ zaman.serileri.analizi.r.path <- paste0(repo.akek.r.courses, zaman.serileri.anal
 # Relative path for "./static/repo/akek/r/courses/ekonometrik-modelleme/" folder.
 ekonometrik.modelleme.r.path <- paste0(repo.akek.r.courses, ekonometrik.modelleme)
 
+# Relative path for "./static/repo/akek/r/courses/finansal-ekonometri/" folder.
+finansal.ekonometri.r.path <- paste0(repo.akek.r.courses, finansal.ekonometri)
+
 #=================================== Links =====================================
 # ---- Settings.Links.1 ----
 # Base link for "akademiekonometri.bitbucket.io/"
@@ -152,6 +159,9 @@ zaman.serileri.analizi.link <- paste0(akek.courses.link, zaman.serileri.analizi)
 
 # Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/".
 ekonometrik.modelleme.link <- paste0(akek.courses.link, ekonometrik.modelleme)
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/finansal-ekonometri/".
+finansal.ekonometri.link <- paste0(akek.courses.link, finansal.ekonometri)
 
 # Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/".
 economics.link <- paste0(akek.courses.link, economics)
@@ -182,6 +192,9 @@ zaman.serileri.analizi.exams.link <- paste0(akek.courses.link, zaman.serileri.an
 # Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/exams/".
 ekonometrik.modelleme.exams.link <- paste0(akek.courses.link, ekonometrik.modelleme, exams)
 
+# Link for "https://akademiekonometri.bitbucket.io/akek/courses/finansal-ekonometri/exams/".
+finansal.ekonometri.exams.link <- paste0(akek.courses.link, finansal.ekonometri, exams)
+
 # Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/exams/".
 economics.exams.link <- paste0(akek.courses.link, economics, exams)
 
@@ -210,6 +223,9 @@ zaman.serileri.analizi.r.link <- paste0(akek.r.courses.link, zaman.serileri.anal
 
 # Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometrik-modelleme/".
 ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, ekonometrik.modelleme)
+
+# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/finansal-ekonometri/".
+finansal.ekonometri.r.link <- paste0(akek.r.courses.link, finansal.ekonometri)
 
 #================================= Functions ===================================
 # ---- Settings.Functions.1 ----

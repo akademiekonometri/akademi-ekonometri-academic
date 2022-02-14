@@ -50,6 +50,9 @@ outdated <- "no_entry"
 - [Ekonometrik Modelleme - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmX4rFuzwEPV6LwSIkW2wfi) `r emo::ji(tr)``r emo::ji(in.progress)`
     + [Ekonometrik Modelleme - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk83Yi1sMWWviJXi2oeUTiS) `r emo::ji(tr)``r emo::ji(to.be.updated)`
     + [R ile Ekonometrik Modelleme - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk5XQXH9JYm81CJrr4o9Zhl) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Finansal Ekonometri - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnEiFnnYrta5p7ig_7mH0Yz) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Finansal Ekonometri - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlf2aixlnb1P5DLLFZINWTS) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [R ile Finansal Ekonometri - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmRipiIBnVojFg4J0yn7iPd) `r emo::ji(tr)``r emo::ji(in.progress)`
 - [R ile 15 Dakikada Kolay Kodlama - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitml03Ea8sOjblldkZW-XU5J) `r emo::ji(tr)``r emo::ji(in.progress)`
 - [R Rastgele - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlK87V9m6L0hT2jfKmWkNct) `r emo::ji(tr)``r emo::ji(to.be.updated)`
 

@@ -42,14 +42,14 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-functions.folder.name <- "../../../_functions"
-figs.tabs.folder.name <- "_figs-tabs"
+functions.folder.name <- "_functions/"
+figs.tabs.folder.name <- "_figs-tabs/"
 
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
 #===
 ## "Seasonal.Adjust" fonksiyonu icin "seasonal_adjust.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
+source(paste0(main.path, "/", functions.folder.name, "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada enflasyon ve istihdam ile ilgili verileri yayinlayan kurum olan Bureau of Labor Statistics (BLS)'den direkt olarak 2 farkli veri seti (CPI ve PPI) indirip bu veri setinden 3 adet indeksi kullanip (CUSR0000SA0, CUUR0000SA0, WPU00000000) datayi temizlemistik. Son olarak ise temizlenmis datayi .RData dosyasi olarak CPI_PPI_Processed.RData adi altinda kaydetmistik.

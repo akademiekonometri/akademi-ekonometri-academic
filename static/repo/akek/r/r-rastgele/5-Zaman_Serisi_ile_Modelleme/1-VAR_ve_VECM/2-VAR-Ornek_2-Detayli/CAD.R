@@ -45,35 +45,35 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-functions.folder.name <- "../../../../_functions"
-figs.tabs.folder.name <- "_figs-tabs"
+functions.folder.name <- "_functions/"
+figs.tabs.folder.name <- "_figs-tabs/"
 
 #============================= Gerekli Fonksiyonlar ============================
 # Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
 #===
 ## "Seasonal.Adjust" fonksiyonu icin "seasonal_adjust.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
+source(paste0(main.path, "/", functions.folder.name, "seasonal_adjust.R")) ## Degiskenler icindeki mevsimsel etkinin "X-13ARIMA-SEATS" algoritmasi ile cikartilmsi yontemi. Not: Sadece aylik ve ceyreklik data varsa kullanin. Yillik verilerde kullanilmaz.
 
 ## "ADF.Enders.Procedure" fonksiyonu icin "unit_root_adf_enders_procedure_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_adf_enders_procedure_tests.R")) ## Degiskenler icin Enders'in kitabinda bulunan ve ADF unit root testinin kullanildigi proseduru takip eder ve unit root testi yapar. Az sayida gozlem iceren data icin calismayabilir.
+source(paste0(main.path, "/", functions.folder.name, "unit_root_adf_enders_procedure_tests.R")) ## Degiskenler icin Enders'in kitabinda bulunan ve ADF unit root testinin kullanildigi proseduru takip eder ve unit root testi yapar. Az sayida gozlem iceren data icin calismayabilir.
 
 ## "UR.Stationary.Tests" fonksiyonu icin "unit_root_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "unit_root_tests.R")) ## Degiskenler icin unit root testleri (PP ve ERS) ve stationary testi (KPSS). Az sayida gozlem iceren data icin calismayabilir.
+source(paste0(main.path, "/", functions.folder.name, "unit_root_tests.R")) ## Degiskenler icin unit root testleri (PP ve ERS) ve stationary testi (KPSS). Az sayida gozlem iceren data icin calismayabilir.
 
 ## "PO.Coint.Pairwise.Test" fonksiyonu icin "cointegration_pairwise_po_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_po_tests.R")) ## Phillips-Ouliaris (PO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
+source(paste0(main.path, "/", functions.folder.name, "cointegration_pairwise_po_tests.R")) ## Phillips-Ouliaris (PO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
 
 ## "JO.Coint.Pairwise.Test" fonksiyonu icin "cointegration_pairwise_jo_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_pairwise_jo_tests.R")) ## Joahnsen (JO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
+source(paste0(main.path, "/", functions.folder.name, "cointegration_pairwise_jo_tests.R")) ## Joahnsen (JO) Cointegration Pairwise testleri - Simetrik. Az sayida gozlem iceren data icin calismayabilir.
 
 ## "Coint.Select" fonksiyonu icin "cointegration_select.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "cointegration_select.R")) ## Ikili ya da daha fazla degisken icin uygulanan Johansen Cointegration testinin sonucunu direkt olarak verir.
+source(paste0(main.path, "/", functions.folder.name, "cointegration_select.R")) ## Ikili ya da daha fazla degisken icin uygulanan Johansen Cointegration testinin sonucunu direkt olarak verir.
 
 ## "Granger.Causality.TYDL.Pairwise" fonksiyonu icin "granger_causality_TYDL_pairwise_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_pairwise_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda iki denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
+source(paste0(main.path, "/", functions.folder.name, "granger_causality_TYDL_pairwise_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda iki denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
 
 ## "Granger.Causality.TYDL.Multivariate" fonksiyonu icin "granger_causality_TYDL_multivariate_tests.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "granger_causality_TYDL_multivariate_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
+source(paste0(main.path, "/", functions.folder.name, "granger_causality_TYDL_multivariate_tests.R")) ## VAR ya da VECM analizinde kullanilacak olan degiskenler arasinda cok denklemli olarak VAR modelini kurup degiskenler arasinda asimetrik TYDL Granger Nedensellik testi sonuclarini direkt olarak verir.
 
 #================================= Genel Bilgi =================================
 # Bu bolumde Turkiye Istatistik Kurumu'ndan (TUIK) elde ettigimiz 3 farkli degiskene (Reel Cari Acik - Real Current Account Deficit, Reel Gayri Safi Yurtici Hasila - Real GDP ve Reel Doviz Kuru - Real Exchange Rate) ait 2005-2019 arasindaki yillik verilerini kullanacagiz (baz yil 2005=100). Temel amacimiz bu verileri kullanarak VAR modeli uygulamak olacak. Asagida bu bolumde yapilacak analizler sirasiyla verilmistir.
@@ -193,7 +193,7 @@ str(temp.summary)
 #============ Ozet Data Istatistikleri Tablosunun Disa Aktarilmasi =============
 # Simdi de ozet data istatistikleri tablosunu daha sonra kullanilmak amaciyla farkli formatlarda disa aktaralim.
 file.name <- "summary_statistics" ## Disa aktarirken her seferinde dosya adini girmekle ugrasmamak adina dosya ismini iceren bir deger olusturuyoruz.
-file.path <- paste0(figs.tabs.folder.name, "/", file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
+file.path <- paste0(figs.tabs.folder.name, file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
 
 ## stargazer paketi ile.
 stargazer(temp.summary, summary = FALSE, type = "text", out = paste0(file.path, ".txt")) ## txt dosyasi olarak.
@@ -249,7 +249,7 @@ temp <- data
 variables <- c("RCAD", "RGDP", "RER", "Gr.RCAD", "Gr.RGDP", "Gr.RER")
 variable.names <- c("Real Current Addount Deficit", "Real GDP", "Real Exchange Rate", "Growth in Real Current Account Deficit", "Growth in Real GDP", "Growth in Real Exchange Rate")
 for (i in 1:length(variables)) {
-    pdf(paste0(figs.tabs.folder.name, "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+    pdf(paste0(figs.tabs.folder.name, variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
     par(mar = c(2, 2, 2, 2))
 
     g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variables[i]], colour = "Variable"), linetype = 1, size = 1) +
@@ -273,7 +273,7 @@ variable.names <- c("Real Current Addount Deficit", "Real GDP", "Real Exchange R
 temp <- reshape2::melt(temp, id.vars = c(grep("(Date)|(Year))", colnames(temp), value = TRUE)), measure.vars = variables, variable_name = "variable", na.rm = FALSE)
 temp$variable <- factor(temp$variable, labels = variable.names)
 
-pdf(paste0(figs.tabs.folder.name, "/", "levels", ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+pdf(paste0(figs.tabs.folder.name, "levels", ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
 par(mar = c(2, 2, 2, 2))
 
 g <- ggplot(temp) + geom_line(aes(x = Date, y = value, colour = "Variable"), linetype = 1, size = 1) +
@@ -299,7 +299,7 @@ variable.names <- c("Growth in Real Current Account Deficit", "Growth in Real GD
 temp <- reshape2::melt(temp, id.vars = c(grep("(Date)|(Year))", colnames(temp), value = TRUE)), measure.vars = variables, variable_name = "variable", na.rm = FALSE)
 temp$variable <- factor(temp$variable, labels = variable.names)
 
-pdf(paste0(figs.tabs.folder.name, "/", "growth", ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+pdf(paste0(figs.tabs.folder.name, "growth", ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
 par(mar = c(2, 2, 2, 2))
 
 g <- ggplot(temp) + geom_line(aes(x = Date, y = value, colour = "Variable"), linetype = 1, size = 1) +

@@ -41,14 +41,8 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-functions.folder.name <- "../../../_functions"
-figs.tabs.folder.name <- "_figs-tabs"
-
-#============================= Gerekli Fonksiyonlar ============================
-# Analiz sirasinda gerekli olan kullanici tarafindan yazilmis fonksiyonlarin yuklenmesi
-#===
-## "human_num" fonksiyonu ve benzerleri icin https://github.com/fdryan/R/blob/master/ggplot2_formatter.r linkine ya da "estimation_functions.R" dosyasina bakabilirsiniz.
-source(paste0(main.path, "/", functions.folder.name, "/", "estimation_functions.R")) ## Grafikler icin gerekli: Eksenlerdeki rakamlarin daha duzgun yazilabilmesi icin fonksiyonlarin yuklenmesi.
+functions.folder.name <- "_functions/"
+figs.tabs.folder.name <- "_figs-tabs/"
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada enflasyon ve istihdam ile ilgili verileri yayinlayan kurum olan Bureau of Labor Statistics (BLS)'den direkt olarak 2 farkli veri seti (CPI ve PPI) indirip bu veri setinden 3 adet indeksi (CUSR0000SA0, CUUR0000SA0, WPU00000000) kullanip datayi temizlemistik. Daha sonra bu temizlenmis data uzerinde bazi transformasyonlar yapip datanin son halini CPI_PPI_Processed_Trans.RData olarak kaydetmistik.
@@ -162,7 +156,7 @@ variable.names <- c("Firts Differenced CPI (US)", "First Differenced PPI (US)", 
 temp <- cbind(data[-1, c(grep("(Date)|(Year)|(Month)", colnames(data)))], as.data.frame(diff(data.ts, lag = 1, diff = 1))) ## Tum degiskenlerin (zamanla ilgili olanlar haric) ilk farklarini aliyoruz ve ilk farklari alinmis datayi temp olarak kaydediyoruz.
 
 for (i in 1:length(variables)) {
-    pdf(paste0(figs.tabs.folder.name, "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+    pdf(paste0(figs.tabs.folder.name, variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
     par(mar = c(2, 2, 2, 2))
 
     g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variables[i]], colour = "Variable"), linetype = 1, size = 1) +
@@ -289,7 +283,7 @@ variable.names <- c("Firts Differenced GDP", "Firts Differenced RGDP", "Firts Di
 temp <- cbind(data[-1, c(grep("(Date)|(Year)|(Quarter)", colnames(data)))], as.data.frame(diff(data.ts, lag = 1, diff = 1))) ## Tum degiskenlerin (zamanla ilgili olanlar haric) ilk farklarini aliyoruz ve ilk farklari alinmis datayi temp olarak kaydediyoruz.
 
 for (i in 1:length(variables)) {
-    pdf(paste0(figs.tabs.folder.name, "/", variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
+    pdf(paste0(figs.tabs.folder.name, variable.names[i], ".pdf"), family = "Times", encoding = "ISOLatin1.enc", pagecentre = TRUE, paper = "special", width = 16, height = 9)
     par(mar = c(2, 2, 2, 2))
 
     g <- ggplot(temp) + geom_line(aes(x = Date, y = temp[ , variables[i]], colour = "Variable"), linetype = 1, size = 1) +

@@ -42,7 +42,7 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-figs.tabs.folder.name <- "_figs-tabs"
+figs.tabs.folder.name <- "_figs-tabs/"
 
 #================================= Genel Bilgi =================================
 # Daha once Amerikada GSYH ile ilgili verileri yayinlayan kurum olan Bureau of Economic Analysis (BEA)'den direkt olarak 1 veri seti (GDP) indirip bu veri serinden 2 farkli degiskeni (GDP (Gross Domestic Product) yani GSYH ve GDP Deflator (Implicit Price Deflators for Gross Domestic Product) yani GSYH Deflatoru indeksi) kullanip datayi temizlemistik. Daha sonra bu temizlenmis data uzerinde bazi transformasyonlar yapip datanin son halini GDP_Processed_Trans.RData olarak kaydetmistik.
@@ -100,7 +100,7 @@ str(temp.summary)
 #============ Ozet Data Istatistikleri Tablosunun Disa Aktarilmasi =============
 # Simdi de ozet data istatistikleri tablosunu daha sonra kullanilmak amaciyla farkli formatlarda disa aktaralim.
 file.name <- "summary_statistics" ## Disa aktarirken her seferinde dosya adini girmekle ugrasmamak adina dosya ismini iceren bir deger olusturuyoruz.
-file.path <- paste0(figs.tabs.folder.name, "/", file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
+file.path <- paste0(figs.tabs.folder.name, file.name) ## Dosyalari kaydetmek istedigimiz bilgisayarinizda var olan bir klasoru tanimliyoruz.
 
 ## stargazer paketi ile.
 stargazer(temp.summary, summary = FALSE, type = "text", out = paste0(file.path, ".txt")) ## txt dosyasi olarak.

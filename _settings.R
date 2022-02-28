@@ -301,7 +301,7 @@ Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod", "wooldridge", "AER
 
 #=================================
 # Packages for data loading, manipulation, and data reshaping.
-Load.Install(c("readxl", "reshape", "reshape2", "tidyr", "data.table"))
+Load.Install(c("readxl", "openxlsx", "reshape", "reshape2", "tidyr", "data.table"))
 # Load.Install(c("XLConnect")) ## Loading XLConnect package before RStudio opens, makes Java unstable and causes R to crash. Therefore, load the XLConnect package after RStudio opens preferably just before the loading function.
 # options(java.parameters = "-Xmx8000m") ## Use this code if loading excel file with XLConnect package fails.
 
@@ -319,7 +319,7 @@ Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "gri
 
 #=================================
 # Packages for general econometric analyses.
-Load.Install(c("lmtest", "sandwich", "openxlsx", "car", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
+Load.Install(c("lmtest", "sandwich", "car", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
 
 # Extra packages for the car package.
 if("carData" %in% rownames(installed.packages()) == FALSE) {install.packages("carData")}

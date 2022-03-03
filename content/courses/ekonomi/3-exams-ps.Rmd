@@ -36,8 +36,8 @@ outdated <- "no_entry"
 ## Sınavlar
 | Türkçe `r emo::ji(tr)` | İngilizce `r emo::ji(eng)` |
 | :--------------------- | :------------------------- |
-| [Ara Sınav - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Ara Sinav Inceleme.pdf")`) | [Midterm Exam - Review](`r paste0(economics.path, "Economics - Midterm Exam Review.pdf")`) |
-| [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi - Final Sinavi Inceleme.pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics - Final Exam Review.pdf")`) |
+| [Ara Sınav - İnceleme](`r paste0(ekonomi.path, "Ekonomi_-_Ara_Sinav_Inceleme.pdf")`) | [Midterm Exam - Review](`r paste0(economics.path, "Economics_-_Midterm_Exam_Review.pdf")`) |
+| [Final Sınavı - İnceleme](`r paste0(ekonomi.path, "Ekonomi_-_Final_Sinavi_Inceleme.pdf")`) | [Final Exam - Review](`r paste0(economics.path, "Economics_-_Final_Exam_Review.pdf")`) |
 
 - [CANVAS'ta Online Çoktan Seçmeli Sınav Nasıl Yapılır?]() `r emo::ji(tr)``r emo::ji(in.progress)`
 - [CANVAS'a Online Klasik Sınav Nasıl Yüklenir]() `r emo::ji(tr)``r emo::ji(in.progress)`

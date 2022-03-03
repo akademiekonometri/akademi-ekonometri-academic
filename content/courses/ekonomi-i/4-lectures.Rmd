@@ -128,4 +128,4 @@ outdated <- "no_entry"
 | [Video]() `r emo::ji(in.progress)` | [Video]() `r emo::ji(in.progress)` |
 | [Slaytlar](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Hafta_10.pptx")`) | [Slides](`r paste0(ekonomi.i.path, "Economics_I_-_Week_10.pptx")`) |
 | [Çalışma Soruları](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Hafta_10_CS.pdf")`) `r emo::ji(in.progress)` | [Worksheet](`r paste0(ekonomi.i.path, "Economics_I_-_Week_10_Worksheet.pdf")`) |
-| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Hafta_10_CS_Cevap.pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(ekonomi.i.path, "Economics_I_-_Week_10 Worksheet_Solution.pdf")`) |
+| [Çalışma Soruları Cevaplar](`r paste0(ekonomi.i.path, "Ekonomiye_Giris_I_-_Hafta_10_CS_Cevap.pdf")`) `r emo::ji(in.progress)` | [Worksheet Solutions](`r paste0(ekonomi.i.path, "Economics_I_-_Week_10_Worksheet_Solution.pdf")`) |

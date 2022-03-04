@@ -57,7 +57,7 @@ in.progress <- "fire"
 outdated <- "no_entry"
 ```
 
-Daha [önceki blog yazımızda](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videolarını ve kulladığımız ders notlarını paylaşacağımızdan bahsetmiştik. Aşağıdaki bölümlerde [Ekonometri II](/courses/ekonometri-ii/), [Ekonomi](/courses/ekonomi/) ve [Economics](/courses/economics/) derslerine ait örnek ders notlarına ve videolarına erişebilrisiniz.
+Daha [önceki blog yazımızda](/post/yakinda-yayindayiz/) [YouTube kanalımızdaki](https://www.youtube.com/c/AkademiEkonometri) ders (ekonometri ve ekonomi) videolarını ve kulladığımız ders notlarını paylaşacağımızdan bahsetmiştik. Aşağıdaki bölümlerde [Ekonometri II](/courses/ekonometri-ii/), [Ekonomi](/courses/ekonomi/) ve [Economics](/courses/economics/) derslerine ait örnek ders notlarına ve videolarına erişebilirsiniz.
 
 ## Ekonometri II Dersi
 Örnek Ekonometri II ders videosunu ve notunu aşağıda bulabilirsiniz.  

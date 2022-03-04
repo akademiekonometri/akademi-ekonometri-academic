@@ -45,7 +45,7 @@ setwd(paste0(main.path, "/")) ## Yeni working directory bu kaynak dosyasının l
 #============================ Gerekli Dosya Isimleri ===========================
 # Analiz sirasinda gerekli olan kullanici tarafindan belirlenmis dosya isimleri.
 #===
-functions.folder.name <- "_functions/"
+functions.folder.name <- "../../../../_functions/"
 figs.tabs.folder.name <- "_figs-tabs/"
 
 #============================= Gerekli Fonksiyonlar ============================

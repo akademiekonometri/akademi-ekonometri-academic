@@ -32,7 +32,7 @@ options(
   blogdown.yaml.empty = TRUE,
   blogdown.method = "html", ## Might crash the Rstudio.
   blogdown.new_bundle = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  blogdown.hugo.version = "0.82.0",
+  blogdown.hugo.version = "0.93.1",
   blogdown.knit.on_save = TRUE,
   blogdown.serve_site.startup = FALSE,
   blogdown.generator.server = TRUE, ## Sometimes RStudio crashes after the site is served. Loading these function solves the issue.

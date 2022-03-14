@@ -301,7 +301,7 @@ ggplot(temp) +
 loadSymbols(Symbols = "GOOG", periodicity = "daily", return.class = "data.frame") ## Yahoo Finance uzerinden buldugumuz sembolu (GOOG) kullanarak ve datanın frekansını seçerek datayı indirip yükleyebiliriz. İndirdiğimiz datanın ismi sembol ismi ile aynı olacaktır.
 GOOG ## Datanın yapısını inceleyelim.
 
-data <- data.frame(Date = rownames(GOOG), Google = GOOG$GOOG.Close, stringsAsFactors = FALSE) ## Kapanış fiyatları seçiliyor ve sütun ismi olarak Google veriliyor.
+data <- data.frame(Date = gsub("\\.", "-", gsub("X", "", rownames(GOOG))), Google = GOOG$GOOG.Close, stringsAsFactors = FALSE) ## Kapanış fiyatları seçiliyor ve sütun ismi olarak Google veriliyor.
 data$Date <- as.Date(data$Date) ## Date kategori olarak değiştiriliyor.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.
@@ -548,7 +548,7 @@ ggplot(temp) +
 - Son olarak düzey formundaki, logaritmik formdaki ve Box-Cox transformasyonu ile değiştirilmiş veriyi grafiğe dökelim.
 ```{r Math.Transformation}
 loadSymbols(Symbols = "TRY=X", periodicity = "daily", return.class = "data.frame") ## Datanın indirilmesi.
-data <- data.frame(Date = rownames(`TRY=X`), Close = `TRY=X`$`TRY=X.Close`, stringsAsFactors = FALSE) ## Datanın data.frame olarak kaydedilmesi.
+data <- data.frame(Date = gsub("\\.", "-", gsub("X", "", rownames(`TRY=X`))), Close = `TRY=X`$`TRY=X.Close`, stringsAsFactors = FALSE) ## Datanın data.frame olarak kaydedilmesi.
 data$Date <- as.Date(data$Date) ## Date kategori olarak değiştirildi.
 data <- data[order(data$Date, decreasing = FALSE, na.last = FALSE), ] ## Datayı tarihe göre sıralıyoruz.
 rownames(data) <- 1:nrow(data) ## Satır sayılarını sıralıyoruz.

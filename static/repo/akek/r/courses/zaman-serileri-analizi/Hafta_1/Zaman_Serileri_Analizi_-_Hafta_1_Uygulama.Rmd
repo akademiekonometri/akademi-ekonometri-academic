@@ -190,7 +190,7 @@ datatable(meta_tsdl, filter = "top", options = list(pageLength = 5, autoWidth = 
 ```{r tsdl.Package.Data.2}
 # İstenilen datanın yüklenmesi.
 ## İstediğimiz data 134. sırada bulunan: Monthly Australian imports from Japan: thousands of dollars. Jul 65 – Oct 93.
-data <- subset(tsdl, description = "Monthly Australian imports from Japan")[[1]] ## Alternatif olarak datayı bu şekilded yükleyebiliriz.
+data <- subset(tsdl, description = "Monthly Australian imports from Japan")[[1]] ## Alternatif olarak datayı bu şekilde de yükleyebiliriz.
 data <- tsdl[[134]] ## Sıra numarası kullanarak datayı yüklüyoruz. Bu datanın zaman serisi objesi olduğuna dikkat edin.
 head(data, 30) ## Datanın yapısını inceleyelim.
 

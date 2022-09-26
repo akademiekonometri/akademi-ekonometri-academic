@@ -63,7 +63,7 @@ options(repos = r)
 - [Seed](#Seed) bölümünde, istediğiniz sayıyı kullanabilirsiniz. Rassal olarak seçilen değerler, eğer varsa, seçtiğiniz sayıya göre değişecektir.
 - R hakkında daha fazla bilgi için, benim yazdığım [R mini BootCamp](https://akademiekonometri.bitbucket.io/R_mini_BootCamp/R_mini_BootCamp.html) adlı İngilizce kaynaktan faydalanabilirsiniz.
 
----
+----
 
 # Hazırlık {#Preparation}
 ## Paketler {#Settings.Packages}

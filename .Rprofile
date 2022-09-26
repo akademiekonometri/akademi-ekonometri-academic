@@ -3,7 +3,9 @@ source("renv/activate.R")
 #================================== .Rprofile ==================================
 #======================= Initial Settings for The Project ======================
 
-#=============================== First Function ================================
+#====================#
+# 1. First Function =====
+#====================#
 .First <- function() {
   cat("\n********************************************************\n")
   cat("\nWelcome to 'Akademi Ekonometri' Project.\nRemember to edit .Rprofile accordingly!\n")
@@ -17,13 +19,19 @@ source("renv/activate.R")
   # options("pdfviewer" = "skim")
 }
 
-#================================ Last Function ================================
+#====================#
+# 2. Last Function =====
+#====================#
 .Last <- function()  cat("\nGoodbye!\n")
 
-#================================ R Libraries =================================
+#====================#
+# 3. R Libraries =====
+#====================#
 .libPaths("/Volumes/Omer/Google Drive/Apps/R/R Libraries")
 
-#============================== Blogdown Options ===============================
+#====================#
+# 4. Blogdown Options  =====
+#====================#
 # Blogdown options.
 options(
   blogdown.author = "Akademi Ekonometri", ## Default author for posts.
@@ -42,7 +50,9 @@ options(
   blogdown.title_case = TRUE
 )
 
-#================================== Settings ===================================
+#====================#
+# 5. Settings =====
+#====================#
 # The general settings of the entire project is defined in "_settings.R" script.
 # As long as you don’t alter the file/folder structure of the main project folder, which is downloaded from the remote git repository to any path in your computer, the below codes will specify all the paths correctly. Then loads all the necessary packages and user-written R functions, and sets the seeds.
 #

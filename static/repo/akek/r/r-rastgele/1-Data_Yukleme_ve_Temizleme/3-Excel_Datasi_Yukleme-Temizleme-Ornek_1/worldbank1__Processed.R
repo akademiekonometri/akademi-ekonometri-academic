@@ -44,7 +44,7 @@ file.path <- "worldbank1.xls"
 
 # Ham datanin yuklenmesi.
 data <- read_excel(path = file.path, sheet = 1, range = cell_limits(c(4, 3), c(NA, NA)), col_names = TRUE, col_types = "text") ## Yukledigimiz datayi read_excel fonksiyonu tibble formatinda kaydediyor.
-data <- as.data.frame(data, stringsAsFactors = TRUE) ## Datayi data.frame formatina ceviriyoruz.
+data <- as.data.frame(data, stringsAsFactors = FALSE) ## Datayi data.frame formatina ceviriyoruz.
 
 # Ham datanin yapisi.
 str(data)

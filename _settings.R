@@ -2,8 +2,9 @@
 #=================== Paths, Functions, Packaging, and Seeds ====================
 #================================== Settings ===================================
 
-#=================================== Paths =====================================
-# ---- Settings.Paths.1 ----
+#====================#
+# 1. Paths =====
+#====================#
 # Main path of the "Akademi Ekonometri-Academic" folder.
 base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic)", getwd(), perl = TRUE)), "/") ## "base.path" is the unix path of "./Akademi Ekonometri-Academic.Rproj" folder.
 # base.path <- paste0(dirname(rstudioapi::getActiveDocumentContext()$path), "/") ## Note that this works when Running or Sourcing your file. The code automatically find out the location of the current file.
@@ -56,8 +57,9 @@ scripts.path <- paste0(repo.path, "scripts/")
 # Path for "./slides/" folder.
 slides.path <- paste0(repo.path, "slides/")
 
-#================================ Folder Names =================================
-# ---- Folder.Names.1 ----
+#====================#
+## 1.1. Folder Names =====
+#====================#
 ekonometri.ars <- "ekonometri-ars/"
 ekonometri.i <- "ekonometri-i/"
 ekonometri.ii <- "ekonometri-ii/"
@@ -70,9 +72,9 @@ ekonomi.i <- "ekonomi-i/"
 ekonomi.ii <- "ekonomi-ii/"
 exams <- "exams/"
 
-#=============================== Relative Paths ================================
-# ---- Settings.Relative.Paths.1 ----
-
+#====================#
+## 1.2. Relative Paths =====
+#====================#
 # Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/
 courses.to.static <- "../../../"
 # Relative path extension which carries the folder path from ./courses/CourseName/FileName to ./static/repo/akek/courses/
@@ -132,8 +134,9 @@ ekonometrik.modelleme.r.path <- paste0(repo.akek.r.courses, ekonometrik.modellem
 # Relative path for "./static/repo/akek/r/courses/finansal-ekonometri/" folder.
 finansal.ekonometri.r.path <- paste0(repo.akek.r.courses, finansal.ekonometri)
 
-#=================================== Links =====================================
-# ---- Settings.Links.1 ----
+#====================#
+## 1.3. Links =====
+#====================#
 # Base link for "akademiekonometri.bitbucket.io/"
 bitbucket.io.link <- "https://akademiekonometri.bitbucket.io/"
 
@@ -227,8 +230,9 @@ ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, ekonometrik.modellem
 # Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/finansal-ekonometri/".
 finansal.ekonometri.r.link <- paste0(akek.r.courses.link, finansal.ekonometri)
 
-#================================= Functions ===================================
-# ---- Settings.Functions.1 ----
+#====================#
+# 2. Functions =====
+#====================#
 # Seasonal Adjust Function
 source(paste0(func.path, "seasonal_adjust.R")) ## Seasonal Adjust Function.
 
@@ -265,11 +269,18 @@ source(paste0(func.path, "granger_causality_TYDL_multivariate_tests.R")) ## Gran
 # FEVD for VECM
 # source(paste0(func.path, "fevd_vecm2var.R")) ## Forecast Error Variance Decomposition for VECM.
 
-#================================= Packages ====================================
-# ---- Settings.Packages.1 ----
-#=================================
+#====================#
+# 3. Packages =====
+#====================#
+
+#====================#
+## 3.1. Update =====
+#====================#
 # update.packages(ask = FALSE, checkBuilt = TRUE)
 
+#====================#
+## 3.2. Devtools/Personal =====
+#====================#
 # Packages that MUST be installed.
 if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
 suppressWarnings(suppressMessages(library("devtools"))) ## devtools package is necessary for installing okara package.
@@ -277,47 +288,87 @@ if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarning
 suppressWarnings(suppressMessages(library("okara"))) ## okara package.
 Load.Install(c("png", "proto"))
 
-#=================================
+#====================#
+## 3.3. renv =====
+#====================#
 # Package for package control during collaboration.
 Load.Install(c("renv")) ## Note that to activate the "renv" package you need to use "renv::init()" once. Sometimes loading the renv package in the .Rprofile might cause not printing the data frames in Rmarkdown files; therefore, it would be better to load the renv package later.
 
-#=================================
+#====================#
+## 3.4. Shiny/Knitr =====
+#====================#
+
+#====================#
+#### 3.4.1. Emoji and Icons =====
+#====================#
 # Packages for emojis and icons.
 Load.Install(c("rstudio/fontawesome", "hadley/emo"))
 
-#=================================
-# Packages for reproducible research.
-Load.Install(c("knitr", "rmarkdown", "tinytex", "formatR")) ## Use the following code for all the options of knitr: "str(knitr::opts_chunk$get())"
+#====================#
+### 3.4.2. Shiny =====
+#====================#
+# Shiny related packages.
+Load.Install(c("shiny", "shinythemes", "shinydashboard", "shinydashboardPlus", "shinyjs", "rintrojs", "shinyBS", "shinyWidgets", "waiter", "shinycssloaders"))
 
+#====================#
+### 3.4.3. Knitr =====
+#====================#
+# Packages for knitr.
+Load.Install(c("knitr", "rmarkdown", "tinytex")) ## Use the following code for all the options of knitr: "str(knitr::opts_chunk$get())"
+
+#====================#
+#### 3.4.3.1. YAML =====
+#====================#
 # Packages for YAML options.
 Load.Install(c("ymlthis")) ## https://ymlthis.r-lib.org/index.html
 
-# Packages for general miscellaneous actions.
-Load.Install(c("plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm", "lubridate", "NCmisc", "classInt"))
+#====================#
+#### 3.4.3.2. Slides =====
+#====================#
+# Packages related to slide presentation.
+if("xaringan" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(devtools::install_github("yihui/xaringan", force = FALSE)))}
 
-#=================================
+#====================#
+## 3.5. Data =====
+#====================#
+
+#====================#
+### 3.5.1. Data Sets =====
+#====================#
 # Packages for various data sets.
 Load.Install(c("datasets", "FinYang/tsdl", "WDI", "quantmod", "wooldridge", "AER"))
 
-#=================================
-# Packages for data loading, manipulation, and data reshaping.
-Load.Install(c("readxl", "openxlsx", "reshape", "reshape2", "tidyr", "data.table"))
+#====================#
+### 3.5.2. ETL =====
+#====================#
+# ETL (extract, transform, and load)
+# Packages for extract.
+Load.Install(c("readxl", "openxlsx"))
 # Load.Install(c("XLConnect")) ## Loading XLConnect package before RStudio opens, makes Java unstable and causes R to crash. Therefore, load the XLConnect package after RStudio opens preferably just before the loading function.
 # options(java.parameters = "-Xmx8000m") ## Use this code if loading excel file with XLConnect package fails.
 
-#=================================
-# Packages for table generation and LaTeX.
-Load.Install(c("stargazer", "xtable", "tikzDevice", "latex2exp", "latexpdf"))
+# Packages for transform and load.
+Load.Install(c("tidyr", "data.table", "reshape", "reshape2", "plyr", "dplyr", "magrittr", "stringr", "stringi", "Hmisc", "tm", "lubridate", "NCmisc", "classInt", "formatR"))
 
-#=================================
+#====================#
+## 3.6. Graphics =====
+#====================#
 # Packages for graphics and related packages.
 Load.Install(c("ggplot2", "ggthemes", "plotly", "ggThemeAssist", "cowplot", "grid", "gridExtra", "gtable", "lattice", "latticeExtra", "dygraphs", "RColorBrewer", "scales"))
 
-#=================================
-# Packages for web scraping.
-# Load.Install(c("rvest", "RCurl", "downloader"))
+#====================#
+## 3.7. Table and LaTeX =====
+#====================#
+# Packages for table generation and LaTeX.
+Load.Install(c("stargazer", "xtable", "tikzDevice", "latex2exp", "latexpdf", "DT"))
 
-#=================================
+#====================#
+## 3.8. Econometrics =====
+#====================#
+
+#====================#
+### 3.8.1. General =====
+#====================#
 # Packages for general econometric analyses.
 Load.Install(c("lmtest", "sandwich", "car", "nortest", "normtest", "gvlma", "moments", "pastecs", "aod"))
 
@@ -325,23 +376,40 @@ Load.Install(c("lmtest", "sandwich", "car", "nortest", "normtest", "gvlma", "mom
 if("carData" %in% rownames(installed.packages()) == FALSE) {install.packages("carData")}
 library("carData")
 
-#=================================
-# Packages for specific econometric analyses.
-# Load.Install(c("lme4", "pbkrtest", "strucchange"))
-
-#=================================
+#====================#
+### 3.8.2. Time Series =====
+#====================#
 # Packages for time series analysis.
 Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm", "dynlm"))
 Load.Install(c("fpp2", "fpp3"))
 # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
 # Load.Install(c("MTS", "tseries", "timeSeries"))
 
-#=================================
+#====================#
+### 3.8.3. Spatial =====
+#====================#
 # Packages for spatial and spatio-temporal analysis.
-# Load.Install(c("sp", "spdep", "spatialreg", "rgdal", "maptools", "raster", "geoR", "fields", "pgirmess", "RANN", "pastecs", "spgwr", "maps", "mapproj", "mapdata", "choroplethr", "choroplethrMaps", "tmap"))
+# Load.Install(c("sp", "spdep", "spatialreg", "rgdal", "maptools", "raster", "geoR", "fields", "pgirmess", "RANN", "spgwr", "maps", "mapproj", "mapdata", "choroplethr", "choroplethrMaps", "tmap"))
 
-#=================================== Seeds =====================================
-# ---- Settings.Seeds.1 ----
+#====================#
+### 3.8.4. Econometrics Misc. =====
+#====================#
+# Packages for specific econometric analyses.
+# Load.Install(c("lme4", "pbkrtest", "strucchange"))
+
+#====================#
+## 3.9. Misc. =====
+#====================#
+
+#====================#
+### 3.9.1. Web Scraping =====
+#====================#
+# Packages for web scraping.
+# Load.Install(c("rvest", "RCurl", "downloader"))
+
+#====================#
+# 4. Seeds =====
+#====================#
 selected.seed <- 1234
 set.seed(selected.seed)
 

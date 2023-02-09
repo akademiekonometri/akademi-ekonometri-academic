@@ -1,8 +1,8 @@
 ---
 # Course title, summary, and position.
 linktitle: "Finansal Ekonometri"
-summary: "Verildiği son bölüm ve dönem: İktisat (YL) - Bahar 2022"
-weight: 41
+summary: "Verildiği son bölüm ve dönem: İktisat (YL) - Bahar 2023"
+weight: 31
 categories: [Ders]
 tags: [finansal ekonometri, türkçe, turkish]
 

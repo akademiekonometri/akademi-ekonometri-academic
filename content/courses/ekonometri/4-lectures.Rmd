@@ -1,0 +1,74 @@
+---
+title: Ders Notları
+linktitle: Ders Notları
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri:
+    parent: 
+    weight: 50
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 50
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Hafta #1
+- [Video - Bölüm #1](https://www.youtube.com/watch?v=cGjkSr9Woe0&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=1) `r emo::ji(tr)`
+- [Video - Bölüm #2](https://www.youtube.com/watch?v=Lo9i11qck84&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=2) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_1_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #2
+- [Video](https://www.youtube.com/watch?v=F42-FX-cwf4&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=3) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_2_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #3
+- [Video](https://www.youtube.com/watch?v=_ngfCC2OL2o&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=4) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_3_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #4
+- [Video](https://www.youtube.com/watch?v=QPZU27oJErg&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=5) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_4_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #5
+- [Video](https://www.youtube.com/watch?v=zZRtTn-feQQ&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=6) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_5_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #6
+- [Video](https://www.youtube.com/watch?v=tr9pzWxAzG8&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=7) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_6_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #7
+- [Video - Bölüm #1](https://www.youtube.com/watch?v=wSovMYCN6OQ&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=8) `r emo::ji(tr)`
+- [Video - Bölüm #2](https://www.youtube.com/watch?v=YjXVjTq-5rk&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=9) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_7_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #8
+- [Video](https://www.youtube.com/watch?v=YuMAc817mC8&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=10) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_8_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #9
+- [Video - Bölüm #1](https://www.youtube.com/watch?v=WLjZYBj_cfE&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=11) `r emo::ji(tr)`
+- [Video - Bölüm #2](https://www.youtube.com/watch?v=hSQWbzQB9Yc&list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x&index=12) `r emo::ji(tr)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_9_HWN.pdf")`) `r emo::ji(tr)`
+
+## Hafta #10
+- [Video]() `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Notlar](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Hafta_10_HWN.pdf")`) `r emo::ji(tr)`

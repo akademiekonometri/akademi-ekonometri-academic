@@ -1,0 +1,23 @@
+---
+title: Önemli Dokümanlar
+linktitle: Dokümanlar
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri:
+    name: Dokümanlar
+    weight: 20
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 20
+---
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz ders birden farklı bölüme veriliyor olabilir. Sizi ilgilendiren önemli dokümanlara bu sayfanın sol tarafında bulunan bölümünüze ait linkten ulaşabilirsiniz. Ayrıca diğer doküman, link, video ve bilgilere sol taraftaki linklere tıklayarak ulaşabilirsiniz.
+{{% /alert %}}

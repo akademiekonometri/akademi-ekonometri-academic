@@ -2,7 +2,7 @@
 # Course title, summary, and position.
 linktitle: "Ekonomiye Giriş I"
 summary: "Verildiği son bölüm ve dönem: İstatistik - Güz 2021"
-weight: 90
+weight: 61
 categories: [Ders]
 tags: [ekonomi I, türkçe, turkish]
 

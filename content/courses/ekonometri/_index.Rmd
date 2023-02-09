@@ -17,7 +17,7 @@ type: docs  # Do not modify.
 # Add menu entry to sidebar.
 menu:
   ekonometri:
-    name: Ekonometris
+    name: Ekonometri
     weight: 10
 ---
 

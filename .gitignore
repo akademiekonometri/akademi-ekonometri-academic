@@ -3,11 +3,13 @@
 #================= Ignore the following folder/files for git ===================
 
 #============================ User Folders/Files ===============================
+—Examples
 —Helper
 —repo
 /blogdown
 /public/
 /resources/
+.hugo_build.lock
 _data_helper.R
 _estimation_helper.R
 _later.R

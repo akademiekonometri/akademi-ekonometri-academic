@@ -313,6 +313,7 @@ Load.Install(c("renv")) ## Note that to activate the "renv" package you need to 
 #====================#
 ## 3.4. Shiny/Knitr =====
 #====================#
+Load.Install(c("blogdown")) ## Loads blogdown.
 
 #====================#
 #### 3.4.1. Emoji and Icons =====

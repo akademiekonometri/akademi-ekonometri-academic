@@ -18,7 +18,7 @@
 - `themes` folder consists of materials related to themes used in this project.
 - `_data_helper.R`, `_estimation_helper.R`, `_later.R`, and `_notes.R` files consist of notes and codes which are for test, important, and future referance.
 - `_settings.R` file consists of loading all the necessary functions and paths to the general environment, packages, and seed.
-- `Akademi Ekonometri - Academic.Rproj` file consists of the R project settings.
+- `Akademi Ekonometri-Academic.Rproj` file consists of the R project settings.
 - `Avatar_Bitbucket.png` file is the avatar of the web site.
 - `config.toml` file consists of global site settings.
 - `index.Rmd` file consists of indexing code. Do not touch it.

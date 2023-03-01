@@ -34,20 +34,26 @@ source("renv/activate.R")
 #====================#
 # Blogdown options.
 options(
+  blogdown.hugo.version = "0.110.0", ## A valid Hugo version	A Hugo version number.
+  blogdown.knit.on_save = TRUE, ## Knit Rmd files automatically on save?
+  blogdown.method = "html", ## The output format of .Rmd posts. Options: "markdown" and "html".
+  blogdown.serve_site.startup	= FALSE, ## Serve the site on RStudio startup?
+
   blogdown.author = "Akademi Ekonometri", ## Default author for posts.
   blogdown.ext = ".Rmd", ## Default file type for posts.
   blogdown.subdir = "post", ## Default directory for posts.
-  blogdown.yaml.empty = TRUE,
-  blogdown.method = "html", ## Might crash the Rstudio.
-  blogdown.new_bundle = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  blogdown.hugo.version = "0.110.0",
-  blogdown.knit.on_save = TRUE,
-  blogdown.serve_site.startup = FALSE,
-  blogdown.generator.server = TRUE, ## Sometimes RStudio crashes after the site is served. Loading these function solves the issue.
-  # blogdown.publishDir = "../public_site", ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  # blogdown.widgetsID = TRUE, ## See: https://bookdown.org/yihui/blogdown/more-global-options.html
-  blogdown.hugo.server = c('-D', '-F', '--navigateToChanged'), ## See: https://bookdown.org/yihui/blogdown/livereload.html
-  blogdown.title_case = TRUE
+  blogdown.yaml.empty = TRUE, ## Preserve empty fields in YAML?
+
+  # blogdown.hugo.dir = "../", ## The directory of the Hugo executabl. See: https://bookdown.org/yihui/blogdown/more-global-options.html
+  # blogdown.publishDir = "../public_site", ## The publish dir for local preview. See: https://bookdown.org/yihui/blogdown/more-global-options.html
+  blogdown.new_bundle = TRUE, ## Create a new post in a bundle? See: https://bookdown.org/yihui/blogdown/more-global-options.html
+  # blogdown.widgetsID = TRUE, ## Incremental IDs for HTML widgets?. See: https://bookdown.org/yihui/blogdown/more-global-options.html
+
+  blogdown.hugo.server = c('-D', '-F', '--navigateToChanged'), ## For LiveReload. See: https://bookdown.org/yihui/blogdown/livereload.html
+  blogdown.title_case = TRUE ## For title case in posts.
+
+  # ,
+  # blogdown.generator.server = FALSE ## Sometimes RStudio crashes after the site is served. Loading these function solves the issue.
 )
 
 #====================#

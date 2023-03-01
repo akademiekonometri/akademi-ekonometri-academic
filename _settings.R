@@ -304,6 +304,9 @@ if("okara" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarning
 suppressWarnings(suppressMessages(library("okara"))) ## okara package.
 Load.Install(c("png", "proto"))
 
+Load.Install(c("blogdown")) ## Loads blogdown.
+Load.Install(c("usethis", "remotes", "distill", "postcards")) ## Some necessary packages for this web site.
+
 #====================#
 ## 3.3. renv =====
 #====================#
@@ -313,7 +316,7 @@ Load.Install(c("renv")) ## Note that to activate the "renv" package you need to 
 #====================#
 ## 3.4. Shiny/Knitr =====
 #====================#
-Load.Install(c("blogdown")) ## Loads blogdown.
+
 
 #====================#
 #### 3.4.1. Emoji and Icons =====

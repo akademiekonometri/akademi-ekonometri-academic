@@ -275,7 +275,6 @@ plugins_js  = []
 [marketing]
   google_analytics = "G-QP5RFLSK5Y"
   google_tag_manager = ""
-#  google_analytics = "UA-167565573-1"
 
 ############################
 ## Icon Pack Extensions

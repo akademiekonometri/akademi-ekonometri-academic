@@ -14,6 +14,7 @@ _data_helper.R
 _estimation_helper.R
 _later.R
 _notes.R
+_color_codes.txt
 
 #=========================== System Folders/Files ==============================
 renv/library

@@ -12,49 +12,52 @@ base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic
 # Path for the ".static/repo/" folder
 repo.path <- paste0(base.path, "static/repo/")
 
-# Paths for "./akek/" folder.
+# Paths for "./static/repo/akek/" folder.
 akek.path <- paste0(repo.path, "akek/")
 
-# Paths for "./akek/courses/" folder.
+# Paths for "./static/repo/akek/courses/" folder.
 courses.path <- paste0(repo.path, "akek/courses/")
 
-# Path for "./scripts/functions/" folder.
-func.path <- paste0(repo.path, "akek/r/_functions/")
-
-# Paths for "./akek/r/" folder.
+# Paths for "./static/repo/akek/r/" folder.
 r.path <- paste0(repo.path, "akek/r/")
 
-# Path for the "./apps/" folder.
+# Path for "./static/repo/akek/r/_functions/" folder.
+func.path <- paste0(repo.path, "akek/r/_functions/")
+
+# Path for the "./static/repo/apps/" folder.
 apps.path <- paste0(repo.path, "apps/")
 
-# Path for the "./data/raw/" folder.
+# Path for the "./static/repo/css/" folder.
+css.path <- paste0(repo.path, "css/")
+
+# Path for the "./static/repo/data/raw/" folder.
 raw.data.path <- paste0(repo.path, "data/raw/")
 
-# Path for the "./data/metadata/" folder.
-metadata.data.path <- paste0(repo.path, "data/metadata/")
-
-# Path for the "./data/processed/" folder.
+# Path for the "./static/repo/data/processed/" folder.
 processed.data.path <- paste0(repo.path, "data/processed/")
 
-# Path for the "./DCL"/ folder.
+# Path for the "./static/repo/data/metadata/" folder.
+metadata.data.path <- paste0(repo.path, "data/metadata/")
+
+# Path for the "./static/repo/DCL"/ folder.
 DCL.path <- paste0(repo.path, "DCL/")
 
-# Path for the "./docs/" folder.
+# Path for the "./static/repo/docs/" folder.
 docs.path <- paste0(repo.path, "docs/")
 
-# Path for the "./images/" folder.
+# Path for the "./static/repo/images/" folder.
 images.path <- paste0(repo.path, "images/")
 
-# Path for the "./latex/" folder.
+# Path for the "./static/repo/latex/" folder.
 latex.path <- paste0(repo.path, "latex/")
 
-# Path for "./pdf/" folder.
-pdf.path <- paste0(repo.path, "pdf/")
+# Path for "./static/repo/pdfs/" folder.
+pdfs.path <- paste0(repo.path, "pdfs/")
 
-# Path for the "./scripts/" folder.
+# Path for the "./static/repo/scripts/" folder.
 scripts.path <- paste0(repo.path, "scripts/")
 
-# Path for "./slides/" folder.
+# Path for "./static/repo/slides/" folder.
 slides.path <- paste0(repo.path, "slides/")
 
 #====================#
@@ -400,7 +403,8 @@ library("carData")
 ### 3.8.2. Time Series =====
 #====================#
 # Packages for time series analysis.
-Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "FitAR", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm", "dynlm"))
+Load.Install(c("seasonal", "x13binary", "forecast", "aTSA", "urca", "vars", "tsDyn", "lgarch", "ggseas", "slider", "ecm", "dynlm"))
+# Load.Install(c("FitAR"))
 Load.Install(c("fpp2", "fpp3"))
 # Load.Install(c("zoo", "xts", "fUnitRoots", "CADFtest"))
 # Load.Install(c("MTS", "tseries", "timeSeries"))

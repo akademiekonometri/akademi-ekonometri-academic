@@ -5,8 +5,8 @@
 #====================#
 # 1. Paths =====
 #====================#
-# Main path of the "Akademi Ekonometri-Academic" folder.
-base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri-Academic)", getwd(), perl = TRUE)), "/") ## "base.path" is the unix path of "./Akademi Ekonometri-Academic.Rproj" folder.
+# Main path of the "Akademi Ekonometri - Main" folder.
+base.path <- paste0(regmatches(getwd(), regexpr("(^.*Akademi Ekonometri - Main)", getwd(), perl = TRUE)), "/") ## "base.path" is the unix path of "./Akademi Ekonometri - Main.Rproj" folder.
 # base.path <- paste0(dirname(rstudioapi::getActiveDocumentContext()$path), "/") ## Note that this works when Running or Sourcing your file. The code automatically find out the location of the current file.
 
 # Path for the ".static/repo/" folder
@@ -147,106 +147,107 @@ finansal.ekonometri.r.path <- paste0(repo.akek.r.courses, finansal.ekonometri)
 #====================#
 ## 1.3. Links =====
 #====================#
-# Base link for "akademiekonometri.bitbucket.io/"
-bitbucket.io.link <- "https://akademiekonometri.bitbucket.io/"
+# Base link for "akademiekonometri.github.io/" or akademiekonometri.bitbucket.io/"
+io.link <- "https://akademiekonometri.github.io/"
+# io.link <- "https://akademiekonometri.bitbucket.io/"
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/".
-akek.courses.link <- paste0(bitbucket.io.link, "akek/courses/")
+# Link for "./akek/courses/".
+akek.courses.link <- paste0(io.link, "akek/courses/")
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/".
-akek.r.courses.link <- paste0(bitbucket.io.link, "akek/r/courses/")
+# Link for "./akek/r/courses/".
+akek.r.courses.link <- paste0(io.link, "akek/r/courses/")
 
 #---
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ars/".
+# Link for "./akek/courses/ekonometri-ars/".
 ekonometri.ars.link <- paste0(akek.courses.link, ekonometri.ars)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-i/".
+# Link for "./akek/courses/ekonometri-i/".
 ekonometri.i.link <- paste0(akek.courses.link, ekonometri.i)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ii/".
+# Link for "./akek/courses/ekonometri-ii/".
 ekonometri.ii.link <- paste0(akek.courses.link, ekonometri.ii)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri/".
+# Link for "./akek/courses/ekonometri/".
 ekonometri.link <- paste0(akek.courses.link, ekonometri)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/zaman-serileri-analizi/".
+# Link for "./akek/courses/zaman-serileri-analizi/".
 zaman.serileri.analizi.link <- paste0(akek.courses.link, zaman.serileri.analizi)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/".
+# Link for "./akek/courses/ekonometrik-modelleme/".
 ekonometrik.modelleme.link <- paste0(akek.courses.link, ekonometrik.modelleme)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/finansal-ekonometri/".
+# Link for "./akek/courses/finansal-ekonometri/".
 finansal.ekonometri.link <- paste0(akek.courses.link, finansal.ekonometri)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/".
+# Link for "./akek/courses/economics/".
 economics.link <- paste0(akek.courses.link, economics)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi/".
+# Link for "./akek/courses/ekonomi/".
 ekonomi.link <- paste0(akek.courses.link, ekonomi)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-i/".
+# Link for "./akek/courses/ekonomi-i/".
 ekonomi.i.link <- paste0(akek.courses.link, ekonomi.i)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-ii/".
+# Link for "./akek/courses/ekonomi-ii/".
 ekonomi.ii.link <- paste0(akek.courses.link, ekonomi.ii)
 
 #---
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ars/exams/".
+# Link for "./akek/courses/ekonometri-ars/exams/".
 ekonometri.ars.exams.link <- paste0(akek.courses.link, ekonometri.ars, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-i/exams/".
+# Link for "./akek/courses/ekonometri-i/exams/".
 ekonometri.i.exams.link <- paste0(akek.courses.link, ekonometri.i, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri-ii/exams/".
+# Link for "./akek/courses/ekonometri-ii/exams/".
 ekonometri.ii.exams.link <- paste0(akek.courses.link, ekonometri.ii, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometri/exams/".
+# Link for "./akek/courses/ekonometri/exams/".
 ekonometri.exams.link <- paste0(akek.courses.link, ekonometri, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/zaman-serileri-analizi/exams/".
+# Link for "./akek/courses/zaman-serileri-analizi/exams/".
 zaman.serileri.analizi.exams.link <- paste0(akek.courses.link, zaman.serileri.analizi, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonometrik-modelleme/exams/".
+# Link for "./akek/courses/ekonometrik-modelleme/exams/".
 ekonometrik.modelleme.exams.link <- paste0(akek.courses.link, ekonometrik.modelleme, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/finansal-ekonometri/exams/".
+# Link for "./akek/courses/finansal-ekonometri/exams/".
 finansal.ekonometri.exams.link <- paste0(akek.courses.link, finansal.ekonometri, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/economics/exams/".
+# Link for "./akek/courses/economics/exams/".
 economics.exams.link <- paste0(akek.courses.link, economics, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi/exams/".
+# Link for "./akek/courses/ekonomi/exams/".
 ekonomi.exams.link <- paste0(akek.courses.link, ekonomi, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-i/exams/".
+# Link for "./akek/courses/ekonomi-i/exams/".
 ekonomi.i.exams.link <- paste0(akek.courses.link, ekonomi.i, exams)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/courses/ekonomi-ii/exams/".
+# Link for "./akek/courses/ekonomi-ii/exams/".
 ekonomi.ii.exams.link <- paste0(akek.courses.link, ekonomi.ii, exams)
 
 #---
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-ars/".
+# Link for "./akek/r/courses/ekonometri-ars/".
 ekonometri.ars.r.link <- paste0(akek.r.courses.link, ekonometri.ars)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-i/".
+# Link for "./akek/r/courses/ekonometri-i/".
 ekonometri.i.r.link <- paste0(akek.r.courses.link, ekonometri.i)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri-ii/".
+# Link for "./akek/r/courses/ekonometri-ii/".
 ekonometri.ii.r.link <- paste0(akek.r.courses.link, ekonometri.ii)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometri/".
+# Link for "./akek/r/courses/ekonometri/".
 ekonometri.r.link <- paste0(akek.r.courses.link, ekonometri)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/zaman-serileri-analizi/".
+# Link for "./akek/r/courses/zaman-serileri-analizi/".
 zaman.serileri.analizi.r.link <- paste0(akek.r.courses.link, zaman.serileri.analizi)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/ekonometrik-modelleme/".
+# Link for "./akek/r/courses/ekonometrik-modelleme/".
 ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, ekonometrik.modelleme)
 
-# Link for "https://akademiekonometri.bitbucket.io/akek/r/courses/finansal-ekonometri/".
+# Link for "./akek/r/courses/finansal-ekonometri/".
 finansal.ekonometri.r.link <- paste0(akek.r.courses.link, finansal.ekonometri)
 
 #====================#

@@ -38,16 +38,12 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 
 ## Ders Planı ve Önemli Günler
 #### Ekonometri Araştırmaları I
-| 1. Öğretim | 2. Öğretim |
-| :--- | :--- |
-| [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_1O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_2O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` |
-| [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_1O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_2O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` |
+- [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_-_Ders_Plani.pdf")`) `r emo::ji(tr)`
+- [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_I_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)`
 
 #### Ekonometri Araştırmaları II
-| 1. Öğretim | 2. Öğretim |
-| :--- | :--- |
-| [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_1O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` | [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_2O_-_Ders_Plani.pdf")`) `r emo::ji(tr)` |
-| [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_1O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` | [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_2O_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)` |
+- [Ders Planı](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_-_Ders_Plani.pdf")`) `r emo::ji(tr)`
+- [Önemli Günler](`r paste0(ekonometri.ars.path, "EC/Ekonometri_Ars_II_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)`
 
 ## Ders Kaynakları
 - [Kaynakların Açıklaması](`r paste0(ekonometri.ars.path, "Ekonometri_Ars_I-II_-_Kaynaklarin_Aciklamasi.pdf")`) `r emo::ji(tr)`

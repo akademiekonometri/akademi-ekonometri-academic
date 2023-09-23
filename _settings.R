@@ -70,6 +70,7 @@ ekonometri <- "ekonometri/"
 zaman.serileri.analizi <- "zaman-serileri-analizi/"
 ekonometrik.modelleme <- "ekonometrik-modelleme/"
 finansal.ekonometri <- "finansal-ekonometri/"
+donem.projesi <- "donem-projesi/"
 economics <- "economics/"
 ekonomi <- "ekonomi/"
 ekonomi.i <- "ekonomi-i/"
@@ -109,6 +110,9 @@ ekonometrik.modelleme.path <- paste0(repo.akek.courses, ekonometrik.modelleme)
 # Relative path for "./static/repo/akek/courses/finansal-ekonometri/" folder.
 finansal.ekonometri.path <- paste0(repo.akek.courses, finansal.ekonometri)
 
+# Relative path for "./static/repo/akek/courses/donem-projesi/" folder.
+donem.projesi.path <- paste0(repo.akek.courses, donem.projesi)
+
 # Relative path for "./static/repo/akek/courses/economics/" folder.
 economics.path <- paste0(repo.akek.courses, economics)
 
@@ -143,6 +147,9 @@ ekonometrik.modelleme.r.path <- paste0(repo.akek.r.courses, ekonometrik.modellem
 
 # Relative path for "./static/repo/akek/r/courses/finansal-ekonometri/" folder.
 finansal.ekonometri.r.path <- paste0(repo.akek.r.courses, finansal.ekonometri)
+
+# Relative path for "./static/repo/akek/r/courses/donem-projesi/" folder.
+donem.projesi.r.path <- paste0(repo.akek.r.courses, donem.projesi)
 
 #====================#
 ## 1.3. Links =====
@@ -180,6 +187,9 @@ ekonometrik.modelleme.link <- paste0(akek.courses.link, ekonometrik.modelleme)
 # Link for "./akek/courses/finansal-ekonometri/".
 finansal.ekonometri.link <- paste0(akek.courses.link, finansal.ekonometri)
 
+# Link for "./akek/courses/donem-projesi/".
+donem.projesi.link <- paste0(akek.courses.link, donem.projesi)
+
 # Link for "./akek/courses/economics/".
 economics.link <- paste0(akek.courses.link, economics)
 
@@ -215,6 +225,9 @@ ekonometrik.modelleme.exams.link <- paste0(akek.courses.link, ekonometrik.modell
 # Link for "./akek/courses/finansal-ekonometri/exams/".
 finansal.ekonometri.exams.link <- paste0(akek.courses.link, finansal.ekonometri, exams)
 
+# Link for "./akek/courses/donem-projesi/exams/".
+donem.projesi.exams.link <- paste0(akek.courses.link, donem.projesi, exams)
+
 # Link for "./akek/courses/economics/exams/".
 economics.exams.link <- paste0(akek.courses.link, economics, exams)
 
@@ -249,6 +262,9 @@ ekonometrik.modelleme.r.link <- paste0(akek.r.courses.link, ekonometrik.modellem
 
 # Link for "./akek/r/courses/finansal-ekonometri/".
 finansal.ekonometri.r.link <- paste0(akek.r.courses.link, finansal.ekonometri)
+
+# Link for "./akek/r/courses/donem-projesi/".
+donem.projesi.r.link <- paste0(akek.r.courses.link, donem.projesi)
 
 #====================#
 # 2. Functions =====

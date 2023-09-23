@@ -1,0 +1,53 @@
+---
+title: Sınavlar
+linktitle: Sınavlar
+date: "2023-09-23"
+lastmod: "2023-09-23"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  donem-projesi:
+    parent: 
+    weight: 40
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 40
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Sınavlar
+- [Konu Önerisi Açıklaması](`r paste0(donem.projesi.path, "Donem_Projesi_-_Konu_Onerisi_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Örnek Konu Açıklaması](`r paste0(donem.projesi.path, "Donem_Projesi_-_Ornek_Konu_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Data Açıklaması](`r paste0(donem.projesi.path, "Donem_Projesi_-_Data_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Makale Taslak Açıklaması](`r paste0(donem.projesi.path, "Donem_Projesi_-_Makale_Taslak_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [Akademik Etik Açıklaması](`r paste0(donem.projesi.path, "Donem_Projesi_-_Akademik_Etik_Aciklamasi.pdf")`) `r emo::ji(tr)`
+- [JEL Sınıflandırma Kodları](https://www.aeaweb.org/jel/guide/jel.php) `r emo::ji(eng)`
+- [CANVAS'a Online Klasik Sınav Nasıl Yüklenir?]() `r emo::ji(tr)``r emo::ji(in.progress)`
+
+### Dönem Projesi Yazımı
+- [Tez ve Dönem Projesi Yazım Yönergesi](`r paste0(donem.projesi.path, "Taslak__Tez_Donem_Projesi_Yazim_Yonergesi.pdf")`) `r emo::ji(tr)`
+- [Dönem Projesi Yazım Kılavuzu](`r paste0(donem.projesi.path, "Taslak__Donem_Projesi_Yazim_Kilavuzu.docx")`) `r emo::ji(tr)`
+
+### Örnek Makaleler
+- [Makale Örneği - Taslak (Ömer Kara)](`r paste0(ekonometri.ars.path, "Article.pdf")`) `r emo::ji(tr)`
+- [Makale Örneği - 1 (Elif Yıldız - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_1__Elif_Yildiz.pdf")`) `r emo::ji(tr)`
+- [Makale Örneği - 2 (İlknur Büşra Çakır - 2021 Bahar 4. Sınıf Öğrencisi)](`r paste0(ekonometri.ars.path, "Makale__Ornek_2__Ilknur_Busra_Cakir.pdf")`) `r emo::ji(tr)`
+
+### Örnek Tezler
+- [Tez (Doktora) Örneği - 1 (Mustafa Güllü - Doktora Öğrencisi)](`r paste0(donem.projesi.path, "Tez_Doktora__Ornek_1__Mustafa_Gullu.pdf")`) `r emo::ji(tr)`
+- [Tez (Y. Lisans) Örneği - 2 (Semih Karadağ - Y. Lisans Öğrencisi)](`r paste0(donem.projesi.path, "Tez_Yuksek_Lisans__Ornek_1__Semih_Karadag.pdf")`) `r emo::ji(tr)`

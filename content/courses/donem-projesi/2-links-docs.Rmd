@@ -1,0 +1,71 @@
+---
+title: Önemli Link ve Diğer Dokümanlar
+linktitle: Link ve Diğer Dokümanlar
+date: "2023-09-23"
+lastmod: "2023-09-23"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  donem-projesi:
+    parent: 
+    weight: 30
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 30
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Online-Ders
+- [Microsoft Teams - Konuk Olarak Online Derse Bağlanma](https://www.youtube.com/watch?v=dP1UaNDRJxY&list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit&index=1) `r emo::ji(tr)`
+- [CANVAS Bilgileri (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlVeoJ4snHehOPvoB-7T0ar) `r emo::ji(tr)``r emo::ji(in.progress)`
+
+## Akademi Ekonometri
+- [Akademi Ekonometri - YouTube Kanalı](https://www.youtube.com/c/AkademiEkonometri) `r emo::ji(tr)`
+- [Ekonometri I - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlqshWDBUxxktcyDo8V4BvN) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ekonometri I - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitkkBYmrluukSunncmvL7JSF) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometri I - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlwPLlG1nEh7TczOXZrYw-9) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonometri II - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlL_CbPiev5Lu0j3dKvQq7x) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [Ekonometri II - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmWlaoQxv-_3bGhKG8C7FOX) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometri II - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitkl1NkezEC8S9FEyBufaK13) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Zaman Serileri Analizi - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnuvg9CvLkS3pAv6JAAWzz6) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Zaman Serileri Analizi - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitknof9XxlP73K1crTkoUZtQ) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Zaman Serileri Analizi - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnFyDakbzZFI5vJ0oSiAooU) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonometri Araştırmaları I-II - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlLsjTiK61hgnvcf4SnNoit) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometri Araştırmaları I-II - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmQkGp98r9oiLgWEoW4Az3Y) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Ekonometrik Modelleme - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmX4rFuzwEPV6LwSIkW2wfi) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Ekonometrik Modelleme - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk83Yi1sMWWviJXi2oeUTiS) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+    + [R ile Ekonometrik Modelleme - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitk5XQXH9JYm81CJrr4o9Zhl) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [Finansal Ekonometri - Ders Videoları (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitnEiFnnYrta5p7ig_7mH0Yz) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [Finansal Ekonometri - Online-Ders (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlf2aixlnb1P5DLLFZINWTS) `r emo::ji(tr)``r emo::ji(in.progress)`
+    + [R ile Finansal Ekonometri - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitmRipiIBnVojFg4J0yn7iPd) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [R ile 15 Dakikada Kolay Kodlama - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitml03Ea8sOjblldkZW-XU5J) `r emo::ji(tr)``r emo::ji(in.progress)`
+- [R Rastgele - Video Serisi (YouTube Playlist)](https://www.youtube.com/playlist?list=PLGdlUqXbpitlK87V9m6L0hT2jfKmWkNct) `r emo::ji(tr)``r emo::ji(to.be.updated)`
+
+## Diğer Dokümanlar
+- [İstatistiksel Tablolar - Wooldridge](`r paste0(ekonometri.i.path, "Istatistiksel_Tablolar_-_Wooldridge.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar (Önemli Olanlar) - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel_Tablolar_Onemli_Olanlar_-_Baskent_Universitesi.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Tablolar - Güriş](`r paste0(ekonometri.i.path, "Istatistiksel_Tablolar_-_Guris.pdf")`) `r emo::ji(tr)`
+- [İstatistiksel Formüller ve Tablolar - Başkent Üniversitesi](`r paste0(ekonometri.i.path, "Istatistiksel_Formuller_ve_Tablolar_-_Baskent_Universitesi.pdf")`) `r emo::ji(tr)`
+- [Yunan Harfleri](`r paste0(ekonometri.i.path, "Yunan_Harfleri.pdf")`) `r emo::ji(tr)`
+- [wooldridge - R Paketi](`r paste0(ekonometri.i.path, "Package_wooldridge.pdf")`) `r emo::ji(eng)``r fa("r-project", fill = "steelblue")`
+
+## Diğer Linkler
+- [R mini BootCamp - HTML](`r paste0(io.link, "R_mini_BootCamp/R_mini_BootCamp.html")`) `r emo::ji(eng)`
+    + [R mini BootCamp - R](`r paste0(io.link, "R_mini_BootCamp/R_mini_BootCamp.R")`) `r emo::ji(eng)`
+- [YÖK Dersleri Platformu](https://yokdersleri.yok.gov.tr/) `r emo::ji(tr)`
+- [TÜBA Açık Ders Malzemeleri Portalı](https://acikders.tuba.gov.tr/) `r emo::ji(tr)`

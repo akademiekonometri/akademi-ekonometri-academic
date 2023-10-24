@@ -1,0 +1,36 @@
+Text Version
+====
+Bu ödev için önemli bilgiler "Modüller" altındaki "Ödev Yönergeleri (Çoktan Seçmeli)" adlı sayfada bulunabilir.
+====
+
+Ödevler İçin Önemli Bilgiler (Çoktan Seçmeli)
+
+Ödevlerin temel amacı sizi sınavlara hazırlamaktır.
+Ödevler tamamen CANVAS üzerinden yapılacaktır ve notlandırma da aynı şekilde CANVAS tarafından otomatik olarak yapılacaktır.
+Her ödevin notlandırma sistematiği ve başlangıç ve bitiş tarihleri o ödevin sayfasındaki alt kısımda belirtilmiştir.
+Her ödev çoktan seçmeli sorulardan oluşmaktadır ve her sorunun yalnız bir doğru cevabı vardır.
+Yanlış sorular doğru soruları etkilemez.
+Her ödevi bitirmek için 2 hakkınız vardır ve zaman sınırı yoktur.
+"Kısa Sınava Başla" butonuna tıklayarak ilk hakkınıza başlayabilirsiniz.
+Her hakkınızdan sonra, lütfen "Kısa Sınavı Gönder" butonuna tıklayarak hakkınızı sonlandırın. Bu butona tıklamazsanız, o hakkınız sonlandırılmamış sayılır.
+Eğer ilk hakkınızda tüm soruları doğru cevaplamadıysanız, ikinci hakkınızda yanlış cevapları görme ve düzeltme şansınız vardır.  "Kısa Sınava Tekrardan Başla" butonuna tıklayarak ikinci hakkınıza başlayabilirsiniz.
+Eğer ödevin sona erme tarihinden önce "Kısa Sınavı Gönder" butonuna tıklamazsanız, CANVAS o ana kadar cevapladığınız soruları değerlendirerek notunuzu otomatik olarak verir.
+
+
+HTML Version
+====
+<p>Bu &ouml;dev i&ccedil;in &ouml;nemli bilgiler "Mod&uuml;ller" altındaki "&Ouml;dev Y&ouml;nergeleri (&Ccedil;oktan Se&ccedil;meli)" adlı sayfada bulunabilir.</p>
+====
+<p><span style="text-decoration: underline; font-size: large; color: #ff0000;">&Ouml;devler İ&ccedil;in &Ouml;nemli Bilgiler (&Ccedil;oktan Se&ccedil;meli)</span></p>
+<ol>
+<li>&Ouml;devlerin temel amacı sizi sınavlara hazırlamaktır.</li>
+<li>&Ouml;devler tamamen CANVAS &uuml;zerinden yapılacaktır ve notlandırma da aynı şekilde CANVAS tarafından otomatik olarak yapılacaktır.</li>
+<li>Her &ouml;devin notlandırma sistematiği ve başlangı&ccedil; ve bitiş tarihleri o &ouml;devin sayfasındaki alt kısımda belirtilmiştir.</li>
+<li>Her &ouml;dev &ccedil;oktan se&ccedil;meli sorulardan oluşmaktadır ve her sorunun yalnız bir doğru cevabı vardır.</li>
+<li>Yanlış sorular doğru soruları etkilemez.</li>
+<li>Her &ouml;devi bitirmek i&ccedil;in 2 hakkınız vardır ve zaman sınırı yoktur.</li>
+<li>"Kısa Sınava Başla" butonuna tıklayarak ilk hakkınıza başlayabilirsiniz.</li>
+<li>Her hakkınızdan sonra, l&uuml;tfen "Kısa Sınavı G&ouml;nder" butonuna tıklayarak hakkınızı sonlandırın. Bu butona tıklamazsanız, o hakkınız sonlandırılmamış sayılır.</li>
+<li>Eğer ilk hakkınızda t&uuml;m soruları doğru cevaplamadıysanız, ikinci hakkınızda yanlış cevapları g&ouml;rme ve d&uuml;zeltme şansınız vardır.&nbsp; "Kısa Sınava Tekrardan Başla" butonuna tıklayarak ikinci hakkınıza başlayabilirsiniz.</li>
+<li>Eğer &ouml;devin sona erme tarihinden &ouml;nce "Kısa Sınavı G&ouml;nder" butonuna tıklamazsanız, CANVAS o ana kadar cevapladığınız soruları değerlendirerek notunuzu otomatik olarak verir.</li>
+</ol>

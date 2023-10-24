@@ -1,0 +1,35 @@
+Text Version
+====
+Bu sınav için önemli bilgiler "Modüller" altındaki "Sınav Yönergeleri (Çoktan Seçmeli)" adlı sayfada bulunabilir.
+====
+DİKKAT: Her çoktan seçmeli sınavda ardışık gezinme yöntemi uygulanacaktır. Sınav içinde serbest gezinme yoktur. Yani, eğer bir soruyu cevaplayıp sıradaki soruya geçerseniz bir daha cevapladığınız soruya geri dönemezsiniz.
+
+Sınavlar İçin Önemli Bilgiler
+
+Sınavlar tamamen CANVAS üzerinden yapılacaktır. Notlandırma da aynı şekilde CANVAS tarafından otomatik olarak yapılacaktır.
+Her sınavı bitirmek için yalnızca 1 hakkınız.
+Her sınavın başlangıç ve bitiş tarihleri ve sınavı bitirmek için ne kadar süreniz olduğu o sınavın sayfasındaki en üst kısımda belirtilmiştir.
+Her sınav çoktan seçmeli sorulardan oluşmaktadır ve her sorunun yalnız bir doğru cevabı vardır.
+Yanlış sorular doğru soruları etkilemez.
+Sınava başlamak için "Kısa Sınava Başla" butonuna tıklamanız gerekir. Bu butona tıkladığınızda sistem size otomatik bir uyarı gösterecektir. Daha sonra "Begin" butonuna tıkladığınız andan itibaren süreniz başlar ve o süre içinde sınavı bitirmeniz gerekir.
+Soruları cevapladıktan sonra, lütfen "Kısa Sınavı Gönder" butonuna basarak sınavı sonlandırın.
+Eğer sınavın sona erme tarihinden önce "Kısa Sınavı Gönder" butonuna tıklamazsanız, CANVAS o ana kadar cevapladığınız soruları değerlendirerek notunuzu otomatik olarak verir.
+Sınavın cevapları sınav bitiş tarihinden belli bir süre sonra sınav sayfasında görülebilir.
+
+HTML Version
+====
+<p>Bu sınav i&ccedil;in &ouml;nemli bilgiler "Mod&uuml;ller" altındaki "Sınav Y&ouml;nergeleri (&Ccedil;oktan Se&ccedil;meli)" adlı sayfada bulunabilir.</p>
+====
+<h3><span><span><strong><span class="" style="color: #ef4540;"><u>DİKKAT</u>: Her &ccedil;oktan se&ccedil;meli sınavda ardışık gezinme y&ouml;ntemi uygulanacaktır. Sınav i&ccedil;inde serbest gezinme yoktur. Yani, eğer bir soruyu cevaplayıp sıradaki soruya ge&ccedil;erseniz bir daha cevapladığınız soruya geri d&ouml;nemezsiniz.</span></strong></span></span></h3>
+<h3><span style="text-decoration: underline;"><span style="color: #ff0000; font-size: large; font-family: 'Open Sans', sans-serif; text-decoration: underline;">Sınavlar İ&ccedil;in &Ouml;nemli Bilgiler</span></span></h3>
+<ol>
+<li>Sınavlar tamamen CANVAS &uuml;zerinden yapılacaktır. Notlandırma da aynı şekilde CANVAS tarafından otomatik olarak yapılacaktır.</li>
+<li>Her sınavı bitirmek i&ccedil;in yalnızca 1 hakkınız.</li>
+<li>Her sınavın başlangı&ccedil; ve bitiş tarihleri ve sınavı bitirmek i&ccedil;in ne kadar s&uuml;reniz olduğu o sınavın sayfasındaki en &uuml;st kısımda belirtilmiştir.</li>
+<li>Her sınav &ccedil;oktan se&ccedil;meli sorulardan oluşmaktadır ve her sorunun yalnız bir doğru cevabı vardır.</li>
+<li>Yanlış sorular doğru soruları etkilemez.</li>
+<li>Sınava başlamak i&ccedil;in "Kısa Sınava Başla" butonuna tıklamanız gerekir. Bu butona tıkladığınızda sistem size otomatik bir uyarı g&ouml;sterecektir. Daha sonra "Begin" butonuna tıkladığınız andan itibaren s&uuml;reniz başlar ve o s&uuml;re i&ccedil;inde sınavı bitirmeniz gerekir.</li>
+<li>Soruları cevapladıktan sonra, l&uuml;tfen "Kısa Sınavı G&ouml;nder" butonuna basarak sınavı sonlandırın.</li>
+<li>Eğer sınavın sona erme tarihinden &ouml;nce "Kısa Sınavı G&ouml;nder" butonuna tıklamazsanız, CANVAS o ana kadar cevapladığınız soruları değerlendirerek notunuzu otomatik olarak verir.</li>
+<li>Sınavın cevapları sınav bitiş tarihinden belli bir s&uuml;re sonra sınav sayfasında g&ouml;r&uuml;lebilir.</li>
+</ol>

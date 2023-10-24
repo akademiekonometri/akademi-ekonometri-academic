@@ -1,0 +1,50 @@
+Text Version
+====
+Bu ödev için önemli bilgiler "Modüller" altındaki "Ödev Yönergeleri (Klasik)" adlı sayfada bulunabilir.
+====
+
+Ödev İçin Önemli Bilgiler
+
+Ödev kağıdı (eğer gerekli ise) ilgili ödev linkindeki yönergelerin hemen altında link olarak verilmiştir.
+Ödevin başlangıç ve bitiş tarihleri ilgili ödev linkindeki yönergelerin hemen altında belirtilmiştir
+Ödevlerdeki cevaplar için genel olarak bir kısıt yoktur (el yazısı ya da bilgisayar ortamında hazırlanması açısından). Fakat dersin eğitmeninin size önceden verdiği bilgiye göre yazılmalıdır. 
+Ödevinizi tamamladıktan sonra CANVAS'a tüm sayfaların eksiksiz olarak geri yüklenmesi gerekir. Eksik gönderilen ödevler için sorumluluk tamamen size aittir.
+Ödev dosyanızı Ad_Soyad_OGRENCINO.pdf formatında bilgisayarınıza kaydediniz. (Örneğin Mehmet_Demirci_12345678911.pdf)
+Sağ üstte Ödevi Gönder butonuna tıklayın.
+Dosya Seç butonuna tıklayarak ödevinizi yükleyin. Kabul edilen dosya türü sadece pdf dir. Başka dosya türleri kesinlikle kabul edilmeyecektir.
+Dilerseniz Yorumlar... kısmına ödeviniz ile ilgili yorumunuzu yazabilirsiniz.
+Ödevi Gönder butonuna tıklayınız.
+Ödev gönderme işlemi başarılı ise sağ üstte Gönderildi! ifadesi yer alacaktır.
+Ödev gönderinizi güncellemeniz gerekirse ödevinizi gönderdikten sonra açılan sayfada Ödevi Yeniden Gönder butonuna tıklayıp ödev yükleme adımlarını tekrar ediniz. Güncellediğiniz ödevler farklı zaman damgası ile görülecektir.
+ÖNEMLİ NOT: Tek bir soruda dahi kopya çektiği ya da yardım aldığı tespit edilen kişilerin ödevleri direkt sıfır olarak notlandırılacaktır. Bu konuda asla taviz verilmeyecek ve Eskişehir Osmangazi Üniversitesi'nin ilgili konudaki kural ve yönetmelikleri katı bir şekilde uygulanacaktır.
+
+
+HTML Version
+====
+<p>Bu &ouml;dev i&ccedil;in &ouml;nemli bilgiler "Mod&uuml;ller" altındaki "&Ouml;dev Y&ouml;nergeleri (Klasik)" adlı sayfada bulunabilir.</p>
+====
+<p><span style="text-decoration: underline; font-size: large; color: #ff0000;">&Ouml;dev İ&ccedil;in &Ouml;nemli Bilgiler</span></p>
+<ol>
+<li>&Ouml;dev kağıdı (eğer gerekli ise) <strong>ilgili &ouml;dev linkindeki y&ouml;nergelerin hemen altında link</strong> olarak verilmiştir.</li>
+<li>&Ouml;devin başlangı&ccedil; ve bitiş tarihleri ilgili &ouml;dev linkindeki y&ouml;nergelerin hemen altında belirtilmiştir</li>
+<li>&Ouml;devlerdeki cevaplar i&ccedil;in genel olarak bir kısıt yoktur (el yazısı ya da bilgisayar ortamında hazırlanması a&ccedil;ısından). Fakat dersin eğitmeninin size &ouml;nceden verdiği bilgiye g&ouml;re yazılmalıdır.&nbsp;</li>
+<li><strong>&Ouml;devinizi tamamladıktan sonra CANVAS'a t&uuml;m sayfaların eksiksiz olarak geri y&uuml;klenmesi gerekir. Eksik g&ouml;nderilen &ouml;devler i&ccedil;in sorumluluk tamamen size aittir.</strong>
+<ul>
+<li>&Ouml;dev dosyanızı <strong style="font-size: 12pt; font-family: sans-serif;">Ad_Soyad_OGRENCINO.pdf</strong><span style="font-size: 12pt; font-family: sans-serif;"> formatında bilgisayarınıza kaydediniz. (&Ouml;rneğin </span><strong style="font-size: 12pt; font-family: sans-serif;"><em>Mehmet_Demirci_12345678911.pdf</em></strong><span style="font-size: 12pt; font-family: sans-serif;">)</span></li>
+<li><span style="font-size: 12pt;">Sağ &uuml;stte&nbsp;<strong>&Ouml;devi G&ouml;nder</strong>&nbsp;butonuna tıklayın.</span></li>
+<li><span style="font-size: 12pt;"><strong>Dosya Se&ccedil;</strong><span style="font-family: sans-serif;">&nbsp;</span><span style="font-family: sans-serif;">butonuna tıklayarak &ouml;devinizi y&uuml;kleyin. Kabul edilen dosya t&uuml;r&uuml; sadece <strong>pdf</strong></span><span style="font-family: sans-serif;"> dir. Başka dosya t&uuml;rleri kesinlikle kabul edilmeyecektir.</span></span></li>
+<li><span style="font-size: 12pt;">Dilerseniz&nbsp;<em>Yorumlar...</em>&nbsp;kısmına &ouml;deviniz ile ilgili yorumunuzu yazabilirsiniz.</span></li>
+<li><span style="font-size: 12pt;"><strong>&Ouml;devi G&ouml;nder</strong>&nbsp;butonuna tıklayınız.</span></li>
+<li><span style="font-size: 12pt;">&Ouml;dev g&ouml;nderme işlemi başarılı ise sağ &uuml;stte <strong>G&ouml;nderildi!</strong> ifadesi yer alacaktır.</span></li>
+<li><span style="font-size: 12pt;">&Ouml;dev g&ouml;nderinizi g&uuml;ncellemeniz gerekirse &ouml;devinizi g&ouml;nderdikten sonra a&ccedil;ılan sayfada <strong>&Ouml;devi Yeniden G&ouml;nder</strong> butonuna tıklayıp &ouml;dev y&uuml;kleme adımlarını tekrar ediniz. G&uuml;ncellediğiniz &ouml;devler farklı zaman damgası ile g&ouml;r&uuml;lecektir.</span></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li style="list-style-type: none;">
+<ul>
+<li style="list-style-type: none;"></li>
+</ul>
+</li>
+</ul>
+<p><strong><span style="font-size: 12pt;">&Ouml;NEMLİ NOT: </span>Tek bir soruda dahi kopya &ccedil;ektiği ya da yardım aldığı tespit edilen kişilerin &ouml;devleri direkt sıfır olarak notlandırılacaktır. Bu konuda asla taviz verilmeyecek ve Eskişehir Osmangazi &Uuml;niversitesi'nin ilgili konudaki kural ve y&ouml;netmelikleri katı bir şekilde uygulanacaktır.</strong></p>

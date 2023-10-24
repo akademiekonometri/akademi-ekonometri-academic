@@ -1,0 +1,24 @@
+Text Version
+====
+Forum İçin Önemli Bilgiler
+
+Bu forumun temel amacı ders ve bağlantılı konularda öğrencilerin bilgi ve becerilerini arttırmaktır.
+Öğrenciler birbirlerine ve dersin eğitmenine dersle alakalı soru (ödev ve sınav soruları dahil) sorabilir, cevaplayabilir ve tartışabilirler. 
+Dersin eğitmenine sormak istediğiniz ödev ve sınav sorularıyla ilgili herşey sadece ama sadece bu foruma yazılmalıdır. Bu nedenle, başka platformlardan sorulan sorulara dersin eğitmeni kesinlikle cevap vermeyecektir.  
+Forumdaki geçmiş yazışmalar herkese açıktır ve istenildiği zaman görülebilir.
+Gerekirse foruma doküman yüklenebilir.
+Foruma katılım ve yazılanların takibi tamamen opsiyoneldir. Eğer, forumdaki gelişmeleri anlık olarak takip etmek istiyorsanız, foruma girip foruma kendinizi kayıt etmelisiniz.
+Forumda genel etik, ahlak ve saygı kurallarına uyulması zorunludur. Aksi bir durumda, dersin eğitmeni hiçbir uyarıda bulunmadan kişi ya da kişileri forumdan atma ve süresiz engelleme hakkına sahiptir.
+
+HTML Version
+====
+<p><span style="text-decoration: underline; font-size: large; color: #ff0000;">Forum İ&ccedil;in &Ouml;nemli Bilgiler</span></p>
+<ol>
+<li>Bu forumun temel amacı ders ve bağlantılı konularda &ouml;ğrencilerin bilgi ve becerilerini arttırmaktır.</li>
+<li>&Ouml;ğrenciler birbirlerine ve dersin eğitmenine dersle alakalı soru (&ouml;dev ve sınav soruları dahil) sorabilir, cevaplayabilir ve tartışabilirler.&nbsp;</li>
+<li>Dersin eğitmenine sormak istediğiniz &ouml;dev ve sınav sorularıyla ilgili herşey sadece ama sadece bu&nbsp;foruma yazılmalıdır. Bu nedenle, başka platformlardan sorulan sorulara dersin eğitmeni kesinlikle cevap vermeyecektir.&nbsp;&nbsp;</li>
+<li>Forumdaki ge&ccedil;miş yazışmalar herkese a&ccedil;ıktır ve istenildiği zaman g&ouml;r&uuml;lebilir.</li>
+<li>Gerekirse foruma dok&uuml;man y&uuml;klenebilir.</li>
+<li>Foruma katılım ve yazılanların takibi tamamen opsiyoneldir. Eğer, forumdaki gelişmeleri anlık olarak takip etmek istiyorsanız, foruma girip foruma kendinizi kayıt etmelisiniz.</li>
+<li>Forumda genel etik, ahlak ve saygı kurallarına uyulması zorunludur. Aksi bir durumda,&nbsp;dersin eğitmeni hi&ccedil;bir uyarıda bulunmadan kişi ya da kişileri forumdan atma ve s&uuml;resiz engelleme hakkına sahiptir.</li>
+</ol>

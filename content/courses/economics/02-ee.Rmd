@@ -37,10 +37,8 @@ To inform you about the important announcements related to the course on time, a
 - [QR Code - For Phones](`r paste0(economics.path, "EE/Economics_-_Telegram_Channel_Announcement_Flyer.pdf")`) `r emo::ji(eng)`
 
 ## Syllabus and Important Dates
-| Normal Education | Secondary Education | Summer School |
-| :--- | :--- |:--- |
-| [Syllabus](`r paste0(economics.path, "EE/Economics_NE_-_Syllabus.pdf")`) `r emo::ji(eng)` | [Syllabus](`r paste0(economics.path, "EE/Economics_SE_-_Syllabus.pdf")`) `r emo::ji(eng)` |[Syllabus](`r paste0(economics.path, "EE/Economics_-_Syllabus.pdf")`) `r emo::ji(eng)` |
-| [Important Dates](`r paste0(economics.path, "EE/Economics_NE_-_Important_Dates.pdf")`) `r emo::ji(eng)` | [Important Dates](`r paste0(economics.path, "EE/Economics_SE_-_Important_Dates.pdf")`) `r emo::ji(eng)` |[Important Dates](`r paste0(economics.path, "EE/Economics_-_Important_Dates.pdf")`) `r emo::ji(eng)` |
+- [Syllabus](`r paste0(economics.path, "EE/Economics_-_Syllabus.pdf")`) `r emo::ji(eng)`
+- [Important Dates](`r paste0(economics.path, "EE/Economics_-_Important_Dates.pdf")`) `r emo::ji(eng)`
 
 ## Course Book
 - [Book Selection Explanation](`r paste0(economics.path, "Economics_-_Book_Selection_Explanation.pdf")`) `r emo::ji(eng)`

@@ -1,9 +1,9 @@
-## ----Settings.Functions, include = FALSE, cache = TRUE--------
+## ----Settings.Functions, include = FALSE, cache = TRUE----
 # Değiştirmeyin.
 
 
 
-## ----Settings.Packages, cache = TRUE--------------------------
+## ----Settings.Packages, cache = TRUE-----------
 # Devtools ve okara paketlerinin yüklenmesi.
 if("devtools" %in% rownames(utils::installed.packages()) == FALSE) {suppressWarnings(suppressMessages(install.packages("devtools")))}
 suppressWarnings(suppressMessages(library("devtools"))) ## devtools paketi, okara paketinin yüklenmesi için gereklidir.
@@ -14,17 +14,17 @@ suppressWarnings(suppressMessages(library("okara"))) ## okara paketi.
 Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "stringi", "Hmisc", "reshape2", "scales", "lubridate", "ggplot2", "xtable", "DT", "latex2exp", "forecast", "WDI", "fpp2", "fpp3", "datasets", "quantmod", "FinYang/tsdl", "ggseas", "slider", "ecm", "wooldridge", "dynlm", "car", "AER", "stargazer"))
 
 
-## ----Settings.Seed--------------------------------------------
+## ----Settings.Seed-----------------------------
 set.seed(1234)
 
 
-## ----Settings.Working.Directory-------------------------------
+## ----Settings.Working.Directory----------------
 # Değiştirmeyin.
 main.path <- dirname(rstudioapi::getActiveDocumentContext()$path) ## Bu kod otomatik olarak kaynak dosyasının, yani üzerinde çalıştığınız dosyanın, bilgisayarınızda hangi lokasyonda olduğunu buluyor.
 setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) bu kaynak dosyasının lokasyonunda belirleniyor.
 
 
-## ----t.test.Example.1-----------------------------------------
+## ----t.test.Example.1--------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -53,7 +53,7 @@ hoCoef(model, term = 2, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0
 linearHypothesis(model, c("unem = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, aynı tek kısıt için hesaplanan t-istatistiğinin karesine eşit olduğunu unutmayın (ayrıca her iki testin sonucu da aynıdır).
 
 
-## ----t.test.Example.2-----------------------------------------
+## ----t.test.Example.2--------------------------
 data(intdef) ## Datayı yüklüyoruz.
 ?intdef ## Datanın metadatası.
 
@@ -82,7 +82,7 @@ hoCoef(model, term = 3, bo = 0, alt = c("greater")) ## Sağ kuyruklu t-testi: H0
 linearHypothesis(model, c("def = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, aynı tek kısıt için hesaplanan t-istatistiğinin karesine eşit olduğunu unutmayın (ayrıca her iki testin sonucu da aynıdır).
 
 
-## ----F.test.Example.1-----------------------------------------
+## ----F.test.Example.1--------------------------
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
 
@@ -106,7 +106,7 @@ linearHypothesis(model, c("unem = 0", "L(unem, 1) = 0", "L(unem, 2) = 0"))
 linearHypothesis(model, c("L(unem, 1) = 0", "L(unem, 2) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 
 
-## ----F.test.Example.2-----------------------------------------
+## ----F.test.Example.2--------------------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
@@ -135,7 +135,7 @@ linearHypothesis(model, c("L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlam
 linearHypothesis(model, c("L(pe, 1) = 0", "L(pe, 2) = 0", "L(pe, 3) = 0")) ## p-değeri %5 anlamlılık düzeyinden büyük olduğundan boş hipotez reddedilemez ve statik model kullanılmalıdır.
 
 
-## ----Functional.Form.Example.1--------------------------------
+## ----Functional.Form.Example.1-----------------
 data(prminwge) ## Datayı yüklüyoruz.
 ?prminwge ## Datanın metadatası.
 
@@ -154,7 +154,7 @@ linearHypothesis(model, c("log(mincov) = 0")) ## linearHypothesis fonksiyonu F-i
 linearHypothesis(model, c("log(usgnp) = 0")) ## linearHypothesis fonksiyonu F-istatistiği ve ona ait p-değerini veriyor. Tek bir kısıt için hesaplanan F-istatistiğinin, aynı tek kısıt için hesaplanan t-istatistiğinin karesine eşit olduğunu unutmayın (ayrıca her iki testin sonucu da aynıdır).
 
 
-## ----Functional.Form.Example.2.1------------------------------
+## ----Functional.Form.Example.2.1---------------
 data(USMoney) ## Datayı yüklüyoruz.
 ?USMoney ## Datanın metadatası.
 
@@ -163,7 +163,7 @@ str(data.ts) ## Datanın yapısını inceleyelim.
 head(data.ts, 5) ## Datanın yapısını ts objesi olarak inceleyelim.
 datatable(data.frame(Date = as.Date(date_decimal(as.numeric(time(data.ts)))), as.matrix(data.ts), stringsAsFactors = FALSE), filter = "none", options = list(pageLength = 5, autoWidth = TRUE)) ## Datanın yapısını data frame olarak inceleyelim.
 
-## ----Functional.Form.Example.2.2------------------------------
+## ----Functional.Form.Example.2.2---------------
 # Amerika'daki GSMH'nin para arzı üzerindeki etkisini araştıran FDL(4) modeli.
 model <- dynlm(data = data.ts, formula = log(m1) ~ log(gnp) + L(log(gnp), 1) + L(log(gnp), 2) + L(log(gnp), 3) + L(log(gnp), 4), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
@@ -186,7 +186,7 @@ linearHypothesis(model, c("L(log(gnp), 1) = 0", "L(log(gnp), 2) = 0", "L(log(gnp
 # linearHypothesis(model, coef.names[grep("L", coef.names)]) ## Yukarıdaki sonucun aynısını verir.
 
 
-## ----Dummy.Variables.Example.1--------------------------------
+## ----Dummy.Variables.Example.1-----------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
@@ -213,7 +213,7 @@ linearHypothesis(model, c("pill = 0"))
 linearHypothesis(model, c("pe = 0", "ww2 = 0", "pill = 0"))
 
 
-## ----Dummy.Variables.Example.2--------------------------------
+## ----Dummy.Variables.Example.2-----------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
@@ -261,7 +261,7 @@ estimate.beta - (t.critic * estimate.se) ## Güven aralığı alt limiti.
 estimate.beta + (t.critic * estimate.se) ## Güven aralığı üst limiti.
 
 
-## ----Trend.Variable.Example.1---------------------------------
+## ----Trend.Variable.Example.1------------------
 data(hseinv) ## Datayı yüklüyoruz.
 ?hseinv ## Datanın metadatası.
 
@@ -298,7 +298,7 @@ hoCoef(model.4, term = 2, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-test
 hoCoef(model.4, term = 3, bo = 0, alt = c("two.sided")) ## Çift kuyruklu t-testi: H0: Beta2 = 0 vs H1: Beta2 != 0
 
 
-## ----Trend.Variable.Example.2---------------------------------
+## ----Trend.Variable.Example.2------------------
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
 
@@ -309,7 +309,7 @@ model <- lm(data = data, formula = gfr ~ pe + ww2 + pill + t + I(t^2), singular.
 summary(model) ## Tahmin özeti.
 
 
-## ----Detrending.Example---------------------------------------
+## ----Detrending.Example------------------------
 data(hseinv) ## Datayı yüklüyoruz.
 ?hseinv ## Datanın metadatası.
 
@@ -341,7 +341,7 @@ summary(model.4) ## Tahmin özeti.
 stargazer(model.1, model.4, type = "text")
 
 
-## ----#Seasonal.Dummy.Variables.Example------------------------
+## ----#Seasonal.Dummy.Variables.Example---------
 data(USMoney) ## Datayı yüklüyoruz.
 ?USMoney ## Datanın metadatası.
 

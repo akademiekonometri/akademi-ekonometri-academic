@@ -1,0 +1,48 @@
+---
+title: Önemli Dokümanlar (Maliye)
+linktitle: Maliye
+date: "2020-10-05"
+lastmod: "2020-10-13"
+draft: false
+# toc: true
+type: docs
+
+menu:
+  ekonometri-ii:
+    parent: Dokümanlar
+    weight: 22
+
+# Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
+weight: 22
+---
+
+```{r Settings.Emoji, include = FALSE}
+tr <- "tr"
+eng <- "us"
+to.be.updated <- "arrows_counterclockwise"
+in.progress <- "fire"
+outdated <- "no_entry"
+```
+
+<br>
+
+{{% alert note %}}
+İncelediğiniz sayfada `r emo::ji(tr)` <font color="red">**Türkçe**</font>, `r emo::ji(eng)` <font color="red">**İngilizce**</font>, `r emo::ji(to.be.updated)` <font color="red">**Güncellenecek**</font>, `r emo::ji(in.progress)` <font color="red">**Üzerinde Çalışılan**</font> ve `r emo::ji(outdated)` <font color="red">**Artık Geçerli Olmayan**</font> içerikleri ifade eder.
+{{% /alert %}}
+
+## Telegram Kanalı
+Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegram](https://telegram.org/) adlı uygulama içinde haberleşme kanalı oluşturulmuştur. Detaylı bilgiye aşağıdaki dokümanlardan ulaşabilirsiniz.  
+
+- [Telegram Kanalı Duyurusu](`r paste0(ekonometri.ii.path, "FIN/Ekonometri_II_-_Telegram_Kanali_Duyurusu_Bilgilendirme.pdf")`) `r emo::ji(tr)`
+- [QR Kod - Telefon İçin](`r paste0(ekonometri.ii.path, "FIN/Ekonometri_II_-_Telegram_Kanali_Duyurusu_Ilan.pdf")`) `r emo::ji(tr)`
+
+## Ders Planı ve Önemli Günler
+- [Ders Planı](`r paste0(ekonometri.ii.path, "FIN/Ekonometri_II_-_Ders_Plani.pdf")`) `r emo::ji(tr)`
+- [Önemli Günler](`r paste0(ekonometri.ii.path, "FIN/Ekonometri_II_-_Onemli_Gunler.pdf")`) `r emo::ji(tr)`
+
+## Ders Kitabı
+- [Kitap Seçimi Açıklaması](`r paste0(ekonometri.ii.path, "Ekonometri_II_-_Kitap_Secimi_Aciklamasi.pdf")`) `r emo::ji(tr)`
+
+## Ders Değerlendirme Anketi
+- [Ders Değerlendirme Anketi - Açıklama](`r paste0(ekonometri.ii.path, "FIN/Ekonometri_II_-_Ders_Degerlendirme_Anketi.pdf")`) `r emo::ji(tr)`
+- [Ders Değerlendirme Anketi - Link](https://forms.gle/bLir94bgrQB3m8Gt7) `r emo::ji(tr)`

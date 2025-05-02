@@ -53,7 +53,7 @@ coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikle
 
 # Soru H0: B_1 = 0.19 vs H1: B_1 > 0.19 hipotezini soruyor.
 # hoCoef fonksiyonu ile 0.19'a gore sag kuyruk testi t-testi.
-hoCoef(model, term = 2, bo = 0.19, alt = c("greater")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0
+hoCoef(model, term = 2, bo = 0.19, alt = c("greater"))
 
 #================================== Soru 3 =====================================
 # T-testi Sorusu 2
@@ -70,21 +70,62 @@ coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikle
 # hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
 
 # Soru H0: B_1 = 0.83 vs H1: B_1 < 0.83 hipotezini soruyor.
-# hoCoef fonksiyonu ile 0.19'a gore sag kuyruk testi t-testi.
-hoCoef(model, term = 2, bo = 0.83, alt = c("less")) ## Çift kuyruklu t-testi: H0: Beta1 = 0 vs H1: Beta1 != 0
-
+# hoCoef fonksiyonu ile 0.83'e gore sol kuyruk testi t-testi.
+hoCoef(model, term = 2, bo = 0.83, alt = c("less"))
 
 #================================== Soru 4 =====================================
 # T-testi Sorusu 3
+data(fertil3) ## Datayı yüklüyoruz.
+?fertil3 ## Datanın metadatası.
+data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 
+# Sorudaki model: gfr_t = pe_t + ww2_t + pill_t + u_t.
+model <- lm(data = data, formula = gfr ~ pe + ww2 + pill, singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_2 = -0.82 vs H1: B_2 != -0.82 hipotezini soruyor.
+# hoCoef fonksiyonu ile -0.82'ye gore cift kuyruklu testi t-testi.
+hoCoef(model, term = 3, bo = -0.82, alt = c("two.sided"))
 
 #================================== Soru 5 =====================================
 # T-testi Sorusu 4
+data(hseinv) ## Datayı yüklüyoruz.
+?hseinv ## Datanın metadatası.
+data.ts <- ts(hseinv, start = 1947) ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 
+# Sorudaki model: invpc_t = price_t + price_t-1 + price_t-2 + u_t.
+model <- dynlm(data = data.ts, formula = invpc ~ price + L(price, 1) + L(price, 2), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_3 = 0.89 vs H1: B_3 != 0.89 hipotezini soruyor.
+# hoCoef fonksiyonu ile 0.89'a gore cift kuyruklu testi t-testi.
+hoCoef(model, term = 4, bo = 0.89, alt = c("two.sided"))
 
 #================================== Soru 6 =====================================
 # T-testi Sorusu 5
+data(USMoney) ## Datayı yüklüyoruz.
+?USMoney ## Datanın metadatası.
+data.ts <- USMoney ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
 
+# Sorudaki model: m1_t = gnp_t + gnp_t-1 + gnp_t-2 + gnp_t-3 + gnp_t-4 + u_t.
+model <- dynlm(data = data.ts, formula = m1 ~ gnp + L(gnp, 1) + L(gnp, 2) + L(gnp, 3) + L(gnp, 4), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_4 = -0.11 vs H1: B_4 > -0.11 hipotezini soruyor.
+# hoCoef fonksiyonu ile 0.89'a gore cift kuyruklu testi t-testi.
+hoCoef(model, term = 5, bo = -0.11, alt = c("greater"))
 
 #================================== Soru 7 =====================================
 # F-testi Sorusu 1

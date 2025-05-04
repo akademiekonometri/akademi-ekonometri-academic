@@ -24,7 +24,7 @@ Load.Install(c("rstudioapi", "readxl", "plyr", "dplyr", "tidyr", "stringr", "str
 # Fonksiyonel Form - Esneklik Sorusu
 data(USMoney) ## Datayı yüklüyoruz.
 ?USMoney ## Datanın metadatası.
-data.ts <- USMoney ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz. Yüklediğimiz datanın ts yani zaman serisi objesi olduğunu unutmayın.
+data.ts <- USMoney ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
 # Sorudaki model: log(m1_t) = log(gnp_t) + log(gnp_t-1) + log(gnp_t-2) + log(gnp_t-3) + u_t.
 model <- dynlm(data = data.ts, formula = log(m1) ~ log(gnp) + L(log(gnp), 1) + L(log(gnp), 2) + L(log(gnp), 3), singular.ok = FALSE)
@@ -41,61 +41,151 @@ coef(model)[[2]] + coef(model)[[3]] + coef(model)[[4]] + coef(model)[[5]] ## Ilk
 # T-testi Sorusu 1
 data(phillips) ## Datayı yüklüyoruz.
 ?phillips ## Datanın metadatası.
-data <- phillips ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- phillips ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
 # Sorudaki modelde: inf_t = unem_t + u_t.
-model <- lm(data = data, formula = inf ~ unem, singular.ok = FALSE)
+model <- lm(data = data.ts, formula = inf ~ unem, singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 coef(model) ## Tum parametre tahminlerini beraberce veriyor.
 coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
 
-# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+# hoCoef() fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
 
-# Soru H0: B_1 = 0.19 vs H1: B_1 > 0.19 hipotezini soruyor.
-# hoCoef fonksiyonu ile 0.19'a gore sag kuyruk testi t-testi.
-hoCoef(model, term = 2, bo = 0.19, alt = c("greater"))
+# Soru H0: B_1 = 0.47 vs H1: B_1 > 0.47 hipotezini soruyor.
+# hoCoef() fonksiyonu ile 0.47'a gore sag kuyruklu testi t-testi.
+hoCoef(model, term = 2, bo = 0.47, alt = c("greater")) ## Buyuktur ise: "greater"; kucuktur ise: "less"; esit degildir ise: "two.sided" kullanin.
 
 #================================== Soru 3 =====================================
 # T-testi Sorusu 2
 data(intdef) ## Datayı yüklüyoruz.
 ?intdef ## Datanın metadatası.
-data.ts <- ts(intdef, start = 1948) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+data.ts <- intdef ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
-# Sorudaki model: i3_t = inf_t + inf_t-1 + u_t.
-model <- dynlm(data = data.ts, formula = i3 ~ inf + L(inf, 1), singular.ok = FALSE)
+# Sorudaki model: i3_t = inf_t + u_t.
+model <- dynlm(data = data.ts, formula = i3 ~ inf, singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 coef(model) ## Tum parametre tahminlerini beraberce veriyor.
 coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
 
-# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+# hoCoef() fonksiyonu ile tek kisit icin çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
 
-# Soru H0: B_1 = 0.83 vs H1: B_1 < 0.83 hipotezini soruyor.
-# hoCoef fonksiyonu ile 0.83'e gore sol kuyruk testi t-testi.
-hoCoef(model, term = 2, bo = 0.83, alt = c("less"))
+# Soru H0: B_1 = 0.33 vs H1: B_1 > 0.33 hipotezini soruyor.
+# hoCoef() fonksiyonu ile 0.33'e gore sag kuyruklu testi t-testi.
+hoCoef(model, term = 2, bo = 0.33, alt = c("greater")) ## Buyuktur ise: "greater"; kucuktur ise: "less"; esit degildir ise: "two.sided" kullanin.
 
 #================================== Soru 4 =====================================
 # T-testi Sorusu 3
 data(fertil3) ## Datayı yüklüyoruz.
 ?fertil3 ## Datanın metadatası.
-data <- fertil3 ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- ts(fertil3, start = 1913) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
-# Sorudaki model: gfr_t = pe_t + ww2_t + pill_t + u_t.
-model <- lm(data = data, formula = gfr ~ pe + ww2 + pill, singular.ok = FALSE)
+# Sorudaki model: gfr_t = pe_t + pe_t-1 + ww2_t + pill_t + u_t.
+model <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + ww2 + pill, singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 coef(model) ## Tum parametre tahminlerini beraberce veriyor.
 coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
 
-# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+# hoCoef() fonksiyonu ile tek kisit icin çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
 
-# Soru H0: B_2 = -0.82 vs H1: B_2 != -0.82 hipotezini soruyor.
-# hoCoef fonksiyonu ile -0.82'ye gore cift kuyruklu testi t-testi.
-hoCoef(model, term = 3, bo = -0.82, alt = c("two.sided"))
+# Soru H0: B_3 = 1.05 vs H1: B_3 != 1.05 hipotezini soruyor.
+# hoCoef() fonksiyonu ile 1.05'ye gore cift kuyruklu testi t-testi.
+hoCoef(model, term = 4, bo = 1.05, alt = c("two.sided")) ## Buyuktur ise: "greater"; kucuktur ise: "less"; esit degildir ise: "two.sided" kullanin.
 
 #================================== Soru 5 =====================================
 # T-testi Sorusu 4
 data(hseinv) ## Datayı yüklüyoruz.
 ?hseinv ## Datanın metadatası.
-data.ts <- ts(hseinv, start = 1947) ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- ts(hseinv, start = 1947) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+
+# Sorudaki model: invpc_t = price_t + price_t-1 + price_t-2 + price_t-3 + u_t.
+model <- dynlm(data = data.ts, formula = invpc ~ price + L(price, 1) + L(price, 2) + L(price, 3), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# hoCoef() fonksiyonu ile tek kisit icin çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_3 = -1.29 vs H1: B_3 > -1.29 hipotezini soruyor.
+# hoCoef() fonksiyonu ile -1.29'a gore sag kuyruklu testi t-testi.
+hoCoef(model, term = 4, bo = -1.29, alt = c("greater")) ## Buyuktur ise: "greater"; kucuktur ise: "less"; esit degildir ise: "two.sided" kullanin.
+
+#================================== Soru 6 =====================================
+# T-testi Sorusu 5
+data(USMoney) ## Datayı yüklüyoruz.
+?USMoney ## Datanın metadatası.
+data.ts <- USMoney ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+
+# Sorudaki model: m1_t = gnp_t + gnp_t-1 + u_t.
+model <- dynlm(data = data.ts, formula = m1 ~ gnp + L(gnp, 1), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# hoCoef() fonksiyonu ile tek kisit icin çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_1 = 0.12 vs H1: B_1 != 0.12 hipotezini soruyor.
+# hoCoef() fonksiyonu ile 0.12'a gore cift kuyruklu testi t-testi.
+hoCoef(model, term = 2, bo = 0.12, alt = c("two.sided")) ## Buyuktur ise: "greater"; kucuktur ise: "less"; esit degildir ise: "two.sided" kullanin.
+
+#================================== Soru 7 =====================================
+# F-testi Sorusu 1
+data(phillips) ## Datayı yüklüyoruz.
+?phillips ## Datanın metadatası.
+data.ts <- ts(phillips, start = 1948) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+
+# Sorudaki model: inf_t = unem_t + unem_t-1 + unem_t-2 + unem_t-3 + unem_t-4 + u_t.
+model <- dynlm(data = data.ts, formula = inf ~ unem + L(unem, 1) + L(unem, 2) + L(unem, 3) + L(unem, 4), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# linearHypothesis() fonksiyonu ile cogul kisit icin olasu tum F-testlerini yapabiliriz. Burada linearHypothesis() fonksiyonu ile cogul kisit testi yani F-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_3 = B_4 = B_5 = 0 vs H1: H0 dogru degil hipotezini soruyor.
+# linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
+linearHypothesis(model, c("L(unem, 2) = 0", "L(unem, 3) = 0", "L(unem, 4) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
+
+#================================== Soru 8 =====================================
+# F-testi Sorusu 2
+data(intdef) ## Datayı yüklüyoruz.
+?intdef ## Datanın metadatası.
+data.ts <- ts(intdef, start = 1948) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+
+# Sorudaki model: i3_t = inf_t + inf_t-1 + inf_t-2 + inf_t-3 + u_t.
+model <- dynlm(data = data.ts, formula = i3 ~ inf + L(inf, 1) + L(inf, 2) + L(inf, 3), singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# linearHypothesis() fonksiyonu ile cogul kisit icin olasu tum F-testlerini yapabiliriz. Burada linearHypothesis() fonksiyonu ile cogul kisit testi yani F-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_3 = B_4 = 0 vs H1: H0 dogru degil hipotezini soruyor.
+# linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
+linearHypothesis(model, c("L(inf, 2) = 0", "L(inf, 3) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
+
+#================================== Soru 9 =====================================
+# F-testi Sorusu 3
+data(fertil3) ## Datayı yüklüyoruz.
+?fertil3 ## Datanın metadatası.
+data.ts <- ts(fertil3, start = 1913) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
+
+# Sorudaki model: gfr_t = pe_t + pe_t-1 + pe_t-2 + ww2_t + pill_t + u_t.
+model <- dynlm(data = data.ts, formula = gfr ~ pe + L(pe, 1) + L(pe, 2) + ww2 + pill, singular.ok = FALSE)
+summary(model) ## Tahmin özeti.
+coef(model) ## Tum parametre tahminlerini beraberce veriyor.
+coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
+
+# linearHypothesis() fonksiyonu ile cogul kisit icin olasu tum F-testlerini yapabiliriz. Burada linearHypothesis() fonksiyonu ile cogul kisit testi yani F-testi yapabilecegimizi unutmayin.
+
+# Soru H0: B_1 = B_4 = 0 vs H1: H0 dogru degil hipotezini soruyor.
+# linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
+linearHypothesis(model, c("pe = 0", "ww2 = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
+
+#================================== Soru 10 ====================================
+# F-testi Sorusu 4
+data(hseinv) ## Datayı yüklüyoruz.
+?hseinv ## Datanın metadatası.
+data.ts <- ts(hseinv, start = 1947) ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
 # Sorudaki model: invpc_t = price_t + price_t-1 + price_t-2 + u_t.
 model <- dynlm(data = data.ts, formula = invpc ~ price + L(price, 1) + L(price, 2), singular.ok = FALSE)
@@ -103,46 +193,29 @@ summary(model) ## Tahmin özeti.
 coef(model) ## Tum parametre tahminlerini beraberce veriyor.
 coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
 
-# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+# linearHypothesis() fonksiyonu ile cogul kisit icin olasu tum F-testlerini yapabiliriz. Burada linearHypothesis() fonksiyonu ile cogul kisit testi yani F-testi yapabilecegimizi unutmayin.
 
-# Soru H0: B_3 = 0.89 vs H1: B_3 != 0.89 hipotezini soruyor.
-# hoCoef fonksiyonu ile 0.89'a gore cift kuyruklu testi t-testi.
-hoCoef(model, term = 4, bo = 0.89, alt = c("two.sided"))
+# Soru H0: B_2 = B_3 = 0 vs H1: H0 dogru degil hipotezini soruyor.
+# linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
+linearHypothesis(model, c("L(price, 1)", "L(price, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
 
-#================================== Soru 6 =====================================
-# T-testi Sorusu 5
+#================================== Soru 11 ====================================
+# F-testi Sorusu 5
 data(USMoney) ## Datayı yüklüyoruz.
 ?USMoney ## Datanın metadatası.
-data.ts <- USMoney ## Yüklediğimiz datayı "data" ismi ile kaydediyoruz.
+data.ts <- USMoney ## Yüklediğimiz datayı "data.ts" ismi ile kaydediyoruz.
 
-# Sorudaki model: m1_t = gnp_t + gnp_t-1 + gnp_t-2 + gnp_t-3 + gnp_t-4 + u_t.
-model <- dynlm(data = data.ts, formula = m1 ~ gnp + L(gnp, 1) + L(gnp, 2) + L(gnp, 3) + L(gnp, 4), singular.ok = FALSE)
+# Sorudaki model: m1_t = gnp_t + gnp_t-1 + gnp_t-2 + u_t.
+model <- dynlm(data = data.ts, formula = m1 ~ gnp + L(gnp, 1) + L(gnp, 2), singular.ok = FALSE)
 summary(model) ## Tahmin özeti.
 coef(model) ## Tum parametre tahminlerini beraberce veriyor.
 coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikleri ve p-değerleri.
 
-# hoCoef fonksiyonu ile çift ve tek kuyruklu t-testini istedigimiz degere karsi yapabiliriz. Burada hoCoef() fonksiyonu ile sadece tekil kisit testi yani t-testi yapabilecegimizi unutmayin.
+# linearHypothesis() fonksiyonu ile cogul kisit icin olasu tum F-testlerini yapabiliriz. Burada linearHypothesis() fonksiyonu ile cogul kisit testi yani F-testi yapabilecegimizi unutmayin.
 
-# Soru H0: B_4 = -0.11 vs H1: B_4 > -0.11 hipotezini soruyor.
-# hoCoef fonksiyonu ile 0.89'a gore cift kuyruklu testi t-testi.
-hoCoef(model, term = 5, bo = -0.11, alt = c("greater"))
-
-#================================== Soru 7 =====================================
-# F-testi Sorusu 1
+# Soru H0: B_1 = B_3 = 0 vs H1: H0 dogru degil hipotezini soruyor.
+# linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
+linearHypothesis(model, c("gnp", "L(gnp, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
 
 
-#================================== Soru 8 =====================================
-# F-testi Sorusu 2
-
-
-#================================== Soru 9 =====================================
-# F-testi Sorusu 3
-
-
-#================================== Soru 10 =====================================
-# F-testi Sorusu 4
-
-
-#================================== Soru 11 =====================================
-# F-testi Sorusu 5
-
+#==================================== END ======================================

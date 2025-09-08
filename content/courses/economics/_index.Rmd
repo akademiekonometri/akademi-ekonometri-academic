@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 linktitle: "Economics"
-summary: "The last taught department and semester: Computer Engineering - Fall 2024 and Electrical-Electronics Engineering - Fall 2024"
+summary: "The last taught department and semester: Computer Engineering - Fall 2025 and Electrical-Electronics Engineering - Fall 2025"
 weight: 41
 categories: [Ders]
 tags: [economics, ingilizce, english]

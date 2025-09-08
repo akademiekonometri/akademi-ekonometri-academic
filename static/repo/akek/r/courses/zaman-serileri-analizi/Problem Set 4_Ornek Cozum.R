@@ -197,7 +197,7 @@ coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikle
 
 # Soru H0: B_2 = B_3 = 0 vs H1: H0 dogru degil hipotezini soruyor.
 # linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
-linearHypothesis(model, c("L(price, 1)", "L(price, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
+linearHypothesis(model, c("L(price, 1) = 0", "L(price, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
 
 #================================== Soru 11 ====================================
 # F-testi Sorusu 5
@@ -215,7 +215,7 @@ coef(summary(model)) ## Parametre tahminleri, standart hataları, t-istatistikle
 
 # Soru H0: B_1 = B_3 = 0 vs H1: H0 dogru degil hipotezini soruyor.
 # linearHypothesis() fonksiyonu ile hipoteze gore F-testi.
-linearHypothesis(model, c("gnp", "L(gnp, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
+linearHypothesis(model, c("gnp = 0", "L(gnp, 2) = 0")) ## Test icinde parametrelere ait degisken isimleri model ozetinde nasil gorunuyorsa oyle yazilmali.
 
 
 #==================================== END ======================================

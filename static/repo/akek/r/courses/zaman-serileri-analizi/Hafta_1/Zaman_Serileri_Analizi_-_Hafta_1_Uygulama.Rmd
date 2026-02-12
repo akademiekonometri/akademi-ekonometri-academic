@@ -109,7 +109,7 @@ setwd(paste0(main.path)) ## Yeni çalışma klasörü (yani working directory) b
 - Son olarak temizlenmiş ve düzenlemiş veriyi grafiğe dökelim.
 ```{r World.Bank.Data}
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasını kullanacağız.
-data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN"), start = 1960, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN"), start = 1960, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 data <- data[, c("year", "NY.GDP.MKTP.CN")] ## İstediğimiz değişkenleri belirtiyoruz.
 colnames(data) <- c("Year", "GDP") ## Değişkenlere yeni isimler veriyoruz.
@@ -335,7 +335,7 @@ ggplot(temp) +
 ```{r Inflastion.Adjustment}
 WDIsearch(string = "gdp.*current.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.CN" GDP (current LCU) datasını kullanacağız.
 WDIsearch(string = "gdp.*deflator", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.DEFL.ZS" GDP deflator (base year varies by country) datasını kullanacağız. 2009 baz yılı kullanılıyor.
-data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN", "NY.GDP.DEFL.ZS"), start = 1960, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.CN", "NY.GDP.DEFL.ZS"), start = 1960, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 data <- data[, c("year", "NY.GDP.MKTP.CN", "NY.GDP.DEFL.ZS")] ## İstediğimiz değişkenleri belirtiyoruz.
 colnames(data) <- c("Year", "GDP", "GDP.Deflator") ## Değişkenlere yeni isimler veriyoruz.
@@ -376,7 +376,7 @@ ggplot(temp) +
 ```{r Population.Adjustment}
 WDIsearch(string = "gdp.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.MKTP.KN" GDP (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
 WDIsearch(string = "SP.POP.TOTL", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "SP.POP.TOTL" Total Population datasını kullanacağız.
-data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.KN", "SP.POP.TOTL"), start = 1960, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = c("NY.GDP.MKTP.KN", "SP.POP.TOTL"), start = 1960, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 
 data <- data[, c("year", "NY.GDP.MKTP.KN", "SP.POP.TOTL")] ## İstediğimiz değişkenleri belirtiyoruz.
@@ -417,7 +417,7 @@ ggplot(temp) +
 ```{r Exchange.Rate.Adjustment}
 WDIsearch(string = "gdp.*capita.*constant.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KN" GDP per capita (constant LCU) datasını kullanacağız. 2009 baz yılı kullanılıyor.
 WDIsearch(string = "exchange.*rate.*LCU", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "PA.NUS.FCRF" Official exchange rate (LCU per US$, end period) datasını kullanacağız.
-data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KN", "PA.NUS.FCRF"), start = 2000, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KN", "PA.NUS.FCRF"), start = 2000, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör isimlerini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 
 data <- data[, c("year", "NY.GDP.PCAP.KN", "PA.NUS.FCRF")] ## İstediğimiz değişkenleri belirtiyoruz.
@@ -457,7 +457,7 @@ ggplot(temp) +
 - Son olarak büyüme oranı hesaplanmış veriyi grafiğe dökelim.
 ```{r Growth.Rate}
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.KD" GDP per capita (constant 2010 US$) datasını kullanacağız. 2010 baz yılı kullanılıyor.
-data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KD"), start = 1960, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = c("NY.GDP.PCAP.KD"), start = 1960, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 
 data <- data[, c("year", "NY.GDP.PCAP.KD")] ## İstediğimiz değişkenleri belirtiyoruz.
@@ -507,7 +507,7 @@ ggplot(temp) +
 - Son olarak yeni baz yılı ile hesaplanmış veriyi grafiğe dökelim.
 ```{r Index.Adjustment}
 WDIsearch(string = "consumer.*price.*index", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "FP.CPI.TOTL" Consumer price index (2010 = 100) datasını kullanacağız. 2010 baz yılı kullanılıyor.
-data <- WDI(country = c("TR"), indicator = "FP.CPI.TOTL", start = 1960, end = 2024, extra = FALSE)  ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("TR"), indicator = "FP.CPI.TOTL", start = 1960, end = 2026, extra = FALSE)  ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 
 data <- data[, c("year", "FP.CPI.TOTL")] ## İstediğimiz değişkenleri belirtiyoruz.
@@ -626,7 +626,7 @@ ggplot(temp) +
 - Son olarak cari dönemdeki değişken $y_{t}$ ve tüm gecikmeli değişkenleri bir tabloda gösterelim.
 ```{r Lagged.Variables}
 WDIsearch(string = "gdp.*capita.*constant", field = "name", short = TRUE, cache = NULL) ## Olası seriler ve kodları. Biz "NY.GDP.PCAP.PP.KD" GDP per capita, PPP (constant 2017 international $) datasını kullanacağız. 2017 baz yılı kullanılıyor.
-data <- WDI(country = c("US"), indicator = c("NY.GDP.PCAP.PP.KD"), start = 1990, end = 2024, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
+data <- WDI(country = c("US"), indicator = c("NY.GDP.PCAP.PP.KD"), start = 1990, end = 2026, extra = FALSE) ## Bir önceki kodda belirlediğimiz indikatör ismini ve ülke kısaltmasını kullanıyoruz. Datanın başlangıç ve bitiş tarihlerini de ayrı ayrı belirtiyoruz.
 data ## Datanın yapısını inceleyelim.
 
 data <- data[, c("year", "NY.GDP.PCAP.PP.KD")] ## İstediğimiz değişkenleri belirtiyoruz.

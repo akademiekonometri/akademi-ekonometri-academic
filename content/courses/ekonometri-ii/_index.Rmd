@@ -1,7 +1,7 @@
 ---
 # Course title, summary, and position.
 linktitle: "Ekonometri II"
-summary: "Verildiği son bölüm ve dönem: İktisat - Bahar 2025 ve Maliye - Bahar 2025"
+summary: "Verildiği son bölüm ve dönem: İktisat - Bahar 2026 ve Maliye - Bahar 2026"
 weight: 12
 categories: [Ders]
 tags: [ekonometri II, türkçe, turkish]

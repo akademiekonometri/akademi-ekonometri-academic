@@ -47,7 +47,7 @@ Dersle ilgili önemli duyurulardan zamanında haberdar olabilmeniz için [Telegr
 
 ## Doldurulması Gereken Formlar
 - [Danışman Öğrenci Sözleşmesi Formu - Güz](`r paste0(ekonometri.ars.path, "EC/1_-_Danisman-Ogrenci-Sozlesmesi-Formu_-_Guz.docx")`) `r emo::ji(tr)`
-- [Danışman Öğrenci Sözleşmesi Formu - Bahar](`r paste0(ekonometri.ars.path, "EC/1_-_Danisman-Ogrenci-Sozlesmesi-Formu_-_Bahar.docx")`) `r emo::ji(tr)`
+- [Danışman Öğrenci Sözleşmesi Formu - Bahar](`r paste0(ekonometri.ars.path, "EC/2_-_Danisman-Ogrenci-Sozlesmesi-Formu_-_Bahar.docx")`) `r emo::ji(tr)`
 - [Yapay Zeka Kullanım Beyanı - Güz ve Bahar](`r paste0(ekonometri.ars.path, "EC/3_-_Yapay-Zeka-Kullanim-Beyani.docx")`) `r emo::ji(tr)`
 - [Yazım Şablonu Kontrol Listesi - Güz ve Bahar](`r paste0(ekonometri.ars.path, "EC/4_-_Yazim-Sablonu-Kontrol-Listesi.docx")`) `r emo::ji(tr)`
 - [Haftalık İlerleme Raporu - Güz ve Bahar](`r paste0(ekonometri.ars.path, "EC/5_-_Haftalik-Ilerleme-Raporu.docx")`) `r emo::ji(tr)`
